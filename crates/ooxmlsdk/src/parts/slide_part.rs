@@ -553,6 +553,7 @@ impl SlidePart {
         }
         if !entry_set.contains(&self.inner_path) {
             zip.start_file(&self.inner_path, options)?;
+            zip.write_all(crate::common::SCHEMA_XML.as_bytes())?;
             zip.write_all(self.root_element.to_string()?.as_bytes())?;
             entry_set.insert(self.inner_path.to_string());
         }
@@ -570,6 +571,7 @@ impl SlidePart {
             }
             if !entry_set.contains(&self.rels_path) {
                 zip.start_file(&self.rels_path, options)?;
+                zip.write_all(crate::common::SCHEMA_XML.as_bytes())?;
                 zip.write_all(relationships.to_string()?.as_bytes())?;
                 entry_set.insert(self.rels_path.to_string());
             }

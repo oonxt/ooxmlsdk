@@ -1,8 +1,8 @@
 use hard_xml::{XmlRead, XmlResult, XmlWrite, XmlWriter};
 use std::io::Write;
-use crate::common::SCHEMA_XML;
+const XMLNS: &str = "http://schemas.openxmlformats.org/package/2006/relationships";
 
-#[derive(Clone, Debug, Default, XmlRead)]
+#[derive(Clone, Debug, Default, XmlRead, XmlWrite)]
 #[xml(tag = "Relationships")]
 pub struct Relationships {
     #[xml(attr = "xmlns")]
@@ -15,28 +15,6 @@ pub struct Relationships {
     pub relationship: Vec<Relationship>,
 }
 
-const XMLNS: &str = "http://schemas.openxmlformats.org/package/2006/relationships";
-impl XmlWrite for Relationships {
-    fn to_writer<W: Write>(&self, writer: &mut XmlWriter<W>) -> XmlResult<()> {
-        let _ = write!(writer.inner, "{}", SCHEMA_XML);
-        writer.write_element_start("Relationships")?;
-        writer.write_attribute("xmlns", XMLNS)?;
-        writer.write_prefix::<String>("xmlns", &self.xmlns_map)?;
-        if let Some(mc_ignorable) = &self.mc_ignorable {
-            writer.write_attribute("mc:Ignorable", mc_ignorable)?;
-        }
-        if self.relationship.len() == 0usize {
-            writer.write_element_end_empty()?;
-        } else {
-            writer.write_element_end_open()?;
-            for ele in &self.relationship {
-                ele.to_writer(writer)?;
-            }
-            writer.write_element_end_close("Relationships")?;
-        }
-        Ok(())
-    }
-}
 #[derive(Clone, Debug, Default, XmlRead, XmlWrite)]
 #[xml(tag = "Relationship")]
 pub struct Relationship {
@@ -51,4 +29,13 @@ pub struct Relationship {
 }
 crate::__define_enum! {
     TargetMode { External = "external", Internal = "internal", }
+}
+
+impl Default for Relationships {
+    fn default() -> Self {
+        Self {
+            xmlns: Some(XMLNS.to_string()),
+            ..Default::default()
+        }
+    }
 }

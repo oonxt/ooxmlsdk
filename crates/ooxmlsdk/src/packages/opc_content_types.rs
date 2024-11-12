@@ -1,8 +1,10 @@
 use hard_xml::{XmlRead, XmlReader, XmlResult, XmlWrite, XmlWriter};
 use std::io::{Read, Write};
-use crate::common::SCHEMA_XML;
+use core::default::Default as CoreDefault;
 
-#[derive(Clone, Debug, Default, hard_xml::XmlRead)]
+pub const SCHEMA_CONTENT_TYPES: &str = "http://schemas.openxmlformats.org/package/2006/content-types";
+
+#[derive(Clone, Debug, Default, hard_xml::XmlRead, hard_xml::XmlWrite)]
 #[xml(tag = "Types")]
 pub struct Types {
     #[xml(attr = "xmlns")]
@@ -37,25 +39,13 @@ pub struct Override {
     #[xml(attr = "PartName")]
     pub part_name: String,
 }
-pub const SCHEMA_CONTENT_TYPES: &str = "http://schemas.openxmlformats.org/package/2006/content-types";
-impl hard_xml::XmlWrite for Types {
-    fn to_writer<W: Write>(&self, writer: &mut XmlWriter<W>) -> XmlResult<()> {
-        writer.write_element_start("Types")?;
-        writer.write_attribute("xmlns", SCHEMA_CONTENT_TYPES)?;
-        writer.write_prefix::<String>("xmlns", &self.xmlns_map)?;
-        if let Some(mc_ignorable) = &self.mc_ignorable {
-            writer.write_attribute("md:Ignorable", mc_ignorable)?;
+
+impl CoreDefault for Types {
+    fn default() -> Self {
+        Self {
+            xmlns: Some(SCHEMA_CONTENT_TYPES.to_string()),
+            ..CoreDefault::default()
         }
-        if self.children.len() == 0usize {
-            writer.write_element_end_empty()?;
-        } else {
-            writer.write_element_end_open()?;
-            for ele in &self.children {
-                ele.to_writer(writer)?;
-            }
-            writer.write_element_end_close("Types")?;
-        }
-        Ok(())
     }
 }
 
