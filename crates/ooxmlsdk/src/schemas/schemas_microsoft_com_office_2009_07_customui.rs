@@ -453,19 +453,19 @@ pub struct GalleryRegular {
     /// columns
     /// Represents the following attribute in the schema: :columns
     #[xml(attr = "columns")]
-    pub columns: Option<i32>,
+    pub columns: Option<i64>,
     /// rows
     /// Represents the following attribute in the schema: :rows
     #[xml(attr = "rows")]
-    pub rows: Option<i32>,
+    pub rows: Option<i64>,
     /// itemWidth
     /// Represents the following attribute in the schema: :itemWidth
     #[xml(attr = "itemWidth")]
-    pub item_width: Option<i32>,
+    pub item_width: Option<i64>,
     /// itemHeight
     /// Represents the following attribute in the schema: :itemHeight
     #[xml(attr = "itemHeight")]
-    pub item_height: Option<i32>,
+    pub item_height: Option<i64>,
     /// getItemWidth
     /// Represents the following attribute in the schema: :getItemWidth
     #[xml(attr = "getItemWidth")]
@@ -1972,7 +1972,7 @@ pub struct EditBox {
     /// maxLength
     /// Represents the following attribute in the schema: :maxLength
     #[xml(attr = "maxLength")]
-    pub max_length: Option<i32>,
+    pub max_length: Option<i64>,
     /// getText
     /// Represents the following attribute in the schema: :getText
     #[xml(attr = "getText")]
@@ -2138,7 +2138,7 @@ pub struct ComboBox {
     /// maxLength
     /// Represents the following attribute in the schema: :maxLength
     #[xml(attr = "maxLength")]
-    pub max_length: Option<i32>,
+    pub max_length: Option<i64>,
     /// getText
     /// Represents the following attribute in the schema: :getText
     #[xml(attr = "getText")]
@@ -2442,19 +2442,19 @@ pub struct Gallery {
     /// columns
     /// Represents the following attribute in the schema: :columns
     #[xml(attr = "columns")]
-    pub columns: Option<i32>,
+    pub columns: Option<i64>,
     /// rows
     /// Represents the following attribute in the schema: :rows
     #[xml(attr = "rows")]
-    pub rows: Option<i32>,
+    pub rows: Option<i64>,
     /// itemWidth
     /// Represents the following attribute in the schema: :itemWidth
     #[xml(attr = "itemWidth")]
-    pub item_width: Option<i32>,
+    pub item_width: Option<i64>,
     /// itemHeight
     /// Represents the following attribute in the schema: :itemHeight
     #[xml(attr = "itemHeight")]
-    pub item_height: Option<i32>,
+    pub item_height: Option<i64>,
     /// getItemWidth
     /// Represents the following attribute in the schema: :getItemWidth
     #[xml(attr = "getItemWidth")]
@@ -3740,7 +3740,7 @@ pub struct BackstageEditBox {
     /// maxLength
     /// Represents the following attribute in the schema: :maxLength
     #[xml(attr = "maxLength")]
-    pub max_length: Option<i32>,
+    pub max_length: Option<i64>,
     /// sizeString
     /// Represents the following attribute in the schema: :sizeString
     #[xml(attr = "sizeString")]
@@ -6358,23 +6358,23 @@ pub struct BackstageTab {
     /// columnWidthPercent
     /// Represents the following attribute in the schema: :columnWidthPercent
     #[xml(attr = "columnWidthPercent")]
-    pub column_width_percent: Option<i32>,
+    pub column_width_percent: Option<i64>,
     /// firstColumnMinWidth
     /// Represents the following attribute in the schema: :firstColumnMinWidth
     #[xml(attr = "firstColumnMinWidth")]
-    pub first_column_min_width: Option<i32>,
+    pub first_column_min_width: Option<i64>,
     /// firstColumnMaxWidth
     /// Represents the following attribute in the schema: :firstColumnMaxWidth
     #[xml(attr = "firstColumnMaxWidth")]
-    pub first_column_max_width: Option<i32>,
+    pub first_column_max_width: Option<i64>,
     /// secondColumnMinWidth
     /// Represents the following attribute in the schema: :secondColumnMinWidth
     #[xml(attr = "secondColumnMinWidth")]
-    pub second_column_min_width: Option<i32>,
+    pub second_column_min_width: Option<i64>,
     /// secondColumnMaxWidth
     /// Represents the following attribute in the schema: :secondColumnMaxWidth
     #[xml(attr = "secondColumnMaxWidth")]
-    pub second_column_max_width: Option<i32>,
+    pub second_column_max_width: Option<i64>,
     /// _
     #[xml(child = "mso14:firstColumn")]
     pub backstage_groups: Option<BackstageGroups>,

@@ -87,19 +87,19 @@ pub struct WrapSquare {
     /// Distance From Text (Top)
     /// Represents the following attribute in the schema: :distT
     #[xml(attr = "distT")]
-    pub distance_from_top: Option<i32>,
+    pub distance_from_top: Option<u32>,
     /// Distance From Text on Bottom Edge
     /// Represents the following attribute in the schema: :distB
     #[xml(attr = "distB")]
-    pub distance_from_bottom: Option<i32>,
+    pub distance_from_bottom: Option<u32>,
     /// Distance From Text on Left Edge
     /// Represents the following attribute in the schema: :distL
     #[xml(attr = "distL")]
-    pub distance_from_left: Option<i32>,
+    pub distance_from_left: Option<u32>,
     /// Distance From Text on Right Edge
     /// Represents the following attribute in the schema: :distR
     #[xml(attr = "distR")]
-    pub distance_from_right: Option<i32>,
+    pub distance_from_right: Option<u32>,
     ///Object Extents Including Effects
     #[xml(child = "wp:effectExtent")]
     pub effect_extent: Option<EffectExtent>,
@@ -116,11 +116,11 @@ pub struct WrapTight {
     /// Distance From Test on Left Edge
     /// Represents the following attribute in the schema: :distL
     #[xml(attr = "distL")]
-    pub distance_from_left: Option<i32>,
+    pub distance_from_left: Option<u32>,
     /// Distance From Text on Right Edge
     /// Represents the following attribute in the schema: :distR
     #[xml(attr = "distR")]
-    pub distance_from_right: Option<i32>,
+    pub distance_from_right: Option<u32>,
     ///Tight Wrapping Extents Polygon
     #[xml(child = "wp:wrapPolygon")]
     pub wrap_polygon: WrapPolygon,
@@ -137,11 +137,11 @@ pub struct WrapThrough {
     /// Distance From Text on Left Edge
     /// Represents the following attribute in the schema: :distL
     #[xml(attr = "distL")]
-    pub distance_from_left: Option<i32>,
+    pub distance_from_left: Option<u32>,
     /// Distance From Text on Right Edge
     /// Represents the following attribute in the schema: :distR
     #[xml(attr = "distR")]
-    pub distance_from_right: Option<i32>,
+    pub distance_from_right: Option<u32>,
     ///Wrapping Polygon
     #[xml(child = "wp:wrapPolygon")]
     pub wrap_polygon: WrapPolygon,
@@ -154,11 +154,11 @@ pub struct WrapTopBottom {
     /// Distance From Text on Top Edge
     /// Represents the following attribute in the schema: :distT
     #[xml(attr = "distT")]
-    pub distance_from_top: Option<i32>,
+    pub distance_from_top: Option<u32>,
     /// Distance From Text on Bottom Edge
     /// Represents the following attribute in the schema: :distB
     #[xml(attr = "distB")]
-    pub distance_from_bottom: Option<i32>,
+    pub distance_from_bottom: Option<u32>,
     ///Wrapping Boundaries
     #[xml(child = "wp:effectExtent")]
     pub effect_extent: Option<EffectExtent>,
@@ -171,19 +171,19 @@ pub struct Inline {
     /// Distance From Text on Top Edge
     /// Represents the following attribute in the schema: :distT
     #[xml(attr = "distT")]
-    pub distance_from_top: Option<i32>,
+    pub distance_from_top: Option<u32>,
     /// Distance From Text on Bottom Edge
     /// Represents the following attribute in the schema: :distB
     #[xml(attr = "distB")]
-    pub distance_from_bottom: Option<i32>,
+    pub distance_from_bottom: Option<u32>,
     /// Distance From Text on Left Edge
     /// Represents the following attribute in the schema: :distL
     #[xml(attr = "distL")]
-    pub distance_from_left: Option<i32>,
+    pub distance_from_left: Option<u32>,
     /// Distance From Text on Right Edge
     /// Represents the following attribute in the schema: :distR
     #[xml(attr = "distR")]
-    pub distance_from_right: Option<i32>,
+    pub distance_from_right: Option<u32>,
     /// anchorId
     /// Represents the following attribute in the schema: wp14:anchorId
     #[xml(attr = "wp14:anchorId")]
@@ -218,19 +218,19 @@ pub struct Anchor {
     /// Distance From Text on Top Edge
     /// Represents the following attribute in the schema: :distT
     #[xml(attr = "distT")]
-    pub distance_from_top: Option<i32>,
+    pub distance_from_top: Option<u32>,
     /// Distance From Text on Bottom Edge
     /// Represents the following attribute in the schema: :distB
     #[xml(attr = "distB")]
-    pub distance_from_bottom: Option<i32>,
+    pub distance_from_bottom: Option<u32>,
     /// Distance From Text on Left Edge
     /// Represents the following attribute in the schema: :distL
     #[xml(attr = "distL")]
-    pub distance_from_left: Option<i32>,
+    pub distance_from_left: Option<u32>,
     /// Distance From Text on Right Edge
     /// Represents the following attribute in the schema: :distR
     #[xml(attr = "distR")]
-    pub distance_from_right: Option<i32>,
+    pub distance_from_right: Option<u32>,
     /// Page Positioning
     /// Represents the following attribute in the schema: :simplePos
     #[xml(attr = "simplePos")]
@@ -238,7 +238,7 @@ pub struct Anchor {
     /// Relative Z-Ordering Position
     /// Represents the following attribute in the schema: :relativeHeight
     #[xml(attr = "relativeHeight")]
-    pub relative_height: i32,
+    pub relative_height: u32,
     /// Display Behind Document Text
     /// Represents the following attribute in the schema: :behindDoc
     #[xml(attr = "behindDoc")]
@@ -331,11 +331,11 @@ pub struct StartPoint {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Wrapping Polygon Line End Position.
 /// When the object is serialized out as xml, it's qualified name is wp:lineTo.
@@ -345,11 +345,11 @@ pub struct LineTo {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Simple Positioning Coordinates.
 /// When the object is serialized out as xml, it's qualified name is wp:simplePos.
@@ -359,11 +359,11 @@ pub struct SimplePosition {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Defines the Point2DType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -373,11 +373,11 @@ pub struct Point2DType {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Object Extents Including Effects.
 /// When the object is serialized out as xml, it's qualified name is wp:effectExtent.
@@ -387,19 +387,19 @@ pub struct EffectExtent {
     /// Additional Extent on Left Edge
     /// Represents the following attribute in the schema: :l
     #[xml(attr = "l")]
-    pub left_edge: i64,
+    pub left_edge: i32,
     /// Additional Extent on Top Edge
     /// Represents the following attribute in the schema: :t
     #[xml(attr = "t")]
-    pub top_edge: i64,
+    pub top_edge: i32,
     /// Additional Extent on Right Edge
     /// Represents the following attribute in the schema: :r
     #[xml(attr = "r")]
-    pub right_edge: i64,
+    pub right_edge: i32,
     /// Additional Extent on Bottom Edge
     /// Represents the following attribute in the schema: :b
     #[xml(attr = "b")]
-    pub bottom_edge: i64,
+    pub bottom_edge: i32,
 }
 /// Tight Wrapping Extents Polygon.
 /// When the object is serialized out as xml, it's qualified name is wp:wrapPolygon.
@@ -471,11 +471,11 @@ pub struct Extent {
     /// Extent Length
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub cx: i64,
+    pub cx: i32,
     /// Extent Width
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub cy: i64,
+    pub cy: i32,
 }
 /// Drawing Object Non-Visual Properties.
 /// When the object is serialized out as xml, it's qualified name is wp:docPr.
@@ -485,7 +485,7 @@ pub struct DocProperties {
     /// Application defined unique identifier.
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Name compatible with Object Model (non-unique).
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]

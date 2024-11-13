@@ -98,7 +98,7 @@ pub struct TopBorder {
     /// Border Width
     /// Represents the following attribute in the schema: :width
     #[xml(attr = "width")]
-    pub width: Option<i32>,
+    pub width: Option<i64>,
     /// Border shadow
     /// Represents the following attribute in the schema: :shadow
     #[xml(attr = "shadow")]
@@ -116,7 +116,7 @@ pub struct LeftBorder {
     /// Border Width
     /// Represents the following attribute in the schema: :width
     #[xml(attr = "width")]
-    pub width: Option<i32>,
+    pub width: Option<i64>,
     /// Border shadow
     /// Represents the following attribute in the schema: :shadow
     #[xml(attr = "shadow")]
@@ -134,7 +134,7 @@ pub struct RightBorder {
     /// Border Width
     /// Represents the following attribute in the schema: :width
     #[xml(attr = "width")]
-    pub width: Option<i32>,
+    pub width: Option<i64>,
     /// Border shadow
     /// Represents the following attribute in the schema: :shadow
     #[xml(attr = "shadow")]
@@ -152,7 +152,7 @@ pub struct BottomBorder {
     /// Border Width
     /// Represents the following attribute in the schema: :width
     #[xml(attr = "width")]
-    pub width: Option<i32>,
+    pub width: Option<i64>,
     /// Border shadow
     /// Represents the following attribute in the schema: :shadow
     #[xml(attr = "shadow")]
@@ -170,7 +170,7 @@ pub struct BorderType {
     /// Border Width
     /// Represents the following attribute in the schema: :width
     #[xml(attr = "width")]
-    pub width: Option<i32>,
+    pub width: Option<i64>,
     /// Border shadow
     /// Represents the following attribute in the schema: :shadow
     #[xml(attr = "shadow")]

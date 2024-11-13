@@ -87,7 +87,7 @@ pub struct UnsignedIntegerType {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the InvertIfNegativeBoolean Class.
 /// When the object is serialized out as xml, it's qualified name is c16:invertIfNegative.
@@ -432,7 +432,7 @@ pub struct BooleanFalse {
 #[xml(tag = "c16:ptidx")]
 pub struct XsdunsignedInt {
     #[xml(text)]
-    pub child: i32,
+    pub child: u32,
 }
 /// Defines the ChartDataPointUniqueIDMapEntry Class.
 /// When the object is serialized out as xml, it's qualified name is c16:ptentry.

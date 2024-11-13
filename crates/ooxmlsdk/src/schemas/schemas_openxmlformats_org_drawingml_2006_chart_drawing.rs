@@ -226,7 +226,7 @@ pub struct NonVisualDrawingProperties {
     /// Application defined unique identifier.
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Name compatible with Object Model (non-unique).
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -487,7 +487,7 @@ pub struct BlipFill {
     /// DPI Setting
     /// Represents the following attribute in the schema: :dpi
     #[xml(attr = "dpi")]
-    pub dpi: Option<i32>,
+    pub dpi: Option<u32>,
     /// Rotate With Shape
     /// Represents the following attribute in the schema: :rotWithShape
     #[xml(attr = "rotWithShape")]
@@ -633,11 +633,11 @@ pub struct Extent {
     /// Extent Length
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub cx: i64,
+    pub cx: i32,
     /// Extent Width
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub cy: i64,
+    pub cy: i32,
 }
 /// Non-Visual Group Shape Properties.
 /// When the object is serialized out as xml, it's qualified name is cdr:nvGrpSpPr.

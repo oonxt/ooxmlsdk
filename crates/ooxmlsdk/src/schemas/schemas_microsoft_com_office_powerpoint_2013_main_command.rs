@@ -136,9 +136,9 @@ pub struct SlideMoniker {
     /// cId
     /// Represents the following attribute in the schema: :cId
     #[xml(attr = "cId")]
-    pub c_id: Option<i32>,
+    pub c_id: Option<u32>,
     /// sldId
     /// Represents the following attribute in the schema: :sldId
     #[xml(attr = "sldId")]
-    pub sld_id: i32,
+    pub sld_id: u32,
 }

@@ -192,11 +192,11 @@ pub struct Point2DType {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Defines the CommentReplyList Class.
 /// When the object is serialized out as xml, it's qualified name is p188:replyLst.
@@ -255,7 +255,7 @@ pub struct Comment {
     /// priority
     /// Represents the following attribute in the schema: :priority
     #[xml(attr = "priority")]
-    pub priority: Option<i32>,
+    pub priority: Option<u32>,
     /// title
     /// Represents the following attribute in the schema: :title
     #[xml(attr = "title")]

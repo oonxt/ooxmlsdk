@@ -380,7 +380,7 @@ pub struct WheelReverseTransition {
     /// Spokes
     /// Represents the following attribute in the schema: :spokes
     #[xml(attr = "spokes")]
-    pub spokes: Option<i32>,
+    pub spokes: Option<u32>,
 }
 /// Defines the BookmarkTarget Class.
 /// When the object is serialized out as xml, it's qualified name is p14:bmkTgt.
@@ -390,7 +390,7 @@ pub struct BookmarkTarget {
     /// spid
     /// Represents the following attribute in the schema: :spid
     #[xml(attr = "spid")]
-    pub shape_id: i32,
+    pub shape_id: u32,
     /// bmkName
     /// Represents the following attribute in the schema: :bmkName
     #[xml(attr = "bmkName")]
@@ -470,7 +470,7 @@ pub struct DefaultImageDpi {
     /// val
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the DiscardImageEditData Class.
 /// When the object is serialized out as xml, it's qualified name is p14:discardImageEditData.
@@ -509,7 +509,7 @@ pub struct CreationId {
     /// val
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the ModificationId Class.
 /// When the object is serialized out as xml, it's qualified name is p14:modId.
@@ -519,7 +519,7 @@ pub struct ModificationId {
     /// val
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the RandomIdType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -529,7 +529,7 @@ pub struct RandomIdType {
     /// val
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the ShowEventRecordList Class.
 /// When the object is serialized out as xml, it's qualified name is p14:showEvtLst.
@@ -572,7 +572,7 @@ pub struct NonVisualDrawingProperties {
     /// Application defined unique identifier.
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Name compatible with Object Model (non-unique).
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -778,7 +778,7 @@ pub struct SectionSlideIdListEntry {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
 }
 /// Defines the SectionSlideIdList Class.
 /// When the object is serialized out as xml, it's qualified name is p14:sldIdLst.
@@ -821,11 +821,11 @@ pub struct TracePoint {
     /// x
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x_coordinate: i64,
+    pub x_coordinate: i32,
     /// y
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y_coordinate: i64,
+    pub y_coordinate: i32,
 }
 /// Defines the TracePointList Class.
 /// When the object is serialized out as xml, it's qualified name is p14:tracePtLst.
@@ -852,7 +852,7 @@ pub struct TriggerEventRecord {
     /// objId
     /// Represents the following attribute in the schema: :objId
     #[xml(attr = "objId")]
-    pub object_id: i32,
+    pub object_id: u32,
 }
 /// Defines the PlayEventRecord Class.
 /// When the object is serialized out as xml, it's qualified name is p14:playEvt.
@@ -866,7 +866,7 @@ pub struct PlayEventRecord {
     /// objId
     /// Represents the following attribute in the schema: :objId
     #[xml(attr = "objId")]
-    pub object_id: i32,
+    pub object_id: u32,
 }
 /// Defines the StopEventRecord Class.
 /// When the object is serialized out as xml, it's qualified name is p14:stopEvt.
@@ -880,7 +880,7 @@ pub struct StopEventRecord {
     /// objId
     /// Represents the following attribute in the schema: :objId
     #[xml(attr = "objId")]
-    pub object_id: i32,
+    pub object_id: u32,
 }
 /// Defines the PauseEventRecord Class.
 /// When the object is serialized out as xml, it's qualified name is p14:pauseEvt.
@@ -894,7 +894,7 @@ pub struct PauseEventRecord {
     /// objId
     /// Represents the following attribute in the schema: :objId
     #[xml(attr = "objId")]
-    pub object_id: i32,
+    pub object_id: u32,
 }
 /// Defines the ResumeEventRecord Class.
 /// When the object is serialized out as xml, it's qualified name is p14:resumeEvt.
@@ -908,7 +908,7 @@ pub struct ResumeEventRecord {
     /// objId
     /// Represents the following attribute in the schema: :objId
     #[xml(attr = "objId")]
-    pub object_id: i32,
+    pub object_id: u32,
 }
 /// Defines the MediaPlaybackEventRecordType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -922,7 +922,7 @@ pub struct MediaPlaybackEventRecordType {
     /// objId
     /// Represents the following attribute in the schema: :objId
     #[xml(attr = "objId")]
-    pub object_id: i32,
+    pub object_id: u32,
 }
 /// Defines the SeekEventRecord Class.
 /// When the object is serialized out as xml, it's qualified name is p14:seekEvt.
@@ -936,7 +936,7 @@ pub struct SeekEventRecord {
     /// objId
     /// Represents the following attribute in the schema: :objId
     #[xml(attr = "objId")]
-    pub object_id: i32,
+    pub object_id: u32,
     /// seek
     /// Represents the following attribute in the schema: :seek
     #[xml(attr = "seek")]
@@ -954,5 +954,5 @@ pub struct NullEventRecord {
     /// objId
     /// Represents the following attribute in the schema: :objId
     #[xml(attr = "objId")]
-    pub object_id: i32,
+    pub object_id: u32,
 }

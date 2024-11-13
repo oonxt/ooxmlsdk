@@ -64,7 +64,7 @@ pub struct WebExtensionTaskpane {
     /// row
     /// Represents the following attribute in the schema: :row
     #[xml(attr = "row")]
-    pub row: i32,
+    pub row: u32,
     /// locked
     /// Represents the following attribute in the schema: :locked
     #[xml(attr = "locked")]

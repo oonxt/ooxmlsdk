@@ -26,7 +26,7 @@ pub struct ShapeMoniker {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// creationId
     /// Represents the following attribute in the schema: :creationId
     #[xml(attr = "creationId")]
@@ -40,7 +40,7 @@ pub struct GroupShapeMoniker {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// creationId
     /// Represents the following attribute in the schema: :creationId
     #[xml(attr = "creationId")]
@@ -54,7 +54,7 @@ pub struct GraphicFrameMoniker {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// creationId
     /// Represents the following attribute in the schema: :creationId
     #[xml(attr = "creationId")]
@@ -68,7 +68,7 @@ pub struct ConnectorMoniker {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// creationId
     /// Represents the following attribute in the schema: :creationId
     #[xml(attr = "creationId")]
@@ -82,7 +82,7 @@ pub struct PictureMoniker {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// creationId
     /// Represents the following attribute in the schema: :creationId
     #[xml(attr = "creationId")]
@@ -96,7 +96,7 @@ pub struct InkMoniker {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// creationId
     /// Represents the following attribute in the schema: :creationId
     #[xml(attr = "creationId")]
@@ -229,7 +229,7 @@ pub struct GroupCommand {
     /// verId
     /// Represents the following attribute in the schema: :verId
     #[xml(attr = "verId")]
-    pub ver_id: Option<i32>,
+    pub ver_id: Option<u32>,
     /// preventRegroup
     /// Represents the following attribute in the schema: :preventRegroup
     #[xml(attr = "preventRegroup")]
@@ -237,7 +237,7 @@ pub struct GroupCommand {
     /// grpId
     /// Represents the following attribute in the schema: :grpId
     #[xml(attr = "grpId")]
-    pub grp_id: Option<i32>,
+    pub grp_id: Option<u32>,
     #[xml(
         child = "oac:dgMkLst",
         child = "oac:spMk",
@@ -413,19 +413,19 @@ pub struct ModifyTransformProps {
     /// x
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: Option<i64>,
+    pub x: Option<i32>,
     /// y
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: Option<i64>,
+    pub y: Option<i32>,
     /// cx
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub cx: Option<i64>,
+    pub cx: Option<i32>,
     /// cy
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub cy: Option<i64>,
+    pub cy: Option<i32>,
     /// rot
     /// Represents the following attribute in the schema: :rot
     #[xml(attr = "rot")]
@@ -447,11 +447,11 @@ pub struct Point2DType {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Defines the TextParagraphPropertiesType Class.
 /// When the object is serialized out as xml, it's qualified name is oac:pPr.
@@ -1044,7 +1044,7 @@ pub struct LnRefStyleMatrixReference {
     /// Style Matrix Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     #[xml(
         child = "a:scrgbClr",
         child = "a:srgbClr",
@@ -1086,7 +1086,7 @@ pub struct FillRefStyleMatrixReference {
     /// Style Matrix Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     #[xml(
         child = "a:scrgbClr",
         child = "a:srgbClr",
@@ -1128,7 +1128,7 @@ pub struct EffectRefStyleMatrixReference {
     /// Style Matrix Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     #[xml(
         child = "a:scrgbClr",
         child = "a:srgbClr",
@@ -1170,7 +1170,7 @@ pub struct StyleMatrixReferenceType {
     /// Style Matrix Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     #[xml(
         child = "a:scrgbClr",
         child = "a:srgbClr",
@@ -1288,7 +1288,7 @@ pub struct BlipFillProperties {
     /// DPI Setting
     /// Represents the following attribute in the schema: :dpi
     #[xml(attr = "dpi")]
-    pub dpi: Option<i32>,
+    pub dpi: Option<u32>,
     /// Rotate With Shape
     /// Represents the following attribute in the schema: :rotWithShape
     #[xml(attr = "rotWithShape")]
@@ -1526,7 +1526,7 @@ pub struct NonVisualDrawingProps {
     /// Application defined unique identifier.
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Name compatible with Object Model (non-unique).
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -1613,11 +1613,11 @@ pub struct StCxnConnection {
     /// Identifier
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
 }
 /// Defines the EndCxnConnection Class.
 /// When the object is serialized out as xml, it's qualified name is oac:endCxn.
@@ -1627,11 +1627,11 @@ pub struct EndCxnConnection {
     /// Identifier
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
 }
 /// Defines the ConnectionType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -1641,11 +1641,11 @@ pub struct ConnectionType {
     /// Identifier
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
 }
 /// Defines the ModifyNonVisualConnectorProps Class.
 /// When the object is serialized out as xml, it's qualified name is oac:cNvCxnSpPr.
@@ -1832,19 +1832,19 @@ pub struct BoundRect {
     /// l
     /// Represents the following attribute in the schema: :l
     #[xml(attr = "l")]
-    pub l: i64,
+    pub l: i32,
     /// t
     /// Represents the following attribute in the schema: :t
     #[xml(attr = "t")]
-    pub t: i64,
+    pub t: i32,
     /// r
     /// Represents the following attribute in the schema: :r
     #[xml(attr = "r")]
-    pub r: i64,
+    pub r: i32,
     /// b
     /// Represents the following attribute in the schema: :b
     #[xml(attr = "b")]
-    pub b: i64,
+    pub b: i32,
 }
 /// Defines the SVGBlipMonikerList Class.
 /// When the object is serialized out as xml, it's qualified name is oac:svgBlipMkLst.
@@ -2125,9 +2125,9 @@ pub struct TextCharRangeContext {
     /// len
     /// Represents the following attribute in the schema: :len
     #[xml(attr = "len")]
-    pub len: Option<i32>,
+    pub len: Option<u32>,
     /// hash
     /// Represents the following attribute in the schema: :hash
     #[xml(attr = "hash")]
-    pub hash: i32,
+    pub hash: u32,
 }

@@ -383,19 +383,19 @@ pub struct UnsizedGallery {
     /// columns
     /// Represents the following attribute in the schema: :columns
     #[xml(attr = "columns")]
-    pub columns: Option<i32>,
+    pub columns: Option<i64>,
     /// rows
     /// Represents the following attribute in the schema: :rows
     #[xml(attr = "rows")]
-    pub rows: Option<i32>,
+    pub rows: Option<i64>,
     /// itemWidth
     /// Represents the following attribute in the schema: :itemWidth
     #[xml(attr = "itemWidth")]
-    pub item_width: Option<i32>,
+    pub item_width: Option<i64>,
     /// itemHeight
     /// Represents the following attribute in the schema: :itemHeight
     #[xml(attr = "itemHeight")]
-    pub item_height: Option<i32>,
+    pub item_height: Option<i64>,
     /// getItemWidth
     /// Represents the following attribute in the schema: :getItemWidth
     #[xml(attr = "getItemWidth")]
@@ -1860,7 +1860,7 @@ pub struct EditBox {
     /// maxLength
     /// Represents the following attribute in the schema: :maxLength
     #[xml(attr = "maxLength")]
-    pub max_length: Option<i32>,
+    pub max_length: Option<i64>,
     /// getText
     /// Represents the following attribute in the schema: :getText
     #[xml(attr = "getText")]
@@ -2026,7 +2026,7 @@ pub struct ComboBox {
     /// maxLength
     /// Represents the following attribute in the schema: :maxLength
     #[xml(attr = "maxLength")]
-    pub max_length: Option<i32>,
+    pub max_length: Option<i64>,
     /// getText
     /// Represents the following attribute in the schema: :getText
     #[xml(attr = "getText")]
@@ -2330,19 +2330,19 @@ pub struct Gallery {
     /// columns
     /// Represents the following attribute in the schema: :columns
     #[xml(attr = "columns")]
-    pub columns: Option<i32>,
+    pub columns: Option<i64>,
     /// rows
     /// Represents the following attribute in the schema: :rows
     #[xml(attr = "rows")]
-    pub rows: Option<i32>,
+    pub rows: Option<i64>,
     /// itemWidth
     /// Represents the following attribute in the schema: :itemWidth
     #[xml(attr = "itemWidth")]
-    pub item_width: Option<i32>,
+    pub item_width: Option<i64>,
     /// itemHeight
     /// Represents the following attribute in the schema: :itemHeight
     #[xml(attr = "itemHeight")]
-    pub item_height: Option<i32>,
+    pub item_height: Option<i64>,
     /// getItemWidth
     /// Represents the following attribute in the schema: :getItemWidth
     #[xml(attr = "getItemWidth")]

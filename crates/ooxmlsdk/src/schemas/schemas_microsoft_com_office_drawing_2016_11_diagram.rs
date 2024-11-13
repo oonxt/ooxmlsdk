@@ -62,7 +62,7 @@ pub struct NumberDiagramInfo {
     /// lvl
     /// Represents the following attribute in the schema: :lvl
     #[xml(attr = "lvl")]
-    pub lvl: i32,
+    pub lvl: u32,
     /// ptType
     /// Represents the following attribute in the schema: :ptType
     #[xml(attr = "ptType")]

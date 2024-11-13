@@ -156,11 +156,11 @@ pub struct RevExHeaders {
     /// minRev
     /// Represents the following attribute in the schema: :minRev
     #[xml(attr = "minRev")]
-    pub min_rev: i64,
+    pub min_rev: u64,
     /// maxRev
     /// Represents the following attribute in the schema: :maxRev
     #[xml(attr = "maxRev")]
-    pub max_rev: i64,
+    pub max_rev: u64,
     /// docId
     /// Represents the following attribute in the schema: :docId
     #[xml(attr = "docId")]
@@ -276,7 +276,7 @@ pub struct RevisionPtr {
     /// revIDLastSave
     /// Represents the following attribute in the schema: :revIDLastSave
     #[xml(attr = "revIDLastSave")]
-    pub rev_id_last_save: i64,
+    pub rev_id_last_save: u64,
     /// documentId
     /// Represents the following attribute in the schema: :documentId
     #[xml(attr = "documentId")]
@@ -324,11 +324,11 @@ pub struct RevExHeader {
     /// minRev
     /// Represents the following attribute in the schema: :minRev
     #[xml(attr = "minRev")]
-    pub min_rev: Option<i64>,
+    pub min_rev: Option<u64>,
     /// maxRev
     /// Represents the following attribute in the schema: :maxRev
     #[xml(attr = "maxRev")]
-    pub max_rev: Option<i64>,
+    pub max_rev: Option<u64>,
     /// time
     /// Represents the following attribute in the schema: :time
     #[xml(attr = "time")]
@@ -342,7 +342,7 @@ pub struct RevExFuture {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -379,7 +379,7 @@ pub struct RevExUnsupported {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -405,7 +405,7 @@ pub struct RevExTrimmed {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -431,7 +431,7 @@ pub struct RevExRowColumn {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -469,7 +469,7 @@ pub struct RevExMove {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -511,7 +511,7 @@ pub struct RevExChangeCell {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -543,7 +543,7 @@ pub struct RevExChangeCell {
     /// w
     /// Represents the following attribute in the schema: :w
     #[xml(attr = "w")]
-    pub w: Option<i32>,
+    pub w: Option<u32>,
     /// _
     #[xml(child = "xr:c")]
     pub xr_c: Vec<RevCell>,
@@ -559,7 +559,7 @@ pub struct RevExFormatting {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -579,7 +579,7 @@ pub struct RevExFormatting {
     /// numFmtId
     /// Represents the following attribute in the schema: :numFmtId
     #[xml(attr = "numFmtId")]
-    pub num_fmt_id: Option<i32>,
+    pub num_fmt_id: Option<u32>,
     /// xfDxf
     /// Represents the following attribute in the schema: :xfDxf
     #[xml(attr = "xfDxf")]
@@ -595,11 +595,11 @@ pub struct RevExFormatting {
     /// start
     /// Represents the following attribute in the schema: :start
     #[xml(attr = "start")]
-    pub start: Option<i32>,
+    pub start: Option<u32>,
     /// length
     /// Represents the following attribute in the schema: :length
     #[xml(attr = "length")]
-    pub length: Option<i32>,
+    pub length: Option<u32>,
     /// styleUid
     /// Represents the following attribute in the schema: :styleUid
     #[xml(attr = "styleUid")]
@@ -647,7 +647,7 @@ pub struct RevExDefinedName {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -723,7 +723,7 @@ pub struct RevExDelObj {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -752,7 +752,7 @@ pub struct RevExChgObj {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -789,7 +789,7 @@ pub struct RevExSheetOp {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -817,11 +817,11 @@ pub struct RevExSheetOp {
     /// idOrig
     /// Represents the following attribute in the schema: :idOrig
     #[xml(attr = "idOrig")]
-    pub id_orig: Option<i32>,
+    pub id_orig: Option<u32>,
     /// idNew
     /// Represents the following attribute in the schema: :idNew
     #[xml(attr = "idNew")]
-    pub id_new: Option<i32>,
+    pub id_new: Option<u32>,
 }
 /// Defines the RevisionList Class.
 /// When the object is serialized out as xml, it's qualified name is xr:xrrList.
@@ -831,7 +831,7 @@ pub struct RevisionList {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -879,7 +879,7 @@ pub struct RevisionList {
     /// rId
     /// Represents the following attribute in the schema: :rId
     #[xml(attr = "rId")]
-    pub r_id: i32,
+    pub r_id: u32,
 }
 /// Defines the RevListAutoExpandRw Class.
 /// When the object is serialized out as xml, it's qualified name is xr:xrrListExpR.
@@ -889,7 +889,7 @@ pub struct RevListAutoExpandRw {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -923,7 +923,7 @@ pub struct RevGroup {
     /// rev
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub rev: i64,
+    pub rev: u64,
     /// uid
     /// Represents the following attribute in the schema: :uid
     #[xml(attr = "uid")]
@@ -1013,7 +1013,7 @@ pub struct RevCell {
     /// rep
     /// Represents the following attribute in the schema: :rep
     #[xml(attr = "rep")]
-    pub rep: Option<i32>,
+    pub rep: Option<u32>,
     /// _
     #[xml(child = "xr:f")]
     pub f_formula: Option<FFormula>,
@@ -1044,7 +1044,7 @@ pub struct ChangeCellSubEdit {
     /// w
     /// Represents the following attribute in the schema: :w
     #[xml(attr = "w")]
-    pub w: Option<i32>,
+    pub w: Option<u32>,
     /// _
     #[xml(child = "xr:c")]
     pub xr_c: Vec<RevCell>,
@@ -1187,7 +1187,7 @@ pub struct RowColVisualOps {
     /// size
     /// Represents the following attribute in the schema: :size
     #[xml(attr = "size")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// userSized
     /// Represents the following attribute in the schema: :userSized
     #[xml(attr = "userSized")]
@@ -1376,35 +1376,35 @@ pub struct RefOartAnchor {
     /// fromRowOff
     /// Represents the following attribute in the schema: :fromRowOff
     #[xml(attr = "fromRowOff")]
-    pub from_row_off: Option<i64>,
+    pub from_row_off: Option<i32>,
     /// fromColOff
     /// Represents the following attribute in the schema: :fromColOff
     #[xml(attr = "fromColOff")]
-    pub from_col_off: Option<i64>,
+    pub from_col_off: Option<i32>,
     /// toRowOff
     /// Represents the following attribute in the schema: :toRowOff
     #[xml(attr = "toRowOff")]
-    pub to_row_off: Option<i64>,
+    pub to_row_off: Option<i32>,
     /// toColOff
     /// Represents the following attribute in the schema: :toColOff
     #[xml(attr = "toColOff")]
-    pub to_col_off: Option<i64>,
+    pub to_col_off: Option<i32>,
     /// cx
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub cx: Option<i64>,
+    pub cx: Option<i32>,
     /// cy
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub cy: Option<i64>,
+    pub cy: Option<i32>,
     /// x
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: Option<i64>,
+    pub x: Option<i32>,
     /// y
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: Option<i64>,
+    pub y: Option<i32>,
     /// oat
     /// Represents the following attribute in the schema: :oat
     #[xml(attr = "oat")]
@@ -1728,7 +1728,7 @@ pub struct PivotTableDefinition {
     /// cacheId
     /// Represents the following attribute in the schema: :cacheId
     #[xml(attr = "cacheId")]
-    pub cache_id: i32,
+    pub cache_id: u32,
     /// dataOnRows
     /// Represents the following attribute in the schema: :dataOnRows
     #[xml(attr = "dataOnRows")]
@@ -1736,11 +1736,11 @@ pub struct PivotTableDefinition {
     /// dataPosition
     /// Represents the following attribute in the schema: :dataPosition
     #[xml(attr = "dataPosition")]
-    pub data_position: Option<i32>,
+    pub data_position: Option<u32>,
     /// Auto Format Id
     /// Represents the following attribute in the schema: :autoFormatId
     #[xml(attr = "autoFormatId")]
-    pub auto_format_id: Option<i32>,
+    pub auto_format_id: Option<u32>,
     /// Apply Number Formats
     /// Represents the following attribute in the schema: :applyNumberFormats
     #[xml(attr = "applyNumberFormats")]
@@ -1884,7 +1884,7 @@ pub struct PivotTableDefinition {
     /// pageWrap
     /// Represents the following attribute in the schema: :pageWrap
     #[xml(attr = "pageWrap")]
-    pub page_wrap: Option<i32>,
+    pub page_wrap: Option<u32>,
     /// pageOverThenDown
     /// Represents the following attribute in the schema: :pageOverThenDown
     #[xml(attr = "pageOverThenDown")]
@@ -1924,7 +1924,7 @@ pub struct PivotTableDefinition {
     /// indent
     /// Represents the following attribute in the schema: :indent
     #[xml(attr = "indent")]
-    pub indent: Option<i32>,
+    pub indent: Option<u32>,
     /// showEmptyRow
     /// Represents the following attribute in the schema: :showEmptyRow
     #[xml(attr = "showEmptyRow")]
@@ -1972,7 +1972,7 @@ pub struct PivotTableDefinition {
     /// chartFormat
     /// Represents the following attribute in the schema: :chartFormat
     #[xml(attr = "chartFormat")]
-    pub chart_format: Option<i32>,
+    pub chart_format: Option<u32>,
     /// rowHeaderCaption
     /// Represents the following attribute in the schema: :rowHeaderCaption
     #[xml(attr = "rowHeaderCaption")]

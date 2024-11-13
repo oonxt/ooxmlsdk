@@ -160,9 +160,9 @@ pub struct Mention {
     /// startIndex
     /// Represents the following attribute in the schema: :startIndex
     #[xml(attr = "startIndex")]
-    pub start_index: i32,
+    pub start_index: u32,
     /// length
     /// Represents the following attribute in the schema: :length
     #[xml(attr = "length")]
-    pub length: i32,
+    pub length: u32,
 }

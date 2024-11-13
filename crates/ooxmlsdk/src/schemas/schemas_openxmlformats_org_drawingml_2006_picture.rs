@@ -51,7 +51,7 @@ pub struct NonVisualDrawingProperties {
     /// Application defined unique identifier.
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Name compatible with Object Model (non-unique).
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -166,7 +166,7 @@ pub struct BlipFill {
     /// DPI Setting
     /// Represents the following attribute in the schema: :dpi
     #[xml(attr = "dpi")]
-    pub dpi: Option<i32>,
+    pub dpi: Option<u32>,
     /// Rotate With Shape
     /// Represents the following attribute in the schema: :rotWithShape
     #[xml(attr = "rotWithShape")]

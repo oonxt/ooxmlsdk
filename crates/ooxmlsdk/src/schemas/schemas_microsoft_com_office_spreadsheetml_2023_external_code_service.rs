@@ -6,9 +6,9 @@ pub struct ExternalCodeService {
     /// autoShow
     /// Represents the following attribute in the schema: :autoShow
     #[xml(attr = "autoShow")]
-    pub auto_show: Option<i32>,
+    pub auto_show: Option<u32>,
     /// timeout
     /// Represents the following attribute in the schema: :timeout
     #[xml(attr = "timeout")]
-    pub timeout: Option<i32>,
+    pub timeout: Option<u32>,
 }

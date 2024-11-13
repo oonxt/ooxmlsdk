@@ -308,15 +308,15 @@ pub struct DataValidations {
     /// xWindow
     /// Represents the following attribute in the schema: :xWindow
     #[xml(attr = "xWindow")]
-    pub x_window: Option<i32>,
+    pub x_window: Option<u32>,
     /// yWindow
     /// Represents the following attribute in the schema: :yWindow
     #[xml(attr = "yWindow")]
-    pub y_window: Option<i32>,
+    pub y_window: Option<u32>,
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x14:dataValidation")]
     pub x14_data_validation: Vec<DataValidation>,
@@ -397,7 +397,7 @@ pub struct WorkbookProperties {
     /// defaultImageDpi
     /// Represents the following attribute in the schema: :defaultImageDpi
     #[xml(attr = "defaultImageDpi")]
-    pub default_image_dpi: Option<i32>,
+    pub default_image_dpi: Option<u32>,
     /// discardImageEditData
     /// Represents the following attribute in the schema: :discardImageEditData
     #[xml(attr = "discardImageEditData")]
@@ -405,7 +405,7 @@ pub struct WorkbookProperties {
     /// accuracyVersion
     /// Represents the following attribute in the schema: :accuracyVersion
     #[xml(attr = "accuracyVersion")]
-    pub accuracy_version: Option<i32>,
+    pub accuracy_version: Option<u32>,
 }
 /// Defines the CalculatedMember Class.
 /// When the object is serialized out as xml, it's qualified name is x14:calculatedMember.
@@ -473,7 +473,7 @@ pub struct DataField {
     /// sourceField
     /// Represents the following attribute in the schema: :sourceField
     #[xml(attr = "sourceField")]
-    pub source_field: Option<i32>,
+    pub source_field: Option<u32>,
     /// uniqueName
     /// Represents the following attribute in the schema: :uniqueName
     #[xml(attr = "uniqueName")]
@@ -560,7 +560,7 @@ pub struct PivotCacheDefinition {
     /// pivotCacheId
     /// Represents the following attribute in the schema: :pivotCacheId
     #[xml(attr = "pivotCacheId")]
-    pub pivot_cache_id: Option<i32>,
+    pub pivot_cache_id: Option<u32>,
     /// supportSubqueryNonVisual
     /// Represents the following attribute in the schema: :supportSubqueryNonVisual
     #[xml(attr = "supportSubqueryNonVisual")]
@@ -626,7 +626,7 @@ pub struct DifferentialFormats {
     /// Format Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x:dxf")]
     pub x_dxf: Vec<
@@ -698,7 +698,7 @@ pub struct IconFilter {
     /// iconId
     /// Represents the following attribute in the schema: :iconId
     #[xml(attr = "iconId")]
-    pub icon_id: i32,
+    pub icon_id: u32,
 }
 /// Defines the Filter Class.
 /// When the object is serialized out as xml, it's qualified name is x14:filter.
@@ -749,7 +749,7 @@ pub struct SortCondition {
     /// dxfId
     /// Represents the following attribute in the schema: :dxfId
     #[xml(attr = "dxfId")]
-    pub format_id: Option<i32>,
+    pub format_id: Option<u32>,
     /// iconSet
     /// Represents the following attribute in the schema: :iconSet
     #[xml(attr = "iconSet")]
@@ -757,7 +757,7 @@ pub struct SortCondition {
     /// iconId
     /// Represents the following attribute in the schema: :iconId
     #[xml(attr = "iconId")]
-    pub icon_id: Option<i32>,
+    pub icon_id: Option<u32>,
 }
 /// Defines the SourceConnection Class.
 /// When the object is serialized out as xml, it's qualified name is x14:sourceConnection.
@@ -822,7 +822,7 @@ pub struct FormControlProperties {
     /// dropLines
     /// Represents the following attribute in the schema: :dropLines
     #[xml(attr = "dropLines")]
-    pub drop_lines: Option<i32>,
+    pub drop_lines: Option<u32>,
     /// dropStyle
     /// Represents the following attribute in the schema: :dropStyle
     #[xml(attr = "dropStyle")]
@@ -830,7 +830,7 @@ pub struct FormControlProperties {
     /// dx
     /// Represents the following attribute in the schema: :dx
     #[xml(attr = "dx")]
-    pub scroll_bar_width: Option<i32>,
+    pub scroll_bar_width: Option<u32>,
     /// firstButton
     /// Represents the following attribute in the schema: :firstButton
     #[xml(attr = "firstButton")]
@@ -858,7 +858,7 @@ pub struct FormControlProperties {
     /// inc
     /// Represents the following attribute in the schema: :inc
     #[xml(attr = "inc")]
-    pub incremental: Option<i32>,
+    pub incremental: Option<u32>,
     /// justLastX
     /// Represents the following attribute in the schema: :justLastX
     #[xml(attr = "justLastX")]
@@ -870,11 +870,11 @@ pub struct FormControlProperties {
     /// max
     /// Represents the following attribute in the schema: :max
     #[xml(attr = "max")]
-    pub max: Option<i32>,
+    pub max: Option<u32>,
     /// min
     /// Represents the following attribute in the schema: :min
     #[xml(attr = "min")]
-    pub min: Option<i32>,
+    pub min: Option<u32>,
     /// multiSel
     /// Represents the following attribute in the schema: :multiSel
     #[xml(attr = "multiSel")]
@@ -890,11 +890,11 @@ pub struct FormControlProperties {
     /// page
     /// Represents the following attribute in the schema: :page
     #[xml(attr = "page")]
-    pub page: Option<i32>,
+    pub page: Option<u32>,
     /// sel
     /// Represents the following attribute in the schema: :sel
     #[xml(attr = "sel")]
-    pub selected: Option<i32>,
+    pub selected: Option<u32>,
     /// seltype
     /// Represents the following attribute in the schema: :seltype
     #[xml(attr = "seltype")]
@@ -910,11 +910,11 @@ pub struct FormControlProperties {
     /// val
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: Option<i32>,
+    pub val: Option<u32>,
     /// widthMin
     /// Represents the following attribute in the schema: :widthMin
     #[xml(attr = "widthMin")]
-    pub minimum_width: Option<i32>,
+    pub minimum_width: Option<u32>,
     /// editVal
     /// Represents the following attribute in the schema: :editVal
     #[xml(attr = "editVal")]
@@ -1079,7 +1079,7 @@ pub struct ConditionalFormattingRule {
     /// rank
     /// Represents the following attribute in the schema: :rank
     #[xml(attr = "rank")]
-    pub rank: Option<i32>,
+    pub rank: Option<u32>,
     /// stdDev
     /// Represents the following attribute in the schema: :stdDev
     #[xml(attr = "stdDev")]
@@ -1342,7 +1342,7 @@ pub struct SeriesColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1350,7 +1350,7 @@ pub struct SeriesColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1368,7 +1368,7 @@ pub struct NegativeColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1376,7 +1376,7 @@ pub struct NegativeColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1394,7 +1394,7 @@ pub struct AxisColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1402,7 +1402,7 @@ pub struct AxisColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1420,7 +1420,7 @@ pub struct MarkersColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1428,7 +1428,7 @@ pub struct MarkersColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1446,7 +1446,7 @@ pub struct FirstMarkerColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1454,7 +1454,7 @@ pub struct FirstMarkerColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1472,7 +1472,7 @@ pub struct LastMarkerColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1480,7 +1480,7 @@ pub struct LastMarkerColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1498,7 +1498,7 @@ pub struct HighMarkerColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1506,7 +1506,7 @@ pub struct HighMarkerColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1524,7 +1524,7 @@ pub struct LowMarkerColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1532,7 +1532,7 @@ pub struct LowMarkerColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1550,7 +1550,7 @@ pub struct Color {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1558,7 +1558,7 @@ pub struct Color {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1576,7 +1576,7 @@ pub struct FillColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1584,7 +1584,7 @@ pub struct FillColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1602,7 +1602,7 @@ pub struct BorderColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1610,7 +1610,7 @@ pub struct BorderColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1628,7 +1628,7 @@ pub struct NegativeFillColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1636,7 +1636,7 @@ pub struct NegativeFillColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1654,7 +1654,7 @@ pub struct NegativeBorderColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1662,7 +1662,7 @@ pub struct NegativeBorderColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1680,7 +1680,7 @@ pub struct BarAxisColor {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1688,7 +1688,7 @@ pub struct BarAxisColor {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1706,7 +1706,7 @@ pub struct ColorType {
     /// Index
     /// Represents the following attribute in the schema: :indexed
     #[xml(attr = "indexed")]
-    pub indexed: Option<i32>,
+    pub indexed: Option<u32>,
     /// Alpha Red Green Blue Color Value
     /// Represents the following attribute in the schema: :rgb
     #[xml(attr = "rgb")]
@@ -1714,7 +1714,7 @@ pub struct ColorType {
     /// Theme Color
     /// Represents the following attribute in the schema: :theme
     #[xml(attr = "theme")]
-    pub theme: Option<i32>,
+    pub theme: Option<u32>,
     /// Tint
     /// Represents the following attribute in the schema: :tint
     #[xml(attr = "tint")]
@@ -1784,7 +1784,7 @@ pub struct ArgumentDescriptions {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x14:argumentDescription")]
     pub x14_argument_description: Vec<ArgumentDescription>,
@@ -1797,7 +1797,7 @@ pub struct ArgumentDescription {
     /// index
     /// Represents the following attribute in the schema: :index
     #[xml(attr = "index")]
-    pub index: i32,
+    pub index: u32,
     #[xml(text)]
     pub child: String,
 }
@@ -1809,11 +1809,11 @@ pub struct TupleSet {
     /// rowCount
     /// Represents the following attribute in the schema: :rowCount
     #[xml(attr = "rowCount")]
-    pub row_count: Option<i32>,
+    pub row_count: Option<u32>,
     /// columnCount
     /// Represents the following attribute in the schema: :columnCount
     #[xml(attr = "columnCount")]
-    pub column_count: Option<i32>,
+    pub column_count: Option<u32>,
     /// _
     #[xml(child = "x14:headers")]
     pub tuple_set_headers: TupleSetHeaders,
@@ -1894,7 +1894,7 @@ pub struct SetLevels {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x14:setLevel")]
     pub x14_set_level: Vec<SetLevel>,
@@ -1919,11 +1919,11 @@ pub struct DataBar {
     /// minLength
     /// Represents the following attribute in the schema: :minLength
     #[xml(attr = "minLength")]
-    pub min_length: Option<i32>,
+    pub min_length: Option<u32>,
     /// maxLength
     /// Represents the following attribute in the schema: :maxLength
     #[xml(attr = "maxLength")]
-    pub max_length: Option<i32>,
+    pub max_length: Option<u32>,
     /// showValue
     /// Represents the following attribute in the schema: :showValue
     #[xml(attr = "showValue")]
@@ -2078,7 +2078,7 @@ pub struct ConditionalFormattingIcon {
     /// iconId
     /// Represents the following attribute in the schema: :iconId
     #[xml(attr = "iconId")]
-    pub icon_id: i32,
+    pub icon_id: u32,
 }
 /// Defines the PivotEdits Class.
 /// When the object is serialized out as xml, it's qualified name is x14:pivotEdits.
@@ -2106,7 +2106,7 @@ pub struct ConditionalFormats {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x14:conditionalFormat")]
     pub x14_conditional_format: Vec<ConditionalFormat>,
@@ -2119,7 +2119,7 @@ pub struct CalculatedMembers {
     /// Calculated Members Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x:calculatedMember")]
     pub x_calculated_member: Vec<
@@ -2224,7 +2224,7 @@ pub struct PivotArea {
     /// Field Position
     /// Represents the following attribute in the schema: :fieldPosition
     #[xml(attr = "fieldPosition")]
-    pub field_position: Option<i32>,
+    pub field_position: Option<u32>,
     ///References
     #[xml(child = "x:references")]
     pub pivot_area_references: Option<
@@ -2296,11 +2296,11 @@ pub struct DdeValues {
     /// Rows
     /// Represents the following attribute in the schema: :rows
     #[xml(attr = "rows")]
-    pub rows: Option<i32>,
+    pub rows: Option<u32>,
     /// Columns
     /// Represents the following attribute in the schema: :cols
     #[xml(attr = "cols")]
-    pub columns: Option<i32>,
+    pub columns: Option<u32>,
     /// _
     #[xml(child = "x:value")]
     pub x_value: Vec<
@@ -2327,7 +2327,7 @@ pub struct ConditionalFormat {
     /// priority
     /// Represents the following attribute in the schema: :priority
     #[xml(attr = "priority")]
-    pub priority: Option<i32>,
+    pub priority: Option<u32>,
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
@@ -2347,7 +2347,7 @@ pub struct PivotAreas {
     /// Pivot Area Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x:pivotArea")]
     pub x_pivot_area: Vec<
@@ -2379,7 +2379,7 @@ pub struct SlicerStyleElement {
     /// dxfId
     /// Represents the following attribute in the schema: :dxfId
     #[xml(attr = "dxfId")]
-    pub format_id: Option<i32>,
+    pub format_id: Option<u32>,
 }
 /// Defines the IgnoredError Class.
 /// When the object is serialized out as xml, it's qualified name is x14:ignoredError.
@@ -2450,7 +2450,7 @@ pub struct ProtectedRange {
     /// spinCount
     /// Represents the following attribute in the schema: :spinCount
     #[xml(attr = "spinCount")]
-    pub spin_count: Option<i32>,
+    pub spin_count: Option<u32>,
     /// name
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -2521,11 +2521,11 @@ pub struct Slicer {
     /// startItem
     /// Represents the following attribute in the schema: :startItem
     #[xml(attr = "startItem")]
-    pub start_item: Option<i32>,
+    pub start_item: Option<u32>,
     /// columnCount
     /// Represents the following attribute in the schema: :columnCount
     #[xml(attr = "columnCount")]
-    pub column_count: Option<i32>,
+    pub column_count: Option<u32>,
     /// showCaption
     /// Represents the following attribute in the schema: :showCaption
     #[xml(attr = "showCaption")]
@@ -2533,7 +2533,7 @@ pub struct Slicer {
     /// level
     /// Represents the following attribute in the schema: :level
     #[xml(attr = "level")]
-    pub level: Option<i32>,
+    pub level: Option<u32>,
     /// style
     /// Represents the following attribute in the schema: :style
     #[xml(attr = "style")]
@@ -2545,7 +2545,7 @@ pub struct Slicer {
     /// rowHeight
     /// Represents the following attribute in the schema: :rowHeight
     #[xml(attr = "rowHeight")]
-    pub row_height: i32,
+    pub row_height: u32,
     /// _
     #[xml(child = "x14:extLst")]
     pub extension_list: Option<ExtensionList>,
@@ -2558,7 +2558,7 @@ pub struct OlapSlicerCache {
     /// pivotCacheId
     /// Represents the following attribute in the schema: :pivotCacheId
     #[xml(attr = "pivotCacheId")]
-    pub pivot_cache_id: i32,
+    pub pivot_cache_id: u32,
     /// _
     #[xml(child = "x14:levels")]
     pub olap_slicer_cache_levels_data: OlapSlicerCacheLevelsData,
@@ -2577,7 +2577,7 @@ pub struct TabularSlicerCache {
     /// pivotCacheId
     /// Represents the following attribute in the schema: :pivotCacheId
     #[xml(attr = "pivotCacheId")]
-    pub pivot_cache_id: i32,
+    pub pivot_cache_id: u32,
     /// sortOrder
     /// Represents the following attribute in the schema: :sortOrder
     #[xml(attr = "sortOrder")]
@@ -2609,7 +2609,7 @@ pub struct SlicerCachePivotTable {
     /// tabId
     /// Represents the following attribute in the schema: :tabId
     #[xml(attr = "tabId")]
-    pub tab_id: i32,
+    pub tab_id: u32,
     /// name
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -2654,7 +2654,7 @@ pub struct OlapSlicerCacheRange {
     /// startItem
     /// Represents the following attribute in the schema: :startItem
     #[xml(attr = "startItem")]
-    pub start_item: i32,
+    pub start_item: u32,
     /// _
     #[xml(child = "x14:i")]
     pub x14_i: Vec<OlapSlicerCacheItem>,
@@ -2684,7 +2684,7 @@ pub struct OlapSlicerCacheLevelData {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: i32,
+    pub count: u32,
     /// sortOrder
     /// Represents the following attribute in the schema: :sortOrder
     #[xml(attr = "sortOrder")]
@@ -2705,7 +2705,7 @@ pub struct OlapSlicerCacheLevelsData {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x14:level")]
     pub x14_level: Vec<OlapSlicerCacheLevelData>,
@@ -2718,7 +2718,7 @@ pub struct OlapSlicerCacheSelections {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x14:selection")]
     pub x14_selection: Vec<OlapSlicerCacheSelection>,
@@ -2744,7 +2744,7 @@ pub struct TabularSlicerCacheItems {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x14:i")]
     pub x14_i: Vec<TabularSlicerCacheItem>,
@@ -2757,7 +2757,7 @@ pub struct TabularSlicerCacheItem {
     /// x
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub atom: i32,
+    pub atom: u32,
     /// s
     /// Represents the following attribute in the schema: :s
     #[xml(attr = "s")]

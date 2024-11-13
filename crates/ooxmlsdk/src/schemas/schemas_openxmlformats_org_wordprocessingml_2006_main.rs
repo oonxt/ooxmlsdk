@@ -4447,7 +4447,7 @@ pub struct FrameProperties {
     /// Frame Height
     /// Represents the following attribute in the schema: w:h
     #[xml(attr = "w:h")]
-    pub height: Option<i32>,
+    pub height: Option<u32>,
     /// Vertical Frame Padding
     /// Represents the following attribute in the schema: w:vSpace
     #[xml(attr = "w:vSpace")]
@@ -5338,7 +5338,7 @@ pub struct FootnoteReference {
     /// Footnote/Endnote ID Reference
     /// Represents the following attribute in the schema: w:id
     #[xml(attr = "w:id")]
-    pub id: i32,
+    pub id: i64,
 }
 /// Endnote Reference.
 /// When the object is serialized out as xml, it's qualified name is w:endnoteReference.
@@ -5352,7 +5352,7 @@ pub struct EndnoteReference {
     /// Footnote/Endnote ID Reference
     /// Represents the following attribute in the schema: w:id
     #[xml(attr = "w:id")]
-    pub id: i32,
+    pub id: i64,
 }
 /// Defines the FootnoteEndnoteReferenceType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -5366,7 +5366,7 @@ pub struct FootnoteEndnoteReferenceType {
     /// Footnote/Endnote ID Reference
     /// Represents the following attribute in the schema: w:id
     #[xml(attr = "w:id")]
-    pub id: i32,
+    pub id: i64,
 }
 /// DrawingML Object.
 /// When the object is serialized out as xml, it's qualified name is w:drawing.
@@ -5617,7 +5617,7 @@ pub struct CharacterScale {
     /// Text Expansion/Compression Value
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: Option<i32>,
+    pub val: Option<i64>,
 }
 /// Defines the Kern Class.
 /// When the object is serialized out as xml, it's qualified name is w:kern.
@@ -5627,7 +5627,7 @@ pub struct Kern {
     /// val
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the Position Class.
 /// When the object is serialized out as xml, it's qualified name is w:position.
@@ -5773,11 +5773,11 @@ pub struct Border {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -5815,11 +5815,11 @@ pub struct TopBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -5857,11 +5857,11 @@ pub struct LeftBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -5899,11 +5899,11 @@ pub struct BottomBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -5941,11 +5941,11 @@ pub struct RightBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -5983,11 +5983,11 @@ pub struct BetweenBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -6025,11 +6025,11 @@ pub struct BarBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -6067,11 +6067,11 @@ pub struct StartBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -6109,11 +6109,11 @@ pub struct EndBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -6151,11 +6151,11 @@ pub struct InsideHorizontalBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -6193,11 +6193,11 @@ pub struct InsideVerticalBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -6235,11 +6235,11 @@ pub struct TopLeftToBottomRightCellBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -6277,11 +6277,11 @@ pub struct TopRightToBottomLeftCellBorder {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -6319,11 +6319,11 @@ pub struct BorderType {
     /// Border Width
     /// Represents the following attribute in the schema: w:sz
     #[xml(attr = "w:sz")]
-    pub size: Option<i32>,
+    pub size: Option<u32>,
     /// Border Spacing Measurement
     /// Represents the following attribute in the schema: w:space
     #[xml(attr = "w:space")]
-    pub space: Option<i32>,
+    pub space: Option<u32>,
     /// Border Shadow
     /// Represents the following attribute in the schema: w:shadow
     #[xml(attr = "w:shadow")]
@@ -6341,7 +6341,7 @@ pub struct FitText {
     /// Value
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: i32,
+    pub val: u32,
     /// Fit Text Run ID
     /// Represents the following attribute in the schema: w:id
     #[xml(attr = "w:id")]
@@ -12174,7 +12174,7 @@ pub struct TableRowHeight {
     /// Table Row Height
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: Option<i32>,
+    pub val: Option<u32>,
     /// Table Row Height Type
     /// Represents the following attribute in the schema: w:hRule
     #[xml(attr = "w:hRule")]
@@ -12362,7 +12362,7 @@ pub struct NumberingStart {
     /// val
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: i16,
+    pub val: u16,
 }
 /// Footnote and Endnote Numbering Restart Location.
 /// When the object is serialized out as xml, it's qualified name is w:numRestart.
@@ -12487,11 +12487,11 @@ pub struct PageSize {
     /// Page Width
     /// Represents the following attribute in the schema: w:w
     #[xml(attr = "w:w")]
-    pub width: Option<i32>,
+    pub width: Option<u32>,
     /// Page Height
     /// Represents the following attribute in the schema: w:h
     #[xml(attr = "w:h")]
-    pub height: Option<i32>,
+    pub height: Option<u32>,
     /// Page Orientation
     /// Represents the following attribute in the schema: w:orient
     #[xml(attr = "w:orient")]
@@ -12499,7 +12499,7 @@ pub struct PageSize {
     /// Printer Paper Code
     /// Represents the following attribute in the schema: w:code
     #[xml(attr = "w:code")]
-    pub code: Option<i16>,
+    pub code: Option<u16>,
 }
 /// Defines the PageMargin Class.
 /// When the object is serialized out as xml, it's qualified name is w:pgMar.
@@ -12513,7 +12513,7 @@ pub struct PageMargin {
     /// Right Margin Spacing
     /// Represents the following attribute in the schema: w:right
     #[xml(attr = "w:right")]
-    pub right: Option<i32>,
+    pub right: Option<u32>,
     /// Page Bottom Spacing
     /// Represents the following attribute in the schema: w:bottom
     #[xml(attr = "w:bottom")]
@@ -12521,19 +12521,19 @@ pub struct PageMargin {
     /// Left Margin Spacing
     /// Represents the following attribute in the schema: w:left
     #[xml(attr = "w:left")]
-    pub left: Option<i32>,
+    pub left: Option<u32>,
     /// Spacing to Top of Header
     /// Represents the following attribute in the schema: w:header
     #[xml(attr = "w:header")]
-    pub header: Option<i32>,
+    pub header: Option<u32>,
     /// Spacing to Bottom of Footer
     /// Represents the following attribute in the schema: w:footer
     #[xml(attr = "w:footer")]
-    pub footer: Option<i32>,
+    pub footer: Option<u32>,
     /// Page Gutter Spacing
     /// Represents the following attribute in the schema: w:gutter
     #[xml(attr = "w:gutter")]
-    pub gutter: Option<i32>,
+    pub gutter: Option<u32>,
 }
 /// Defines the PaperSource Class.
 /// When the object is serialized out as xml, it's qualified name is w:paperSrc.
@@ -12543,11 +12543,11 @@ pub struct PaperSource {
     /// First Page Printer Tray Code
     /// Represents the following attribute in the schema: w:first
     #[xml(attr = "w:first")]
-    pub first: Option<i16>,
+    pub first: Option<u16>,
     /// Non-First Page Printer Tray Code
     /// Represents the following attribute in the schema: w:other
     #[xml(attr = "w:other")]
-    pub other: Option<i16>,
+    pub other: Option<u16>,
 }
 /// Defines the PageBorders Class.
 /// When the object is serialized out as xml, it's qualified name is w:pgBorders.
@@ -17411,7 +17411,7 @@ pub struct FootnoteSpecialReference {
     /// Footnote/Endnote ID
     /// Represents the following attribute in the schema: w:id
     #[xml(attr = "w:id")]
-    pub id: i32,
+    pub id: i64,
 }
 /// Special Endnote List.
 /// When the object is serialized out as xml, it's qualified name is w:endnote.
@@ -17421,7 +17421,7 @@ pub struct EndnoteSpecialReference {
     /// Footnote/Endnote ID
     /// Represents the following attribute in the schema: w:id
     #[xml(attr = "w:id")]
-    pub id: i32,
+    pub id: i64,
 }
 /// Defines the FootnoteEndnoteSeparatorReferenceType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -17431,7 +17431,7 @@ pub struct FootnoteEndnoteSeparatorReferenceType {
     /// Footnote/Endnote ID
     /// Represents the following attribute in the schema: w:id
     #[xml(attr = "w:id")]
-    pub id: i32,
+    pub id: i64,
 }
 /// Index of Column Containing Unique Values for Record.
 /// When the object is serialized out as xml, it's qualified name is w:column.
@@ -17441,7 +17441,7 @@ pub struct ColumnIndex {
     /// val
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Column Delimiter for Data Source.
 /// When the object is serialized out as xml, it's qualified name is w:colDelim.
@@ -17451,7 +17451,7 @@ pub struct ColumnDelimiter {
     /// val
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the UnsignedDecimalNumberType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -17461,7 +17461,7 @@ pub struct UnsignedDecimalNumberType {
     /// val
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Unique Value for Record.
 /// When the object is serialized out as xml, it's qualified name is w:uniqueTag.
@@ -17904,7 +17904,7 @@ pub struct MarginWidth {
     /// Measurement in Pixels
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Top and Bottom Margin for Frame.
 /// When the object is serialized out as xml, it's qualified name is w:marH.
@@ -17914,7 +17914,7 @@ pub struct MarginHeight {
     /// Measurement in Pixels
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the PixelsMeasureType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -17924,7 +17924,7 @@ pub struct PixelsMeasureType {
     /// Measurement in Pixels
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Scrollbar Display Option.
 /// When the object is serialized out as xml, it's qualified name is w:scrollbar.
@@ -19343,7 +19343,7 @@ pub struct Footnote {
     /// Footnote/Endnote ID
     /// Represents the following attribute in the schema: w:id
     #[xml(attr = "w:id")]
-    pub id: i32,
+    pub id: i64,
     #[xml(
         child = "w:altChunk",
         child = "w:customXml",
@@ -19480,7 +19480,7 @@ pub struct Endnote {
     /// Footnote/Endnote ID
     /// Represents the following attribute in the schema: w:id
     #[xml(attr = "w:id")]
-    pub id: i32,
+    pub id: i64,
     #[xml(
         child = "w:altChunk",
         child = "w:customXml",
@@ -19617,7 +19617,7 @@ pub struct FootnoteEndnoteType {
     /// Footnote/Endnote ID
     /// Represents the following attribute in the schema: w:id
     #[xml(attr = "w:id")]
-    pub id: i32,
+    pub id: i64,
     #[xml(
         child = "w:altChunk",
         child = "w:customXml",
@@ -20935,7 +20935,7 @@ pub struct WriteProtection {
     /// Iterations to Run Hashing Algorithm
     /// Represents the following attribute in the schema: w:cryptSpinCount
     #[xml(attr = "w:cryptSpinCount")]
-    pub cryptographic_spin_count: Option<i32>,
+    pub cryptographic_spin_count: Option<u32>,
     /// Cryptographic Provider
     /// Represents the following attribute in the schema: w:cryptProvider
     #[xml(attr = "w:cryptProvider")]
@@ -21017,7 +21017,7 @@ pub struct ActiveWritingStyle {
     /// Grammatical Engine ID
     /// Represents the following attribute in the schema: w:vendorID
     #[xml(attr = "w:vendorID")]
-    pub vendor_id: i16,
+    pub vendor_id: u16,
     /// Grammatical Check Engine Version
     /// Represents the following attribute in the schema: w:dllVersion
     #[xml(attr = "w:dllVersion")]
@@ -21255,7 +21255,7 @@ pub struct DocumentProtection {
     /// Iterations to Run Hashing Algorithm
     /// Represents the following attribute in the schema: w:cryptSpinCount
     #[xml(attr = "w:cryptSpinCount")]
-    pub cryptographic_spin_count: Option<i32>,
+    pub cryptographic_spin_count: Option<u32>,
     /// Cryptographic Provider
     /// Represents the following attribute in the schema: w:cryptProvider
     #[xml(attr = "w:cryptProvider")]
@@ -21339,7 +21339,7 @@ pub struct ConsecutiveHyphenLimit {
     /// val
     /// Represents the following attribute in the schema: w:val
     #[xml(attr = "w:val")]
-    pub val: i16,
+    pub val: u16,
 }
 /// Percentage of Document to Use When Generating Summary.
 /// When the object is serialized out as xml, it's qualified name is w:summaryLength.
@@ -21845,11 +21845,11 @@ pub struct ReadModeInkLockDown {
     /// Virtual Page Width
     /// Represents the following attribute in the schema: w:w
     #[xml(attr = "w:w")]
-    pub width: i32,
+    pub width: u32,
     /// Virtual Page Height
     /// Represents the following attribute in the schema: w:h
     #[xml(attr = "w:h")]
-    pub height: i32,
+    pub height: u32,
     /// Font Size Scaling
     /// Represents the following attribute in the schema: w:fontSz
     #[xml(attr = "w:fontSz")]

@@ -121,11 +121,11 @@ pub struct MeterPerModelUnitPositiveRatio {
     /// n
     /// Represents the following attribute in the schema: :n
     #[xml(attr = "n")]
-    pub n: i64,
+    pub n: u64,
     /// d
     /// Represents the following attribute in the schema: :d
     #[xml(attr = "d")]
-    pub d: i64,
+    pub d: u64,
 }
 /// Defines the SzPositiveRatio Class.
 /// When the object is serialized out as xml, it's qualified name is am3d:sz.
@@ -135,11 +135,11 @@ pub struct SzPositiveRatio {
     /// n
     /// Represents the following attribute in the schema: :n
     #[xml(attr = "n")]
-    pub n: i64,
+    pub n: u64,
     /// d
     /// Represents the following attribute in the schema: :d
     #[xml(attr = "d")]
-    pub d: i64,
+    pub d: u64,
 }
 /// Defines the IlluminancePositiveRatio Class.
 /// When the object is serialized out as xml, it's qualified name is am3d:illuminance.
@@ -149,11 +149,11 @@ pub struct IlluminancePositiveRatio {
     /// n
     /// Represents the following attribute in the schema: :n
     #[xml(attr = "n")]
-    pub n: i64,
+    pub n: u64,
     /// d
     /// Represents the following attribute in the schema: :d
     #[xml(attr = "d")]
-    pub d: i64,
+    pub d: u64,
 }
 /// Defines the IntensityPositiveRatio Class.
 /// When the object is serialized out as xml, it's qualified name is am3d:intensity.
@@ -163,11 +163,11 @@ pub struct IntensityPositiveRatio {
     /// n
     /// Represents the following attribute in the schema: :n
     #[xml(attr = "n")]
-    pub n: i64,
+    pub n: u64,
     /// d
     /// Represents the following attribute in the schema: :d
     #[xml(attr = "d")]
-    pub d: i64,
+    pub d: u64,
 }
 /// Defines the OpenXmlPositiveRatioElement Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -177,11 +177,11 @@ pub struct OpenXmlPositiveRatioElement {
     /// n
     /// Represents the following attribute in the schema: :n
     #[xml(attr = "n")]
-    pub n: i64,
+    pub n: u64,
     /// d
     /// Represents the following attribute in the schema: :d
     #[xml(attr = "d")]
-    pub d: i64,
+    pub d: u64,
 }
 /// Defines the PreTransVector3D Class.
 /// When the object is serialized out as xml, it's qualified name is am3d:preTrans.
@@ -191,15 +191,15 @@ pub struct PreTransVector3D {
     /// Distance along X-axis in 3D
     /// Represents the following attribute in the schema: :dx
     #[xml(attr = "dx")]
-    pub dx: i64,
+    pub dx: i32,
     /// Distance along Y-axis in 3D
     /// Represents the following attribute in the schema: :dy
     #[xml(attr = "dy")]
-    pub dy: i64,
+    pub dy: i32,
     /// Distance along Z-axis in 3D
     /// Represents the following attribute in the schema: :dz
     #[xml(attr = "dz")]
-    pub dz: i64,
+    pub dz: i32,
 }
 /// Defines the PostTransVector3D Class.
 /// When the object is serialized out as xml, it's qualified name is am3d:postTrans.
@@ -209,15 +209,15 @@ pub struct PostTransVector3D {
     /// Distance along X-axis in 3D
     /// Represents the following attribute in the schema: :dx
     #[xml(attr = "dx")]
-    pub dx: i64,
+    pub dx: i32,
     /// Distance along Y-axis in 3D
     /// Represents the following attribute in the schema: :dy
     #[xml(attr = "dy")]
-    pub dy: i64,
+    pub dy: i32,
     /// Distance along Z-axis in 3D
     /// Represents the following attribute in the schema: :dz
     #[xml(attr = "dz")]
-    pub dz: i64,
+    pub dz: i32,
 }
 /// Defines the UpVector3D Class.
 /// When the object is serialized out as xml, it's qualified name is am3d:up.
@@ -227,15 +227,15 @@ pub struct UpVector3D {
     /// Distance along X-axis in 3D
     /// Represents the following attribute in the schema: :dx
     #[xml(attr = "dx")]
-    pub dx: i64,
+    pub dx: i32,
     /// Distance along Y-axis in 3D
     /// Represents the following attribute in the schema: :dy
     #[xml(attr = "dy")]
-    pub dy: i64,
+    pub dy: i32,
     /// Distance along Z-axis in 3D
     /// Represents the following attribute in the schema: :dz
     #[xml(attr = "dz")]
-    pub dz: i64,
+    pub dz: i32,
 }
 /// Defines the Vector3DType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -245,15 +245,15 @@ pub struct Vector3DType {
     /// Distance along X-axis in 3D
     /// Represents the following attribute in the schema: :dx
     #[xml(attr = "dx")]
-    pub dx: i64,
+    pub dx: i32,
     /// Distance along Y-axis in 3D
     /// Represents the following attribute in the schema: :dy
     #[xml(attr = "dy")]
-    pub dy: i64,
+    pub dy: i32,
     /// Distance along Z-axis in 3D
     /// Represents the following attribute in the schema: :dz
     #[xml(attr = "dz")]
-    pub dz: i64,
+    pub dz: i32,
 }
 /// Defines the Scale3D Class.
 /// When the object is serialized out as xml, it's qualified name is am3d:scale.
@@ -309,15 +309,15 @@ pub struct PosPoint3D {
     /// X-Coordinate in 3D
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Coordinate in 3D
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
     /// Z-Coordinate in 3D
     /// Represents the following attribute in the schema: :z
     #[xml(attr = "z")]
-    pub z: i64,
+    pub z: i32,
 }
 /// Defines the LookAtPoint3D Class.
 /// When the object is serialized out as xml, it's qualified name is am3d:lookAt.
@@ -327,15 +327,15 @@ pub struct LookAtPoint3D {
     /// X-Coordinate in 3D
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Coordinate in 3D
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
     /// Z-Coordinate in 3D
     /// Represents the following attribute in the schema: :z
     #[xml(attr = "z")]
-    pub z: i64,
+    pub z: i32,
 }
 /// Defines the OpenXmlPoint3DElement Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -345,15 +345,15 @@ pub struct OpenXmlPoint3DElement {
     /// X-Coordinate in 3D
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Coordinate in 3D
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
     /// Z-Coordinate in 3D
     /// Represents the following attribute in the schema: :z
     #[xml(attr = "z")]
-    pub z: i64,
+    pub z: i32,
 }
 /// Defines the OrthographicProjection Class.
 /// When the object is serialized out as xml, it's qualified name is am3d:orthographic.
@@ -724,7 +724,7 @@ pub struct ObjectViewport {
     /// viewportSz
     /// Represents the following attribute in the schema: :viewportSz
     #[xml(attr = "viewportSz")]
-    pub viewport_sz: i64,
+    pub viewport_sz: i32,
     /// _
     #[xml(child = "am3d:extLst")]
     pub office_art_extension_list: Option<OfficeArtExtensionList>,
@@ -769,7 +769,7 @@ pub struct PointLight {
     /// rad
     /// Represents the following attribute in the schema: :rad
     #[xml(attr = "rad")]
-    pub rad: i64,
+    pub rad: i32,
     /// _
     #[xml(child = "am3d:clr")]
     pub color_type: ColorType,
@@ -795,7 +795,7 @@ pub struct SpotLight {
     /// rad
     /// Represents the following attribute in the schema: :rad
     #[xml(attr = "rad")]
-    pub rad: i64,
+    pub rad: i32,
     /// spotAng
     /// Represents the following attribute in the schema: :spotAng
     #[xml(attr = "spotAng")]

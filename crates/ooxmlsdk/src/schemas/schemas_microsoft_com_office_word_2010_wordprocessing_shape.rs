@@ -62,7 +62,7 @@ pub struct NonVisualDrawingProperties {
     /// Application defined unique identifier.
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Name compatible with Object Model (non-unique).
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -248,7 +248,7 @@ pub struct TextBoxInfo2 {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: Option<i16>,
+    pub id: Option<u16>,
     /// _
     #[xml(child = "w:txbxContent")]
     pub text_box_content: Option<
@@ -266,11 +266,11 @@ pub struct LinkedTextBox {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i16,
+    pub id: u16,
     /// seq
     /// Represents the following attribute in the schema: :seq
     #[xml(attr = "seq")]
-    pub sequence: i16,
+    pub sequence: u16,
     /// _
     #[xml(child = "wps:extLst")]
     pub office_art_extension_list: Option<OfficeArtExtensionList>,

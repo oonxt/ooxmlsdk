@@ -577,7 +577,7 @@ pub struct ColumnId {
 #[xml(tag = "xdr:colOff")]
 pub struct ColumnOffset {
     #[xml(text)]
-    pub child: i64,
+    pub child: i32,
 }
 /// Row Offset.
 /// When the object is serialized out as xml, it's qualified name is xdr:rowOff.
@@ -585,7 +585,7 @@ pub struct ColumnOffset {
 #[xml(tag = "xdr:rowOff")]
 pub struct RowOffset {
     #[xml(text)]
-    pub child: i64,
+    pub child: i32,
 }
 /// Row.
 /// When the object is serialized out as xml, it's qualified name is xdr:row.
@@ -658,11 +658,11 @@ pub struct Extent {
     /// Extent Length
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub cx: i64,
+    pub cx: i32,
     /// Extent Width
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub cy: i64,
+    pub cy: i32,
 }
 /// Position.
 /// When the object is serialized out as xml, it's qualified name is xdr:pos.
@@ -672,11 +672,11 @@ pub struct Position {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Non-Visual Drawing Properties.
 /// When the object is serialized out as xml, it's qualified name is xdr:cNvPr.
@@ -686,7 +686,7 @@ pub struct NonVisualDrawingProperties {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// name
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]

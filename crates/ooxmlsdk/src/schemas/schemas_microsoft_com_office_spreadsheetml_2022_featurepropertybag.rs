@@ -12,7 +12,7 @@ pub struct FeaturePropertyBags {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "xfpb:bagExt")]
     pub xfpb_bag_ext: Vec<BagExtensions>,
@@ -39,7 +39,7 @@ pub struct FpbsFeaturePropertyBags {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     #[xml(child = "xfpb:bagExt", child = "xfpb:bag", child = "xfpb:extLst")]
     pub children: Vec<FpbsFeaturePropertyBagsChildChoice>,
 }
@@ -60,7 +60,7 @@ pub struct OpenXmlFeaturePropertyBagsElement {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     #[xml(child = "xfpb:bagExt", child = "xfpb:bag", child = "xfpb:extLst")]
     pub children: Vec<OpenXmlFeaturePropertyBagsElementChildChoice>,
 }
@@ -81,7 +81,7 @@ pub struct XfComplement {
     /// i
     /// Represents the following attribute in the schema: :i
     #[xml(attr = "i")]
-    pub i: i32,
+    pub i: u32,
 }
 /// Defines the DXFComplement Class.
 /// When the object is serialized out as xml, it's qualified name is xfpb:DXFComplement.
@@ -91,7 +91,7 @@ pub struct DxfComplement {
     /// i
     /// Represents the following attribute in the schema: :i
     #[xml(attr = "i")]
-    pub i: i32,
+    pub i: u32,
 }
 /// Defines the RevDxf Class.
 /// When the object is serialized out as xml, it's qualified name is xfpb:revdxf.
@@ -243,7 +243,7 @@ pub struct FeaturePropertyBag {
     /// bagExtId
     /// Represents the following attribute in the schema: :bagExtId
     #[xml(attr = "bagExtId")]
-    pub bag_ext_id: Option<i32>,
+    pub bag_ext_id: Option<u32>,
     /// att
     /// Represents the following attribute in the schema: :att
     #[xml(attr = "att")]
@@ -333,7 +333,7 @@ pub struct BagFeatureProperty {
     #[xml(attr = "k")]
     pub k: String,
     #[xml(text)]
-    pub child: i32,
+    pub child: u32,
 }
 /// Defines the IntFeatureProperty Class.
 /// When the object is serialized out as xml, it's qualified name is xfpb:i.
@@ -442,7 +442,7 @@ pub struct DifferentialFormatType {
 #[xml(tag = "xfpb:bagId")]
 pub struct XsdunsignedInt {
     #[xml(text)]
-    pub child: i32,
+    pub child: u32,
 }
 /// Defines the Xsdinteger Class.
 /// When the object is serialized out as xml, it's qualified name is xfpb:i.
@@ -450,7 +450,7 @@ pub struct XsdunsignedInt {
 #[xml(tag = "xfpb:i")]
 pub struct Xsdinteger {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Defines the SXsdstring Class.
 /// When the object is serialized out as xml, it's qualified name is xfpb:s.

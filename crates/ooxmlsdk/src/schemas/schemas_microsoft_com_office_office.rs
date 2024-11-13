@@ -235,7 +235,7 @@ pub struct ShapeDefaults {
     /// Shape ID Optional Storage
     /// Represents the following attribute in the schema: :spidmax
     #[xml(attr = "spidmax")]
-    pub max_shape_id: Option<i32>,
+    pub max_shape_id: Option<i64>,
     /// style
     /// Represents the following attribute in the schema: :style
     #[xml(attr = "style")]
@@ -419,7 +419,7 @@ pub struct Diagram {
     /// Diagram Style Options
     /// Represents the following attribute in the schema: :dgmstyle
     #[xml(attr = "dgmstyle")]
-    pub style: Option<i32>,
+    pub style: Option<i64>,
     /// Diagram Automatic Format
     /// Represents the following attribute in the schema: :autoformat
     #[xml(attr = "autoformat")]
@@ -435,15 +435,15 @@ pub struct Diagram {
     /// Diagram Layout X Scale
     /// Represents the following attribute in the schema: :dgmscalex
     #[xml(attr = "dgmscalex")]
-    pub scale_x: Option<i32>,
+    pub scale_x: Option<i64>,
     /// Diagram Layout Y Scale
     /// Represents the following attribute in the schema: :dgmscaley
     #[xml(attr = "dgmscaley")]
-    pub scale_y: Option<i32>,
+    pub scale_y: Option<i64>,
     /// Diagram Font Size
     /// Represents the following attribute in the schema: :dgmfontsize
     #[xml(attr = "dgmfontsize")]
-    pub font_size: Option<i32>,
+    pub font_size: Option<i64>,
     /// Diagram Layout Extents
     /// Represents the following attribute in the schema: :constrainbounds
     #[xml(attr = "constrainbounds")]
@@ -451,7 +451,7 @@ pub struct Diagram {
     /// Diagram Base Font Size
     /// Represents the following attribute in the schema: :dgmbasetextscale
     #[xml(attr = "dgmbasetextscale")]
-    pub base_text_scale: Option<i32>,
+    pub base_text_scale: Option<i64>,
     ///Diagram Relationship Table
     #[xml(child = "o:relationtable")]
     pub relation_table: Option<RelationTable>,

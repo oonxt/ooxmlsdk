@@ -73,7 +73,7 @@ pub struct Lattice {
     /// initial
     /// Represents the following attribute in the schema: :initial
     #[xml(attr = "initial")]
-    pub initial: i32,
+    pub initial: i64,
     /// final
     /// Represents the following attribute in the schema: :final
     #[xml(attr = "final")]
@@ -132,7 +132,7 @@ pub struct Interpretation {
     /// signal-size
     /// Represents the following attribute in the schema: emma:signal-size
     #[xml(attr = "emma:signal-size")]
-    pub signal_size: Option<i32>,
+    pub signal_size: Option<i64>,
     /// media-type
     /// Represents the following attribute in the schema: emma:media-type
     #[xml(attr = "emma:media-type")]
@@ -148,11 +148,11 @@ pub struct Interpretation {
     /// start
     /// Represents the following attribute in the schema: emma:start
     #[xml(attr = "emma:start")]
-    pub start: Option<i64>,
+    pub start: Option<u64>,
     /// end
     /// Represents the following attribute in the schema: emma:end
     #[xml(attr = "emma:end")]
-    pub end: Option<i64>,
+    pub end: Option<u64>,
     /// time-ref-uri
     /// Represents the following attribute in the schema: emma:time-ref-uri
     #[xml(attr = "emma:time-ref-uri")]
@@ -164,11 +164,11 @@ pub struct Interpretation {
     /// offset-to-start
     /// Represents the following attribute in the schema: emma:offset-to-start
     #[xml(attr = "emma:offset-to-start")]
-    pub offset_to_start: Option<i32>,
+    pub offset_to_start: Option<i64>,
     /// duration
     /// Represents the following attribute in the schema: emma:duration
     #[xml(attr = "emma:duration")]
-    pub duration: Option<i32>,
+    pub duration: Option<i64>,
     /// medium
     /// Represents the following attribute in the schema: emma:medium
     #[xml(attr = "emma:medium")]
@@ -267,7 +267,7 @@ pub struct OneOf {
     /// signal-size
     /// Represents the following attribute in the schema: emma:signal-size
     #[xml(attr = "emma:signal-size")]
-    pub signal_size: Option<i32>,
+    pub signal_size: Option<i64>,
     /// media-type
     /// Represents the following attribute in the schema: emma:media-type
     #[xml(attr = "emma:media-type")]
@@ -283,11 +283,11 @@ pub struct OneOf {
     /// start
     /// Represents the following attribute in the schema: emma:start
     #[xml(attr = "emma:start")]
-    pub start: Option<i64>,
+    pub start: Option<u64>,
     /// end
     /// Represents the following attribute in the schema: emma:end
     #[xml(attr = "emma:end")]
-    pub end: Option<i64>,
+    pub end: Option<u64>,
     /// time-ref-uri
     /// Represents the following attribute in the schema: emma:time-ref-uri
     #[xml(attr = "emma:time-ref-uri")]
@@ -299,11 +299,11 @@ pub struct OneOf {
     /// offset-to-start
     /// Represents the following attribute in the schema: emma:offset-to-start
     #[xml(attr = "emma:offset-to-start")]
-    pub offset_to_start: Option<i32>,
+    pub offset_to_start: Option<i64>,
     /// duration
     /// Represents the following attribute in the schema: emma:duration
     #[xml(attr = "emma:duration")]
-    pub duration: Option<i32>,
+    pub duration: Option<i64>,
     /// medium
     /// Represents the following attribute in the schema: emma:medium
     #[xml(attr = "emma:medium")]
@@ -393,7 +393,7 @@ pub struct Group {
     /// signal-size
     /// Represents the following attribute in the schema: emma:signal-size
     #[xml(attr = "emma:signal-size")]
-    pub signal_size: Option<i32>,
+    pub signal_size: Option<i64>,
     /// media-type
     /// Represents the following attribute in the schema: emma:media-type
     #[xml(attr = "emma:media-type")]
@@ -409,11 +409,11 @@ pub struct Group {
     /// start
     /// Represents the following attribute in the schema: emma:start
     #[xml(attr = "emma:start")]
-    pub start: Option<i64>,
+    pub start: Option<u64>,
     /// end
     /// Represents the following attribute in the schema: emma:end
     #[xml(attr = "emma:end")]
-    pub end: Option<i64>,
+    pub end: Option<u64>,
     /// time-ref-uri
     /// Represents the following attribute in the schema: emma:time-ref-uri
     #[xml(attr = "emma:time-ref-uri")]
@@ -425,11 +425,11 @@ pub struct Group {
     /// offset-to-start
     /// Represents the following attribute in the schema: emma:offset-to-start
     #[xml(attr = "emma:offset-to-start")]
-    pub offset_to_start: Option<i32>,
+    pub offset_to_start: Option<i64>,
     /// duration
     /// Represents the following attribute in the schema: emma:duration
     #[xml(attr = "emma:duration")]
-    pub duration: Option<i32>,
+    pub duration: Option<i64>,
     /// medium
     /// Represents the following attribute in the schema: emma:medium
     #[xml(attr = "emma:medium")]
@@ -522,7 +522,7 @@ pub struct Sequence {
     /// signal-size
     /// Represents the following attribute in the schema: emma:signal-size
     #[xml(attr = "emma:signal-size")]
-    pub signal_size: Option<i32>,
+    pub signal_size: Option<i64>,
     /// media-type
     /// Represents the following attribute in the schema: emma:media-type
     #[xml(attr = "emma:media-type")]
@@ -538,11 +538,11 @@ pub struct Sequence {
     /// start
     /// Represents the following attribute in the schema: emma:start
     #[xml(attr = "emma:start")]
-    pub start: Option<i64>,
+    pub start: Option<u64>,
     /// end
     /// Represents the following attribute in the schema: emma:end
     #[xml(attr = "emma:end")]
-    pub end: Option<i64>,
+    pub end: Option<u64>,
     /// time-ref-uri
     /// Represents the following attribute in the schema: emma:time-ref-uri
     #[xml(attr = "emma:time-ref-uri")]
@@ -554,11 +554,11 @@ pub struct Sequence {
     /// offset-to-start
     /// Represents the following attribute in the schema: emma:offset-to-start
     #[xml(attr = "emma:offset-to-start")]
-    pub offset_to_start: Option<i32>,
+    pub offset_to_start: Option<i64>,
     /// duration
     /// Represents the following attribute in the schema: emma:duration
     #[xml(attr = "emma:duration")]
-    pub duration: Option<i32>,
+    pub duration: Option<i64>,
     /// medium
     /// Represents the following attribute in the schema: emma:medium
     #[xml(attr = "emma:medium")]
@@ -723,7 +723,7 @@ pub struct EndPoint {
     /// port-num
     /// Represents the following attribute in the schema: emma:port-num
     #[xml(attr = "emma:port-num")]
-    pub port_number: Option<i32>,
+    pub port_number: Option<i64>,
     /// port-type
     /// Represents the following attribute in the schema: emma:port-type
     #[xml(attr = "emma:port-type")]
@@ -757,7 +757,7 @@ pub struct Node {
     /// node-number
     /// Represents the following attribute in the schema: :node-number
     #[xml(attr = "node-number")]
-    pub node_number: i32,
+    pub node_number: i64,
     /// confidence
     /// Represents the following attribute in the schema: emma:confidence
     #[xml(attr = "emma:confidence")]
@@ -782,27 +782,27 @@ pub struct Arc {
     /// from
     /// Represents the following attribute in the schema: :from
     #[xml(attr = "from")]
-    pub from: i32,
+    pub from: i64,
     /// to
     /// Represents the following attribute in the schema: :to
     #[xml(attr = "to")]
-    pub to: i32,
+    pub to: i64,
     /// start
     /// Represents the following attribute in the schema: emma:start
     #[xml(attr = "emma:start")]
-    pub start: Option<i64>,
+    pub start: Option<u64>,
     /// end
     /// Represents the following attribute in the schema: emma:end
     #[xml(attr = "emma:end")]
-    pub end: Option<i64>,
+    pub end: Option<u64>,
     /// offset-to-start
     /// Represents the following attribute in the schema: emma:offset-to-start
     #[xml(attr = "emma:offset-to-start")]
-    pub offset_to_start: Option<i32>,
+    pub offset_to_start: Option<i64>,
     /// duration
     /// Represents the following attribute in the schema: emma:duration
     #[xml(attr = "emma:duration")]
-    pub duration: Option<i32>,
+    pub duration: Option<i64>,
     /// confidence
     /// Represents the following attribute in the schema: emma:confidence
     #[xml(attr = "emma:confidence")]

@@ -1021,7 +1021,7 @@ pub struct Index {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Order.
 /// When the object is serialized out as xml, it's qualified name is c:order.
@@ -1031,7 +1031,7 @@ pub struct Order {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Axis ID.
 /// When the object is serialized out as xml, it's qualified name is c:axId.
@@ -1041,7 +1041,7 @@ pub struct AxisId {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Crossing Axis ID.
 /// When the object is serialized out as xml, it's qualified name is c:crossAx.
@@ -1051,7 +1051,7 @@ pub struct CrossingAxis {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Point Count.
 /// When the object is serialized out as xml, it's qualified name is c:ptCount.
@@ -1061,7 +1061,7 @@ pub struct PointCount {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Second Pie Point.
 /// When the object is serialized out as xml, it's qualified name is c:secondPiePt.
@@ -1071,7 +1071,7 @@ pub struct SecondPiePoint {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Explosion.
 /// When the object is serialized out as xml, it's qualified name is c:explosion.
@@ -1081,7 +1081,7 @@ pub struct Explosion {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Format ID.
 /// When the object is serialized out as xml, it's qualified name is c:fmtId.
@@ -1091,7 +1091,7 @@ pub struct FormatId {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the UnsignedIntegerType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -1101,7 +1101,7 @@ pub struct UnsignedIntegerType {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Series Text.
 /// When the object is serialized out as xml, it's qualified name is c:tx.
@@ -1936,7 +1936,7 @@ pub struct NumericPoint {
     /// Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     /// Number Format
     /// Represents the following attribute in the schema: :formatCode
     #[xml(attr = "formatCode")]
@@ -2198,7 +2198,7 @@ pub struct HeightPercent {
     /// Height Percent Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: Option<i16>,
+    pub val: Option<u16>,
 }
 /// Y Rotation.
 /// When the object is serialized out as xml, it's qualified name is c:rotY.
@@ -2208,7 +2208,7 @@ pub struct RotateY {
     /// Y Rotation Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: Option<i16>,
+    pub val: Option<u16>,
 }
 /// Depth Percent.
 /// When the object is serialized out as xml, it's qualified name is c:depthPercent.
@@ -2218,7 +2218,7 @@ pub struct DepthPercent {
     /// Depth Percent Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: Option<i16>,
+    pub val: Option<u16>,
 }
 /// Perspective.
 /// When the object is serialized out as xml, it's qualified name is c:perspective.
@@ -2317,7 +2317,7 @@ pub struct Period {
     /// Period Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Trendline Label.
 /// When the object is serialized out as xml, it's qualified name is c:trendlineLbl.
@@ -2471,7 +2471,7 @@ pub struct GapWidth {
     /// Gap Size Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: Option<i16>,
+    pub val: Option<u16>,
 }
 /// Defines the GapDepth Class.
 /// When the object is serialized out as xml, it's qualified name is c:gapDepth.
@@ -2481,7 +2481,7 @@ pub struct GapDepth {
     /// Gap Size Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: Option<i16>,
+    pub val: Option<u16>,
 }
 /// Defines the GapAmountType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -2491,7 +2491,7 @@ pub struct GapAmountType {
     /// Gap Size Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: Option<i16>,
+    pub val: Option<u16>,
 }
 /// Up Bars.
 /// When the object is serialized out as xml, it's qualified name is c:upBars.
@@ -2553,7 +2553,7 @@ pub struct SecondPieSize {
     /// Second Pie Size Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: Option<i16>,
+    pub val: Option<u16>,
 }
 /// Band Format.
 /// When the object is serialized out as xml, it's qualified name is c:bandFmt.
@@ -2759,7 +2759,7 @@ pub struct PageSetup {
     /// Page Size
     /// Represents the following attribute in the schema: :paperSize
     #[xml(attr = "paperSize")]
-    pub paper_size: Option<i32>,
+    pub paper_size: Option<u32>,
     /// First Page Number
     /// Represents the following attribute in the schema: :firstPageNumber
     #[xml(attr = "firstPageNumber")]
@@ -2791,7 +2791,7 @@ pub struct PageSetup {
     /// Copies
     /// Represents the following attribute in the schema: :copies
     #[xml(attr = "copies")]
-    pub copies: Option<i32>,
+    pub copies: Option<u32>,
 }
 /// Defines the ShapeProperties Class.
 /// When the object is serialized out as xml, it's qualified name is c:spPr.
@@ -3797,7 +3797,7 @@ pub struct FirstSliceAngle {
     /// First Slice Angle Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: Option<i16>,
+    pub val: Option<u16>,
 }
 /// Hole Size.
 /// When the object is serialized out as xml, it's qualified name is c:holeSize.
@@ -3817,7 +3817,7 @@ pub struct StringPoint {
     /// Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     ///Text Value
     #[xml(child = "c:v")]
     pub numeric_value: NumericValue,
@@ -4699,7 +4699,7 @@ pub struct BubbleScale {
     /// Bubble Scale Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: Option<i32>,
+    pub val: Option<u32>,
 }
 /// Defines the SizeRepresents Class.
 /// When the object is serialized out as xml, it's qualified name is c:sizeRepresents.
@@ -4756,7 +4756,7 @@ pub struct LabelOffset {
     /// Label Offset Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: Option<i16>,
+    pub val: Option<u16>,
 }
 /// Defines the TickLabelSkip Class.
 /// When the object is serialized out as xml, it's qualified name is c:tickLblSkip.

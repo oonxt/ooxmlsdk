@@ -4,7 +4,7 @@
 #[xml(tag = "xltc2:checksum")]
 pub struct XsdunsignedInt {
     #[xml(text)]
-    pub child: i32,
+    pub child: u32,
 }
 /// Defines the CommentHyperlink Class.
 /// When the object is serialized out as xml, it's qualified name is xltc2:hyperlink.
@@ -14,11 +14,11 @@ pub struct CommentHyperlink {
     /// startIndex
     /// Represents the following attribute in the schema: :startIndex
     #[xml(attr = "startIndex")]
-    pub start_index: i32,
+    pub start_index: u32,
     /// length
     /// Represents the following attribute in the schema: :length
     #[xml(attr = "length")]
-    pub length: i32,
+    pub length: u32,
     /// url
     /// Represents the following attribute in the schema: :url
     #[xml(attr = "url")]

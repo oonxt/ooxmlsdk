@@ -236,15 +236,15 @@ pub struct HiddenShape3D {
     /// Shape Depth
     /// Represents the following attribute in the schema: :z
     #[xml(attr = "z")]
-    pub z: Option<i64>,
+    pub z: Option<i32>,
     /// Extrusion Height
     /// Represents the following attribute in the schema: :extrusionH
     #[xml(attr = "extrusionH")]
-    pub extrusion_height: Option<i64>,
+    pub extrusion_height: Option<i32>,
     /// Contour Width
     /// Represents the following attribute in the schema: :contourW
     #[xml(attr = "contourW")]
-    pub contour_width: Option<i64>,
+    pub contour_width: Option<i32>,
     /// Preset Material Type
     /// Represents the following attribute in the schema: :prstMaterial
     #[xml(attr = "prstMaterial")]
@@ -901,7 +901,7 @@ pub struct NonVisualDrawingProperties {
     /// Application defined unique identifier.
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Name compatible with Object Model (non-unique).
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]

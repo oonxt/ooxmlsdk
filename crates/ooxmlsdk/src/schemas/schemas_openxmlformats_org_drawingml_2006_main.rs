@@ -2704,15 +2704,15 @@ pub struct Shape3DType {
     /// Shape Depth
     /// Represents the following attribute in the schema: :z
     #[xml(attr = "z")]
-    pub z: Option<i64>,
+    pub z: Option<i32>,
     /// Extrusion Height
     /// Represents the following attribute in the schema: :extrusionH
     #[xml(attr = "extrusionH")]
-    pub extrusion_height: Option<i64>,
+    pub extrusion_height: Option<i32>,
     /// Contour Width
     /// Represents the following attribute in the schema: :contourW
     #[xml(attr = "contourW")]
-    pub contour_width: Option<i64>,
+    pub contour_width: Option<i32>,
     /// Preset Material Type
     /// Represents the following attribute in the schema: :prstMaterial
     #[xml(attr = "prstMaterial")]
@@ -2749,7 +2749,7 @@ pub struct FlatText {
     /// Z Coordinate
     /// Represents the following attribute in the schema: :z
     #[xml(attr = "z")]
-    pub z: Option<i64>,
+    pub z: Option<i32>,
 }
 /// Linear Gradient Fill.
 /// When the object is serialized out as xml, it's qualified name is a:lin.
@@ -2800,11 +2800,11 @@ pub struct Tile {
     /// Horizontal Offset
     /// Represents the following attribute in the schema: :tx
     #[xml(attr = "tx")]
-    pub horizontal_offset: Option<i64>,
+    pub horizontal_offset: Option<i32>,
     /// Vertical Offset
     /// Represents the following attribute in the schema: :ty
     #[xml(attr = "ty")]
-    pub vertical_offset: Option<i64>,
+    pub vertical_offset: Option<i32>,
     /// Horizontal Ratio
     /// Represents the following attribute in the schema: :sx
     #[xml(attr = "sx")]
@@ -2949,7 +2949,7 @@ pub struct BlipFill {
     /// DPI Setting
     /// Represents the following attribute in the schema: :dpi
     #[xml(attr = "dpi")]
-    pub dpi: Option<i32>,
+    pub dpi: Option<u32>,
     /// Rotate With Shape
     /// Represents the following attribute in the schema: :rotWithShape
     #[xml(attr = "rotWithShape")]
@@ -3470,7 +3470,7 @@ pub struct AlphaOutset {
     /// Radius
     /// Represents the following attribute in the schema: :rad
     #[xml(attr = "rad")]
-    pub radius: Option<i64>,
+    pub radius: Option<i32>,
 }
 /// Alpha Replace Effect.
 /// When the object is serialized out as xml, it's qualified name is a:alphaRepl.
@@ -3527,7 +3527,7 @@ pub struct Blur {
     /// Radius
     /// Represents the following attribute in the schema: :rad
     #[xml(attr = "rad")]
-    pub radius: Option<i64>,
+    pub radius: Option<i32>,
     /// Grow Bounds
     /// Represents the following attribute in the schema: :grow
     #[xml(attr = "grow")]
@@ -3757,7 +3757,7 @@ pub struct Glow {
     /// Radius
     /// Represents the following attribute in the schema: :rad
     #[xml(attr = "rad")]
-    pub radius: Option<i64>,
+    pub radius: Option<i32>,
     #[xml(
         child = "a:scrgbClr",
         child = "a:srgbClr",
@@ -3828,11 +3828,11 @@ pub struct InnerShadow {
     /// Blur Radius
     /// Represents the following attribute in the schema: :blurRad
     #[xml(attr = "blurRad")]
-    pub blur_radius: Option<i64>,
+    pub blur_radius: Option<i32>,
     /// Distance
     /// Represents the following attribute in the schema: :dist
     #[xml(attr = "dist")]
-    pub distance: Option<i64>,
+    pub distance: Option<i32>,
     /// Direction
     /// Represents the following attribute in the schema: :dir
     #[xml(attr = "dir")]
@@ -3898,11 +3898,11 @@ pub struct OuterShadow {
     /// Blur Radius
     /// Represents the following attribute in the schema: :blurRad
     #[xml(attr = "blurRad")]
-    pub blur_radius: Option<i64>,
+    pub blur_radius: Option<i32>,
     /// Shadow Offset Distance
     /// Represents the following attribute in the schema: :dist
     #[xml(attr = "dist")]
-    pub distance: Option<i64>,
+    pub distance: Option<i32>,
     /// Shadow Direction
     /// Represents the following attribute in the schema: :dir
     #[xml(attr = "dir")]
@@ -3982,7 +3982,7 @@ pub struct PresetShadow {
     /// Distance
     /// Represents the following attribute in the schema: :dist
     #[xml(attr = "dist")]
-    pub distance: Option<i64>,
+    pub distance: Option<i32>,
     /// Direction
     /// Represents the following attribute in the schema: :dir
     #[xml(attr = "dir")]
@@ -4028,7 +4028,7 @@ pub struct Reflection {
     /// Blur Radius
     /// Represents the following attribute in the schema: :blurRad
     #[xml(attr = "blurRad")]
-    pub blur_radius: Option<i64>,
+    pub blur_radius: Option<i32>,
     /// Start Opacity
     /// Represents the following attribute in the schema: :stA
     #[xml(attr = "stA")]
@@ -4048,7 +4048,7 @@ pub struct Reflection {
     /// Distance
     /// Represents the following attribute in the schema: :dist
     #[xml(attr = "dist")]
-    pub distance: Option<i64>,
+    pub distance: Option<i32>,
     /// Direction
     /// Represents the following attribute in the schema: :dir
     #[xml(attr = "dir")]
@@ -4104,7 +4104,7 @@ pub struct SoftEdge {
     /// Radius
     /// Represents the following attribute in the schema: :rad
     #[xml(attr = "rad")]
-    pub radius: i64,
+    pub radius: i32,
 }
 /// Defines the TintEffect Class.
 /// When the object is serialized out as xml, it's qualified name is a:tint.
@@ -4144,11 +4144,11 @@ pub struct TransformEffect {
     /// Horizontal Shift
     /// Represents the following attribute in the schema: :tx
     #[xml(attr = "tx")]
-    pub horizontal_shift: Option<i64>,
+    pub horizontal_shift: Option<i32>,
     /// Vertical Shift
     /// Represents the following attribute in the schema: :ty
     #[xml(attr = "ty")]
-    pub vertical_shift: Option<i64>,
+    pub vertical_shift: Option<i32>,
 }
 /// Effect Container.
 /// When the object is serialized out as xml, it's qualified name is a:effectLst.
@@ -4391,7 +4391,7 @@ pub struct FillReference {
     /// Style Matrix Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     #[xml(
         child = "a:scrgbClr",
         child = "a:srgbClr",
@@ -4425,7 +4425,7 @@ pub struct EffectReference {
     /// Style Matrix Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     #[xml(
         child = "a:scrgbClr",
         child = "a:srgbClr",
@@ -4459,7 +4459,7 @@ pub struct LineReference {
     /// Style Matrix Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     #[xml(
         child = "a:scrgbClr",
         child = "a:srgbClr",
@@ -4499,7 +4499,7 @@ pub struct StyleMatrixReferenceType {
     /// Style Matrix Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     #[xml(
         child = "a:scrgbClr",
         child = "a:srgbClr",
@@ -6247,7 +6247,7 @@ pub struct StartTime {
     /// Time
     /// Represents the following attribute in the schema: :time
     #[xml(attr = "time")]
-    pub time: Option<i32>,
+    pub time: Option<u32>,
 }
 /// Audio End Time.
 /// When the object is serialized out as xml, it's qualified name is a:end.
@@ -6261,7 +6261,7 @@ pub struct EndTime {
     /// Time
     /// Represents the following attribute in the schema: :time
     #[xml(attr = "time")]
-    pub time: Option<i32>,
+    pub time: Option<u32>,
 }
 /// Defines the AudioCDTimeType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -6275,7 +6275,7 @@ pub struct AudioCdTimeType {
     /// Time
     /// Represents the following attribute in the schema: :time
     #[xml(attr = "time")]
-    pub time: Option<i32>,
+    pub time: Option<u32>,
 }
 /// Custom color.
 /// When the object is serialized out as xml, it's qualified name is a:custClr.
@@ -7090,11 +7090,11 @@ pub struct Offset {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Child Offset.
 /// When the object is serialized out as xml, it's qualified name is a:chOff.
@@ -7104,11 +7104,11 @@ pub struct ChildOffset {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Defines the Point2DType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -7118,11 +7118,11 @@ pub struct Point2DType {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Extents.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
@@ -7132,11 +7132,11 @@ pub struct Extents {
     /// Extent Length
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub cx: i64,
+    pub cx: i32,
     /// Extent Width
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub cy: i64,
+    pub cy: i32,
 }
 /// Child Extents.
 /// When the object is serialized out as xml, it's qualified name is a:chExt.
@@ -7146,11 +7146,11 @@ pub struct ChildExtents {
     /// Extent Length
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub cx: i64,
+    pub cx: i32,
     /// Extent Width
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub cy: i64,
+    pub cy: i32,
 }
 /// Defines the PositiveSize2DType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -7160,11 +7160,11 @@ pub struct PositiveSize2DType {
     /// Extent Length
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub cx: i64,
+    pub cx: i32,
     /// Extent Width
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub cy: i64,
+    pub cy: i32,
 }
 /// Shape Locks.
 /// When the object is serialized out as xml, it's qualified name is a:spLocks.
@@ -7304,11 +7304,11 @@ pub struct StartConnection {
     /// Identifier
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
 }
 /// Connection End.
 /// When the object is serialized out as xml, it's qualified name is a:endCxn.
@@ -7318,11 +7318,11 @@ pub struct EndConnection {
     /// Identifier
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
 }
 /// Defines the ConnectionType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -7332,11 +7332,11 @@ pub struct ConnectionType {
     /// Identifier
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
 }
 /// Graphic Frame Locks.
 /// When the object is serialized out as xml, it's qualified name is a:graphicFrameLocks.
@@ -9126,7 +9126,7 @@ pub struct NonVisualDrawingProperties {
     /// Application defined unique identifier.
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Name compatible with Object Model (non-unique).
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -9693,15 +9693,15 @@ pub struct Anchor {
     /// X-Coordinate in 3D
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Coordinate in 3D
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
     /// Z-Coordinate in 3D
     /// Represents the following attribute in the schema: :z
     #[xml(attr = "z")]
-    pub z: i64,
+    pub z: i32,
 }
 /// Normal.
 /// When the object is serialized out as xml, it's qualified name is a:norm.
@@ -9711,15 +9711,15 @@ pub struct Normal {
     /// Distance along X-axis in 3D
     /// Represents the following attribute in the schema: :dx
     #[xml(attr = "dx")]
-    pub dx: i64,
+    pub dx: i32,
     /// Distance along Y-axis in 3D
     /// Represents the following attribute in the schema: :dy
     #[xml(attr = "dy")]
-    pub dy: i64,
+    pub dy: i32,
     /// Distance along Z-axis in 3D
     /// Represents the following attribute in the schema: :dz
     #[xml(attr = "dz")]
-    pub dz: i64,
+    pub dz: i32,
 }
 /// Up Vector.
 /// When the object is serialized out as xml, it's qualified name is a:up.
@@ -9729,15 +9729,15 @@ pub struct UpVector {
     /// Distance along X-axis in 3D
     /// Represents the following attribute in the schema: :dx
     #[xml(attr = "dx")]
-    pub dx: i64,
+    pub dx: i32,
     /// Distance along Y-axis in 3D
     /// Represents the following attribute in the schema: :dy
     #[xml(attr = "dy")]
-    pub dy: i64,
+    pub dy: i32,
     /// Distance along Z-axis in 3D
     /// Represents the following attribute in the schema: :dz
     #[xml(attr = "dz")]
-    pub dz: i64,
+    pub dz: i32,
 }
 /// Defines the Vector3DType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -9747,15 +9747,15 @@ pub struct Vector3DType {
     /// Distance along X-axis in 3D
     /// Represents the following attribute in the schema: :dx
     #[xml(attr = "dx")]
-    pub dx: i64,
+    pub dx: i32,
     /// Distance along Y-axis in 3D
     /// Represents the following attribute in the schema: :dy
     #[xml(attr = "dy")]
-    pub dy: i64,
+    pub dy: i32,
     /// Distance along Z-axis in 3D
     /// Represents the following attribute in the schema: :dz
     #[xml(attr = "dz")]
-    pub dz: i64,
+    pub dz: i32,
 }
 /// Top Bevel.
 /// When the object is serialized out as xml, it's qualified name is a:bevelT.
@@ -9765,11 +9765,11 @@ pub struct BevelTop {
     /// Width
     /// Represents the following attribute in the schema: :w
     #[xml(attr = "w")]
-    pub width: Option<i64>,
+    pub width: Option<i32>,
     /// Height
     /// Represents the following attribute in the schema: :h
     #[xml(attr = "h")]
-    pub height: Option<i64>,
+    pub height: Option<i32>,
     /// Preset Bevel
     /// Represents the following attribute in the schema: :prst
     #[xml(attr = "prst")]
@@ -9783,11 +9783,11 @@ pub struct BevelBottom {
     /// Width
     /// Represents the following attribute in the schema: :w
     #[xml(attr = "w")]
-    pub width: Option<i64>,
+    pub width: Option<i32>,
     /// Height
     /// Represents the following attribute in the schema: :h
     #[xml(attr = "h")]
-    pub height: Option<i64>,
+    pub height: Option<i32>,
     /// Preset Bevel
     /// Represents the following attribute in the schema: :prst
     #[xml(attr = "prst")]
@@ -9801,11 +9801,11 @@ pub struct Bevel {
     /// Width
     /// Represents the following attribute in the schema: :w
     #[xml(attr = "w")]
-    pub width: Option<i64>,
+    pub width: Option<i32>,
     /// Height
     /// Represents the following attribute in the schema: :h
     #[xml(attr = "h")]
-    pub height: Option<i64>,
+    pub height: Option<i32>,
     /// Preset Bevel
     /// Represents the following attribute in the schema: :prst
     #[xml(attr = "prst")]
@@ -9819,11 +9819,11 @@ pub struct BevelType {
     /// Width
     /// Represents the following attribute in the schema: :w
     #[xml(attr = "w")]
-    pub width: Option<i64>,
+    pub width: Option<i32>,
     /// Height
     /// Represents the following attribute in the schema: :h
     #[xml(attr = "h")]
-    pub height: Option<i64>,
+    pub height: Option<i32>,
     /// Preset Bevel
     /// Represents the following attribute in the schema: :prst
     #[xml(attr = "prst")]
@@ -10320,11 +10320,11 @@ pub struct Path {
     /// Path Width
     /// Represents the following attribute in the schema: :w
     #[xml(attr = "w")]
-    pub width: Option<i64>,
+    pub width: Option<i32>,
     /// Path Height
     /// Represents the following attribute in the schema: :h
     #[xml(attr = "h")]
-    pub height: Option<i64>,
+    pub height: Option<i32>,
     /// Path Fill
     /// Represents the following attribute in the schema: :fill
     #[xml(attr = "fill")]
@@ -11426,7 +11426,7 @@ pub struct GridColumn {
     /// Width
     /// Represents the following attribute in the schema: :w
     #[xml(attr = "w")]
-    pub width: i64,
+    pub width: i32,
     /// _
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
@@ -11563,7 +11563,7 @@ pub struct TableRow {
     /// Height
     /// Represents the following attribute in the schema: :h
     #[xml(attr = "h")]
-    pub height: i64,
+    pub height: i32,
     /// _
     #[xml(child = "a:tc")]
     pub a_tc: Vec<TableCell>,
@@ -13400,7 +13400,7 @@ pub struct EndParagraphRunProperties {
     /// smtId
     /// Represents the following attribute in the schema: :smtId
     #[xml(attr = "smtId")]
-    pub smart_tag_id: Option<i32>,
+    pub smart_tag_id: Option<u32>,
     /// bmk
     /// Represents the following attribute in the schema: :bmk
     #[xml(attr = "bmk")]
@@ -13554,7 +13554,7 @@ pub struct RunProperties {
     /// smtId
     /// Represents the following attribute in the schema: :smtId
     #[xml(attr = "smtId")]
-    pub smart_tag_id: Option<i32>,
+    pub smart_tag_id: Option<u32>,
     /// bmk
     /// Represents the following attribute in the schema: :bmk
     #[xml(attr = "bmk")]
@@ -13708,7 +13708,7 @@ pub struct DefaultRunProperties {
     /// smtId
     /// Represents the following attribute in the schema: :smtId
     #[xml(attr = "smtId")]
-    pub smart_tag_id: Option<i32>,
+    pub smart_tag_id: Option<u32>,
     /// bmk
     /// Represents the following attribute in the schema: :bmk
     #[xml(attr = "bmk")]
@@ -13868,7 +13868,7 @@ pub struct TextCharacterPropertiesType {
     /// smtId
     /// Represents the following attribute in the schema: :smtId
     #[xml(attr = "smtId")]
-    pub smart_tag_id: Option<i32>,
+    pub smart_tag_id: Option<u32>,
     /// bmk
     /// Represents the following attribute in the schema: :bmk
     #[xml(attr = "bmk")]

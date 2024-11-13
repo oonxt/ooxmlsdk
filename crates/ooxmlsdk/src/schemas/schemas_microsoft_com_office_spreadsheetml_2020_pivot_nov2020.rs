@@ -28,5 +28,5 @@ pub struct DataFieldFutureData {
     /// sourceField
     /// Represents the following attribute in the schema: :sourceField
     #[xml(attr = "sourceField")]
-    pub source_field: i32,
+    pub source_field: u32,
 }

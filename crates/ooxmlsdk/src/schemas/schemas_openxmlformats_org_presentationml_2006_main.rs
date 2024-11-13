@@ -756,11 +756,11 @@ pub struct SlideRange {
     /// Start
     /// Represents the following attribute in the schema: :st
     #[xml(attr = "st")]
-    pub start: i32,
+    pub start: u32,
     /// End
     /// Represents the following attribute in the schema: :end
     #[xml(attr = "end")]
-    pub end: i32,
+    pub end: u32,
 }
 /// Character Range.
 /// When the object is serialized out as xml, it's qualified name is p:charRg.
@@ -770,11 +770,11 @@ pub struct CharRange {
     /// Start
     /// Represents the following attribute in the schema: :st
     #[xml(attr = "st")]
-    pub start: i32,
+    pub start: u32,
     /// End
     /// Represents the following attribute in the schema: :end
     #[xml(attr = "end")]
-    pub end: i32,
+    pub end: u32,
 }
 /// Paragraph Text Range.
 /// When the object is serialized out as xml, it's qualified name is p:pRg.
@@ -784,11 +784,11 @@ pub struct ParagraphIndexRange {
     /// Start
     /// Represents the following attribute in the schema: :st
     #[xml(attr = "st")]
-    pub start: i32,
+    pub start: u32,
     /// End
     /// Represents the following attribute in the schema: :end
     #[xml(attr = "end")]
-    pub end: i32,
+    pub end: u32,
 }
 /// Defines the IndexRangeType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -798,11 +798,11 @@ pub struct IndexRangeType {
     /// Start
     /// Represents the following attribute in the schema: :st
     #[xml(attr = "st")]
-    pub start: i32,
+    pub start: u32,
     /// End
     /// Represents the following attribute in the schema: :end
     #[xml(attr = "end")]
-    pub end: i32,
+    pub end: u32,
 }
 /// Custom Show.
 /// When the object is serialized out as xml, it's qualified name is p:custShow.
@@ -812,7 +812,7 @@ pub struct CustomShowReference {
     /// Custom Show Identifier
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
 }
 /// Extension.
 /// When the object is serialized out as xml, it's qualified name is p:ext.
@@ -842,7 +842,7 @@ pub struct KioskSlideMode {
     /// Restart Show
     /// Represents the following attribute in the schema: :restart
     #[xml(attr = "restart")]
-    pub restart: Option<i32>,
+    pub restart: Option<u32>,
 }
 /// Color Scheme Map.
 /// When the object is serialized out as xml, it's qualified name is p:clrMap.
@@ -980,7 +980,7 @@ pub struct BackgroundStyleReference {
     /// Style Matrix Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     #[xml(
         child = "a:scrgbClr",
         child = "a:srgbClr",
@@ -1175,7 +1175,7 @@ pub struct Presentation {
     /// bookmarkIdSeed
     /// Represents the following attribute in the schema: :bookmarkIdSeed
     #[xml(attr = "bookmarkIdSeed")]
-    pub bookmark_id_seed: Option<i32>,
+    pub bookmark_id_seed: Option<u32>,
     /// conformance
     /// Represents the following attribute in the schema: :conformance
     #[xml(attr = "conformance")]
@@ -1824,7 +1824,7 @@ pub struct TimeNode {
     /// Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Runtime Node Trigger Choice.
 /// When the object is serialized out as xml, it's qualified name is p:rtn.
@@ -2201,7 +2201,7 @@ pub struct CommonTimeNode {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: Option<i32>,
+    pub id: Option<u32>,
     /// presetID
     /// Represents the following attribute in the schema: :presetID
     #[xml(attr = "presetID")]
@@ -2277,7 +2277,7 @@ pub struct CommonTimeNode {
     /// grpId
     /// Represents the following attribute in the schema: :grpId
     #[xml(attr = "grpId")]
-    pub group_id: Option<i32>,
+    pub group_id: Option<u32>,
     /// afterEffect
     /// Represents the following attribute in the schema: :afterEffect
     #[xml(attr = "afterEffect")]
@@ -2767,7 +2767,7 @@ pub struct CommonMediaNode {
     /// Number of Slides
     /// Represents the following attribute in the schema: :numSld
     #[xml(attr = "numSld")]
-    pub slide_count: Option<i32>,
+    pub slide_count: Option<u32>,
     /// Show When Stopped
     /// Represents the following attribute in the schema: :showWhenStopped
     #[xml(attr = "showWhenStopped")]
@@ -2796,7 +2796,7 @@ pub struct Template {
     /// Level
     /// Represents the following attribute in the schema: :lvl
     #[xml(attr = "lvl")]
-    pub level: Option<i32>,
+    pub level: Option<u32>,
     ///Time Node List
     #[xml(child = "p:tnLst")]
     pub time_node_list: TimeNodeList,
@@ -2841,7 +2841,7 @@ pub struct BuildParagraph {
     /// Group ID
     /// Represents the following attribute in the schema: :grpId
     #[xml(attr = "grpId")]
-    pub group_id: i32,
+    pub group_id: u32,
     /// Expand UI
     /// Represents the following attribute in the schema: :uiExpand
     #[xml(attr = "uiExpand")]
@@ -2853,7 +2853,7 @@ pub struct BuildParagraph {
     /// Build Level
     /// Represents the following attribute in the schema: :bldLvl
     #[xml(attr = "bldLvl")]
-    pub build_level: Option<i32>,
+    pub build_level: Option<u32>,
     /// Animate Background
     /// Represents the following attribute in the schema: :animBg
     #[xml(attr = "animBg")]
@@ -2886,7 +2886,7 @@ pub struct BuildDiagram {
     /// Group ID
     /// Represents the following attribute in the schema: :grpId
     #[xml(attr = "grpId")]
-    pub group_id: i32,
+    pub group_id: u32,
     /// Expand UI
     /// Represents the following attribute in the schema: :uiExpand
     #[xml(attr = "uiExpand")]
@@ -2908,7 +2908,7 @@ pub struct BuildOleChart {
     /// Group ID
     /// Represents the following attribute in the schema: :grpId
     #[xml(attr = "grpId")]
-    pub group_id: i32,
+    pub group_id: u32,
     /// Expand UI
     /// Represents the following attribute in the schema: :uiExpand
     #[xml(attr = "uiExpand")]
@@ -2934,7 +2934,7 @@ pub struct BuildGraphics {
     /// Group ID
     /// Represents the following attribute in the schema: :grpId
     #[xml(attr = "grpId")]
-    pub group_id: i32,
+    pub group_id: u32,
     /// Expand UI
     /// Represents the following attribute in the schema: :uiExpand
     #[xml(attr = "uiExpand")]
@@ -3157,7 +3157,7 @@ pub struct CommentAuthor {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// name
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -3169,11 +3169,11 @@ pub struct CommentAuthor {
     /// lastIdx
     /// Represents the following attribute in the schema: :lastIdx
     #[xml(attr = "lastIdx")]
-    pub last_index: i32,
+    pub last_index: u32,
     /// clrIdx
     /// Represents the following attribute in the schema: :clrIdx
     #[xml(attr = "clrIdx")]
-    pub color_index: i32,
+    pub color_index: u32,
     /// _
     #[xml(child = "p:extLst")]
     pub comment_author_extension_list: Option<CommentAuthorExtensionList>,
@@ -3186,7 +3186,7 @@ pub struct Comment {
     /// authorId
     /// Represents the following attribute in the schema: :authorId
     #[xml(attr = "authorId")]
-    pub author_id: i32,
+    pub author_id: u32,
     /// dt
     /// Represents the following attribute in the schema: :dt
     #[xml(attr = "dt")]
@@ -3194,7 +3194,7 @@ pub struct Comment {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     /// _
     #[xml(child = "p:pos")]
     pub position: Position,
@@ -3262,7 +3262,7 @@ pub struct SlideId {
     /// Slide Identifier
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Relationship Identifier
     /// Represents the following attribute in the schema: r:id
     #[xml(attr = "r:id")]
@@ -3279,7 +3279,7 @@ pub struct SlideMasterId {
     /// Slide Master Identifier
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: Option<i32>,
+    pub id: Option<u32>,
     /// Relationship Identifier
     /// Represents the following attribute in the schema: r:id
     #[xml(attr = "r:id")]
@@ -3428,7 +3428,7 @@ pub struct CustomShow {
     /// Custom Show ID
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     ///List of Presentation Slides
     #[xml(child = "p:sldLst")]
     pub slide_list: SlideList,
@@ -3444,7 +3444,7 @@ pub struct NonVisualDrawingProperties {
     /// Application defined unique identifier.
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Name compatible with Object Model (non-unique).
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -3768,7 +3768,7 @@ pub struct BlipFill {
     /// DPI Setting
     /// Represents the following attribute in the schema: :dpi
     #[xml(attr = "dpi")]
-    pub dpi: Option<i32>,
+    pub dpi: Option<u32>,
     /// Rotate With Shape
     /// Represents the following attribute in the schema: :rotWithShape
     #[xml(attr = "rotWithShape")]
@@ -4182,7 +4182,7 @@ pub struct SlideLayoutId {
     /// ID Tag
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: Option<i32>,
+    pub id: Option<u32>,
     /// ID Tag
     /// Represents the following attribute in the schema: r:id
     #[xml(attr = "r:id")]
@@ -4292,11 +4292,11 @@ pub struct Origin {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Defines the Position Class.
 /// When the object is serialized out as xml, it's qualified name is p:pos.
@@ -4306,11 +4306,11 @@ pub struct Position {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Defines the Point2DType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -4320,11 +4320,11 @@ pub struct Point2DType {
     /// X-Axis Coordinate
     /// Represents the following attribute in the schema: :x
     #[xml(attr = "x")]
-    pub x: i64,
+    pub x: i32,
     /// Y-Axis Coordinate
     /// Represents the following attribute in the schema: :y
     #[xml(attr = "y")]
-    pub y: i64,
+    pub y: i32,
 }
 /// Base properties for Notes View.
 /// When the object is serialized out as xml, it's qualified name is p:cViewPr.
@@ -4522,11 +4522,11 @@ pub struct GridSpacing {
     /// Extent Length
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub cx: i64,
+    pub cx: i32,
     /// Extent Width
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub cy: i64,
+    pub cy: i32,
 }
 /// Defines the NotesSize Class.
 /// When the object is serialized out as xml, it's qualified name is p:notesSz.
@@ -4536,11 +4536,11 @@ pub struct NotesSize {
     /// Extent Length
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub cx: i64,
+    pub cx: i32,
     /// Extent Width
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub cy: i64,
+    pub cy: i32,
 }
 /// Defines the PositiveSize2DType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -4550,11 +4550,11 @@ pub struct PositiveSize2DType {
     /// Extent Length
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub cx: i64,
+    pub cx: i32,
     /// Extent Width
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub cy: i64,
+    pub cy: i32,
 }
 /// Defines the SlideExtension Class.
 /// When the object is serialized out as xml, it's qualified name is p:ext.
@@ -5386,7 +5386,7 @@ pub struct PlaceholderShape {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: Option<i32>,
+    pub index: Option<u32>,
     /// hasCustomPrompt
     /// Represents the following attribute in the schema: :hasCustomPrompt
     #[xml(attr = "hasCustomPrompt")]
@@ -5833,11 +5833,11 @@ pub struct ModificationVerifier {
     /// Cryptographic Hashing Algorithm
     /// Represents the following attribute in the schema: :cryptAlgorithmSid
     #[xml(attr = "cryptAlgorithmSid")]
-    pub cryptographic_algorithm_sid: i32,
+    pub cryptographic_algorithm_sid: u32,
     /// Iterations to Run Hashing Algorithm
     /// Represents the following attribute in the schema: :spinCount
     #[xml(attr = "spinCount")]
-    pub spin_count: i32,
+    pub spin_count: u32,
     /// Salt for Password Verifier
     /// Represents the following attribute in the schema: :saltData
     #[xml(attr = "saltData")]
@@ -5853,7 +5853,7 @@ pub struct ModificationVerifier {
     /// Cryptographic Algorithm Extensibility
     /// Represents the following attribute in the schema: :algIdExt
     #[xml(attr = "algIdExt")]
-    pub extended_cryptographic_algorithm: Option<i32>,
+    pub extended_cryptographic_algorithm: Option<u32>,
     /// Algorithm Extensibility Source
     /// Represents the following attribute in the schema: :algIdExtSource
     #[xml(attr = "algIdExtSource")]
@@ -5861,7 +5861,7 @@ pub struct ModificationVerifier {
     /// Cryptographic Provider Type Extensibility
     /// Represents the following attribute in the schema: :cryptProviderTypeExt
     #[xml(attr = "cryptProviderTypeExt")]
-    pub cryptographic_provider_type_extensibility: Option<i32>,
+    pub cryptographic_provider_type_extensibility: Option<u32>,
     /// Provider Type Extensibility Source
     /// Represents the following attribute in the schema: :cryptProviderTypeExtSource
     #[xml(attr = "cryptProviderTypeExtSource")]
@@ -5881,7 +5881,7 @@ pub struct ModificationVerifier {
     /// spinValue
     /// Represents the following attribute in the schema: :spinValue
     #[xml(attr = "spinValue")]
-    pub spin_value: Option<i32>,
+    pub spin_value: Option<u32>,
 }
 /// Defines the PresentationExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is p:extLst.
@@ -6271,7 +6271,7 @@ pub struct OleChartElement {
     /// Level
     /// Represents the following attribute in the schema: :lvl
     #[xml(attr = "lvl")]
-    pub level: Option<i32>,
+    pub level: Option<u32>,
 }
 /// Text Element.
 /// When the object is serialized out as xml, it's qualified name is p:txEl.
@@ -6475,7 +6475,7 @@ pub struct WheelTransition {
     /// Spokes
     /// Represents the following attribute in the schema: :spokes
     #[xml(attr = "spokes")]
-    pub spokes: Option<i32>,
+    pub spokes: Option<u32>,
 }
 /// Defines the ZoomTransition Class.
 /// When the object is serialized out as xml, it's qualified name is p:zoom.

@@ -106,11 +106,11 @@ pub struct ParentCommentIdentifier {
     /// authorId
     /// Represents the following attribute in the schema: :authorId
     #[xml(attr = "authorId")]
-    pub author_id: Option<i32>,
+    pub author_id: Option<u32>,
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: Option<i32>,
+    pub index: Option<u32>,
 }
 /// Defines the ColorType Class.
 /// When the object is serialized out as xml, it's qualified name is p15:clr.
@@ -171,7 +171,7 @@ pub struct ExtendedGuide {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// name
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]

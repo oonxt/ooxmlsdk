@@ -190,7 +190,7 @@ pub struct VtVector {
     /// Vector Size
     /// Represents the following attribute in the schema: :size
     #[xml(attr = "size")]
-    pub size: i32,
+    pub size: u32,
     #[xml(
         child = "vt:variant",
         child = "vt:i1",
@@ -432,7 +432,7 @@ pub struct VtInteger {
 #[xml(tag = "vt:i8")]
 pub struct VtInt64 {
     #[xml(text)]
-    pub child: i64,
+    pub child: i32,
 }
 /// 1-Byte Unsigned Integer.
 /// When the object is serialized out as xml, it's qualified name is vt:ui1.
@@ -448,7 +448,7 @@ pub struct VtUnsignedByte {
 #[xml(tag = "vt:ui2")]
 pub struct VtUnsignedShort {
     #[xml(text)]
-    pub child: i16,
+    pub child: u16,
 }
 /// 4-Byte Unsigned Integer.
 /// When the object is serialized out as xml, it's qualified name is vt:ui4.
@@ -456,7 +456,7 @@ pub struct VtUnsignedShort {
 #[xml(tag = "vt:ui4")]
 pub struct VtUnsignedInt32 {
     #[xml(text)]
-    pub child: i32,
+    pub child: u32,
 }
 /// Unsigned Integer.
 /// When the object is serialized out as xml, it's qualified name is vt:uint.
@@ -464,7 +464,7 @@ pub struct VtUnsignedInt32 {
 #[xml(tag = "vt:uint")]
 pub struct VtUnsignedInteger {
     #[xml(text)]
-    pub child: i32,
+    pub child: u32,
 }
 /// 8-Byte Unsigned Integer.
 /// When the object is serialized out as xml, it's qualified name is vt:ui8.
@@ -472,7 +472,7 @@ pub struct VtUnsignedInteger {
 #[xml(tag = "vt:ui8")]
 pub struct VtUnsignedInt64 {
     #[xml(text)]
-    pub child: i64,
+    pub child: u64,
 }
 /// 4-Byte Real Number.
 /// When the object is serialized out as xml, it's qualified name is vt:r4.
@@ -594,7 +594,7 @@ pub struct VtClipboardData {
     /// size
     /// Represents the following attribute in the schema: :size
     #[xml(attr = "size")]
-    pub size: i32,
+    pub size: u32,
     #[xml(text)]
     pub child: String,
 }

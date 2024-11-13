@@ -6,7 +6,7 @@ pub struct EmbeddedAnimation {
     /// animId
     /// Represents the following attribute in the schema: :animId
     #[xml(attr = "animId")]
-    pub anim_id: i32,
+    pub anim_id: u32,
     /// _
     #[xml(child = "a3danim:animPr")]
     pub animation_properties: AnimationProperties,
@@ -22,7 +22,7 @@ pub struct PosterFrame {
     /// animId
     /// Represents the following attribute in the schema: :animId
     #[xml(attr = "animId")]
-    pub anim_id: i32,
+    pub anim_id: u32,
     /// frame
     /// Represents the following attribute in the schema: :frame
     #[xml(attr = "frame")]

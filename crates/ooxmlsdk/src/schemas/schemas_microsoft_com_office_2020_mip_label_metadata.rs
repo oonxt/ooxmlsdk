@@ -70,7 +70,7 @@ pub struct ClassificationLabel {
     /// contentBits
     /// Represents the following attribute in the schema: :contentBits
     #[xml(attr = "contentBits")]
-    pub content_bits: Option<i32>,
+    pub content_bits: Option<u32>,
     /// removed
     /// Represents the following attribute in the schema: :removed
     #[xml(attr = "removed")]

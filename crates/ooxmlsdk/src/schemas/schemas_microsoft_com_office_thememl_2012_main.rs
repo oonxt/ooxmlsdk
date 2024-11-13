@@ -48,11 +48,11 @@ pub struct ThemeVariant {
     /// cx
     /// Represents the following attribute in the schema: :cx
     #[xml(attr = "cx")]
-    pub x: i64,
+    pub x: i32,
     /// cy
     /// Represents the following attribute in the schema: :cy
     #[xml(attr = "cy")]
-    pub y: i64,
+    pub y: i32,
     /// id
     /// Represents the following attribute in the schema: r:id
     #[xml(attr = "r:id")]

@@ -31,7 +31,7 @@ pub struct LineSketchStyleProperties {
     /// sd
     /// Represents the following attribute in the schema: :sd
     #[xml(attr = "sd")]
-    pub sd: Option<i32>,
+    pub sd: Option<u32>,
     #[xml(
         child = "a:custGeom",
         child = "a:prstGeom",
@@ -88,7 +88,7 @@ pub enum LineSketchTypePropertiesChildChoice {
 #[xml(tag = "ask:seed")]
 pub struct LineSketchSeed {
     #[xml(text)]
-    pub child: i32,
+    pub child: u32,
 }
 /// Defines the OfficeArtExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is ask:extLst.

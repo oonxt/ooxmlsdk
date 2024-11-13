@@ -960,7 +960,7 @@ pub struct Explosion {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the Marker Class.
 /// When the object is serialized out as xml, it's qualified name is c15:marker.

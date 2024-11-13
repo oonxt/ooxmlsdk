@@ -685,7 +685,7 @@ pub struct AcceleratorSecondary {
 #[xml(tag = "xvml:Row")]
 pub struct CommentRowTarget {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Comment Column Target.
 /// When the object is serialized out as xml, it's qualified name is xvml:Column.
@@ -693,7 +693,7 @@ pub struct CommentRowTarget {
 #[xml(tag = "xvml:Column")]
 pub struct CommentColumnTarget {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Validation Type.
 /// When the object is serialized out as xml, it's qualified name is xvml:VTEdit.
@@ -701,7 +701,7 @@ pub struct CommentColumnTarget {
 #[xml(tag = "xvml:VTEdit")]
 pub struct InputValidationType {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Minimum Width.
 /// When the object is serialized out as xml, it's qualified name is xvml:WidthMin.
@@ -709,7 +709,7 @@ pub struct InputValidationType {
 #[xml(tag = "xvml:WidthMin")]
 pub struct MinDropDownWidth {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Selected Entry.
 /// When the object is serialized out as xml, it's qualified name is xvml:Sel.
@@ -717,7 +717,7 @@ pub struct MinDropDownWidth {
 #[xml(tag = "xvml:Sel")]
 pub struct SelectionEntry {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Dropdown Maximum Lines.
 /// When the object is serialized out as xml, it's qualified name is xvml:DropLines.
@@ -725,7 +725,7 @@ pub struct SelectionEntry {
 #[xml(tag = "xvml:DropLines")]
 pub struct DropLines {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Checked.
 /// When the object is serialized out as xml, it's qualified name is xvml:Checked.
@@ -733,7 +733,7 @@ pub struct DropLines {
 #[xml(tag = "xvml:Checked")]
 pub struct Checked {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Scroll bar position.
 /// When the object is serialized out as xml, it's qualified name is xvml:Val.
@@ -741,7 +741,7 @@ pub struct Checked {
 #[xml(tag = "xvml:Val")]
 pub struct ScrollBarPosition {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Scroll Bar Minimum.
 /// When the object is serialized out as xml, it's qualified name is xvml:Min.
@@ -749,7 +749,7 @@ pub struct ScrollBarPosition {
 #[xml(tag = "xvml:Min")]
 pub struct ScrollBarMin {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Scroll Bar Maximum.
 /// When the object is serialized out as xml, it's qualified name is xvml:Max.
@@ -757,7 +757,7 @@ pub struct ScrollBarMin {
 #[xml(tag = "xvml:Max")]
 pub struct ScrollBarMax {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Scroll Bar Increment.
 /// When the object is serialized out as xml, it's qualified name is xvml:Inc.
@@ -765,7 +765,7 @@ pub struct ScrollBarMax {
 #[xml(tag = "xvml:Inc")]
 pub struct ScrollBarIncrement {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Scroll Bar Page Increment.
 /// When the object is serialized out as xml, it's qualified name is xvml:Page.
@@ -773,7 +773,7 @@ pub struct ScrollBarIncrement {
 #[xml(tag = "xvml:Page")]
 pub struct ScrollBarPageIncrement {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Scroll Bar Width.
 /// When the object is serialized out as xml, it's qualified name is xvml:Dx.
@@ -781,7 +781,7 @@ pub struct ScrollBarPageIncrement {
 #[xml(tag = "xvml:Dx")]
 pub struct ScrollBarWidth {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// Clipboard Format.
 /// When the object is serialized out as xml, it's qualified name is xvml:CF.
@@ -797,7 +797,7 @@ pub struct ClipboardFormat {
 #[xml(tag = "xvml:ScriptLanguage")]
 pub struct ScriptLanguage {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }
 /// HTML Script Location.
 /// When the object is serialized out as xml, it's qualified name is xvml:ScriptLocation.
@@ -805,5 +805,5 @@ pub struct ScriptLanguage {
 #[xml(tag = "xvml:ScriptLocation")]
 pub struct ScriptLocation {
     #[xml(text)]
-    pub child: i32,
+    pub child: i64,
 }

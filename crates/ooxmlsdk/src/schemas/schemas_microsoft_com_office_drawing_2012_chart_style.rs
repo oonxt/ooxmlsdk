@@ -146,7 +146,7 @@ pub struct ColorStyle {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: Option<i32>,
+    pub id: Option<u32>,
     #[xml(
         child = "a:scrgbClr",
         child = "a:srgbClr",
@@ -208,7 +208,7 @@ pub struct ChartStyle {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: Option<i32>,
+    pub id: Option<u32>,
     /// _
     #[xml(child = "cs:axisTitle")]
     pub axis_title: AxisTitle,
@@ -579,7 +579,7 @@ pub struct LineReference {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     /// mods
     /// Represents the following attribute in the schema: :mods
     #[xml(attr = "mods")]
@@ -628,7 +628,7 @@ pub struct FillReference {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     /// mods
     /// Represents the following attribute in the schema: :mods
     #[xml(attr = "mods")]
@@ -677,7 +677,7 @@ pub struct EffectReference {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     /// mods
     /// Represents the following attribute in the schema: :mods
     #[xml(attr = "mods")]
@@ -726,7 +726,7 @@ pub struct StyleReference {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     /// mods
     /// Represents the following attribute in the schema: :mods
     #[xml(attr = "mods")]
@@ -987,7 +987,7 @@ pub struct TextCharacterPropertiesType {
     /// smtId
     /// Represents the following attribute in the schema: :smtId
     #[xml(attr = "smtId")]
-    pub smart_tag_id: Option<i32>,
+    pub smart_tag_id: Option<u32>,
     /// bmk
     /// Represents the following attribute in the schema: :bmk
     #[xml(attr = "bmk")]
@@ -1373,11 +1373,11 @@ pub struct DataSeries {
     /// gapWidth
     /// Represents the following attribute in the schema: :gapWidth
     #[xml(attr = "gapWidth")]
-    pub gap_width: Option<i16>,
+    pub gap_width: Option<u16>,
     /// gapDepth
     /// Represents the following attribute in the schema: :gapDepth
     #[xml(attr = "gapDepth")]
-    pub gap_depth: Option<i16>,
+    pub gap_depth: Option<u16>,
     /// doughnutHoleSize
     /// Represents the following attribute in the schema: :doughnutHoleSize
     #[xml(attr = "doughnutHoleSize")]
@@ -1509,7 +1509,7 @@ pub struct View3DProperties {
     /// rotY
     /// Represents the following attribute in the schema: :rotY
     #[xml(attr = "rotY")]
-    pub rot_y: Option<i16>,
+    pub rot_y: Option<u16>,
     /// rAngAx
     /// Represents the following attribute in the schema: :rAngAx
     #[xml(attr = "rAngAx")]
@@ -1521,11 +1521,11 @@ pub struct View3DProperties {
     /// heightPercent
     /// Represents the following attribute in the schema: :heightPercent
     #[xml(attr = "heightPercent")]
-    pub height_percent: Option<i16>,
+    pub height_percent: Option<u16>,
     /// depthPercent
     /// Represents the following attribute in the schema: :depthPercent
     #[xml(attr = "depthPercent")]
-    pub depth_percent: Option<i16>,
+    pub depth_percent: Option<u16>,
 }
 /// Defines the AxisTitle Class.
 /// When the object is serialized out as xml, it's qualified name is cs:axisTitle.

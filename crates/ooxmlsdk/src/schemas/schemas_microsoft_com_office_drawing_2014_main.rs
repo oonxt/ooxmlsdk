@@ -40,7 +40,7 @@ pub struct RowIdIdentifier {
     /// val
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the ColIdIdentifier Class.
 /// When the object is serialized out as xml, it's qualified name is a16:colId.
@@ -50,7 +50,7 @@ pub struct ColIdIdentifier {
     /// val
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the OpenXmlIdentifierElement Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -60,5 +60,5 @@ pub struct OpenXmlIdentifierElement {
     /// val
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }

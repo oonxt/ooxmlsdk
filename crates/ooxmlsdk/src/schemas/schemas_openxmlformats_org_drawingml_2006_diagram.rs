@@ -1111,7 +1111,7 @@ pub struct ColorTransformCategory {
     /// Priority
     /// Represents the following attribute in the schema: :pri
     #[xml(attr = "pri")]
-    pub priority: i32,
+    pub priority: u32,
 }
 /// Fill Color List.
 /// When the object is serialized out as xml, it's qualified name is dgm:fillClrLst.
@@ -1570,11 +1570,11 @@ pub struct Connection {
     /// Source Position
     /// Represents the following attribute in the schema: :srcOrd
     #[xml(attr = "srcOrd")]
-    pub source_position: i32,
+    pub source_position: u32,
     /// Destination Position
     /// Represents the following attribute in the schema: :destOrd
     #[xml(attr = "destOrd")]
-    pub destination_position: i32,
+    pub destination_position: u32,
     /// Parent Transition Identifier
     /// Represents the following attribute in the schema: :parTransId
     #[xml(attr = "parTransId")]
@@ -1689,7 +1689,7 @@ pub struct Adjust {
     /// Adjust Handle Index
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     /// Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
@@ -1730,7 +1730,7 @@ pub struct Algorithm {
     /// Revision Number
     /// Represents the following attribute in the schema: :rev
     #[xml(attr = "rev")]
-    pub revision: Option<i32>,
+    pub revision: Option<u32>,
     /// _
     #[xml(child = "dgm:param")]
     pub dgm_param: Vec<Parameter>,
@@ -2204,7 +2204,7 @@ pub struct Category {
     /// Priority
     /// Represents the following attribute in the schema: :pri
     #[xml(attr = "pri")]
-    pub priority: i32,
+    pub priority: u32,
 }
 /// Title.
 /// When the object is serialized out as xml, it's qualified name is dgm:title.
@@ -2363,7 +2363,7 @@ pub struct StyleDisplayCategory {
     /// Priority
     /// Represents the following attribute in the schema: :pri
     #[xml(attr = "pri")]
-    pub priority: i32,
+    pub priority: u32,
 }
 /// 3-D Scene.
 /// When the object is serialized out as xml, it's qualified name is dgm:scene3d.
@@ -2395,15 +2395,15 @@ pub struct Shape3D {
     /// Shape Depth
     /// Represents the following attribute in the schema: :z
     #[xml(attr = "z")]
-    pub z: Option<i64>,
+    pub z: Option<i32>,
     /// Extrusion Height
     /// Represents the following attribute in the schema: :extrusionH
     #[xml(attr = "extrusionH")]
-    pub extrusion_height: Option<i64>,
+    pub extrusion_height: Option<i32>,
     /// Contour Width
     /// Represents the following attribute in the schema: :contourW
     #[xml(attr = "contourW")]
-    pub contour_width: Option<i64>,
+    pub contour_width: Option<i32>,
     /// Preset Material Type
     /// Represents the following attribute in the schema: :prstMaterial
     #[xml(attr = "prstMaterial")]

@@ -107,7 +107,7 @@ pub struct RichSortCondition {
     /// dxfId
     /// Represents the following attribute in the schema: :dxfId
     #[xml(attr = "dxfId")]
-    pub format_id: Option<i32>,
+    pub format_id: Option<u32>,
     /// iconSet
     /// Represents the following attribute in the schema: :iconSet
     #[xml(attr = "iconSet")]
@@ -117,7 +117,7 @@ pub struct RichSortCondition {
     /// iconId
     /// Represents the following attribute in the schema: :iconId
     #[xml(attr = "iconId")]
-    pub icon_id: Option<i32>,
+    pub icon_id: Option<u32>,
 }
 /// Defines the SupportingPropertyBags Class.
 /// When the object is serialized out as xml, it's qualified name is xlrd2:supportingPropertyBags.
@@ -159,7 +159,7 @@ pub struct SupportingPropertyBagStructures {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: i32,
+    pub count: u32,
     /// _
     #[xml(child = "xlrd2:s")]
     pub xlrd2_s: Vec<SupportingPropertyBagStructure>,
@@ -189,7 +189,7 @@ pub struct ArrayData {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: i32,
+    pub count: u32,
     /// _
     #[xml(child = "xlrd2:a")]
     pub xlrd2_a: Vec<Array>,
@@ -403,27 +403,27 @@ pub struct RichDateGroupItem {
     /// Year
     /// Represents the following attribute in the schema: :year
     #[xml(attr = "year")]
-    pub year: i16,
+    pub year: u16,
     /// Month
     /// Represents the following attribute in the schema: :month
     #[xml(attr = "month")]
-    pub month: Option<i16>,
+    pub month: Option<u16>,
     /// Day
     /// Represents the following attribute in the schema: :day
     #[xml(attr = "day")]
-    pub day: Option<i16>,
+    pub day: Option<u16>,
     /// Hour
     /// Represents the following attribute in the schema: :hour
     #[xml(attr = "hour")]
-    pub hour: Option<i16>,
+    pub hour: Option<u16>,
     /// Minute
     /// Represents the following attribute in the schema: :minute
     #[xml(attr = "minute")]
-    pub minute: Option<i16>,
+    pub minute: Option<u16>,
     /// Second
     /// Represents the following attribute in the schema: :second
     #[xml(attr = "second")]
-    pub second: Option<i16>,
+    pub second: Option<u16>,
     /// Date Time Grouping
     /// Represents the following attribute in the schema: :dateTimeGrouping
     #[xml(attr = "dateTimeGrouping")]
@@ -457,7 +457,7 @@ pub struct SupportingPropertyBagArrayData {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: i32,
+    pub count: u32,
     /// _
     #[xml(child = "xlrd2:a")]
     pub xlrd2_a: Vec<SupportingPropertyBagArray>,
@@ -473,7 +473,7 @@ pub struct SupportingPropertyBagData {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: i32,
+    pub count: u32,
     /// _
     #[xml(child = "xlrd2:spb")]
     pub xlrd2_spb: Vec<SupportingPropertyBag>,
@@ -489,7 +489,7 @@ pub struct SupportingPropertyBag {
     /// s
     /// Represents the following attribute in the schema: :s
     #[xml(attr = "s")]
-    pub s: i32,
+    pub s: u32,
     /// _
     #[xml(child = "xlrd2:v")]
     pub xlrd2_v: Vec<SupportingPropertyBagValue>,
@@ -533,7 +533,7 @@ pub struct SupportingPropertyBagArray {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: i32,
+    pub count: u32,
     /// _
     #[xml(child = "xlrd2:v")]
     pub xlrd2_v: Vec<SupportingPropertyBagArrayValue>,
@@ -558,11 +558,11 @@ pub struct Array {
     /// r
     /// Represents the following attribute in the schema: :r
     #[xml(attr = "r")]
-    pub r: i32,
+    pub r: u32,
     /// c
     /// Represents the following attribute in the schema: :c
     #[xml(attr = "c")]
-    pub c: Option<i32>,
+    pub c: Option<u32>,
     /// _
     #[xml(child = "xlrd2:v")]
     pub xlrd2_v: Vec<ArrayValue>,
@@ -587,7 +587,7 @@ pub struct Dxfs {
     /// Format Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x:dxf")]
     pub x_dxf: Vec<
@@ -634,7 +634,7 @@ pub struct RichStyle {
     /// dxfid
     /// Represents the following attribute in the schema: :dxfid
     #[xml(attr = "dxfid")]
-    pub dxfid: Option<i32>,
+    pub dxfid: Option<u32>,
     /// _
     #[xml(child = "xlrd2:rpv")]
     pub xlrd2_rpv: Vec<RichStylePropertyValue>,
@@ -647,7 +647,7 @@ pub struct RichStylePropertyValue {
     /// i
     /// Represents the following attribute in the schema: :i
     #[xml(attr = "i")]
-    pub i: i32,
+    pub i: u32,
     #[xml(text)]
     pub child: String,
 }

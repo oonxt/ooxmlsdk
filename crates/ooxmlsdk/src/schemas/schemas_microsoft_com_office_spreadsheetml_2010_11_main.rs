@@ -232,7 +232,7 @@ pub struct DifferentialFormats {
     /// Format Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x:dxf")]
     pub x_dxf: Vec<
@@ -398,15 +398,15 @@ pub struct PivotTableData {
     /// rowCount
     /// Represents the following attribute in the schema: :rowCount
     #[xml(attr = "rowCount")]
-    pub row_count: Option<i32>,
+    pub row_count: Option<u32>,
     /// columnCount
     /// Represents the following attribute in the schema: :columnCount
     #[xml(attr = "columnCount")]
-    pub column_count: Option<i32>,
+    pub column_count: Option<u32>,
     /// cacheId
     /// Represents the following attribute in the schema: :cacheId
     #[xml(attr = "cacheId")]
-    pub cache_id: i32,
+    pub cache_id: u32,
     #[xml(child = "x15:pivotRow")]
     pub children: Vec<PivotTableDataChildChoice>,
 }
@@ -451,7 +451,7 @@ pub struct MovingPeriodState {
     /// referenceMultiple
     /// Represents the following attribute in the schema: :referenceMultiple
     #[xml(attr = "referenceMultiple")]
-    pub reference_multiple: i32,
+    pub reference_multiple: u32,
     /// movingPeriod
     /// Represents the following attribute in the schema: :movingPeriod
     #[xml(attr = "movingPeriod")]
@@ -459,7 +459,7 @@ pub struct MovingPeriodState {
     /// movingMultiple
     /// Represents the following attribute in the schema: :movingMultiple
     #[xml(attr = "movingMultiple")]
-    pub moving_multiple: i32,
+    pub moving_multiple: u32,
 }
 /// Defines the SlicerCaches Class.
 /// When the object is serialized out as xml, it's qualified name is x15:slicerCaches.
@@ -480,11 +480,11 @@ pub struct TableSlicerCache {
     /// tableId
     /// Represents the following attribute in the schema: :tableId
     #[xml(attr = "tableId")]
-    pub table_id: i32,
+    pub table_id: u32,
     /// column
     /// Represents the following attribute in the schema: :column
     #[xml(attr = "column")]
-    pub column: i32,
+    pub column: u32,
     /// sortOrder
     /// Represents the following attribute in the schema: :sortOrder
     #[xml(attr = "sortOrder")]
@@ -513,7 +513,7 @@ pub struct SlicerCacheHideItemsWithNoData {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "x15:slicerCacheOlapLevelName")]
     pub x15_slicer_cache_olap_level_name: Vec<SlicerCacheOlapLevelName>,
@@ -537,7 +537,7 @@ pub struct Survey {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// guid
     /// Represents the following attribute in the schema: :guid
     #[xml(attr = "guid")]
@@ -694,7 +694,7 @@ pub struct TimelineStyleElement {
     /// dxfId
     /// Represents the following attribute in the schema: :dxfId
     #[xml(attr = "dxfId")]
-    pub format_id: Option<i32>,
+    pub format_id: Option<u32>,
 }
 /// Defines the TimelineStyleElements Class.
 /// When the object is serialized out as xml, it's qualified name is x15:timelineStyleElements.
@@ -752,7 +752,7 @@ pub struct TextProperties {
     /// codePage
     /// Represents the following attribute in the schema: :codePage
     #[xml(attr = "codePage")]
-    pub code_page: Option<i32>,
+    pub code_page: Option<u32>,
     /// characterSet
     /// Represents the following attribute in the schema: :characterSet
     #[xml(attr = "characterSet")]
@@ -760,7 +760,7 @@ pub struct TextProperties {
     /// firstRow
     /// Represents the following attribute in the schema: :firstRow
     #[xml(attr = "firstRow")]
-    pub first_row: Option<i32>,
+    pub first_row: Option<u32>,
     /// sourceFile
     /// Represents the following attribute in the schema: :sourceFile
     #[xml(attr = "sourceFile")]
@@ -877,7 +877,7 @@ pub struct FieldListActiveTabTopLevelEntity {
     /// type
     /// Represents the following attribute in the schema: :type
     #[xml(attr = "type")]
-    pub r#type: Option<i32>,
+    pub r#type: Option<u32>,
 }
 /// Defines the ExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x15:extLst.
@@ -900,7 +900,7 @@ pub struct CachedUniqueName {
     /// index
     /// Represents the following attribute in the schema: :index
     #[xml(attr = "index")]
-    pub index: i32,
+    pub index: u32,
     /// name
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -972,7 +972,7 @@ pub struct PivotValueCell {
     /// i
     /// Represents the following attribute in the schema: :i
     #[xml(attr = "i")]
-    pub item: Option<i32>,
+    pub item: Option<u32>,
     /// t
     /// Represents the following attribute in the schema: :t
     #[xml(attr = "t")]
@@ -1000,7 +1000,7 @@ pub struct PivotValueCellExtra {
     /// in
     /// Represents the following attribute in the schema: :in
     #[xml(attr = "in")]
-    pub format_index: Option<i32>,
+    pub format_index: Option<u32>,
     /// bc
     /// Represents the following attribute in the schema: :bc
     #[xml(attr = "bc")]
@@ -1034,7 +1034,7 @@ pub struct PivotTableServerFormats {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: i32,
+    pub count: u32,
     /// _
     #[xml(child = "x15:serverFormat")]
     pub x15_server_format: Vec<ServerFormat>,
@@ -1065,7 +1065,7 @@ pub struct SlicerCacheOlapLevelName {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: i32,
+    pub count: u32,
 }
 /// Defines the SurveyPrSurveyElementPr Class.
 /// When the object is serialized out as xml, it's qualified name is x15:surveyPr.
@@ -1095,11 +1095,11 @@ pub struct SurveyPrSurveyElementPr {
     /// width
     /// Represents the following attribute in the schema: :width
     #[xml(attr = "width")]
-    pub width: Option<i32>,
+    pub width: Option<u32>,
     /// height
     /// Represents the following attribute in the schema: :height
     #[xml(attr = "height")]
-    pub height: Option<i32>,
+    pub height: Option<u32>,
     /// position
     /// Represents the following attribute in the schema: :position
     #[xml(attr = "position")]
@@ -1136,11 +1136,11 @@ pub struct TitlePrSurveyElementPr {
     /// width
     /// Represents the following attribute in the schema: :width
     #[xml(attr = "width")]
-    pub width: Option<i32>,
+    pub width: Option<u32>,
     /// height
     /// Represents the following attribute in the schema: :height
     #[xml(attr = "height")]
-    pub height: Option<i32>,
+    pub height: Option<u32>,
     /// position
     /// Represents the following attribute in the schema: :position
     #[xml(attr = "position")]
@@ -1177,11 +1177,11 @@ pub struct DescriptionPrSurveyElementPr {
     /// width
     /// Represents the following attribute in the schema: :width
     #[xml(attr = "width")]
-    pub width: Option<i32>,
+    pub width: Option<u32>,
     /// height
     /// Represents the following attribute in the schema: :height
     #[xml(attr = "height")]
-    pub height: Option<i32>,
+    pub height: Option<u32>,
     /// position
     /// Represents the following attribute in the schema: :position
     #[xml(attr = "position")]
@@ -1218,11 +1218,11 @@ pub struct QuestionsPrSurveyElementPr {
     /// width
     /// Represents the following attribute in the schema: :width
     #[xml(attr = "width")]
-    pub width: Option<i32>,
+    pub width: Option<u32>,
     /// height
     /// Represents the following attribute in the schema: :height
     #[xml(attr = "height")]
-    pub height: Option<i32>,
+    pub height: Option<u32>,
     /// position
     /// Represents the following attribute in the schema: :position
     #[xml(attr = "position")]
@@ -1259,11 +1259,11 @@ pub struct QuestionPrSurveyElementPr {
     /// width
     /// Represents the following attribute in the schema: :width
     #[xml(attr = "width")]
-    pub width: Option<i32>,
+    pub width: Option<u32>,
     /// height
     /// Represents the following attribute in the schema: :height
     #[xml(attr = "height")]
-    pub height: Option<i32>,
+    pub height: Option<u32>,
     /// position
     /// Represents the following attribute in the schema: :position
     #[xml(attr = "position")]
@@ -1300,11 +1300,11 @@ pub struct OpenXmlSurveyElementPrElement {
     /// width
     /// Represents the following attribute in the schema: :width
     #[xml(attr = "width")]
-    pub width: Option<i32>,
+    pub width: Option<u32>,
     /// height
     /// Represents the following attribute in the schema: :height
     #[xml(attr = "height")]
-    pub height: Option<i32>,
+    pub height: Option<u32>,
     /// position
     /// Represents the following attribute in the schema: :position
     #[xml(attr = "position")]
@@ -1330,7 +1330,7 @@ pub struct SurveyQuestion {
     /// binding
     /// Represents the following attribute in the schema: :binding
     #[xml(attr = "binding")]
-    pub binding: i32,
+    pub binding: u32,
     /// text
     /// Represents the following attribute in the schema: :text
     #[xml(attr = "text")]
@@ -1358,7 +1358,7 @@ pub struct SurveyQuestion {
     /// decimalPlaces
     /// Represents the following attribute in the schema: :decimalPlaces
     #[xml(attr = "decimalPlaces")]
-    pub decimal_places: Option<i32>,
+    pub decimal_places: Option<u32>,
     /// rowSource
     /// Represents the following attribute in the schema: :rowSource
     #[xml(attr = "rowSource")]
@@ -1406,11 +1406,11 @@ pub struct Timeline {
     /// level
     /// Represents the following attribute in the schema: :level
     #[xml(attr = "level")]
-    pub level: i32,
+    pub level: u32,
     /// selectionLevel
     /// Represents the following attribute in the schema: :selectionLevel
     #[xml(attr = "selectionLevel")]
-    pub selection_level: i32,
+    pub selection_level: u32,
     /// scrollPosition
     /// Represents the following attribute in the schema: :scrollPosition
     #[xml(attr = "scrollPosition")]
@@ -1431,7 +1431,7 @@ pub struct TimelineCachePivotTable {
     /// tabId
     /// Represents the following attribute in the schema: :tabId
     #[xml(attr = "tabId")]
-    pub tab_id: i32,
+    pub tab_id: u32,
     /// name
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -1525,15 +1525,15 @@ pub struct TimelineState {
     /// minimalRefreshVersion
     /// Represents the following attribute in the schema: :minimalRefreshVersion
     #[xml(attr = "minimalRefreshVersion")]
-    pub minimal_refresh_version: i32,
+    pub minimal_refresh_version: u32,
     /// lastRefreshVersion
     /// Represents the following attribute in the schema: :lastRefreshVersion
     #[xml(attr = "lastRefreshVersion")]
-    pub last_refresh_version: i32,
+    pub last_refresh_version: u32,
     /// pivotCacheId
     /// Represents the following attribute in the schema: :pivotCacheId
     #[xml(attr = "pivotCacheId")]
-    pub pivot_cache_id: i32,
+    pub pivot_cache_id: u32,
     /// filterType
     /// Represents the following attribute in the schema: :filterType
     #[xml(attr = "filterType")]
@@ -1541,11 +1541,11 @@ pub struct TimelineState {
     /// filterId
     /// Represents the following attribute in the schema: :filterId
     #[xml(attr = "filterId")]
-    pub filter_id: Option<i32>,
+    pub filter_id: Option<u32>,
     /// filterTabId
     /// Represents the following attribute in the schema: :filterTabId
     #[xml(attr = "filterTabId")]
-    pub filter_tab_id: Option<i32>,
+    pub filter_tab_id: Option<u32>,
     /// filterPivotName
     /// Represents the following attribute in the schema: :filterPivotName
     #[xml(attr = "filterPivotName")]
@@ -1571,11 +1571,11 @@ pub struct PivotRow {
     /// r
     /// Represents the following attribute in the schema: :r
     #[xml(attr = "r")]
-    pub reference: Option<i32>,
+    pub reference: Option<u32>,
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: i32,
+    pub count: u32,
     /// _
     #[xml(child = "x15:c")]
     pub x15_c: Vec<PivotValueCell>,

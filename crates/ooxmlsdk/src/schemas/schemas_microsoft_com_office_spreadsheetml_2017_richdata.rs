@@ -33,7 +33,7 @@ pub struct RichValueBlock {
     /// i
     /// Represents the following attribute in the schema: :i
     #[xml(attr = "i")]
-    pub i: i32,
+    pub i: u32,
 }
 /// Defines the RichValueData Class.
 /// When the object is serialized out as xml, it's qualified name is xlrd:rvData.
@@ -49,7 +49,7 @@ pub struct RichValueData {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: i32,
+    pub count: u32,
     /// _
     #[xml(child = "xlrd:rv")]
     pub xlrd_rv: Vec<RichValue>,
@@ -79,7 +79,7 @@ pub struct RichValueStructures {
     /// count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: i32,
+    pub count: u32,
     /// _
     #[xml(child = "xlrd:s")]
     pub xlrd_s: Vec<RichValueStructure>,
@@ -103,7 +103,7 @@ pub struct RichValue {
     /// s
     /// Represents the following attribute in the schema: :s
     #[xml(attr = "s")]
-    pub s: i32,
+    pub s: u32,
     /// _
     #[xml(child = "xlrd:fb")]
     pub rich_value_fallback: Option<RichValueFallback>,

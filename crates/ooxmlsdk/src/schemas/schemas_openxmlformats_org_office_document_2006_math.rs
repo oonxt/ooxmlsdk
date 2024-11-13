@@ -1389,11 +1389,11 @@ pub struct Break {
     /// Index of Operator to Align To
     /// Represents the following attribute in the schema: m:alnAt
     #[xml(attr = "m:alnAt")]
-    pub align_at: Option<i32>,
+    pub align_at: Option<i64>,
     /// Index of Operator to Align To
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: Option<i32>,
+    pub val: Option<i64>,
 }
 /// Run Properties.
 /// When the object is serialized out as xml, it's qualified name is m:rPr.
@@ -3710,7 +3710,7 @@ pub struct RowSpacingRule {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: i64,
 }
 /// Matrix Column Gap Rule.
 /// When the object is serialized out as xml, it's qualified name is m:cGpRule.
@@ -3720,7 +3720,7 @@ pub struct ColumnGapRule {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: i64,
 }
 /// Defines the SpacingRuleType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -3730,7 +3730,7 @@ pub struct SpacingRuleType {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: i64,
 }
 /// Row Spacing (Equation Array).
 /// When the object is serialized out as xml, it's qualified name is m:rSp.
@@ -3740,7 +3740,7 @@ pub struct RowSpacing {
     /// val
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i16,
+    pub val: u16,
 }
 /// Matrix Column Gap.
 /// When the object is serialized out as xml, it's qualified name is m:cGp.
@@ -3750,7 +3750,7 @@ pub struct ColumnGap {
     /// val
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i16,
+    pub val: u16,
 }
 /// Defines the UnsignedShortType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -3760,7 +3760,7 @@ pub struct UnsignedShortType {
     /// val
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i16,
+    pub val: u16,
 }
 /// Equation Array Properties.
 /// When the object is serialized out as xml, it's qualified name is m:eqArrPr.
@@ -3861,7 +3861,7 @@ pub struct MatrixColumnCount {
     /// val
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: i64,
 }
 /// Matrix Column Justification.
 /// When the object is serialized out as xml, it's qualified name is m:mcJc.
@@ -3902,7 +3902,7 @@ pub struct ColumnSpacing {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Left Margin.
 /// When the object is serialized out as xml, it's qualified name is m:lMargin.
@@ -3912,7 +3912,7 @@ pub struct LeftMargin {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Right Margin.
 /// When the object is serialized out as xml, it's qualified name is m:rMargin.
@@ -3922,7 +3922,7 @@ pub struct RightMargin {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Pre-Equation Spacing.
 /// When the object is serialized out as xml, it's qualified name is m:preSp.
@@ -3932,7 +3932,7 @@ pub struct PreSpacing {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Post-Equation Spacing.
 /// When the object is serialized out as xml, it's qualified name is m:postSp.
@@ -3942,7 +3942,7 @@ pub struct PostSpacing {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Inter-Equation Spacing.
 /// When the object is serialized out as xml, it's qualified name is m:interSp.
@@ -3952,7 +3952,7 @@ pub struct InterSpacing {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Intra-Equation Spacing.
 /// When the object is serialized out as xml, it's qualified name is m:intraSp.
@@ -3962,7 +3962,7 @@ pub struct IntraSpacing {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Wrap Indent.
 /// When the object is serialized out as xml, it's qualified name is m:wrapIndent.
@@ -3972,7 +3972,7 @@ pub struct WrapIndent {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the TwipsMeasureType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -3982,7 +3982,7 @@ pub struct TwipsMeasureType {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Matrix Columns.
 /// When the object is serialized out as xml, it's qualified name is m:mcs.
@@ -4182,7 +4182,7 @@ pub struct ArgumentSize {
     /// Value
     /// Represents the following attribute in the schema: m:val
     #[xml(attr = "m:val")]
-    pub val: i32,
+    pub val: i64,
 }
 /// Argument Properties.
 /// When the object is serialized out as xml, it's qualified name is m:argPr.

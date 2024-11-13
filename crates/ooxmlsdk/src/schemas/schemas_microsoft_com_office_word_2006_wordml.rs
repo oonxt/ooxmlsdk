@@ -529,7 +529,7 @@ pub struct RecordHashCode {
     /// val
     /// Represents the following attribute in the schema: wne:val
     #[xml(attr = "wne:val")]
-    pub val: i32,
+    pub val: i64,
 }
 /// Defines the SingleDataSourceRecord Class.
 /// When the object is serialized out as xml, it's qualified name is wne:recipientData.

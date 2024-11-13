@@ -1647,7 +1647,7 @@ pub struct Glow {
     /// rad
     /// Represents the following attribute in the schema: w14:rad
     #[xml(attr = "w14:rad")]
-    pub glow_radius: Option<i64>,
+    pub glow_radius: Option<i32>,
     #[xml(child = "w14:srgbClr", child = "w14:schemeClr")]
     pub children: Vec<GlowChildChoice>,
 }
@@ -1666,11 +1666,11 @@ pub struct Shadow {
     /// blurRad
     /// Represents the following attribute in the schema: w14:blurRad
     #[xml(attr = "w14:blurRad")]
-    pub blur_radius: Option<i64>,
+    pub blur_radius: Option<i32>,
     /// dist
     /// Represents the following attribute in the schema: w14:dist
     #[xml(attr = "w14:dist")]
-    pub distance_from_text: Option<i64>,
+    pub distance_from_text: Option<i32>,
     /// dir
     /// Represents the following attribute in the schema: w14:dir
     #[xml(attr = "w14:dir")]
@@ -1713,7 +1713,7 @@ pub struct Reflection {
     /// blurRad
     /// Represents the following attribute in the schema: w14:blurRad
     #[xml(attr = "w14:blurRad")]
-    pub blur_radius: Option<i64>,
+    pub blur_radius: Option<i32>,
     /// stA
     /// Represents the following attribute in the schema: w14:stA
     #[xml(attr = "w14:stA")]
@@ -1733,7 +1733,7 @@ pub struct Reflection {
     /// dist
     /// Represents the following attribute in the schema: w14:dist
     #[xml(attr = "w14:dist")]
-    pub distance_from_text: Option<i64>,
+    pub distance_from_text: Option<i32>,
     /// dir
     /// Represents the following attribute in the schema: w14:dir
     #[xml(attr = "w14:dir")]
@@ -1849,11 +1849,11 @@ pub struct Properties3D {
     /// extrusionH
     /// Represents the following attribute in the schema: w14:extrusionH
     #[xml(attr = "w14:extrusionH")]
-    pub extrusion_height: Option<i64>,
+    pub extrusion_height: Option<i32>,
     /// contourW
     /// Represents the following attribute in the schema: w14:contourW
     #[xml(attr = "w14:contourW")]
-    pub contour_width: Option<i64>,
+    pub contour_width: Option<i32>,
     /// prstMaterial
     /// Represents the following attribute in the schema: w14:prstMaterial
     #[xml(attr = "w14:prstMaterial")]
@@ -2155,11 +2155,11 @@ pub struct BevelTop {
     /// w
     /// Represents the following attribute in the schema: w14:w
     #[xml(attr = "w14:w")]
-    pub width: Option<i64>,
+    pub width: Option<i32>,
     /// h
     /// Represents the following attribute in the schema: w14:h
     #[xml(attr = "w14:h")]
-    pub height: Option<i64>,
+    pub height: Option<i32>,
     /// prst
     /// Represents the following attribute in the schema: w14:prst
     #[xml(attr = "w14:prst")]
@@ -2173,11 +2173,11 @@ pub struct BevelBottom {
     /// w
     /// Represents the following attribute in the schema: w14:w
     #[xml(attr = "w14:w")]
-    pub width: Option<i64>,
+    pub width: Option<i32>,
     /// h
     /// Represents the following attribute in the schema: w14:h
     #[xml(attr = "w14:h")]
-    pub height: Option<i64>,
+    pub height: Option<i32>,
     /// prst
     /// Represents the following attribute in the schema: w14:prst
     #[xml(attr = "w14:prst")]
@@ -2191,11 +2191,11 @@ pub struct BevelType {
     /// w
     /// Represents the following attribute in the schema: w14:w
     #[xml(attr = "w14:w")]
-    pub width: Option<i64>,
+    pub width: Option<i32>,
     /// h
     /// Represents the following attribute in the schema: w14:h
     #[xml(attr = "w14:h")]
-    pub height: Option<i64>,
+    pub height: Option<i32>,
     /// prst
     /// Represents the following attribute in the schema: w14:prst
     #[xml(attr = "w14:prst")]
@@ -2254,7 +2254,7 @@ pub struct StyleSet {
     /// id
     /// Represents the following attribute in the schema: w14:id
     #[xml(attr = "w14:id")]
-    pub id: i32,
+    pub id: u32,
     /// val
     /// Represents the following attribute in the schema: w14:val
     #[xml(attr = "w14:val")]
@@ -2310,7 +2310,7 @@ pub struct NonVisualDrawingProperties {
     /// Application defined unique identifier.
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// Name compatible with Object Model (non-unique).
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]

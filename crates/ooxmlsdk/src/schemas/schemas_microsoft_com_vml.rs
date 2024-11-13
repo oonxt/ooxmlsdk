@@ -760,7 +760,7 @@ pub struct Shape {
     /// Regroup ID
     /// Represents the following attribute in the schema: o:regroupid
     #[xml(attr = "o:regroupid")]
-    pub regroup_id: Option<i32>,
+    pub regroup_id: Option<i64>,
     /// Double-click Notification Toggle
     /// Represents the following attribute in the schema: o:doubleclicknotify
     #[xml(attr = "o:doubleclicknotify")]
@@ -830,15 +830,15 @@ pub struct Shape {
     /// Diagram Node Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayout
     #[xml(attr = "o:dgmlayout")]
-    pub diagram_layout: Option<i32>,
+    pub diagram_layout: Option<i64>,
     /// Diagram Node Identifier
     /// Represents the following attribute in the schema: o:dgmnodekind
     #[xml(attr = "o:dgmnodekind")]
-    pub diagram_node_kind: Option<i32>,
+    pub diagram_node_kind: Option<i64>,
     /// Diagram Node Recent Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayoutmru
     #[xml(attr = "o:dgmlayoutmru")]
-    pub diagram_layout_most_recent_used: Option<i32>,
+    pub diagram_layout_most_recent_used: Option<i64>,
     /// Text Inset Mode
     /// Represents the following attribute in the schema: o:insetmode
     #[xml(attr = "o:insetmode")]
@@ -1085,7 +1085,7 @@ pub struct Shapetype {
     /// Regroup ID
     /// Represents the following attribute in the schema: o:regroupid
     #[xml(attr = "o:regroupid")]
-    pub regroup_id: Option<i32>,
+    pub regroup_id: Option<i64>,
     /// Double-click Notification Toggle
     /// Represents the following attribute in the schema: o:doubleclicknotify
     #[xml(attr = "o:doubleclicknotify")]
@@ -1155,15 +1155,15 @@ pub struct Shapetype {
     /// Diagram Node Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayout
     #[xml(attr = "o:dgmlayout")]
-    pub diagram_layout: Option<i32>,
+    pub diagram_layout: Option<i64>,
     /// Diagram Node Identifier
     /// Represents the following attribute in the schema: o:dgmnodekind
     #[xml(attr = "o:dgmnodekind")]
-    pub diagram_node_kind: Option<i32>,
+    pub diagram_node_kind: Option<i64>,
     /// Diagram Node Recent Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayoutmru
     #[xml(attr = "o:dgmlayoutmru")]
-    pub diagram_layout_most_recent_used: Option<i32>,
+    pub diagram_layout_most_recent_used: Option<i64>,
     /// Text Inset Mode
     /// Represents the following attribute in the schema: o:insetmode
     #[xml(attr = "o:insetmode")]
@@ -1397,7 +1397,7 @@ pub struct Group {
     /// regroupid
     /// Represents the following attribute in the schema: o:regroupid
     #[xml(attr = "o:regroupid")]
-    pub regroup_id: Option<i32>,
+    pub regroup_id: Option<i64>,
     /// doubleclicknotify
     /// Represents the following attribute in the schema: o:doubleclicknotify
     #[xml(attr = "o:doubleclicknotify")]
@@ -1451,15 +1451,15 @@ pub struct Group {
     /// dgmlayout
     /// Represents the following attribute in the schema: o:dgmlayout
     #[xml(attr = "o:dgmlayout")]
-    pub diagram_layout: Option<i32>,
+    pub diagram_layout: Option<i64>,
     /// dgmnodekind
     /// Represents the following attribute in the schema: o:dgmnodekind
     #[xml(attr = "o:dgmnodekind")]
-    pub diagram_node_kind: Option<i32>,
+    pub diagram_node_kind: Option<i64>,
     /// dgmlayoutmru
     /// Represents the following attribute in the schema: o:dgmlayoutmru
     #[xml(attr = "o:dgmlayoutmru")]
-    pub diagram_layout_most_recent_used: Option<i32>,
+    pub diagram_layout_most_recent_used: Option<i64>,
     /// insetmode
     /// Represents the following attribute in the schema: o:insetmode
     #[xml(attr = "o:insetmode")]
@@ -1601,7 +1601,7 @@ pub struct Arc {
     /// Regroup ID
     /// Represents the following attribute in the schema: o:regroupid
     #[xml(attr = "o:regroupid")]
-    pub regroup_id: Option<i32>,
+    pub regroup_id: Option<i64>,
     /// Double-click Notification Toggle
     /// Represents the following attribute in the schema: o:doubleclicknotify
     #[xml(attr = "o:doubleclicknotify")]
@@ -1671,15 +1671,15 @@ pub struct Arc {
     /// Diagram Node Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayout
     #[xml(attr = "o:dgmlayout")]
-    pub diagram_layout: Option<i32>,
+    pub diagram_layout: Option<i64>,
     /// Diagram Node Identifier
     /// Represents the following attribute in the schema: o:dgmnodekind
     #[xml(attr = "o:dgmnodekind")]
-    pub diagram_node_kind: Option<i32>,
+    pub diagram_node_kind: Option<i64>,
     /// Diagram Node Recent Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayoutmru
     #[xml(attr = "o:dgmlayoutmru")]
-    pub diagram_layout_most_recent_used: Option<i32>,
+    pub diagram_layout_most_recent_used: Option<i64>,
     /// Text Inset Mode
     /// Represents the following attribute in the schema: o:insetmode
     #[xml(attr = "o:insetmode")]
@@ -1950,7 +1950,7 @@ pub struct Curve {
     /// Regroup ID
     /// Represents the following attribute in the schema: o:regroupid
     #[xml(attr = "o:regroupid")]
-    pub regroup_id: Option<i32>,
+    pub regroup_id: Option<i64>,
     /// Double-click Notification Toggle
     /// Represents the following attribute in the schema: o:doubleclicknotify
     #[xml(attr = "o:doubleclicknotify")]
@@ -2020,15 +2020,15 @@ pub struct Curve {
     /// Diagram Node Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayout
     #[xml(attr = "o:dgmlayout")]
-    pub diagram_layout: Option<i32>,
+    pub diagram_layout: Option<i64>,
     /// Diagram Node Identifier
     /// Represents the following attribute in the schema: o:dgmnodekind
     #[xml(attr = "o:dgmnodekind")]
-    pub diagram_node_kind: Option<i32>,
+    pub diagram_node_kind: Option<i64>,
     /// Diagram Node Recent Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayoutmru
     #[xml(attr = "o:dgmlayoutmru")]
-    pub diagram_layout_most_recent_used: Option<i32>,
+    pub diagram_layout_most_recent_used: Option<i64>,
     /// Text Inset Mode
     /// Represents the following attribute in the schema: o:insetmode
     #[xml(attr = "o:insetmode")]
@@ -2263,7 +2263,7 @@ pub struct ImageFile {
     /// Regroup ID
     /// Represents the following attribute in the schema: o:regroupid
     #[xml(attr = "o:regroupid")]
-    pub regroup_id: Option<i32>,
+    pub regroup_id: Option<i64>,
     /// Double-click Notification Toggle
     /// Represents the following attribute in the schema: o:doubleclicknotify
     #[xml(attr = "o:doubleclicknotify")]
@@ -2333,15 +2333,15 @@ pub struct ImageFile {
     /// Diagram Node Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayout
     #[xml(attr = "o:dgmlayout")]
-    pub diagram_layout: Option<i32>,
+    pub diagram_layout: Option<i64>,
     /// Diagram Node Identifier
     /// Represents the following attribute in the schema: o:dgmnodekind
     #[xml(attr = "o:dgmnodekind")]
-    pub diagram_node_kind: Option<i32>,
+    pub diagram_node_kind: Option<i64>,
     /// Diagram Node Recent Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayoutmru
     #[xml(attr = "o:dgmlayoutmru")]
-    pub diagram_layout_most_recent_used: Option<i32>,
+    pub diagram_layout_most_recent_used: Option<i64>,
     /// Text Inset Mode
     /// Represents the following attribute in the schema: o:insetmode
     #[xml(attr = "o:insetmode")]
@@ -2604,7 +2604,7 @@ pub struct Line {
     /// Regroup ID
     /// Represents the following attribute in the schema: o:regroupid
     #[xml(attr = "o:regroupid")]
-    pub regroup_id: Option<i32>,
+    pub regroup_id: Option<i64>,
     /// Double-click Notification Toggle
     /// Represents the following attribute in the schema: o:doubleclicknotify
     #[xml(attr = "o:doubleclicknotify")]
@@ -2674,15 +2674,15 @@ pub struct Line {
     /// Diagram Node Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayout
     #[xml(attr = "o:dgmlayout")]
-    pub diagram_layout: Option<i32>,
+    pub diagram_layout: Option<i64>,
     /// Diagram Node Identifier
     /// Represents the following attribute in the schema: o:dgmnodekind
     #[xml(attr = "o:dgmnodekind")]
-    pub diagram_node_kind: Option<i32>,
+    pub diagram_node_kind: Option<i64>,
     /// Diagram Node Recent Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayoutmru
     #[xml(attr = "o:dgmlayoutmru")]
-    pub diagram_layout_most_recent_used: Option<i32>,
+    pub diagram_layout_most_recent_used: Option<i64>,
     /// Text Inset Mode
     /// Represents the following attribute in the schema: o:insetmode
     #[xml(attr = "o:insetmode")]
@@ -2913,7 +2913,7 @@ pub struct Oval {
     /// Regroup ID
     /// Represents the following attribute in the schema: o:regroupid
     #[xml(attr = "o:regroupid")]
-    pub regroup_id: Option<i32>,
+    pub regroup_id: Option<i64>,
     /// Double-click Notification Toggle
     /// Represents the following attribute in the schema: o:doubleclicknotify
     #[xml(attr = "o:doubleclicknotify")]
@@ -2983,15 +2983,15 @@ pub struct Oval {
     /// Diagram Node Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayout
     #[xml(attr = "o:dgmlayout")]
-    pub diagram_layout: Option<i32>,
+    pub diagram_layout: Option<i64>,
     /// Diagram Node Identifier
     /// Represents the following attribute in the schema: o:dgmnodekind
     #[xml(attr = "o:dgmnodekind")]
-    pub diagram_node_kind: Option<i32>,
+    pub diagram_node_kind: Option<i64>,
     /// Diagram Node Recent Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayoutmru
     #[xml(attr = "o:dgmlayoutmru")]
-    pub diagram_layout_most_recent_used: Option<i32>,
+    pub diagram_layout_most_recent_used: Option<i64>,
     /// Text Inset Mode
     /// Represents the following attribute in the schema: o:insetmode
     #[xml(attr = "o:insetmode")]
@@ -3214,7 +3214,7 @@ pub struct PolyLine {
     /// Regroup ID
     /// Represents the following attribute in the schema: o:regroupid
     #[xml(attr = "o:regroupid")]
-    pub regroup_id: Option<i32>,
+    pub regroup_id: Option<i64>,
     /// Double-click Notification Toggle
     /// Represents the following attribute in the schema: o:doubleclicknotify
     #[xml(attr = "o:doubleclicknotify")]
@@ -3284,15 +3284,15 @@ pub struct PolyLine {
     /// Diagram Node Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayout
     #[xml(attr = "o:dgmlayout")]
-    pub diagram_layout: Option<i32>,
+    pub diagram_layout: Option<i64>,
     /// Diagram Node Identifier
     /// Represents the following attribute in the schema: o:dgmnodekind
     #[xml(attr = "o:dgmnodekind")]
-    pub diagram_node_kind: Option<i32>,
+    pub diagram_node_kind: Option<i64>,
     /// Diagram Node Recent Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayoutmru
     #[xml(attr = "o:dgmlayoutmru")]
-    pub diagram_layout_most_recent_used: Option<i32>,
+    pub diagram_layout_most_recent_used: Option<i64>,
     /// Text Inset Mode
     /// Represents the following attribute in the schema: o:insetmode
     #[xml(attr = "o:insetmode")]
@@ -3522,7 +3522,7 @@ pub struct Rectangle {
     /// Regroup ID
     /// Represents the following attribute in the schema: o:regroupid
     #[xml(attr = "o:regroupid")]
-    pub regroup_id: Option<i32>,
+    pub regroup_id: Option<i64>,
     /// Double-click Notification Toggle
     /// Represents the following attribute in the schema: o:doubleclicknotify
     #[xml(attr = "o:doubleclicknotify")]
@@ -3592,15 +3592,15 @@ pub struct Rectangle {
     /// Diagram Node Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayout
     #[xml(attr = "o:dgmlayout")]
-    pub diagram_layout: Option<i32>,
+    pub diagram_layout: Option<i64>,
     /// Diagram Node Identifier
     /// Represents the following attribute in the schema: o:dgmnodekind
     #[xml(attr = "o:dgmnodekind")]
-    pub diagram_node_kind: Option<i32>,
+    pub diagram_node_kind: Option<i64>,
     /// Diagram Node Recent Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayoutmru
     #[xml(attr = "o:dgmlayoutmru")]
-    pub diagram_layout_most_recent_used: Option<i32>,
+    pub diagram_layout_most_recent_used: Option<i64>,
     /// Text Inset Mode
     /// Represents the following attribute in the schema: o:insetmode
     #[xml(attr = "o:insetmode")]
@@ -3819,7 +3819,7 @@ pub struct RoundRectangle {
     /// Regroup ID
     /// Represents the following attribute in the schema: o:regroupid
     #[xml(attr = "o:regroupid")]
-    pub regroup_id: Option<i32>,
+    pub regroup_id: Option<i64>,
     /// Double-click Notification Toggle
     /// Represents the following attribute in the schema: o:doubleclicknotify
     #[xml(attr = "o:doubleclicknotify")]
@@ -3889,15 +3889,15 @@ pub struct RoundRectangle {
     /// Diagram Node Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayout
     #[xml(attr = "o:dgmlayout")]
-    pub diagram_layout: Option<i32>,
+    pub diagram_layout: Option<i64>,
     /// Diagram Node Identifier
     /// Represents the following attribute in the schema: o:dgmnodekind
     #[xml(attr = "o:dgmnodekind")]
-    pub diagram_node_kind: Option<i32>,
+    pub diagram_node_kind: Option<i64>,
     /// Diagram Node Recent Layout Identifier
     /// Represents the following attribute in the schema: o:dgmlayoutmru
     #[xml(attr = "o:dgmlayoutmru")]
-    pub diagram_layout_most_recent_used: Option<i32>,
+    pub diagram_layout_most_recent_used: Option<i64>,
     /// Text Inset Mode
     /// Represents the following attribute in the schema: o:insetmode
     #[xml(attr = "o:insetmode")]

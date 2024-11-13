@@ -10,9 +10,9 @@ pub struct WebVideoProperty {
     /// h
     /// Represents the following attribute in the schema: :h
     #[xml(attr = "h")]
-    pub height: Option<i32>,
+    pub height: Option<u32>,
     /// w
     /// Represents the following attribute in the schema: :w
     #[xml(attr = "w")]
-    pub width: Option<i32>,
+    pub width: Option<u32>,
 }

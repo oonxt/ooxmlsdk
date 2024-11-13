@@ -205,7 +205,7 @@ pub struct RowSortMap {
     /// Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "xne:row")]
     pub xne_row: Vec<RowSortMapItem>,
@@ -222,7 +222,7 @@ pub struct ColumnSortMap {
     /// Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
-    pub count: Option<i32>,
+    pub count: Option<u32>,
     /// _
     #[xml(child = "xne:col")]
     pub xne_col: Vec<ColumnSortMapItem>,
@@ -235,11 +235,11 @@ pub struct RowSortMapItem {
     /// New Value
     /// Represents the following attribute in the schema: :newVal
     #[xml(attr = "newVal")]
-    pub new_val: i32,
+    pub new_val: u32,
     /// Old Value
     /// Represents the following attribute in the schema: :oldVal
     #[xml(attr = "oldVal")]
-    pub old_val: i32,
+    pub old_val: u32,
 }
 /// Column.
 /// When the object is serialized out as xml, it's qualified name is xne:col.
@@ -249,11 +249,11 @@ pub struct ColumnSortMapItem {
     /// New Value
     /// Represents the following attribute in the schema: :newVal
     #[xml(attr = "newVal")]
-    pub new_val: i32,
+    pub new_val: u32,
     /// Old Value
     /// Represents the following attribute in the schema: :oldVal
     #[xml(attr = "oldVal")]
-    pub old_val: i32,
+    pub old_val: u32,
 }
 /// Defines the SortMapItemType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -263,9 +263,9 @@ pub struct SortMapItemType {
     /// New Value
     /// Represents the following attribute in the schema: :newVal
     #[xml(attr = "newVal")]
-    pub new_val: i32,
+    pub new_val: u32,
     /// Old Value
     /// Represents the following attribute in the schema: :oldVal
     #[xml(attr = "oldVal")]
-    pub old_val: i32,
+    pub old_val: u32,
 }

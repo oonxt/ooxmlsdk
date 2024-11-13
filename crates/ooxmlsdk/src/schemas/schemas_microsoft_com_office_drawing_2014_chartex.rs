@@ -278,7 +278,7 @@ pub struct RelId {
 #[xml(tag = "cx:openxmlsdk_49BECFFA_3B03_4D13_8272_D6CCB22579E3")]
 pub struct Openxmlsdk49becffa3b034d138272D6ccb22579e3XsdunsignedInt {
     #[xml(text)]
-    pub child: i32,
+    pub child: u32,
 }
 /// Defines the BinCountXsdunsignedInt Class.
 /// When the object is serialized out as xml, it's qualified name is cx:binCount.
@@ -286,7 +286,7 @@ pub struct Openxmlsdk49becffa3b034d138272D6ccb22579e3XsdunsignedInt {
 #[xml(tag = "cx:binCount")]
 pub struct BinCountXsdunsignedInt {
     #[xml(text)]
-    pub child: i32,
+    pub child: u32,
 }
 /// Defines the Extension2 Class.
 /// When the object is serialized out as xml, it's qualified name is cx:ext.
@@ -458,7 +458,7 @@ pub struct ChartStringValue {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub index: i32,
+    pub index: u32,
     #[xml(text)]
     pub child: String,
 }
@@ -506,7 +506,7 @@ pub struct StringLevel {
     /// ptCount
     /// Represents the following attribute in the schema: :ptCount
     #[xml(attr = "ptCount")]
-    pub pt_count: i32,
+    pub pt_count: u32,
     /// name
     /// Represents the following attribute in the schema: :name
     #[xml(attr = "name")]
@@ -523,7 +523,7 @@ pub struct NumericValue {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub idx: i32,
+    pub idx: u32,
     #[xml(text)]
     pub child: f64,
 }
@@ -535,7 +535,7 @@ pub struct NumericLevel {
     /// ptCount
     /// Represents the following attribute in the schema: :ptCount
     #[xml(attr = "ptCount")]
-    pub pt_count: i32,
+    pub pt_count: u32,
     /// formatCode
     /// Represents the following attribute in the schema: :formatCode
     #[xml(attr = "formatCode")]
@@ -621,7 +621,7 @@ pub struct Data {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     #[xml(child = "cx:numDim", child = "cx:strDim", child = "cx:extLst")]
     pub children: Vec<DataChildChoice>,
 }
@@ -1158,7 +1158,7 @@ pub struct GeoPolygon {
     /// numPoints
     /// Represents the following attribute in the schema: :numPoints
     #[xml(attr = "numPoints")]
-    pub num_points: i32,
+    pub num_points: i64,
     /// pcaRings
     /// Represents the following attribute in the schema: :pcaRings
     #[xml(attr = "pcaRings")]
@@ -1742,7 +1742,7 @@ pub struct DataLabel {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub idx: i32,
+    pub idx: u32,
     /// pos
     /// Represents the following attribute in the schema: :pos
     #[xml(attr = "pos")]
@@ -1774,7 +1774,7 @@ pub struct DataLabelHidden {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub idx: i32,
+    pub idx: u32,
 }
 /// Defines the ValueColors Class.
 /// When the object is serialized out as xml, it's qualified name is cx:valueColors.
@@ -1818,7 +1818,7 @@ pub struct DataPoint {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub idx: i32,
+    pub idx: u32,
     /// _
     #[xml(child = "cx:spPr")]
     pub shape_properties: Option<ShapeProperties>,
@@ -1868,7 +1868,7 @@ pub struct DataId {
     /// val
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }
 /// Defines the SeriesLayoutProperties Class.
 /// When the object is serialized out as xml, it's qualified name is cx:layoutPr.
@@ -1915,7 +1915,7 @@ pub enum SeriesLayoutPropertiesChildChoice {
 #[xml(tag = "cx:axisId")]
 pub struct AxisId {
     #[xml(text)]
-    pub child: i32,
+    pub child: u32,
 }
 /// Defines the PlotSurface Class.
 /// When the object is serialized out as xml, it's qualified name is cx:plotSurface.
@@ -1945,7 +1945,7 @@ pub struct Series {
     /// ownerIdx
     /// Represents the following attribute in the schema: :ownerIdx
     #[xml(attr = "ownerIdx")]
-    pub owner_idx: Option<i32>,
+    pub owner_idx: Option<u32>,
     /// uniqueId
     /// Represents the following attribute in the schema: :uniqueId
     #[xml(attr = "uniqueId")]
@@ -1953,7 +1953,7 @@ pub struct Series {
     /// formatIdx
     /// Represents the following attribute in the schema: :formatIdx
     #[xml(attr = "formatIdx")]
-    pub format_idx: Option<i32>,
+    pub format_idx: Option<u32>,
     /// _
     #[xml(child = "cx:tx")]
     pub text: Option<Text>,
@@ -2008,7 +2008,7 @@ pub struct Axis {
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
-    pub id: i32,
+    pub id: u32,
     /// hidden
     /// Represents the following attribute in the schema: :hidden
     #[xml(attr = "hidden")]
@@ -2142,7 +2142,7 @@ pub struct FormatOverride {
     /// idx
     /// Represents the following attribute in the schema: :idx
     #[xml(attr = "idx")]
-    pub idx: i32,
+    pub idx: u32,
     /// _
     #[xml(child = "cx:spPr")]
     pub shape_properties: Option<ShapeProperties>,
@@ -2224,11 +2224,11 @@ pub struct PageSetup {
     /// paperSize
     /// Represents the following attribute in the schema: :paperSize
     #[xml(attr = "paperSize")]
-    pub paper_size: Option<i32>,
+    pub paper_size: Option<u32>,
     /// firstPageNumber
     /// Represents the following attribute in the schema: :firstPageNumber
     #[xml(attr = "firstPageNumber")]
-    pub first_page_number: Option<i32>,
+    pub first_page_number: Option<u32>,
     /// orientation
     /// Represents the following attribute in the schema: :orientation
     #[xml(attr = "orientation")]
@@ -2256,7 +2256,7 @@ pub struct PageSetup {
     /// copies
     /// Represents the following attribute in the schema: :copies
     #[xml(attr = "copies")]
-    pub copies: Option<i32>,
+    pub copies: Option<u32>,
 }
 /// Defines the ChartData Class.
 /// When the object is serialized out as xml, it's qualified name is cx:chartData.
@@ -2382,5 +2382,5 @@ pub struct UnsignedIntegerType {
     /// Integer Value
     /// Represents the following attribute in the schema: :val
     #[xml(attr = "val")]
-    pub val: i32,
+    pub val: u32,
 }

@@ -73,7 +73,7 @@ pub struct NsvFilter {
     /// tableId
     /// Represents the following attribute in the schema: :tableId
     #[xml(attr = "tableId")]
-    pub table_id: Option<i32>,
+    pub table_id: Option<u32>,
     /// _
     #[xml(child = "xnsv:columnFilter")]
     pub xnsv_column_filter: Vec<ColumnFilter>,
@@ -92,7 +92,7 @@ pub struct ColumnFilter {
     /// colId
     /// Represents the following attribute in the schema: :colId
     #[xml(attr = "colId")]
-    pub col_id: i32,
+    pub col_id: u32,
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
@@ -178,7 +178,7 @@ pub struct FilterColumn {
     /// Filter Column Data
     /// Represents the following attribute in the schema: :colId
     #[xml(attr = "colId")]
-    pub column_id: i32,
+    pub column_id: u32,
     /// Hidden AutoFilter Button
     /// Represents the following attribute in the schema: :hiddenButton
     #[xml(attr = "hiddenButton")]
@@ -245,7 +245,7 @@ pub struct SortRule {
     /// colId
     /// Represents the following attribute in the schema: :colId
     #[xml(attr = "colId")]
-    pub col_id: i32,
+    pub col_id: u32,
     /// id
     /// Represents the following attribute in the schema: :id
     #[xml(attr = "id")]
@@ -292,7 +292,7 @@ pub struct SortCondition {
     /// dxfId
     /// Represents the following attribute in the schema: :dxfId
     #[xml(attr = "dxfId")]
-    pub format_id: Option<i32>,
+    pub format_id: Option<u32>,
     /// iconSet
     /// Represents the following attribute in the schema: :iconSet
     #[xml(attr = "iconSet")]
@@ -302,7 +302,7 @@ pub struct SortCondition {
     /// iconId
     /// Represents the following attribute in the schema: :iconId
     #[xml(attr = "iconId")]
-    pub icon_id: Option<i32>,
+    pub icon_id: Option<u32>,
 }
 /// Defines the RichSortCondition Class.
 /// When the object is serialized out as xml, it's qualified name is xnsv:richSortCondition.
@@ -334,7 +334,7 @@ pub struct RichSortCondition {
     /// dxfId
     /// Represents the following attribute in the schema: :dxfId
     #[xml(attr = "dxfId")]
-    pub format_id: Option<i32>,
+    pub format_id: Option<u32>,
     /// iconSet
     /// Represents the following attribute in the schema: :iconSet
     #[xml(attr = "iconSet")]
@@ -344,5 +344,5 @@ pub struct RichSortCondition {
     /// iconId
     /// Represents the following attribute in the schema: :iconId
     #[xml(attr = "iconId")]
-    pub icon_id: Option<i32>,
+    pub icon_id: Option<u32>,
 }
