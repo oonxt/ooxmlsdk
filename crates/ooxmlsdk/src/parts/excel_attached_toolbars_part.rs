@@ -52,17 +52,21 @@ impl ExcelAttachedToolbarsPart {
             )?;
             entry_set.insert(excel_attached_toolbars_part_dir_path);
         }
-        use std::io::Read;
-        let mut buffer = Vec::new();
-        let mut file = std::fs::File::open(&self.path)?;
-        file.read_to_end(&mut buffer)?;
-        if !entry_set.contains(&self.inner_path) {
-            zip.start_file(&self.inner_path, options)?;
-            zip.write_all(crate::common::SCHEMA_XML.as_bytes())?;
-            zip.write_all(&buffer)?;
-            entry_set.insert(self.inner_path.to_string());
+        match std::fs::File::open(&self.path) {
+            Ok(mut file) => {
+                use std::io::Read;
+                let mut buffer = Vec::new();
+                file.read_to_end(&mut buffer)?;
+                if !entry_set.contains(&self.inner_path) {
+                    zip.start_file(&self.inner_path, options)?;
+                    zip.write_all(crate::common::SCHEMA_XML.as_bytes())?;
+                    zip.write_all(&buffer)?;
+                    entry_set.insert(self.inner_path.to_string());
+                }
+                buffer.clear();
+            }
+            Err(_) => {}
         }
-        buffer.clear();
         Ok(())
     }
 }
