@@ -150,8 +150,16 @@ pub struct HyperlinkBase {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "Application")]
 pub struct Application {
-    #[xml(text)]
+    #[xml(text, with = "application_derive")]
     pub child: String,
+}
+mod application_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("ooxml")
+    }
 }
 /// Application Version.
 /// When the object is serialized out as xml, it's qualified name is AppVersion.

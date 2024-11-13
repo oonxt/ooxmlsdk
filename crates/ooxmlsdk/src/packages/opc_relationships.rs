@@ -29,7 +29,7 @@ pub struct Relationship {
     pub id: String,
 }
 crate::__define_enum! {
-    TargetMode { External = "external", Internal = "internal", }
+    TargetMode { External = "External", Internal = "Internal", }
 }
 
 impl Default for Relationships {
