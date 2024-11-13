@@ -5,6 +5,7 @@ pub struct Model3DReferenceRelationshipPart {
     pub r_id: String,
     pub inner_path: String,
     pub path: String,
+    pub data: Option<Vec<u8>>,
 }
 impl Model3DReferenceRelationshipPart {
     #[allow(unused_variables)]
@@ -15,10 +16,20 @@ impl Model3DReferenceRelationshipPart {
         file_path_set: &std::collections::HashSet<String>,
         archive: &mut zip::ZipArchive<std::io::BufReader<std::fs::File>>,
     ) -> Result<Self, crate::common::SdkError> {
+        let data = match archive.by_name(path) {
+            Ok(mut file) => {
+                use std::io::Read;
+                let mut buffer = Vec::new();
+                file.read_to_end(&mut buffer)?;
+                Some(buffer)
+            }
+            Err(_) => None,
+        };
         Ok(Self {
             r_id: r_id.to_string(),
             inner_path: path.to_string(),
             path: path.to_string(),
+            data,
         })
     }
     #[allow(unused_variables)]
@@ -41,7 +52,7 @@ impl Model3DReferenceRelationshipPart {
             entry_set.insert(directory_path);
         }
         let model3_d_reference_relationship_part_dir_path = crate::common::resolve_zip_file_path(
-            &format!("{}{}/", parent_path, "../media"),
+            &format!("{}{}/", parent_path, "media"),
         );
         if !model3_d_reference_relationship_part_dir_path.is_empty()
             && !entry_set.contains(&model3_d_reference_relationship_part_dir_path)
@@ -52,20 +63,11 @@ impl Model3DReferenceRelationshipPart {
             )?;
             entry_set.insert(model3_d_reference_relationship_part_dir_path);
         }
-        match std::fs::File::open(&self.path) {
-            Ok(mut file) => {
-                use std::io::Read;
-                let mut buffer = Vec::new();
-                file.read_to_end(&mut buffer)?;
-                if !entry_set.contains(&self.inner_path) {
-                    zip.start_file(&self.inner_path, options)?;
-                    zip.write_all(crate::common::SCHEMA_XML.as_bytes())?;
-                    zip.write_all(&buffer)?;
-                    entry_set.insert(self.inner_path.to_string());
-                }
-                buffer.clear();
-            }
-            Err(_) => {}
+        if !entry_set.contains(&self.inner_path) && self.data.is_some() {
+            let mut data = self.data.clone().unwrap();
+            zip.start_file(&self.inner_path, options)?;
+            zip.write_all(&mut data)?;
+            entry_set.insert(self.inner_path.to_string());
         }
         Ok(())
     }

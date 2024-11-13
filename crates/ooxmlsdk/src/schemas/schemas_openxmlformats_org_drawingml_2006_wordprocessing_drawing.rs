@@ -539,8 +539,8 @@ pub struct NonVisualGraphicFrameDrawingProperties {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "wp:align")]
 pub struct VerticalAlignment {
-    #[xml(attr = "wp:align")]
-    pub child: Option<VerticalAlignmentValues>,
+    #[xml(text)]
+    pub child: VerticalAlignmentValues,
 }
 /// Defines the PositionOffset Class.
 /// When the object is serialized out as xml, it's qualified name is wp:posOffset.
@@ -555,6 +555,6 @@ pub struct PositionOffset {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "wp:align")]
 pub struct HorizontalAlignment {
-    #[xml(attr = "wp:align")]
-    pub child: Option<HorizontalAlignmentValues>,
+    #[xml(text)]
+    pub child: HorizontalAlignmentValues,
 }

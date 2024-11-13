@@ -12864,7 +12864,7 @@ pub struct Footnotes {
     pub mc_ignorable: Option<String>,
     /// _
     #[xml(child = "w:footnote")]
-    pub w_footnote: Option<Footnote>,
+    pub w_footnote: Vec<Footnote>,
 }
 mod footnotes_xmlns_derive {
     pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
@@ -12887,7 +12887,7 @@ pub struct Endnotes {
     pub mc_ignorable: Option<String>,
     /// _
     #[xml(child = "w:endnote")]
-    pub w_endnote: Option<Endnote>,
+    pub w_endnote: Vec<Endnote>,
 }
 mod endnotes_xmlns_derive {
     pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {

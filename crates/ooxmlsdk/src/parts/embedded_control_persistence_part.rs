@@ -7,6 +7,7 @@ pub struct EmbeddedControlPersistencePart {
     pub rels_path: String,
     pub inner_path: String,
     pub path: String,
+    pub data: Option<Vec<u8>>,
     pub embedded_control_persistence_binary_data_parts: Vec<
         crate::parts::embedded_control_persistence_binary_data_part::EmbeddedControlPersistenceBinaryDataPart,
     >,
@@ -45,6 +46,15 @@ impl EmbeddedControlPersistencePart {
         } else {
             None
         };
+        let data = match archive.by_name(path) {
+            Ok(mut file) => {
+                use std::io::Read;
+                let mut buffer = Vec::new();
+                file.read_to_end(&mut buffer)?;
+                Some(buffer)
+            }
+            Err(_) => None,
+        };
         let mut embedded_control_persistence_binary_data_parts: Vec<
             crate::parts::embedded_control_persistence_binary_data_part::EmbeddedControlPersistenceBinaryDataPart,
         > = vec![];
@@ -76,6 +86,7 @@ impl EmbeddedControlPersistencePart {
             relationships,
             inner_path: path.to_string(),
             path: path.to_string(),
+            data,
             embedded_control_persistence_binary_data_parts,
         })
     }
@@ -110,20 +121,11 @@ impl EmbeddedControlPersistencePart {
             )?;
             entry_set.insert(embedded_control_persistence_part_dir_path);
         }
-        match std::fs::File::open(&self.path) {
-            Ok(mut file) => {
-                use std::io::Read;
-                let mut buffer = Vec::new();
-                file.read_to_end(&mut buffer)?;
-                if !entry_set.contains(&self.inner_path) {
-                    zip.start_file(&self.inner_path, options)?;
-                    zip.write_all(crate::common::SCHEMA_XML.as_bytes())?;
-                    zip.write_all(&buffer)?;
-                    entry_set.insert(self.inner_path.to_string());
-                }
-                buffer.clear();
-            }
-            Err(_) => {}
+        if !entry_set.contains(&self.inner_path) && self.data.is_some() {
+            let mut data = self.data.clone().unwrap();
+            zip.start_file(&self.inner_path, options)?;
+            zip.write_all(&mut data)?;
+            entry_set.insert(self.inner_path.to_string());
         }
         let child_parent_path = format!("{}{}", parent_path, "embeddings/");
         if let Some(relationships) = &self.relationships {

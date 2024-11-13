@@ -7,6 +7,7 @@ pub struct VmlDrawingPart {
     pub rels_path: String,
     pub inner_path: String,
     pub path: String,
+    pub data: Option<Vec<u8>>,
     pub image_parts: Vec<crate::parts::image_part::ImagePart>,
     pub legacy_diagram_text_parts: Vec<
         crate::parts::legacy_diagram_text_part::LegacyDiagramTextPart,
@@ -45,6 +46,15 @@ impl VmlDrawingPart {
             )
         } else {
             None
+        };
+        let data = match archive.by_name(path) {
+            Ok(mut file) => {
+                use std::io::Read;
+                let mut buffer = Vec::new();
+                file.read_to_end(&mut buffer)?;
+                Some(buffer)
+            }
+            Err(_) => None,
         };
         let mut image_parts: Vec<crate::parts::image_part::ImagePart> = vec![];
         let mut legacy_diagram_text_parts: Vec<
@@ -90,6 +100,7 @@ impl VmlDrawingPart {
             relationships,
             inner_path: path.to_string(),
             path: path.to_string(),
+            data,
             image_parts,
             legacy_diagram_text_parts,
         })
@@ -125,20 +136,11 @@ impl VmlDrawingPart {
             )?;
             entry_set.insert(vml_drawing_part_dir_path);
         }
-        match std::fs::File::open(&self.path) {
-            Ok(mut file) => {
-                use std::io::Read;
-                let mut buffer = Vec::new();
-                file.read_to_end(&mut buffer)?;
-                if !entry_set.contains(&self.inner_path) {
-                    zip.start_file(&self.inner_path, options)?;
-                    zip.write_all(crate::common::SCHEMA_XML.as_bytes())?;
-                    zip.write_all(&buffer)?;
-                    entry_set.insert(self.inner_path.to_string());
-                }
-                buffer.clear();
-            }
-            Err(_) => {}
+        if !entry_set.contains(&self.inner_path) && self.data.is_some() {
+            let mut data = self.data.clone().unwrap();
+            zip.start_file(&self.inner_path, options)?;
+            zip.write_all(&mut data)?;
+            entry_set.insert(self.inner_path.to_string());
         }
         let child_parent_path = format!("{}{}", parent_path, "../drawings/");
         if let Some(relationships) = &self.relationships {

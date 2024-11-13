@@ -5,6 +5,7 @@ pub struct LegacyDiagramTextInfoPart {
     pub r_id: String,
     pub inner_path: String,
     pub path: String,
+    pub data: Option<Vec<u8>>,
 }
 impl LegacyDiagramTextInfoPart {
     #[allow(unused_variables)]
@@ -15,10 +16,20 @@ impl LegacyDiagramTextInfoPart {
         file_path_set: &std::collections::HashSet<String>,
         archive: &mut zip::ZipArchive<std::io::BufReader<std::fs::File>>,
     ) -> Result<Self, crate::common::SdkError> {
+        let data = match archive.by_name(path) {
+            Ok(mut file) => {
+                use std::io::Read;
+                let mut buffer = Vec::new();
+                file.read_to_end(&mut buffer)?;
+                Some(buffer)
+            }
+            Err(_) => None,
+        };
         Ok(Self {
             r_id: r_id.to_string(),
             inner_path: path.to_string(),
             path: path.to_string(),
+            data,
         })
     }
     #[allow(unused_variables)]
@@ -52,20 +63,11 @@ impl LegacyDiagramTextInfoPart {
             )?;
             entry_set.insert(legacy_diagram_text_info_part_dir_path);
         }
-        match std::fs::File::open(&self.path) {
-            Ok(mut file) => {
-                use std::io::Read;
-                let mut buffer = Vec::new();
-                file.read_to_end(&mut buffer)?;
-                if !entry_set.contains(&self.inner_path) {
-                    zip.start_file(&self.inner_path, options)?;
-                    zip.write_all(crate::common::SCHEMA_XML.as_bytes())?;
-                    zip.write_all(&buffer)?;
-                    entry_set.insert(self.inner_path.to_string());
-                }
-                buffer.clear();
-            }
-            Err(_) => {}
+        if !entry_set.contains(&self.inner_path) && self.data.is_some() {
+            let mut data = self.data.clone().unwrap();
+            zip.start_file(&self.inner_path, options)?;
+            zip.write_all(&mut data)?;
+            entry_set.insert(self.inner_path.to_string());
         }
         Ok(())
     }

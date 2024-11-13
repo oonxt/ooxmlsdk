@@ -7,6 +7,7 @@ pub struct VbaProjectPart {
     pub rels_path: String,
     pub inner_path: String,
     pub path: String,
+    pub data: Option<Vec<u8>>,
     pub vba_data_part: Option<crate::parts::vba_data_part::VbaDataPart>,
 }
 impl VbaProjectPart {
@@ -43,6 +44,15 @@ impl VbaProjectPart {
         } else {
             None
         };
+        let data = match archive.by_name(path) {
+            Ok(mut file) => {
+                use std::io::Read;
+                let mut buffer = Vec::new();
+                file.read_to_end(&mut buffer)?;
+                Some(buffer)
+            }
+            Err(_) => None,
+        };
         let mut vba_data_part: Option<crate::parts::vba_data_part::VbaDataPart> = None;
         if let Some(relationships) = &relationships {
             for relationship in &relationships.relationship {
@@ -72,6 +82,7 @@ impl VbaProjectPart {
             relationships,
             inner_path: path.to_string(),
             path: path.to_string(),
+            data,
             vba_data_part,
         })
     }
@@ -106,20 +117,11 @@ impl VbaProjectPart {
             )?;
             entry_set.insert(vba_project_part_dir_path);
         }
-        match std::fs::File::open(&self.path) {
-            Ok(mut file) => {
-                use std::io::Read;
-                let mut buffer = Vec::new();
-                file.read_to_end(&mut buffer)?;
-                if !entry_set.contains(&self.inner_path) {
-                    zip.start_file(&self.inner_path, options)?;
-                    zip.write_all(crate::common::SCHEMA_XML.as_bytes())?;
-                    zip.write_all(&buffer)?;
-                    entry_set.insert(self.inner_path.to_string());
-                }
-                buffer.clear();
-            }
-            Err(_) => {}
+        if !entry_set.contains(&self.inner_path) && self.data.is_some() {
+            let mut data = self.data.clone().unwrap();
+            zip.start_file(&self.inner_path, options)?;
+            zip.write_all(&mut data)?;
+            entry_set.insert(self.inner_path.to_string());
         }
         let child_parent_path = format!("{}{}", parent_path, "./");
         if let Some(relationships) = &self.relationships {
