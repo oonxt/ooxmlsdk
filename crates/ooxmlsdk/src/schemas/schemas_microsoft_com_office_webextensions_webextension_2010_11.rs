@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "we:webextension")]
 pub struct WebExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "web_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -35,6 +35,14 @@ pub struct WebExtension {
     /// _
     #[xml(child = "we:extLst")]
     pub office_art_extension_list: Option<OfficeArtExtensionList>,
+}
+mod web_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/webextensions/webextension/2010/11")
+    }
 }
 /// Defines the WebExtensionReference Class.
 /// When the object is serialized out as xml, it's qualified name is we:webextensionref.

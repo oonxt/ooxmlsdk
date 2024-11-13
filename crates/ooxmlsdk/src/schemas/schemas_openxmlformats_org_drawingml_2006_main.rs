@@ -1514,7 +1514,7 @@ crate::__string_enum! {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:audioCd")]
 pub struct AudioFromCd {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "audio_from_cd_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1529,6 +1529,14 @@ pub struct AudioFromCd {
     /// _
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
+}
+mod audio_from_cd_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Audio from WAV File.
 /// When the object is serialized out as xml, it's qualified name is a:wavAudioFile.
@@ -1589,7 +1597,7 @@ pub struct EmbeddedWavAudioFileType {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:audioFile")]
 pub struct AudioFromFile {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "audio_from_file_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1602,13 +1610,21 @@ pub struct AudioFromFile {
     /// _
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
+}
+mod audio_from_file_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Video from File.
 /// When the object is serialized out as xml, it's qualified name is a:videoFile.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:videoFile")]
 pub struct VideoFromFile {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "video_from_file_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1622,12 +1638,20 @@ pub struct VideoFromFile {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod video_from_file_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// QuickTime from File.
 /// When the object is serialized out as xml, it's qualified name is a:quickTimeFile.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:quickTimeFile")]
 pub struct QuickTimeFromFile {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "quick_time_from_file_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1640,6 +1664,14 @@ pub struct QuickTimeFromFile {
     /// _
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
+}
+mod quick_time_from_file_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Tint.
 /// When the object is serialized out as xml, it's qualified name is a:tint.
@@ -1931,7 +1963,7 @@ pub struct InverseGamma {}
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct Extension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1942,12 +1974,20 @@ pub struct Extension {
     #[xml(attr = "uri")]
     pub uri: Option<String>,
 }
+mod extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// RGB Color Model - Percentage Variant.
 /// When the object is serialized out as xml, it's qualified name is a:scrgbClr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:scrgbClr")]
 pub struct RgbColorModelPercentage {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "rgb_color_model_percentage_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2056,12 +2096,20 @@ pub enum RgbColorModelPercentageChildChoice {
     #[xml(tag = "a:invGamma")]
     AInvGamma(InverseGamma),
 }
+mod rgb_color_model_percentage_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// RGB Color Model - Hex Variant.
 /// When the object is serialized out as xml, it's qualified name is a:srgbClr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:srgbClr")]
 pub struct RgbColorModelHex {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "rgb_color_model_hex_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2166,12 +2214,20 @@ pub enum RgbColorModelHexChildChoice {
     #[xml(tag = "a:invGamma")]
     AInvGamma(InverseGamma),
 }
+mod rgb_color_model_hex_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Hue, Saturation, Luminance Color Model.
 /// When the object is serialized out as xml, it's qualified name is a:hslClr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:hslClr")]
 pub struct HslColor {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "hsl_color_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2280,12 +2336,20 @@ pub enum HslColorChildChoice {
     #[xml(tag = "a:invGamma")]
     AInvGamma(InverseGamma),
 }
+mod hsl_color_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// System Color.
 /// When the object is serialized out as xml, it's qualified name is a:sysClr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:sysClr")]
 pub struct SystemColor {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "system_color_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2390,12 +2454,20 @@ pub enum SystemColorChildChoice {
     #[xml(tag = "a:invGamma")]
     AInvGamma(InverseGamma),
 }
+mod system_color_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Scheme Color.
 /// When the object is serialized out as xml, it's qualified name is a:schemeClr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:schemeClr")]
 pub struct SchemeColor {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "scheme_color_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2496,12 +2568,20 @@ pub enum SchemeColorChildChoice {
     #[xml(tag = "a:invGamma")]
     AInvGamma(InverseGamma),
 }
+mod scheme_color_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Preset Color.
 /// When the object is serialized out as xml, it's qualified name is a:prstClr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:prstClr")]
 pub struct PresetColor {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "preset_color_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2602,12 +2682,20 @@ pub enum PresetColorChildChoice {
     #[xml(tag = "a:invGamma")]
     AInvGamma(InverseGamma),
 }
+mod preset_color_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Apply 3D shape properties.
 /// When the object is serialized out as xml, it's qualified name is a:sp3d.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:sp3d")]
 pub struct Shape3DType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "shape3_d_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2645,6 +2733,14 @@ pub struct Shape3DType {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod shape3_d_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// No text in 3D scene.
 /// When the object is serialized out as xml, it's qualified name is a:flatTx.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -2674,7 +2770,7 @@ pub struct LinearGradientFill {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:path")]
 pub struct PathGradientFill {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "path_gradient_fill_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2687,6 +2783,14 @@ pub struct PathGradientFill {
     ///Fill To Rectangle
     #[xml(child = "a:fillToRect")]
     pub fill_to_rectangle: Option<FillToRectangle>,
+}
+mod path_gradient_fill_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Tile.
 /// When the object is serialized out as xml, it's qualified name is a:tile.
@@ -2723,7 +2827,7 @@ pub struct Tile {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:stretch")]
 pub struct Stretch {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "stretch_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2732,6 +2836,14 @@ pub struct Stretch {
     ///Fill Rectangle
     #[xml(child = "a:fillRect")]
     pub fill_rectangle: Option<FillRectangle>,
+}
+mod stretch_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Defines the NoFill Class.
 /// When the object is serialized out as xml, it's qualified name is a:noFill.
@@ -2743,7 +2855,7 @@ pub struct NoFill {}
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:solidFill")]
 pub struct SolidFill {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "solid_fill_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2774,12 +2886,20 @@ pub enum SolidFillChildChoice {
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
 }
+mod solid_fill_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the GradientFill Class.
 /// When the object is serialized out as xml, it's qualified name is a:gradFill.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:gradFill")]
 pub struct GradientFill {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "gradient_fill_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2807,12 +2927,20 @@ pub enum GradientFillChildChoice {
     #[xml(tag = "a:tileRect")]
     ATileRect(TileRectangle),
 }
+mod gradient_fill_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the BlipFill Class.
 /// When the object is serialized out as xml, it's qualified name is a:blipFill.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:blipFill")]
 pub struct BlipFill {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "blip_fill_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2840,12 +2968,20 @@ pub enum BlipFillChildChoice {
     #[xml(tag = "a:stretch")]
     AStretch(Stretch),
 }
+mod blip_fill_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Pattern Fill.
 /// When the object is serialized out as xml, it's qualified name is a:pattFill.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:pattFill")]
 pub struct PatternFill {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "pattern_fill_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2861,6 +2997,14 @@ pub struct PatternFill {
     ///Background color
     #[xml(child = "a:bgClr")]
     pub background_color: Option<BackgroundColor>,
+}
+mod pattern_fill_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Group Fill.
 /// When the object is serialized out as xml, it's qualified name is a:grpFill.
@@ -3092,7 +3236,7 @@ pub enum EffectDagChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct EffectContainerType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "effect_container_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3203,6 +3347,14 @@ pub enum EffectContainerTypeChildChoice {
     #[xml(tag = "a:xfrm")]
     AXfrm(TransformEffect),
 }
+mod effect_container_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Effect.
 /// When the object is serialized out as xml, it's qualified name is a:effect.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -3238,7 +3390,7 @@ pub struct AlphaFloor {}
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:alphaInv")]
 pub struct AlphaInverse {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "alpha_inverse_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3269,12 +3421,20 @@ pub enum AlphaInverseChildChoice {
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
 }
+mod alpha_inverse_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Alpha Modulate Effect.
 /// When the object is serialized out as xml, it's qualified name is a:alphaMod.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:alphaMod")]
 pub struct AlphaModulationEffect {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "alpha_modulation_effect_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3283,6 +3443,14 @@ pub struct AlphaModulationEffect {
     /// _
     #[xml(child = "a:cont")]
     pub effect_container: EffectContainer,
+}
+mod alpha_modulation_effect_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Defines the AlphaModulationFixed Class.
 /// When the object is serialized out as xml, it's qualified name is a:alphaModFix.
@@ -3329,7 +3497,7 @@ pub struct BiLevel {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:blend")]
 pub struct Blend {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "blend_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3342,6 +3510,14 @@ pub struct Blend {
     ///Effect to blend
     #[xml(child = "a:cont")]
     pub effect_container: EffectContainer,
+}
+mod blend_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Defines the Blur Class.
 /// When the object is serialized out as xml, it's qualified name is a:blur.
@@ -3362,7 +3538,7 @@ pub struct Blur {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:clrChange")]
 pub struct ColorChange {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "color_change_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3379,12 +3555,20 @@ pub struct ColorChange {
     #[xml(child = "a:clrTo")]
     pub color_to: ColorTo,
 }
+mod color_change_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the ColorReplacement Class.
 /// When the object is serialized out as xml, it's qualified name is a:clrRepl.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:clrRepl")]
 pub struct ColorReplacement {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "color_replacement_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3415,12 +3599,20 @@ pub enum ColorReplacementChildChoice {
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
 }
+mod color_replacement_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Duotone Effect.
 /// When the object is serialized out as xml, it's qualified name is a:duotone.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:duotone")]
 pub struct Duotone {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "duotone_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3451,12 +3643,20 @@ pub enum DuotoneChildChoice {
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
 }
+mod duotone_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Fill.
 /// When the object is serialized out as xml, it's qualified name is a:fill.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:fill")]
 pub struct Fill {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "fill_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3487,12 +3687,20 @@ pub enum FillChildChoice {
     #[xml(tag = "a:grpFill")]
     AGrpFill(GroupFill),
 }
+mod fill_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Fill Overlay Effect.
 /// When the object is serialized out as xml, it's qualified name is a:fillOverlay.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:fillOverlay")]
 pub struct FillOverlay {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "fill_overlay_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3527,12 +3735,20 @@ pub enum FillOverlayChildChoice {
     #[xml(tag = "a:grpFill")]
     AGrpFill(GroupFill),
 }
+mod fill_overlay_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Glow Effect.
 /// When the object is serialized out as xml, it's qualified name is a:glow.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:glow")]
 pub struct Glow {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "glow_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3567,6 +3783,14 @@ pub enum GlowChildChoice {
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
 }
+mod glow_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Gray Scale Effect.
 /// When the object is serialized out as xml, it's qualified name is a:grayscl.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -3595,7 +3819,7 @@ pub struct Hsl {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:innerShdw")]
 pub struct InnerShadow {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "inner_shadow_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3638,6 +3862,14 @@ pub enum InnerShadowChildChoice {
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
 }
+mod inner_shadow_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Luminance.
 /// When the object is serialized out as xml, it's qualified name is a:lum.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -3657,7 +3889,7 @@ pub struct LuminanceEffect {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:outerShdw")]
 pub struct OuterShadow {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "outer_shadow_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3724,12 +3956,20 @@ pub enum OuterShadowChildChoice {
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
 }
+mod outer_shadow_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Preset Shadow.
 /// When the object is serialized out as xml, it's qualified name is a:prstShdw.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:prstShdw")]
 pub struct PresetShadow {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "preset_shadow_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3771,6 +4011,14 @@ pub enum PresetShadowChildChoice {
     ASchemeClr(SchemeColor),
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
+}
+mod preset_shadow_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Reflection Effect.
 /// When the object is serialized out as xml, it's qualified name is a:reflection.
@@ -3907,7 +4155,7 @@ pub struct TransformEffect {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:effectLst")]
 pub struct EffectList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "effect_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3938,12 +4186,20 @@ pub struct EffectList {
     #[xml(child = "a:softEdge")]
     pub soft_edge: Option<SoftEdge>,
 }
+mod effect_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Custom geometry.
 /// When the object is serialized out as xml, it's qualified name is a:custGeom.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:custGeom")]
 pub struct CustomGeometry {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "custom_geometry_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3968,12 +4224,20 @@ pub struct CustomGeometry {
     #[xml(child = "a:pathLst")]
     pub path_list: PathList,
 }
+mod custom_geometry_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Preset geometry.
 /// When the object is serialized out as xml, it's qualified name is a:prstGeom.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:prstGeom")]
 pub struct PresetGeometry {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "preset_geometry_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -3987,12 +4251,20 @@ pub struct PresetGeometry {
     #[xml(child = "a:avLst")]
     pub adjust_value_list: Option<AdjustValueList>,
 }
+mod preset_geometry_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Preset Text Warp.
 /// When the object is serialized out as xml, it's qualified name is a:prstTxWarp.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:prstTxWarp")]
 pub struct PresetTextWarp {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "preset_text_warp_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -4005,6 +4277,14 @@ pub struct PresetTextWarp {
     ///Adjust Value List
     #[xml(child = "a:avLst")]
     pub adjust_value_list: Option<AdjustValueList>,
+}
+mod preset_text_warp_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Round Line Join.
 /// When the object is serialized out as xml, it's qualified name is a:round.
@@ -4041,7 +4321,7 @@ pub struct PresetDash {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:custDash")]
 pub struct CustomDash {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "custom_dash_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -4051,12 +4331,20 @@ pub struct CustomDash {
     #[xml(child = "a:ds")]
     pub a_ds: Vec<DashStop>,
 }
+mod custom_dash_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Fill.
 /// When the object is serialized out as xml, it's qualified name is a:fill.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:fill")]
 pub struct FillProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "fill_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -4086,6 +4374,14 @@ pub enum FillPropertiesChildChoice {
     APattFill(PatternFill),
     #[xml(tag = "a:grpFill")]
     AGrpFill(GroupFill),
+}
+mod fill_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Fill Reference.
 /// When the object is serialized out as xml, it's qualified name is a:fillRef.
@@ -4194,7 +4490,7 @@ pub enum LineReferenceChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct StyleMatrixReferenceType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "style_matrix_reference_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -4229,12 +4525,20 @@ pub enum StyleMatrixReferenceTypeChildChoice {
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
 }
+mod style_matrix_reference_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Effect.
 /// When the object is serialized out as xml, it's qualified name is a:effect.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:effect")]
 pub struct EffectPropertiesType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "effect_properties_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -4249,6 +4553,14 @@ pub enum EffectPropertiesTypeChildChoice {
     AEffectLst(EffectList),
     #[xml(tag = "a:effectDag")]
     AEffectDag(EffectDag),
+}
+mod effect_properties_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Font.
 /// When the object is serialized out as xml, it's qualified name is a:font.
@@ -4318,19 +4630,27 @@ pub struct MinorFont {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct FontCollectionType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "font_collection_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
 }
+mod font_collection_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the FontReference Class.
 /// When the object is serialized out as xml, it's qualified name is a:fontRef.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:fontRef")]
 pub struct FontReference {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "font_reference_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -4364,6 +4684,14 @@ pub enum FontReferenceChildChoice {
     ASchemeClr(SchemeColor),
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
+}
+mod font_reference_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// No AutoFit.
 /// When the object is serialized out as xml, it's qualified name is a:noAutofit.
@@ -4639,7 +4967,7 @@ pub enum HighlightChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct ColorType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "color_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -4669,6 +4997,14 @@ pub enum ColorTypeChildChoice {
     ASchemeClr(SchemeColor),
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
+}
+mod color_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Bullet Size Follows Text.
 /// When the object is serialized out as xml, it's qualified name is a:buSzTx.
@@ -4866,7 +5202,7 @@ pub struct CharacterBullet {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:buBlip")]
 pub struct PictureBullet {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "picture_bullet_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -4875,6 +5211,14 @@ pub struct PictureBullet {
     ///Blip
     #[xml(child = "a:blip")]
     pub blip: Blip,
+}
+mod picture_bullet_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Underline Follows Text.
 /// When the object is serialized out as xml, it's qualified name is a:uLnTx.
@@ -5398,7 +5742,7 @@ pub enum BottomLeftToTopRightBorderLinePropertiesChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct LinePropertiesType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "line_properties_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5463,6 +5807,14 @@ pub enum LinePropertiesTypeChildChoice {
     #[xml(tag = "a:extLst")]
     AExtLst(LinePropertiesExtensionList),
 }
+mod line_properties_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Underline Fill Properties Follow Text.
 /// When the object is serialized out as xml, it's qualified name is a:uFillTx.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -5473,7 +5825,7 @@ pub struct UnderlineFillText {}
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:uFill")]
 pub struct UnderlineFill {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "underline_fill_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5504,12 +5856,20 @@ pub enum UnderlineFillChildChoice {
     #[xml(tag = "a:grpFill")]
     AGrpFill(GroupFill),
 }
+mod underline_fill_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Text Run.
 /// When the object is serialized out as xml, it's qualified name is a:r.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:r")]
 pub struct Run {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "run_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5522,12 +5882,20 @@ pub struct Run {
     #[xml(child = "a:t")]
     pub text: Text,
 }
+mod run_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Text Line Break.
 /// When the object is serialized out as xml, it's qualified name is a:br.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:br")]
 pub struct Break {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "break_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5537,12 +5905,20 @@ pub struct Break {
     #[xml(child = "a:rPr")]
     pub run_properties: Option<RunProperties>,
 }
+mod break_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Text Field.
 /// When the object is serialized out as xml, it's qualified name is a:fld.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:fld")]
 pub struct Field {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "field_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5566,12 +5942,20 @@ pub struct Field {
     #[xml(child = "a:t")]
     pub text: Option<Text>,
 }
+mod field_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Graphic Object.
 /// When the object is serialized out as xml, it's qualified name is a:graphic.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:graphic")]
 pub struct Graphic {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "graphic_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5581,12 +5965,20 @@ pub struct Graphic {
     #[xml(child = "a:graphicData")]
     pub graphic_data: GraphicData,
 }
+mod graphic_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the Blip Class.
 /// When the object is serialized out as xml, it's qualified name is a:blip.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:blip")]
 pub struct Blip {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "blip_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5665,12 +6057,20 @@ pub enum BlipChildChoice {
     #[xml(tag = "a:extLst")]
     AExtLst(BlipExtensionList),
 }
+mod blip_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Theme.
 /// When the object is serialized out as xml, it's qualified name is a:theme.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:theme")]
 pub struct Theme {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "theme_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5700,12 +6100,20 @@ pub struct Theme {
     #[xml(child = "a:extLst")]
     pub office_style_sheet_extension_list: Option<OfficeStyleSheetExtensionList>,
 }
+mod theme_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Theme Override.
 /// When the object is serialized out as xml, it's qualified name is a:themeOverride.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:themeOverride")]
 pub struct ThemeOverride {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "theme_override_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5720,6 +6128,14 @@ pub struct ThemeOverride {
     /// _
     #[xml(child = "a:fmtScheme")]
     pub format_scheme: Option<FormatScheme>,
+}
+mod theme_override_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Theme Manager.
 /// When the object is serialized out as xml, it's qualified name is a:themeManager.
@@ -5741,7 +6157,7 @@ pub struct EmptyType {}
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tbl")]
 pub struct Table {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5757,12 +6173,20 @@ pub struct Table {
     #[xml(child = "a:tr")]
     pub a_tr: Vec<TableRow>,
 }
+mod table_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Table Style List.
 /// When the object is serialized out as xml, it's qualified name is a:tblStyleLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tblStyleLst")]
 pub struct TableStyleList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_style_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5776,12 +6200,20 @@ pub struct TableStyleList {
     #[xml(child = "a:tblStyle")]
     pub a_tbl_style: Vec<TableStyleEntry>,
 }
+mod table_style_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the ExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is a:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extLst")]
 pub struct ExtensionList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "extension_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5794,6 +6226,14 @@ pub struct ExtensionList {
 pub enum ExtensionListChildChoice {
     #[xml(tag = "a:ext")]
     AExt(Extension),
+}
+mod extension_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Audio Start Time.
 /// When the object is serialized out as xml, it's qualified name is a:st.
@@ -5842,7 +6282,7 @@ pub struct AudioCdTimeType {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:custClr")]
 pub struct CustomColor {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "custom_color_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5877,6 +6317,14 @@ pub enum CustomColorChildChoice {
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
 }
+mod custom_color_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Font.
 /// When the object is serialized out as xml, it's qualified name is a:font.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -5896,7 +6344,7 @@ pub struct SupplementalFont {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:scene3d")]
 pub struct Scene3DType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "scene3_d_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5915,12 +6363,20 @@ pub struct Scene3DType {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod scene3_d_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Effect Style.
 /// When the object is serialized out as xml, it's qualified name is a:effectStyle.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:effectStyle")]
 pub struct EffectStyle {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "effect_style_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5945,12 +6401,20 @@ pub enum EffectStyleChildChoice {
     #[xml(tag = "a:sp3d")]
     ASp3d(Shape3DType),
 }
+mod effect_style_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Fill Style List.
 /// When the object is serialized out as xml, it's qualified name is a:fillStyleLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:fillStyleLst")]
 pub struct FillStyleList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "fill_style_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5981,12 +6445,20 @@ pub enum FillStyleListChildChoice {
     #[xml(tag = "a:grpFill")]
     AGrpFill(GroupFill),
 }
+mod fill_style_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Line Style List.
 /// When the object is serialized out as xml, it's qualified name is a:lnStyleLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:lnStyleLst")]
 pub struct LineStyleList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "line_style_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -5996,12 +6468,20 @@ pub struct LineStyleList {
     #[xml(child = "a:ln")]
     pub a_ln: Vec<Outline>,
 }
+mod line_style_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Effect Style List.
 /// When the object is serialized out as xml, it's qualified name is a:effectStyleLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:effectStyleLst")]
 pub struct EffectStyleList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "effect_style_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -6011,12 +6491,20 @@ pub struct EffectStyleList {
     #[xml(child = "a:effectStyle")]
     pub a_effect_style: Vec<EffectStyle>,
 }
+mod effect_style_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Background Fill Style List.
 /// When the object is serialized out as xml, it's qualified name is a:bgFillStyleLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:bgFillStyleLst")]
 pub struct BackgroundFillStyleList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "background_fill_style_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -6047,12 +6535,20 @@ pub enum BackgroundFillStyleListChildChoice {
     #[xml(tag = "a:grpFill")]
     AGrpFill(GroupFill),
 }
+mod background_fill_style_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the ColorScheme Class.
 /// When the object is serialized out as xml, it's qualified name is a:clrScheme.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:clrScheme")]
 pub struct ColorScheme {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "color_scheme_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -6102,12 +6598,20 @@ pub struct ColorScheme {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod color_scheme_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Font Scheme.
 /// When the object is serialized out as xml, it's qualified name is a:fontScheme.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:fontScheme")]
 pub struct FontScheme {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "font_scheme_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -6127,12 +6631,20 @@ pub struct FontScheme {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod font_scheme_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Format Scheme.
 /// When the object is serialized out as xml, it's qualified name is a:fmtScheme.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:fmtScheme")]
 pub struct FormatScheme {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "format_scheme_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -6154,6 +6666,14 @@ pub struct FormatScheme {
     ///Background Fill Style List
     #[xml(child = "a:bgFillStyleLst")]
     pub background_fill_style_list: BackgroundFillStyleList,
+}
+mod format_scheme_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Dark 1.
 /// When the object is serialized out as xml, it's qualified name is a:dk1.
@@ -6484,7 +7004,7 @@ pub enum FollowedHyperlinkColorChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct Color2Type {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "color2_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -6511,6 +7031,14 @@ pub enum Color2TypeChildChoice {
     ASysClr(SystemColor),
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
+}
+mod color2_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Horizontal Ratio.
 /// When the object is serialized out as xml, it's qualified name is a:sx.
@@ -6643,7 +7171,7 @@ pub struct PositiveSize2DType {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:spLocks")]
 pub struct ShapeLocks {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "shape_locks_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -6697,12 +7225,20 @@ pub struct ShapeLocks {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod shape_locks_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Connection Shape Locks.
 /// When the object is serialized out as xml, it's qualified name is a:cxnSpLocks.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cxnSpLocks")]
 pub struct ConnectionShapeLocks {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "connection_shape_locks_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -6752,6 +7288,14 @@ pub struct ConnectionShapeLocks {
     #[xml(child = "a:extLst")]
     pub connector_locking_extension_list: Option<ConnectorLockingExtensionList>,
 }
+mod connection_shape_locks_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Connection Start.
 /// When the object is serialized out as xml, it's qualified name is a:stCxn.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -6799,7 +7343,7 @@ pub struct ConnectionType {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:graphicFrameLocks")]
 pub struct GraphicFrameLocks {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "graphic_frame_locks_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -6833,12 +7377,20 @@ pub struct GraphicFrameLocks {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod graphic_frame_locks_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Graphic Object Data.
 /// When the object is serialized out as xml, it's qualified name is a:graphicData.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:graphicData")]
 pub struct GraphicData {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "graphic_data_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8420,6 +8972,14 @@ pub enum GraphicDataChildChoice {
         crate::schemas::schemas_microsoft_com_office_drawing_2012_timeslicer::TimeSlicer,
     ),
 }
+mod graphic_data_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Diagram to Animate.
 /// When the object is serialized out as xml, it's qualified name is a:dgm.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -8485,7 +9045,7 @@ pub struct BuildChart {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:txBody")]
 pub struct TextBody {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "text_body_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8501,6 +9061,14 @@ pub struct TextBody {
     #[xml(child = "a:p")]
     pub a_p: Vec<Paragraph>,
 }
+mod text_body_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Use Shape Text Rectangle.
 /// When the object is serialized out as xml, it's qualified name is a:useSpRect.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -8511,7 +9079,7 @@ pub struct UseShapeRectangle {}
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:xfrm")]
 pub struct Transform2D {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "transform2_d_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8536,12 +9104,20 @@ pub struct Transform2D {
     #[xml(child = "a:ext")]
     pub extents: Option<Extents>,
 }
+mod transform2_d_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the NonVisualDrawingProperties Class.
 /// When the object is serialized out as xml, it's qualified name is a:cNvPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cNvPr")]
 pub struct NonVisualDrawingProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_drawing_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8579,12 +9155,20 @@ pub struct NonVisualDrawingProperties {
         NonVisualDrawingPropertiesExtensionList,
     >,
 }
+mod non_visual_drawing_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Non-Visual Shape Drawing Properties.
 /// When the object is serialized out as xml, it's qualified name is a:cNvSpPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cNvSpPr")]
 pub struct NonVisualShapeDrawingProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_shape_drawing_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8601,12 +9185,20 @@ pub struct NonVisualShapeDrawingProperties {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod non_visual_shape_drawing_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Non-Visual Properties for a Shape.
 /// When the object is serialized out as xml, it's qualified name is a:nvSpPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:nvSpPr")]
 pub struct NonVisualShapeProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_shape_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8619,12 +9211,20 @@ pub struct NonVisualShapeProperties {
     #[xml(child = "a:cNvSpPr")]
     pub non_visual_shape_drawing_properties: NonVisualShapeDrawingProperties,
 }
+mod non_visual_shape_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Visual Properties.
 /// When the object is serialized out as xml, it's qualified name is a:spPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:spPr")]
 pub struct ShapeProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "shape_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8686,12 +9286,20 @@ pub enum ShapePropertiesChildChoice {
     #[xml(tag = "a:extLst")]
     AExtLst(ShapePropertiesExtensionList),
 }
+mod shape_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Text Shape.
 /// When the object is serialized out as xml, it's qualified name is a:txSp.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:txSp")]
 pub struct TextShape {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "text_shape_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8716,12 +9324,20 @@ pub enum TextShapeChildChoice {
     #[xml(tag = "a:extLst")]
     AExtLst(ExtensionList),
 }
+mod text_shape_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Style.
 /// When the object is serialized out as xml, it's qualified name is a:style.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:style")]
 pub struct ShapeStyle {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "shape_style_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8740,12 +9356,23 @@ pub struct ShapeStyle {
     #[xml(child = "a:fontRef")]
     pub font_reference: FontReference,
 }
+mod shape_style_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Non-Visual Connector Shape Drawing Properties.
 /// When the object is serialized out as xml, it's qualified name is a:cNvCxnSpPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cNvCxnSpPr")]
 pub struct NonVisualConnectorShapeDrawingProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(
+        attr = "xmlns",
+        with = "non_visual_connector_shape_drawing_properties_xmlns_derive"
+    )]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8764,12 +9391,20 @@ pub struct NonVisualConnectorShapeDrawingProperties {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod non_visual_connector_shape_drawing_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Non-Visual Properties for a Connection Shape.
 /// When the object is serialized out as xml, it's qualified name is a:nvCxnSpPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:nvCxnSpPr")]
 pub struct NonVisualConnectionShapeProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_connection_shape_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8782,12 +9417,20 @@ pub struct NonVisualConnectionShapeProperties {
     #[xml(child = "a:cNvCxnSpPr")]
     pub non_visual_connector_shape_drawing_properties: NonVisualConnectorShapeDrawingProperties,
 }
+mod non_visual_connection_shape_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Non-Visual Picture Drawing Properties.
 /// When the object is serialized out as xml, it's qualified name is a:cNvPicPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cNvPicPr")]
 pub struct NonVisualPictureDrawingProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_picture_drawing_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8806,12 +9449,20 @@ pub struct NonVisualPictureDrawingProperties {
         NonVisualPicturePropertiesExtensionList,
     >,
 }
+mod non_visual_picture_drawing_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Non-Visual Properties for a Picture.
 /// When the object is serialized out as xml, it's qualified name is a:nvPicPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:nvPicPr")]
 pub struct NonVisualPictureProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_picture_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8824,12 +9475,23 @@ pub struct NonVisualPictureProperties {
     #[xml(child = "a:cNvPicPr")]
     pub non_visual_picture_drawing_properties: NonVisualPictureDrawingProperties,
 }
+mod non_visual_picture_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Non-Visual Graphic Frame Drawing Properties.
 /// When the object is serialized out as xml, it's qualified name is a:cNvGraphicFramePr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cNvGraphicFramePr")]
 pub struct NonVisualGraphicFrameDrawingProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(
+        attr = "xmlns",
+        with = "non_visual_graphic_frame_drawing_properties_xmlns_derive"
+    )]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8842,12 +9504,20 @@ pub struct NonVisualGraphicFrameDrawingProperties {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod non_visual_graphic_frame_drawing_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Non-Visual Properties for a Graphic Frame.
 /// When the object is serialized out as xml, it's qualified name is a:nvGraphicFramePr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:nvGraphicFramePr")]
 pub struct NonVisualGraphicFrameProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_graphic_frame_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8860,12 +9530,23 @@ pub struct NonVisualGraphicFrameProperties {
     #[xml(child = "a:cNvGraphicFramePr")]
     pub non_visual_graphic_frame_drawing_properties: NonVisualGraphicFrameDrawingProperties,
 }
+mod non_visual_graphic_frame_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Non-Visual Group Shape Drawing Properties.
 /// When the object is serialized out as xml, it's qualified name is a:cNvGrpSpPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cNvGrpSpPr")]
 pub struct NonVisualGroupShapeDrawingProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(
+        attr = "xmlns",
+        with = "non_visual_group_shape_drawing_properties_xmlns_derive"
+    )]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8879,6 +9560,14 @@ pub struct NonVisualGroupShapeDrawingProperties {
     pub non_visual_group_drawing_shape_props_extension_list: Option<
         NonVisualGroupDrawingShapePropsExtensionList,
     >,
+}
+mod non_visual_group_shape_drawing_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Rotation.
 /// When the object is serialized out as xml, it's qualified name is a:rot.
@@ -8903,7 +9592,7 @@ pub struct Rotation {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:camera")]
 pub struct Camera {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "camera_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8925,12 +9614,20 @@ pub struct Camera {
     #[xml(child = "a:rot")]
     pub rotation: Option<Rotation>,
 }
+mod camera_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Light Rig.
 /// When the object is serialized out as xml, it's qualified name is a:lightRig.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:lightRig")]
 pub struct LightRig {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "light_rig_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8948,12 +9645,20 @@ pub struct LightRig {
     #[xml(child = "a:rot")]
     pub rotation: Option<Rotation>,
 }
+mod light_rig_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Backdrop Plane.
 /// When the object is serialized out as xml, it's qualified name is a:backdrop.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:backdrop")]
 pub struct Backdrop {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "backdrop_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -8971,6 +9676,14 @@ pub struct Backdrop {
     /// _
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
+}
+mod backdrop_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Anchor Point.
 /// When the object is serialized out as xml, it's qualified name is a:anchor.
@@ -9231,7 +9944,7 @@ pub struct RelativeRectangleType {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:gs")]
 pub struct GradientStop {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "gradient_stop_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9266,12 +9979,20 @@ pub enum GradientStopChildChoice {
     #[xml(tag = "a:prstClr")]
     APrstClr(PresetColor),
 }
+mod gradient_stop_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Gradient Stop List.
 /// When the object is serialized out as xml, it's qualified name is a:gsLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:gsLst")]
 pub struct GradientStopList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "gradient_stop_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9280,6 +10001,14 @@ pub struct GradientStopList {
     /// _
     #[xml(child = "a:gs")]
     pub a_gs: Vec<GradientStop>,
+}
+mod gradient_stop_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Shape Guide.
 /// When the object is serialized out as xml, it's qualified name is a:gd.
@@ -9342,7 +10071,7 @@ pub struct AdjustPoint2DType {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ahXY")]
 pub struct AdjustHandleXy {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "adjust_handle_xy_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9376,12 +10105,20 @@ pub struct AdjustHandleXy {
     #[xml(child = "a:pos")]
     pub position: Position,
 }
+mod adjust_handle_xy_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Polar Adjust Handle.
 /// When the object is serialized out as xml, it's qualified name is a:ahPolar.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ahPolar")]
 pub struct AdjustHandlePolar {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "adjust_handle_polar_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9415,12 +10152,20 @@ pub struct AdjustHandlePolar {
     #[xml(child = "a:pos")]
     pub position: Position,
 }
+mod adjust_handle_polar_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Shape Connection Site.
 /// When the object is serialized out as xml, it's qualified name is a:cxn.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cxn")]
 pub struct ConnectionSite {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "connection_site_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9434,6 +10179,14 @@ pub struct ConnectionSite {
     #[xml(child = "a:pos")]
     pub position: Position,
 }
+mod connection_site_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Close Shape Path.
 /// When the object is serialized out as xml, it's qualified name is a:close.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -9444,7 +10197,7 @@ pub struct CloseShapePath {}
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:moveTo")]
 pub struct MoveTo {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "move_to_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9454,12 +10207,20 @@ pub struct MoveTo {
     #[xml(child = "a:pt")]
     pub point: Point,
 }
+mod move_to_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Draw Line To.
 /// When the object is serialized out as xml, it's qualified name is a:lnTo.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:lnTo")]
 pub struct LineTo {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "line_to_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9468,6 +10229,14 @@ pub struct LineTo {
     ///Line end point
     #[xml(child = "a:pt")]
     pub point: Point,
+}
+mod line_to_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Draw Arc To.
 /// When the object is serialized out as xml, it's qualified name is a:arcTo.
@@ -9496,7 +10265,7 @@ pub struct ArcTo {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:quadBezTo")]
 pub struct QuadraticBezierCurveTo {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "quadratic_bezier_curve_to_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9505,13 +10274,21 @@ pub struct QuadraticBezierCurveTo {
     /// _
     #[xml(child = "a:pt")]
     pub a_pt: Vec<Point>,
+}
+mod quadratic_bezier_curve_to_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Draw Cubic Bezier Curve To.
 /// When the object is serialized out as xml, it's qualified name is a:cubicBezTo.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cubicBezTo")]
 pub struct CubicBezierCurveTo {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "cubic_bezier_curve_to_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9521,12 +10298,20 @@ pub struct CubicBezierCurveTo {
     #[xml(child = "a:pt")]
     pub a_pt: Vec<Point>,
 }
+mod cubic_bezier_curve_to_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Shape Path.
 /// When the object is serialized out as xml, it's qualified name is a:path.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:path")]
 pub struct Path {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "path_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9577,6 +10362,14 @@ pub enum PathChildChoice {
     #[xml(tag = "a:cubicBezTo")]
     ACubicBezTo(CubicBezierCurveTo),
 }
+mod path_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// List of Shape Adjust Values.
 /// When the object is serialized out as xml, it's qualified name is a:avLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -9608,7 +10401,7 @@ pub enum ShapeGuideListChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct GeometryGuideListType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "geometry_guide_list_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9622,12 +10415,20 @@ pub enum GeometryGuideListTypeChildChoice {
     #[xml(tag = "a:gd")]
     AGd(ShapeGuide),
 }
+mod geometry_guide_list_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// List of Shape Adjust Handles.
 /// When the object is serialized out as xml, it's qualified name is a:ahLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ahLst")]
 pub struct AdjustHandleList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "adjust_handle_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9643,12 +10444,20 @@ pub enum AdjustHandleListChildChoice {
     #[xml(tag = "a:ahPolar")]
     AAhPolar(AdjustHandlePolar),
 }
+mod adjust_handle_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// List of Shape Connection Sites.
 /// When the object is serialized out as xml, it's qualified name is a:cxnLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cxnLst")]
 pub struct ConnectionSiteList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "connection_site_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9657,6 +10466,14 @@ pub struct ConnectionSiteList {
     /// _
     #[xml(child = "a:cxn")]
     pub a_cxn: Vec<ConnectionSite>,
+}
+mod connection_site_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Shape Text Rectangle.
 /// When the object is serialized out as xml, it's qualified name is a:rect.
@@ -9685,7 +10502,7 @@ pub struct Rectangle {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:pathLst")]
 pub struct PathList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "path_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9694,6 +10511,14 @@ pub struct PathList {
     /// _
     #[xml(child = "a:path")]
     pub a_path: Vec<Path>,
+}
+mod path_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Dash Stop.
 /// When the object is serialized out as xml, it's qualified name is a:ds.
@@ -9714,7 +10539,7 @@ pub struct DashStop {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:xfrm")]
 pub struct TransformGroup {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "transform_group_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9745,12 +10570,20 @@ pub struct TransformGroup {
     #[xml(child = "a:chExt")]
     pub child_extents: Option<ChildExtents>,
 }
+mod transform_group_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the BodyProperties Class.
 /// When the object is serialized out as xml, it's qualified name is a:bodyPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:bodyPr")]
 pub struct BodyProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "body_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9863,12 +10696,20 @@ pub enum BodyPropertiesChildChoice {
     #[xml(tag = "a:extLst")]
     AExtLst(ExtensionList),
 }
+mod body_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the ListStyle Class.
 /// When the object is serialized out as xml, it's qualified name is a:lstStyle.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:lstStyle")]
 pub struct ListStyle {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "list_style_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -9907,6 +10748,14 @@ pub struct ListStyle {
     /// _
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
+}
+mod list_style_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Shape Default.
 /// When the object is serialized out as xml, it's qualified name is a:spDef.
@@ -9976,12 +10825,20 @@ pub struct TextDefault {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct DefaultShapeDefinitionType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "default_shape_definition_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
+}
+mod default_shape_definition_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Override Color Mapping.
 /// When the object is serialized out as xml, it's qualified name is a:overrideClrMapping.
@@ -10102,7 +10959,7 @@ pub struct ColorMap {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct ColorMappingType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "color_mapping_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10157,12 +11014,20 @@ pub struct ColorMappingType {
     #[xml(attr = "folHlink")]
     pub followed_hyperlink: ColorSchemeIndexValues,
 }
+mod color_mapping_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Extra Color Scheme.
 /// When the object is serialized out as xml, it's qualified name is a:extraClrScheme.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extraClrScheme")]
 pub struct ExtraColorScheme {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "extra_color_scheme_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10175,12 +11040,20 @@ pub struct ExtraColorScheme {
     #[xml(child = "a:clrMap")]
     pub color_map: Option<ColorMap>,
 }
+mod extra_color_scheme_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the ThemeElements Class.
 /// When the object is serialized out as xml, it's qualified name is a:themeElements.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:themeElements")]
 pub struct ThemeElements {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "theme_elements_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10199,12 +11072,20 @@ pub struct ThemeElements {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod theme_elements_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Cell 3-D.
 /// When the object is serialized out as xml, it's qualified name is a:cell3D.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cell3D")]
 pub struct Cell3DProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "cell3_d_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10224,12 +11105,20 @@ pub struct Cell3DProperties {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod cell3_d_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Table Cell Properties.
 /// When the object is serialized out as xml, it's qualified name is a:tcPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tcPr")]
 pub struct TableCellProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_cell_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10316,12 +11205,20 @@ pub enum TableCellPropertiesChildChoice {
     #[xml(tag = "a:extLst")]
     AExtLst(ExtensionList),
 }
+mod table_cell_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Table Cell.
 /// When the object is serialized out as xml, it's qualified name is a:tc.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tc")]
 pub struct TableCell {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_cell_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10352,6 +11249,14 @@ pub struct TableCell {
     /// _
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
+}
+mod table_cell_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Table Style.
 /// When the object is serialized out as xml, it's qualified name is a:tableStyle.
@@ -10476,7 +11381,7 @@ pub struct TableStyleEntry {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct TableStyleType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_style_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10491,6 +11396,14 @@ pub struct TableStyleType {
     #[xml(attr = "styleName")]
     pub style_name: String,
 }
+mod table_style_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Table Style ID.
 /// When the object is serialized out as xml, it's qualified name is a:tableStyleId.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -10504,7 +11417,7 @@ pub struct TableStyleId {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:gridCol")]
 pub struct GridColumn {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "grid_column_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10518,12 +11431,20 @@ pub struct GridColumn {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod grid_column_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Table Properties.
 /// When the object is serialized out as xml, it's qualified name is a:tblPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tblPr")]
 pub struct TableProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10597,12 +11518,20 @@ pub enum TablePropertiesChildChoice {
     #[xml(tag = "a:extLst")]
     AExtLst(ExtensionList),
 }
+mod table_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Table Grid.
 /// When the object is serialized out as xml, it's qualified name is a:tblGrid.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tblGrid")]
 pub struct TableGrid {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_grid_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10612,12 +11541,20 @@ pub struct TableGrid {
     #[xml(child = "a:gridCol")]
     pub a_grid_col: Vec<GridColumn>,
 }
+mod table_grid_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Table Row.
 /// When the object is serialized out as xml, it's qualified name is a:tr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tr")]
 pub struct TableRow {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_row_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10633,6 +11570,14 @@ pub struct TableRow {
     /// _
     #[xml(child = "a:extLst")]
     pub a_ext_lst: Option<ExtensionList>,
+}
+mod table_row_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Left Border.
 /// When the object is serialized out as xml, it's qualified name is a:left.
@@ -10759,7 +11704,7 @@ pub enum TopRightToBottomLeftBorderChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct ThemeableLineStyleType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "themeable_line_style_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10775,12 +11720,20 @@ pub enum ThemeableLineStyleTypeChildChoice {
     #[xml(tag = "a:lnRef")]
     ALnRef(LineReference),
 }
+mod themeable_line_style_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Table Cell Borders.
 /// When the object is serialized out as xml, it's qualified name is a:tcBdr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tcBdr")]
 pub struct TableCellBorders {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_cell_borders_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10814,12 +11767,20 @@ pub struct TableCellBorders {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod table_cell_borders_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Table Cell Text Style.
 /// When the object is serialized out as xml, it's qualified name is a:tcTxStyle.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tcTxStyle")]
 pub struct TableCellTextStyle {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_cell_text_style_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10867,12 +11828,20 @@ pub enum TableCellTextStyleChildChoice {
     #[xml(tag = "a:extLst")]
     AExtLst(ExtensionList),
 }
+mod table_cell_text_style_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Table Cell Style.
 /// When the object is serialized out as xml, it's qualified name is a:tcStyle.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tcStyle")]
 pub struct TableCellStyle {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_cell_style_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10892,12 +11861,20 @@ pub enum TableCellStyleChildChoice {
     #[xml(tag = "a:cell3D")]
     ACell3D(Cell3DProperties),
 }
+mod table_cell_style_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Table Background.
 /// When the object is serialized out as xml, it's qualified name is a:tblBg.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tblBg")]
 pub struct TableBackground {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_background_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -10921,6 +11898,14 @@ pub enum TableBackgroundChildChoice {
     AEffect(EffectPropertiesType),
     #[xml(tag = "a:effectRef")]
     AEffectRef(EffectReference),
+}
+mod table_background_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Whole Table.
 /// When the object is serialized out as xml, it's qualified name is a:wholeTbl.
@@ -11083,12 +12068,20 @@ pub struct NorthwestCell {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct TablePartStyleType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_part_style_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
+}
+mod table_part_style_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Text Paragraph Properties.
 /// When the object is serialized out as xml, it's qualified name is a:pPr.
@@ -12272,7 +13265,7 @@ pub enum Level9ParagraphPropertiesChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct TextParagraphPropertiesType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "text_paragraph_properties_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -12322,6 +13315,14 @@ pub struct TextParagraphPropertiesType {
     /// Represents the following attribute in the schema: :hangingPunct
     #[xml(attr = "hangingPunct")]
     pub height: Option<bool>,
+}
+mod text_paragraph_properties_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// End Paragraph Run Properties.
 /// When the object is serialized out as xml, it's qualified name is a:endParaRPr.
@@ -12790,7 +13791,7 @@ pub enum DefaultRunPropertiesChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct TextCharacterPropertiesType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "text_character_properties_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -12873,12 +13874,20 @@ pub struct TextCharacterPropertiesType {
     #[xml(attr = "bmk")]
     pub bookmark: Option<String>,
 }
+mod text_character_properties_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Text Paragraphs.
 /// When the object is serialized out as xml, it's qualified name is a:p.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:p")]
 pub struct Paragraph {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "paragraph_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -12908,6 +13917,14 @@ pub enum ParagraphChildChoice {
     A14M(crate::schemas::schemas_microsoft_com_office_drawing_2010_main::TextMath),
     #[xml(tag = "a:endParaRPr")]
     AEndParaRPr(EndParagraphRunProperties),
+}
+mod paragraph_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Tab Stop.
 /// When the object is serialized out as xml, it's qualified name is a:tab.
@@ -12993,7 +14010,7 @@ pub enum SpaceAfterChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct TextSpacingType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "text_spacing_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13009,12 +14026,20 @@ pub enum TextSpacingTypeChildChoice {
     #[xml(tag = "a:spcPts")]
     ASpcPts(SpacingPoints),
 }
+mod text_spacing_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Tab List.
 /// When the object is serialized out as xml, it's qualified name is a:tabLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:tabLst")]
 pub struct TabStopList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "tab_stop_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13023,6 +14048,14 @@ pub struct TabStopList {
     /// _
     #[xml(child = "a:tab")]
     pub a_tab: Vec<TabStop>,
+}
+mod tab_stop_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Defines the Text Class.
 /// When the object is serialized out as xml, it's qualified name is a:t.
@@ -13037,7 +14070,7 @@ pub struct Text {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct ShapePropertiesExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "shape_properties_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13084,12 +14117,20 @@ pub enum ShapePropertiesExtensionChildChoice {
         crate::schemas::schemas_microsoft_com_office_drawing_2010_main::ShadowObscured,
     ),
 }
+mod shape_properties_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the GvmlGroupShapeExtension Class.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct GvmlGroupShapeExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "gvml_group_shape_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13109,12 +14150,20 @@ pub enum GvmlGroupShapeExtensionChildChoice {
         crate::schemas::schemas_microsoft_com_office_drawing_2010_main::IsCanvas,
     ),
 }
+mod gvml_group_shape_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the ShapePropertiesExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is a:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extLst")]
 pub struct ShapePropertiesExtensionList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "shape_properties_extension_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13124,12 +14173,20 @@ pub struct ShapePropertiesExtensionList {
     #[xml(child = "a:ext")]
     pub a_ext: Vec<ShapePropertiesExtension>,
 }
+mod shape_properties_extension_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Non-Visual Properties for a Group Shape.
 /// When the object is serialized out as xml, it's qualified name is a:nvGrpSpPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:nvGrpSpPr")]
 pub struct NonVisualGroupShapeProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_group_shape_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13142,12 +14199,20 @@ pub struct NonVisualGroupShapeProperties {
     #[xml(child = "a:cNvGrpSpPr")]
     pub non_visual_group_shape_drawing_properties: NonVisualGroupShapeDrawingProperties,
 }
+mod non_visual_group_shape_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Visual Group Shape Properties.
 /// When the object is serialized out as xml, it's qualified name is a:grpSpPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:grpSpPr")]
 pub struct VisualGroupShapeProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "visual_group_shape_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13197,12 +14262,20 @@ pub enum VisualGroupShapePropertiesChildChoice {
     #[xml(tag = "a:extLst")]
     AExtLst(ExtensionList),
 }
+mod visual_group_shape_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Shape.
 /// When the object is serialized out as xml, it's qualified name is a:sp.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:sp")]
 pub struct Shape {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "shape_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13224,12 +14297,20 @@ pub struct Shape {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod shape_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Connection Shape.
 /// When the object is serialized out as xml, it's qualified name is a:cxnSp.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:cxnSp")]
 pub struct ConnectionShape {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "connection_shape_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13248,12 +14329,20 @@ pub struct ConnectionShape {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod connection_shape_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Picture.
 /// When the object is serialized out as xml, it's qualified name is a:pic.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:pic")]
 pub struct Picture {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "picture_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13275,12 +14364,20 @@ pub struct Picture {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod picture_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Graphic Frame.
 /// When the object is serialized out as xml, it's qualified name is a:graphicFrame.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:graphicFrame")]
 pub struct GraphicFrame {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "graphic_frame_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13299,12 +14396,20 @@ pub struct GraphicFrame {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod graphic_frame_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Group shape.
 /// When the object is serialized out as xml, it's qualified name is a:grpSp.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:grpSp")]
 pub struct GroupShape {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "group_shape_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13349,12 +14454,20 @@ pub enum GroupShapeChildChoice {
     #[xml(tag = "a:extLst")]
     AExtLst(GvmlGroupShapeExtensionList),
 }
+mod group_shape_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the GvmlGroupShapeExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is a:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extLst")]
 pub struct GvmlGroupShapeExtensionList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "gvml_group_shape_extension_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13364,12 +14477,23 @@ pub struct GvmlGroupShapeExtensionList {
     #[xml(child = "a:ext")]
     pub a_ext: Vec<GvmlGroupShapeExtension>,
 }
+mod gvml_group_shape_extension_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the NonVisualGroupDrawingShapePropsExtension Class.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct NonVisualGroupDrawingShapePropsExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(
+        attr = "xmlns",
+        with = "non_visual_group_drawing_shape_props_extension_xmlns_derive"
+    )]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13389,12 +14513,20 @@ pub enum NonVisualGroupDrawingShapePropsExtensionChildChoice {
         crate::schemas::schemas_microsoft_com_office_drawing_2012_main::NonVisualGroupProperties,
     ),
 }
+mod non_visual_group_drawing_shape_props_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the OfficeStyleSheetExtension Class.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct OfficeStyleSheetExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "office_style_sheet_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13414,12 +14546,20 @@ pub enum OfficeStyleSheetExtensionChildChoice {
         crate::schemas::schemas_microsoft_com_office_thememl_2012_main::ThemeFamily,
     ),
 }
+mod office_style_sheet_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the ConnectorLockingExtension Class.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct ConnectorLockingExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "connector_locking_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13437,12 +14577,20 @@ pub enum ConnectorLockingExtensionChildChoice {
     #[xml(tag = "a:graphic")]
     AGraphic(Graphic),
 }
+mod connector_locking_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the GroupShapeLocks Class.
 /// When the object is serialized out as xml, it's qualified name is a:grpSpLocks.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:grpSpLocks")]
 pub struct GroupShapeLocks {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "group_shape_locks_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13480,12 +14628,23 @@ pub struct GroupShapeLocks {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod group_shape_locks_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the NonVisualGroupDrawingShapePropsExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is a:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extLst")]
 pub struct NonVisualGroupDrawingShapePropsExtensionList {
-    #[xml(attr = "xmlns")]
+    #[xml(
+        attr = "xmlns",
+        with = "non_visual_group_drawing_shape_props_extension_list_xmlns_derive"
+    )]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13495,12 +14654,20 @@ pub struct NonVisualGroupDrawingShapePropsExtensionList {
     #[xml(child = "a:ext")]
     pub a_ext: Vec<NonVisualGroupDrawingShapePropsExtension>,
 }
+mod non_visual_group_drawing_shape_props_extension_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the ObjectDefaults Class.
 /// When the object is serialized out as xml, it's qualified name is a:objectDefaults.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:objectDefaults")]
 pub struct ObjectDefaults {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "object_defaults_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13519,12 +14686,20 @@ pub struct ObjectDefaults {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod object_defaults_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the ExtraColorSchemeList Class.
 /// When the object is serialized out as xml, it's qualified name is a:extraClrSchemeLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extraClrSchemeLst")]
 pub struct ExtraColorSchemeList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "extra_color_scheme_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13534,12 +14709,20 @@ pub struct ExtraColorSchemeList {
     #[xml(child = "a:extraClrScheme")]
     pub a_extra_clr_scheme: Vec<ExtraColorScheme>,
 }
+mod extra_color_scheme_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the CustomColorList Class.
 /// When the object is serialized out as xml, it's qualified name is a:custClrLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:custClrLst")]
 pub struct CustomColorList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "custom_color_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13549,12 +14732,20 @@ pub struct CustomColorList {
     #[xml(child = "a:custClr")]
     pub a_cust_clr: Vec<CustomColor>,
 }
+mod custom_color_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the OfficeStyleSheetExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is a:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extLst")]
 pub struct OfficeStyleSheetExtensionList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "office_style_sheet_extension_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13563,6 +14754,14 @@ pub struct OfficeStyleSheetExtensionList {
     /// _
     #[xml(child = "a:ext")]
     pub a_ext: Vec<OfficeStyleSheetExtension>,
+}
+mod office_style_sheet_extension_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// Defines the HyperlinkOnClick Class.
 /// When the object is serialized out as xml, it's qualified name is a:hlinkClick.
@@ -13701,7 +14900,7 @@ pub struct HyperlinkOnHover {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = ".")]
 pub struct HyperlinkType {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "hyperlink_type_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13740,6 +14939,14 @@ pub struct HyperlinkType {
     #[xml(attr = "endSnd")]
     pub end_sound: Option<bool>,
 }
+mod hyperlink_type_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the RightToLeft Class.
 /// When the object is serialized out as xml, it's qualified name is a:rtl.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -13755,7 +14962,10 @@ pub struct RightToLeft {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extLst")]
 pub struct NonVisualDrawingPropertiesExtensionList {
-    #[xml(attr = "xmlns")]
+    #[xml(
+        attr = "xmlns",
+        with = "non_visual_drawing_properties_extension_list_xmlns_derive"
+    )]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13765,12 +14975,20 @@ pub struct NonVisualDrawingPropertiesExtensionList {
     #[xml(child = "a:ext")]
     pub a_ext: Vec<NonVisualDrawingPropertiesExtension>,
 }
+mod non_visual_drawing_properties_extension_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the ConnectorLockingExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is a:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extLst")]
 pub struct ConnectorLockingExtensionList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "connector_locking_extension_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13780,12 +14998,20 @@ pub struct ConnectorLockingExtensionList {
     #[xml(child = "a:ext")]
     pub a_ext: Vec<ConnectorLockingExtension>,
 }
+mod connector_locking_extension_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the DataModelExtension Class.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct DataModelExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "data_model_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13809,12 +15035,20 @@ pub enum DataModelExtensionChildChoice {
         crate::schemas::schemas_microsoft_com_office_drawing_2010_diagram::RecolorImages,
     ),
 }
+mod data_model_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the PtExtension Class.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct PtExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "pt_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13834,12 +15068,20 @@ pub enum PtExtensionChildChoice {
         crate::schemas::schemas_microsoft_com_office_drawing_2010_diagram::NonVisualDrawingProperties,
     ),
 }
+mod pt_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the HyperlinkExtension Class.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct HyperlinkExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "hyperlink_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13859,12 +15101,20 @@ pub enum HyperlinkExtensionChildChoice {
         crate::schemas::schemas_microsoft_com_office_drawing_2018_hyperlinkcolor::HyperlinkColor,
     ),
 }
+mod hyperlink_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Future extensions..
 /// When the object is serialized out as xml, it's qualified name is a:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extLst")]
 pub struct HyperlinkExtensionList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "hyperlink_extension_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13874,12 +15124,20 @@ pub struct HyperlinkExtensionList {
     #[xml(child = "a:ext")]
     pub a_ext: Vec<HyperlinkExtension>,
 }
+mod hyperlink_extension_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the LinePropertiesExtension Class.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct LinePropertiesExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "line_properties_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13898,6 +15156,14 @@ pub enum LinePropertiesExtensionChildChoice {
     AskLineSketchStyleProps(
         crate::schemas::schemas_microsoft_com_office_drawing_2018_sketchyshapes::LineSketchStyleProperties,
     ),
+}
+mod line_properties_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }
 /// default head line end style is none.
 /// When the object is serialized out as xml, it's qualified name is a:headEnd.
@@ -13958,7 +15224,7 @@ pub struct LineEndPropertiesType {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extLst")]
 pub struct LinePropertiesExtensionList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "line_properties_extension_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13968,12 +15234,20 @@ pub struct LinePropertiesExtensionList {
     #[xml(child = "a:ext")]
     pub a_ext: Vec<LinePropertiesExtension>,
 }
+mod line_properties_extension_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the NonVisualDrawingPropertiesExtension Class.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct NonVisualDrawingPropertiesExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_drawing_properties_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -14025,12 +15299,20 @@ pub enum NonVisualDrawingPropertiesExtensionChildChoice {
         crate::schemas::schemas_microsoft_com_office_drawing_2021_scriptlink::ScriptLink,
     ),
 }
+mod non_visual_drawing_properties_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the PictureLocks Class.
 /// When the object is serialized out as xml, it's qualified name is a:picLocks.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:picLocks")]
 pub struct PictureLocks {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "picture_locks_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -14084,12 +15366,23 @@ pub struct PictureLocks {
     #[xml(child = "a:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod picture_locks_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the NonVisualPicturePropertiesExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is a:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extLst")]
 pub struct NonVisualPicturePropertiesExtensionList {
-    #[xml(attr = "xmlns")]
+    #[xml(
+        attr = "xmlns",
+        with = "non_visual_picture_properties_extension_list_xmlns_derive"
+    )]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -14099,12 +15392,20 @@ pub struct NonVisualPicturePropertiesExtensionList {
     #[xml(child = "a:ext")]
     pub a_ext: Vec<NonVisualPicturePropertiesExtension>,
 }
+mod non_visual_picture_properties_extension_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the NonVisualPicturePropertiesExtension Class.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct NonVisualPicturePropertiesExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_picture_properties_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -14146,12 +15447,20 @@ pub enum NonVisualPicturePropertiesExtensionChildChoice {
         crate::schemas::schemas_microsoft_com_office_drawing_2022_imageformula::ImageFormula,
     ),
 }
+mod non_visual_picture_properties_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Future extensions..
 /// When the object is serialized out as xml, it's qualified name is a:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:extLst")]
 pub struct BlipExtensionList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "blip_extension_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -14161,12 +15470,20 @@ pub struct BlipExtensionList {
     #[xml(child = "a:ext")]
     pub a_ext: Vec<BlipExtension>,
 }
+mod blip_extension_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
+}
 /// Defines the BlipExtension Class.
 /// When the object is serialized out as xml, it's qualified name is a:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "a:ext")]
 pub struct BlipExtension {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "blip_extension_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -14215,4 +15532,12 @@ pub enum BlipExtensionChildChoice {
     AoeOembedShared(
         crate::schemas::schemas_microsoft_com_office_drawing_2021_oembed::OEmbedShared,
     ),
+}
+mod blip_extension_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/main")
+    }
 }

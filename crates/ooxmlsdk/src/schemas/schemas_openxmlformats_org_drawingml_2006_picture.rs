@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "pic:pic")]
 pub struct Picture {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "picture_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -29,12 +29,20 @@ pub struct Picture {
         crate::schemas::schemas_microsoft_com_office_drawing_2010_picture::OfficeArtExtensionList,
     >,
 }
+mod picture_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/picture")
+    }
+}
 /// Non-Visual Drawing Properties.
 /// When the object is serialized out as xml, it's qualified name is pic:cNvPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "pic:cNvPr")]
 pub struct NonVisualDrawingProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_drawing_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -76,12 +84,20 @@ pub struct NonVisualDrawingProperties {
         crate::schemas::schemas_openxmlformats_org_drawingml_2006_main::NonVisualDrawingPropertiesExtensionList,
     >,
 }
+mod non_visual_drawing_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/picture")
+    }
+}
 /// Non-Visual Picture Drawing Properties.
 /// When the object is serialized out as xml, it's qualified name is pic:cNvPicPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "pic:cNvPicPr")]
 pub struct NonVisualPictureDrawingProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_picture_drawing_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -102,12 +118,20 @@ pub struct NonVisualPictureDrawingProperties {
         crate::schemas::schemas_openxmlformats_org_drawingml_2006_main::NonVisualPicturePropertiesExtensionList,
     >,
 }
+mod non_visual_picture_drawing_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/picture")
+    }
+}
 /// Non-Visual Picture Properties.
 /// When the object is serialized out as xml, it's qualified name is pic:nvPicPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "pic:nvPicPr")]
 pub struct NonVisualPictureProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "non_visual_picture_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -120,12 +144,20 @@ pub struct NonVisualPictureProperties {
     #[xml(child = "pic:cNvPicPr")]
     pub non_visual_picture_drawing_properties: NonVisualPictureDrawingProperties,
 }
+mod non_visual_picture_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/picture")
+    }
+}
 /// Picture Fill.
 /// When the object is serialized out as xml, it's qualified name is pic:blipFill.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "pic:blipFill")]
 pub struct BlipFill {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "blip_fill_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -155,12 +187,20 @@ pub enum BlipFillChildChoice {
     #[xml(tag = "a:stretch")]
     AStretch(crate::schemas::schemas_openxmlformats_org_drawingml_2006_main::Stretch),
 }
+mod blip_fill_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/picture")
+    }
+}
 /// Shape Properties.
 /// When the object is serialized out as xml, it's qualified name is pic:spPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "pic:spPr")]
 pub struct ShapeProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "shape_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -241,4 +281,12 @@ pub enum ShapePropertiesChildChoice {
     AExtLst(
         crate::schemas::schemas_openxmlformats_org_drawingml_2006_main::ShapePropertiesExtensionList,
     ),
+}
+mod shape_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/picture")
+    }
 }

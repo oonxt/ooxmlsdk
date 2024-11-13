@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "Properties")]
 pub struct Properties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -96,6 +96,14 @@ pub enum PropertiesChildChoice {
     ApAppVersion(ApplicationVersion),
     #[xml(tag = "DocSecurity")]
     ApDocSecurity(DocumentSecurity),
+}
+mod properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/officeDocument/2006/extended-properties")
+    }
 }
 /// Name of Document Template.
 /// When the object is serialized out as xml, it's qualified name is Template.

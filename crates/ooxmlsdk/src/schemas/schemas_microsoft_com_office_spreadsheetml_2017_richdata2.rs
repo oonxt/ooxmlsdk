@@ -124,7 +124,7 @@ pub struct RichSortCondition {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xlrd2:supportingPropertyBags")]
 pub struct SupportingPropertyBags {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "supporting_property_bags_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -137,12 +137,20 @@ pub struct SupportingPropertyBags {
     #[xml(child = "xlrd2:spbData")]
     pub supporting_property_bag_data: SupportingPropertyBagData,
 }
+mod supporting_property_bags_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2017/richdata2")
+    }
+}
 /// Defines the SupportingPropertyBagStructures Class.
 /// When the object is serialized out as xml, it's qualified name is xlrd2:spbStructures.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xlrd2:spbStructures")]
 pub struct SupportingPropertyBagStructures {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "supporting_property_bag_structures_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -159,12 +167,20 @@ pub struct SupportingPropertyBagStructures {
     #[xml(child = "xlrd2:extLst")]
     pub xlrd2_ext_lst: Option<ExtensionList>,
 }
+mod supporting_property_bag_structures_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2017/richdata2")
+    }
+}
 /// Defines the ArrayData Class.
 /// When the object is serialized out as xml, it's qualified name is xlrd2:arrayData.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xlrd2:arrayData")]
 pub struct ArrayData {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "array_data_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -181,12 +197,20 @@ pub struct ArrayData {
     #[xml(child = "xlrd2:extLst")]
     pub xlrd2_ext_lst: Option<ExtensionList>,
 }
+mod array_data_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2017/richdata2")
+    }
+}
 /// Defines the RichStylesheet Class.
 /// When the object is serialized out as xml, it's qualified name is xlrd2:richStyleSheet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xlrd2:richStyleSheet")]
 pub struct RichStylesheet {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "rich_stylesheet_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -205,12 +229,20 @@ pub struct RichStylesheet {
     #[xml(child = "xlrd2:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod rich_stylesheet_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2017/richdata2")
+    }
+}
 /// Defines the RichValueTypesInfo Class.
 /// When the object is serialized out as xml, it's qualified name is xlrd2:rvTypesInfo.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xlrd2:rvTypesInfo")]
 pub struct RichValueTypesInfo {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "rich_value_types_info_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -225,6 +257,14 @@ pub struct RichValueTypesInfo {
     /// _
     #[xml(child = "xlrd2:extLst")]
     pub extension_list: Option<ExtensionList>,
+}
+mod rich_value_types_info_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2017/richdata2")
+    }
 }
 /// Defines the RichFilters Class.
 /// When the object is serialized out as xml, it's qualified name is xlrd2:filters.

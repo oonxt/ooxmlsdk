@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xnsv:namedSheetViews")]
 pub struct NamedSheetViews {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "named_sheet_views_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -15,6 +15,14 @@ pub struct NamedSheetViews {
     /// _
     #[xml(child = "xnsv:extLst")]
     pub xnsv_ext_lst: Option<ExtensionList>,
+}
+mod named_sheet_views_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2019/namedsheetviews")
+    }
 }
 /// Defines the NamedSheetView Class.
 /// When the object is serialized out as xml, it's qualified name is xnsv:namedSheetView.

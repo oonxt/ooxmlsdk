@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xfpb:FeaturePropertyBags")]
 pub struct FeaturePropertyBags {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "feature_property_bags_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -22,6 +22,14 @@ pub struct FeaturePropertyBags {
     /// _
     #[xml(child = "xfpb:extLst")]
     pub xfpb_ext_lst: Option<ExtensionList>,
+}
+mod feature_property_bags_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2022/featurepropertybag")
+    }
 }
 /// Defines the FpbsFeaturePropertyBags Class.
 /// When the object is serialized out as xml, it's qualified name is xfpb:fpbs.

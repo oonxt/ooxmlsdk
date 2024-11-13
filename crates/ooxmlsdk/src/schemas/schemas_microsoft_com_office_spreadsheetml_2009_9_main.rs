@@ -774,7 +774,7 @@ pub struct SourceConnection {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x14:datastoreItem")]
 pub struct DatastoreItem {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "datastore_item_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -788,12 +788,20 @@ pub struct DatastoreItem {
     #[xml(child = "x14:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod datastore_item_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2009/9/main")
+    }
+}
 /// Defines the FormControlProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x14:formControlPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x14:formControlPr")]
 pub struct FormControlProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "form_control_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -930,12 +938,20 @@ pub struct FormControlProperties {
     #[xml(child = "x14:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod form_control_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2009/9/main")
+    }
+}
 /// Defines the Slicers Class.
 /// When the object is serialized out as xml, it's qualified name is x14:slicers.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x14:slicers")]
 pub struct Slicers {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "slicers_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -945,12 +961,20 @@ pub struct Slicers {
     #[xml(child = "x14:slicer")]
     pub x14_slicer: Vec<Slicer>,
 }
+mod slicers_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2009/9/main")
+    }
+}
 /// Defines the SlicerCacheDefinition Class.
 /// When the object is serialized out as xml, it's qualified name is x14:slicerCacheDefinition.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x14:slicerCacheDefinition")]
 pub struct SlicerCacheDefinition {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "slicer_cache_definition_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -975,6 +999,14 @@ pub struct SlicerCacheDefinition {
     pub slicer_cache_definition_extension_list: Option<
         SlicerCacheDefinitionExtensionList,
     >,
+}
+mod slicer_cache_definition_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2009/9/main")
+    }
 }
 /// Defines the ConditionalFormatting Class.
 /// When the object is serialized out as xml, it's qualified name is x14:conditionalFormatting.

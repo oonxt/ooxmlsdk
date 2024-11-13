@@ -1,9 +1,10 @@
+use std::collections::HashMap;
 use hard_xml::{XmlRead, XmlResult, XmlWrite, XmlWriter};
 use std::io::Write;
 
 const SCHEMA_CORE_PROPERTIES: &str = "http://schemas.openxmlformats.org/package/2006/metadata/core-properties";
 
-#[derive(Clone, Debug, Default, XmlRead, XmlWrite)]
+#[derive(Clone, Debug, XmlRead, XmlWrite)]
 #[xml(tag = "cp:coreProperties")]
 pub struct CoreProperties {
     #[xml(attr = "xmlns")]
@@ -48,7 +49,23 @@ impl Default for CoreProperties {
     fn default() -> Self {
         Self {
             xmlns: Some(SCHEMA_CORE_PROPERTIES.to_string()),
-            ..Default::default()
+            xmlns_map: HashMap::new(),
+            mc_ignorable: None,
+            category: None,
+            content_status: None,
+            created: None,
+            creator: None,
+            description: None,
+            identifier: None,
+            keywords: None,
+            language: None,
+            last_modified_by: None,
+            last_printed: None,
+            modified: None,
+            revision: None,
+            subject: None,
+            title: None,
+            version: None,
         }
     }
 }

@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "ds:datastoreItem")]
 pub struct DataStoreItem {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "data_store_item_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -16,6 +16,14 @@ pub struct DataStoreItem {
     ///Set of Associated XML Schemas
     #[xml(child = "ds:schemaRefs")]
     pub schema_references: Option<SchemaReferences>,
+}
+mod data_store_item_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/officeDocument/2006/customXml")
+    }
 }
 /// Associated XML Schema.
 /// When the object is serialized out as xml, it's qualified name is ds:schemaRef.

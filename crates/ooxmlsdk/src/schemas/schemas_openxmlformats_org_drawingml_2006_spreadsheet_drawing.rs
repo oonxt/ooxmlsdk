@@ -314,7 +314,7 @@ pub struct ContentPart {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xdr:wsDr")]
 pub struct WorksheetDrawing {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "worksheet_drawing_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -335,6 +335,14 @@ pub enum WorksheetDrawingChildChoice {
     XdrOneCellAnchor(OneCellAnchor),
     #[xml(tag = "xdr:absoluteAnchor")]
     XdrAbsoluteAnchor(AbsoluteAnchor),
+}
+mod worksheet_drawing_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing")
+    }
 }
 /// Non-Visual Properties for a Shape.
 /// When the object is serialized out as xml, it's qualified name is xdr:nvSpPr.

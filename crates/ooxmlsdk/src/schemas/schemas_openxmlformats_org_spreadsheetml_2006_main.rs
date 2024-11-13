@@ -1357,7 +1357,7 @@ pub struct Extension {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:calcChain")]
 pub struct CalculationChain {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "calculation_chain_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1370,12 +1370,20 @@ pub struct CalculationChain {
     #[xml(child = "x:extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
+mod calculation_chain_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Comments.
 /// When the object is serialized out as xml, it's qualified name is x:comments.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:comments")]
 pub struct Comments {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "comments_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1391,12 +1399,20 @@ pub struct Comments {
     #[xml(child = "x:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod comments_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// XML Mapping.
 /// When the object is serialized out as xml, it's qualified name is x:MapInfo.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:MapInfo")]
 pub struct MapInfo {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "map_info_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1413,12 +1429,20 @@ pub struct MapInfo {
     #[xml(child = "x:Map")]
     pub x_map: Vec<Map>,
 }
+mod map_info_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Connections.
 /// When the object is serialized out as xml, it's qualified name is x:connections.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:connections")]
 pub struct Connections {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "connections_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1428,12 +1452,20 @@ pub struct Connections {
     #[xml(child = "x:connection")]
     pub x_connection: Vec<Connection>,
 }
+mod connections_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// PivotCache Definition.
 /// When the object is serialized out as xml, it's qualified name is x:pivotCacheDefinition.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:pivotCacheDefinition")]
 pub struct PivotCacheDefinition {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "pivot_cache_definition_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1549,12 +1581,20 @@ pub struct PivotCacheDefinition {
     #[xml(child = "x:extLst")]
     pub pivot_cache_definition_extension_list: Option<PivotCacheDefinitionExtensionList>,
 }
+mod pivot_cache_definition_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// PivotCache Records.
 /// When the object is serialized out as xml, it's qualified name is x:pivotCacheRecords.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:pivotCacheRecords")]
 pub struct PivotCacheRecords {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "pivot_cache_records_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1571,12 +1611,20 @@ pub struct PivotCacheRecords {
     #[xml(child = "x:extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
+mod pivot_cache_records_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// PivotTable Definition.
 /// When the object is serialized out as xml, it's qualified name is x:pivotTableDefinition.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:pivotTableDefinition")]
 pub struct PivotTableDefinition {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "pivot_table_definition_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1906,12 +1954,20 @@ pub struct PivotTableDefinition {
     #[xml(child = "x:extLst")]
     pub pivot_table_definition_extension_list: Option<PivotTableDefinitionExtensionList>,
 }
+mod pivot_table_definition_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Query Table.
 /// When the object is serialized out as xml, it's qualified name is x:queryTable.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:queryTable")]
 pub struct QueryTable {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "query_table_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2012,12 +2068,20 @@ pub struct QueryTable {
     #[xml(child = "x:extLst")]
     pub query_table_extension_list: Option<QueryTableExtensionList>,
 }
+mod query_table_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Shared String Table.
 /// When the object is serialized out as xml, it's qualified name is x:sst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:sst")]
 pub struct SharedStringTable {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "shared_string_table_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2038,12 +2102,20 @@ pub struct SharedStringTable {
     #[xml(child = "x:extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
+mod shared_string_table_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Revision Headers.
 /// When the object is serialized out as xml, it's qualified name is x:headers.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:headers")]
 pub struct Headers {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "headers_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2101,12 +2173,20 @@ pub struct Headers {
     #[xml(child = "x:header")]
     pub x_header: Vec<Header>,
 }
+mod headers_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Revisions.
 /// When the object is serialized out as xml, it's qualified name is x:revisions.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:revisions")]
 pub struct Revisions {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "revisions_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2155,12 +2235,20 @@ pub enum RevisionsChildChoice {
     #[xml(tag = "x:rcft")]
     XRcft(RevisionConflict),
 }
+mod revisions_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// User List.
 /// When the object is serialized out as xml, it's qualified name is x:users.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:users")]
 pub struct Users {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "users_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2174,12 +2262,20 @@ pub struct Users {
     #[xml(child = "x:userInfo")]
     pub x_user_info: Vec<UserInfo>,
 }
+mod users_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Worksheet.
 /// When the object is serialized out as xml, it's qualified name is x:worksheet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:worksheet")]
 pub struct Worksheet {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "worksheet_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2300,12 +2396,20 @@ pub struct Worksheet {
     #[xml(child = "x:extLst")]
     pub x_ext_lst: Option<WorksheetExtensionList>,
 }
+mod worksheet_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Chart Sheet.
 /// When the object is serialized out as xml, it's qualified name is x:chartsheet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:chartsheet")]
 pub struct Chartsheet {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "chartsheet_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2354,12 +2458,20 @@ pub struct Chartsheet {
     #[xml(child = "x:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod chartsheet_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Dialog Sheet.
 /// When the object is serialized out as xml, it's qualified name is x:dialogsheet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:dialogsheet")]
 pub struct DialogSheet {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "dialog_sheet_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2414,12 +2526,20 @@ pub struct DialogSheet {
     #[xml(child = "x:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod dialog_sheet_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Metadata.
 /// When the object is serialized out as xml, it's qualified name is x:metadata.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:metadata")]
 pub struct Metadata {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "metadata_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2447,12 +2567,20 @@ pub struct Metadata {
     #[xml(child = "x:extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
+mod metadata_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Single Cells.
 /// When the object is serialized out as xml, it's qualified name is x:singleXmlCells.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:singleXmlCells")]
 pub struct SingleXmlCells {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "single_xml_cells_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2462,12 +2590,20 @@ pub struct SingleXmlCells {
     #[xml(child = "x:singleXmlCell")]
     pub x_single_xml_cell: Vec<SingleXmlCell>,
 }
+mod single_xml_cells_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Style Sheet.
 /// When the object is serialized out as xml, it's qualified name is x:styleSheet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:styleSheet")]
 pub struct Stylesheet {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "stylesheet_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2507,12 +2643,20 @@ pub struct Stylesheet {
     #[xml(child = "x:extLst")]
     pub stylesheet_extension_list: Option<StylesheetExtensionList>,
 }
+mod stylesheet_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// External Reference.
 /// When the object is serialized out as xml, it's qualified name is x:externalLink.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:externalLink")]
 pub struct ExternalLink {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "external_link_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2537,12 +2681,20 @@ pub enum ExternalLinkChildChoice {
     #[xml(tag = "x:extLst")]
     XExtLst(ExtensionList),
 }
+mod external_link_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Table.
 /// When the object is serialized out as xml, it's qualified name is x:table.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:table")]
 pub struct Table {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "table_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2652,12 +2804,20 @@ pub struct Table {
     #[xml(child = "x:extLst")]
     pub table_extension_list: Option<TableExtensionList>,
 }
+mod table_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Volatile Dependency Types.
 /// When the object is serialized out as xml, it's qualified name is x:volTypes.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:volTypes")]
 pub struct VolatileTypes {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "volatile_types_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2670,12 +2830,20 @@ pub struct VolatileTypes {
     #[xml(child = "x:extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
+mod volatile_types_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
+}
 /// Workbook.
 /// When the object is serialized out as xml, it's qualified name is x:workbook.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x:workbook")]
 pub struct Workbook {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "workbook_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -2741,6 +2909,14 @@ pub struct Workbook {
     /// _
     #[xml(child = "x:extLst")]
     pub x_ext_lst: Option<WorkbookExtensionList>,
+}
+mod workbook_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/spreadsheetml/2006/main")
+    }
 }
 /// AutoFilter Column.
 /// When the object is serialized out as xml, it's qualified name is x:filterColumn.

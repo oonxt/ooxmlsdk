@@ -1035,7 +1035,7 @@ pub struct CommentPropertiesExtension {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:cmAuthorLst")]
 pub struct CommentAuthorList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "comment_author_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1045,12 +1045,20 @@ pub struct CommentAuthorList {
     #[xml(child = "p:cmAuthor")]
     pub p_cm_author: Vec<CommentAuthor>,
 }
+mod comment_author_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
+}
 /// Comment List.
 /// When the object is serialized out as xml, it's qualified name is p:cmLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:cmLst")]
 pub struct CommentList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "comment_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1059,6 +1067,14 @@ pub struct CommentList {
     /// _
     #[xml(child = "p:cm")]
     pub p_cm: Vec<Comment>,
+}
+mod comment_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
 }
 /// Global Element for OLE Objects and Controls.
 /// When the object is serialized out as xml, it's qualified name is p:oleObj.
@@ -1110,7 +1126,7 @@ pub enum OleObjectChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:presentation")]
 pub struct Presentation {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "presentation_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1207,12 +1223,20 @@ pub struct Presentation {
     #[xml(child = "p:extLst")]
     pub presentation_extension_list: Option<PresentationExtensionList>,
 }
+mod presentation_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
+}
 /// Presentation-wide Properties.
 /// When the object is serialized out as xml, it's qualified name is p:presentationPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:presentationPr")]
 pub struct PresentationProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "presentation_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1239,12 +1263,20 @@ pub struct PresentationProperties {
         PresentationPropertiesExtensionList,
     >,
 }
+mod presentation_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
+}
 /// Presentation Slide.
 /// When the object is serialized out as xml, it's qualified name is p:sld.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:sld")]
 pub struct Slide {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "slide_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1284,12 +1316,20 @@ pub enum SlideChildChoice {
     #[xml(tag = "p:extLst")]
     PExtLst(SlideExtensionList),
 }
+mod slide_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
+}
 /// Slide Layout.
 /// When the object is serialized out as xml, it's qualified name is p:sldLayout.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:sldLayout")]
 pub struct SlideLayout {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "slide_layout_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1344,12 +1384,20 @@ pub enum SlideLayoutChildChoice {
     #[xml(tag = "p:extLst")]
     PExtLst(SlideLayoutExtensionList),
 }
+mod slide_layout_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
+}
 /// Slide Master.
 /// When the object is serialized out as xml, it's qualified name is p:sldMaster.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:sldMaster")]
 pub struct SlideMaster {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "slide_master_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1390,12 +1438,20 @@ pub enum SlideMasterChildChoice {
     #[xml(tag = "p:extLst")]
     PExtLst(SlideMasterExtensionList),
 }
+mod slide_master_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
+}
 /// Handout Master.
 /// When the object is serialized out as xml, it's qualified name is p:handoutMaster.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:handoutMaster")]
 pub struct HandoutMaster {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "handout_master_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1415,12 +1471,20 @@ pub enum HandoutMasterChildChoice {
     #[xml(tag = "p:extLst")]
     PExtLst(HandoutMasterExtensionList),
 }
+mod handout_master_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
+}
 /// Notes Master.
 /// When the object is serialized out as xml, it's qualified name is p:notesMaster.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:notesMaster")]
 pub struct NotesMaster {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "notes_master_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1448,12 +1512,20 @@ pub enum NotesMasterChildChoice {
     #[xml(tag = "p:extLst")]
     PExtLst(NotesMasterExtensionList),
 }
+mod notes_master_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
+}
 /// Notes Slide.
 /// When the object is serialized out as xml, it's qualified name is p:notes.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:notes")]
 pub struct NotesSlide {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "notes_slide_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1479,12 +1551,20 @@ pub enum NotesSlideChildChoice {
     #[xml(tag = "p:extLst")]
     PExtLst(ExtensionListWithModification),
 }
+mod notes_slide_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
+}
 /// Slide Synchronization Properties.
 /// When the object is serialized out as xml, it's qualified name is p:sldSyncPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:sldSyncPr")]
 pub struct SlideSyncProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "slide_sync_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1506,12 +1586,20 @@ pub struct SlideSyncProperties {
     #[xml(child = "p:extLst")]
     pub extension_list: Option<ExtensionList>,
 }
+mod slide_sync_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
+}
 /// Programmable Tab List.
 /// When the object is serialized out as xml, it's qualified name is p:tagLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:tagLst")]
 pub struct TagList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "tag_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1521,12 +1609,20 @@ pub struct TagList {
     #[xml(child = "p:tag")]
     pub p_tag: Vec<Tag>,
 }
+mod tag_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
+}
 /// Presentation-wide View Properties.
 /// When the object is serialized out as xml, it's qualified name is p:viewPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p:viewPr")]
 pub struct ViewProperties {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "view_properties_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1564,6 +1660,14 @@ pub struct ViewProperties {
     /// _
     #[xml(child = "p:extLst")]
     pub extension_list: Option<ExtensionList>,
+}
+mod view_properties_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/presentationml/2006/main")
+    }
 }
 /// Defines the ContentPart Class.
 /// When the object is serialized out as xml, it's qualified name is p:contentPart.

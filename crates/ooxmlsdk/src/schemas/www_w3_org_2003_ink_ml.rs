@@ -321,7 +321,7 @@ crate::__string_enum! {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "inkml:ink")]
 pub struct Ink {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "ink_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -358,6 +358,14 @@ pub enum InkChildChoice {
     InkmlTraceGroup(TraceGroup),
     #[xml(tag = "inkml:traceView")]
     InkmlTraceView(TraceView),
+}
+mod ink_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://www.w3.org/2003/InkML")
+    }
 }
 /// Defines the Bind Class.
 /// When the object is serialized out as xml, it's qualified name is inkml:bind.

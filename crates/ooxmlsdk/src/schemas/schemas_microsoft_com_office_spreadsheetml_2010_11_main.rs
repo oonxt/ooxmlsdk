@@ -571,7 +571,7 @@ pub struct Survey {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x15:timelines")]
 pub struct Timelines {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "timelines_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -581,12 +581,20 @@ pub struct Timelines {
     #[xml(child = "x15:timeline")]
     pub x15_timeline: Vec<Timeline>,
 }
+mod timelines_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2010/11/main")
+    }
+}
 /// Defines the TimelineCacheDefinition Class.
 /// When the object is serialized out as xml, it's qualified name is x15:timelineCacheDefinition.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "x15:timelineCacheDefinition")]
 pub struct TimelineCacheDefinition {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "timeline_cache_definition_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -609,6 +617,14 @@ pub struct TimelineCacheDefinition {
     /// _
     #[xml(child = "x15:extLst")]
     pub extension_list: Option<ExtensionList>,
+}
+mod timeline_cache_definition_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2010/11/main")
+    }
 }
 /// Defines the PivotTableReference Class.
 /// When the object is serialized out as xml, it's qualified name is x15:pivotTableReference.

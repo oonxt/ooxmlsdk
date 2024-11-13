@@ -52,7 +52,7 @@ pub enum CommentPropertiesExtensionListChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p188:authorLst")]
 pub struct AuthorList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "author_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -62,12 +62,20 @@ pub struct AuthorList {
     #[xml(child = "p188:author")]
     pub p188_author: Vec<Author>,
 }
+mod author_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/powerpoint/2018/8/main")
+    }
+}
 /// Defines the CommentList Class.
 /// When the object is serialized out as xml, it's qualified name is p188:cmLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "p188:cmLst")]
 pub struct CommentList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "comment_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -76,6 +84,14 @@ pub struct CommentList {
     /// _
     #[xml(child = "p188:cm")]
     pub p188_cm: Vec<Comment>,
+}
+mod comment_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/powerpoint/2018/8/main")
+    }
 }
 /// Defines the CommentRelationship Class.
 /// When the object is serialized out as xml, it's qualified name is p188:commentRel.

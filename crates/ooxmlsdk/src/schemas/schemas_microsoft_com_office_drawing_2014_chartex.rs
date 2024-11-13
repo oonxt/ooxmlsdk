@@ -223,7 +223,7 @@ crate::__string_enum! {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "cx:chartSpace")]
 pub struct ChartSpace {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "chart_space_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -253,6 +253,14 @@ pub struct ChartSpace {
     /// _
     #[xml(child = "cx:extLst")]
     pub extension_list: Option<ExtensionList>,
+}
+mod chart_space_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/drawing/2014/chartex")
+    }
 }
 /// Defines the RelId Class.
 /// When the object is serialized out as xml, it's qualified name is cx:chart.

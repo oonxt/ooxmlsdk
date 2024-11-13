@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "wetp:taskpanes")]
 pub struct Taskpanes {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "taskpanes_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -12,6 +12,14 @@ pub struct Taskpanes {
     /// _
     #[xml(child = "wetp:taskpane")]
     pub wetp_taskpane: Vec<WebExtensionTaskpane>,
+}
+mod taskpanes_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/webextensions/taskpanes/2010/11")
+    }
 }
 /// Defines the WebExtensionPartReference Class.
 /// When the object is serialized out as xml, it's qualified name is wetp:webextensionref.

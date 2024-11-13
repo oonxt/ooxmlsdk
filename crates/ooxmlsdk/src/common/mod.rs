@@ -1,7 +1,7 @@
 use std::{io::BufRead, num::{ParseFloatError, ParseIntError}};
 use std::io::Read;
 use thiserror::Error;
-pub const SCHEMA_XML: &str = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>";
+pub const SCHEMA_XML: &str = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n";
 #[derive(Error, Debug)]
 pub enum SdkError {
     #[error("xml error")]

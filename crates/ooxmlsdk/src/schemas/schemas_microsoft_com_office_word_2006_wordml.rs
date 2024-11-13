@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "wne:tcg")]
 pub struct TemplateCommandGroup {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "template_command_group_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -22,6 +22,14 @@ pub struct TemplateCommandGroup {
     #[xml(child = "wne:acds")]
     pub wne_acds: Vec<AllocatedCommands>,
 }
+mod template_command_group_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/word/2006/wordml")
+    }
+}
 /// Defines the Mcds Class.
 /// When the object is serialized out as xml, it's qualified name is wne:mcds.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -36,7 +44,7 @@ pub struct Mcds {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "wne:vbaSuppData")]
 pub struct VbaSuppData {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "vba_supp_data_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -49,12 +57,20 @@ pub struct VbaSuppData {
     #[xml(child = "wne:mcds")]
     pub mcds: Option<Mcds>,
 }
+mod vba_supp_data_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/word/2006/wordml")
+    }
+}
 /// Defines the MailMergeRecipients Class.
 /// When the object is serialized out as xml, it's qualified name is wne:recipients.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "wne:recipients")]
 pub struct MailMergeRecipients {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "mail_merge_recipients_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -63,6 +79,14 @@ pub struct MailMergeRecipients {
     /// _
     #[xml(child = "wne:recipientData")]
     pub wne_recipient_data: Vec<SingleDataSourceRecord>,
+}
+mod mail_merge_recipients_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/word/2006/wordml")
+    }
 }
 /// Defines the FixedCommandKeyboardCustomization Class.
 /// When the object is serialized out as xml, it's qualified name is wne:fci.

@@ -12681,7 +12681,7 @@ pub struct DocGrid {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:recipients")]
 pub struct Recipients {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "recipients_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -12690,6 +12690,14 @@ pub struct Recipients {
     /// _
     #[xml(child = "w:recipientData")]
     pub w_recipient_data: Vec<RecipientData>,
+}
+mod recipients_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
 }
 /// Rich Text Box Content Container.
 /// When the object is serialized out as xml, it's qualified name is w:txbxContent.
@@ -12825,7 +12833,7 @@ pub enum TextBoxContentChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:comments")]
 pub struct Comments {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "comments_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -12835,12 +12843,20 @@ pub struct Comments {
     #[xml(child = "w:comment")]
     pub w_comment: Vec<Comment>,
 }
+mod comments_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
+}
 /// Document Footnotes.
 /// When the object is serialized out as xml, it's qualified name is w:footnotes.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:footnotes")]
 pub struct Footnotes {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "footnotes_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -12850,12 +12866,20 @@ pub struct Footnotes {
     #[xml(child = "w:footnote")]
     pub w_footnote: Option<Footnote>,
 }
+mod footnotes_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
+}
 /// Document Endnotes.
 /// When the object is serialized out as xml, it's qualified name is w:endnotes.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:endnotes")]
 pub struct Endnotes {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "endnotes_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -12865,12 +12889,20 @@ pub struct Endnotes {
     #[xml(child = "w:endnote")]
     pub w_endnote: Option<Endnote>,
 }
+mod endnotes_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
+}
 /// Header.
 /// When the object is serialized out as xml, it's qualified name is w:hdr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:hdr")]
 pub struct Header {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "header_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13000,12 +13032,20 @@ pub enum HeaderChildChoice {
         crate::schemas::schemas_microsoft_com_office_word_2010_wordml::RunConflictDeletion,
     ),
 }
+mod header_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
+}
 /// Footer.
 /// When the object is serialized out as xml, it's qualified name is w:ftr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:ftr")]
 pub struct Footer {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "footer_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13134,6 +13174,14 @@ pub enum FooterChildChoice {
     W14ConflictDel(
         crate::schemas::schemas_microsoft_com_office_word_2010_wordml::RunConflictDeletion,
     ),
+}
+mod footer_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
 }
 /// Defines the HeaderFooterType Class.
 /// When the object is serialized out as xml, it's qualified name is .
@@ -13269,7 +13317,7 @@ pub enum HeaderFooterTypeChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:settings")]
 pub struct Settings {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "settings_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13603,12 +13651,20 @@ pub struct Settings {
         crate::schemas::schemas_microsoft_com_office_word_2012_wordml::PersistentDocumentId,
     >,
 }
+mod settings_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
+}
 /// Web Page Settings.
 /// When the object is serialized out as xml, it's qualified name is w:webSettings.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:webSettings")]
 pub struct WebSettings {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "web_settings_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13651,12 +13707,20 @@ pub struct WebSettings {
     #[xml(child = "w:targetScreenSz")]
     pub target_screen_size: Option<TargetScreenSize>,
 }
+mod web_settings_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
+}
 /// Font Table Root Element.
 /// When the object is serialized out as xml, it's qualified name is w:fonts.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:fonts")]
 pub struct Fonts {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "fonts_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13666,12 +13730,20 @@ pub struct Fonts {
     #[xml(child = "w:font")]
     pub w_font: Vec<Font>,
 }
+mod fonts_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
+}
 /// Numbering Definitions.
 /// When the object is serialized out as xml, it's qualified name is w:numbering.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:numbering")]
 pub struct Numbering {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "numbering_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13690,12 +13762,20 @@ pub struct Numbering {
     #[xml(child = "w:numIdMacAtCleanup")]
     pub w_num_id_mac_at_cleanup: Option<NumberingIdMacAtCleanup>,
 }
+mod numbering_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
+}
 /// Style Definitions.
 /// When the object is serialized out as xml, it's qualified name is w:styles.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:styles")]
 pub struct Styles {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "styles_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13711,12 +13791,20 @@ pub struct Styles {
     #[xml(child = "w:style")]
     pub w_style: Vec<Style>,
 }
+mod styles_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
+}
 /// Document.
 /// When the object is serialized out as xml, it's qualified name is w:document.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:document")]
 pub struct Document {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "document_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13736,12 +13824,20 @@ pub enum DocumentChildChoice {
     #[xml(tag = "w:body")]
     WBody(Body),
 }
+mod document_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
+}
 /// Glossary Document Root Element.
 /// When the object is serialized out as xml, it's qualified name is w:glossaryDocument.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w:glossaryDocument")]
 pub struct GlossaryDocument {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "glossary_document_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -13756,6 +13852,14 @@ pub enum GlossaryDocumentChildChoice {
     WBackground(DocumentBackground),
     #[xml(tag = "w:docParts")]
     WDocParts(DocParts),
+}
+mod glossary_document_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+    }
 }
 /// Previous Table-Level Property Exceptions.
 /// When the object is serialized out as xml, it's qualified name is w:tblPrEx.

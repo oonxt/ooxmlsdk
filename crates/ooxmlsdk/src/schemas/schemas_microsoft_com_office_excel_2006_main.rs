@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xne:macrosheet")]
 pub struct Macrosheet {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "macrosheet_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -143,12 +143,20 @@ pub struct Macrosheet {
         crate::schemas::schemas_openxmlformats_org_spreadsheetml_2006_main::ExtensionList,
     >,
 }
+mod macrosheet_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/excel/2006/main")
+    }
+}
 /// Worksheet Sort Map.
 /// When the object is serialized out as xml, it's qualified name is xne:worksheetSortMap.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xne:worksheetSortMap")]
 pub struct WorksheetSortMap {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "worksheet_sort_map_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -160,6 +168,14 @@ pub struct WorksheetSortMap {
     ///Column Sort Map
     #[xml(child = "xne:colSortMap")]
     pub column_sort_map: Option<ColumnSortMap>,
+}
+mod worksheet_sort_map_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/excel/2006/main")
+    }
 }
 /// Defines the ReferenceSequence Class.
 /// When the object is serialized out as xml, it's qualified name is xne:sqref.

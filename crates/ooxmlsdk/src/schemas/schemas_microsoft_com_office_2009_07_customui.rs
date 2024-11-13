@@ -4583,7 +4583,7 @@ pub enum MenuRootChildChoice {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "mso14:customUI")]
 pub struct CustomUi {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "custom_ui_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -4609,6 +4609,14 @@ pub struct CustomUi {
     /// _
     #[xml(child = "mso14:contextMenus")]
     pub context_menus: Option<ContextMenus>,
+}
+mod custom_ui_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/2009/07/customui")
+    }
 }
 /// Defines the Item Class.
 /// When the object is serialized out as xml, it's qualified name is mso14:item.

@@ -781,7 +781,7 @@ crate::__string_enum! {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "dgm:colorsDef")]
 pub struct ColorsDefinition {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "colors_definition_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -810,6 +810,14 @@ pub struct ColorsDefinition {
     /// _
     #[xml(child = "dgm:extLst")]
     pub dgm_ext_lst: Option<ExtensionList>,
+}
+mod colors_definition_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/diagram")
+    }
 }
 /// Color Transform Header.
 /// When the object is serialized out as xml, it's qualified name is dgm:colorsDefHdr.
@@ -855,7 +863,7 @@ pub struct ColorsDefinitionHeaderList {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "dgm:dataModel")]
 pub struct DataModelRoot {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "data_model_root_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -877,12 +885,20 @@ pub struct DataModelRoot {
     #[xml(child = "dgm:extLst")]
     pub data_model_extension_list: Option<DataModelExtensionList>,
 }
+mod data_model_root_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/diagram")
+    }
+}
 /// Layout Definition.
 /// When the object is serialized out as xml, it's qualified name is dgm:layoutDef.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "dgm:layoutDef")]
 pub struct LayoutDefinition {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "layout_definition_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -924,6 +940,14 @@ pub struct LayoutDefinition {
     /// _
     #[xml(child = "dgm:extLst")]
     pub dgm_ext_lst: Option<DiagramDefinitionExtensionList>,
+}
+mod layout_definition_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/diagram")
+    }
 }
 /// Layout Definition Header.
 /// When the object is serialized out as xml, it's qualified name is dgm:layoutDefHdr.
@@ -995,7 +1019,7 @@ pub struct RelationshipIds {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "dgm:styleDef")]
 pub struct StyleDefinition {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "style_definition_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1027,6 +1051,14 @@ pub struct StyleDefinition {
     /// _
     #[xml(child = "dgm:extLst")]
     pub dgm_ext_lst: Option<ExtensionList>,
+}
+mod style_definition_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/diagram")
+    }
 }
 /// Style Definition Header.
 /// When the object is serialized out as xml, it's qualified name is dgm:styleDefHdr.

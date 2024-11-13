@@ -40,7 +40,7 @@ pub struct RichValueBlock {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xlrd:rvData")]
 pub struct RichValueData {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "rich_value_data_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -57,12 +57,20 @@ pub struct RichValueData {
     #[xml(child = "xlrd:extLst")]
     pub xlrd_ext_lst: Option<ExtensionList>,
 }
+mod rich_value_data_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2017/richdata")
+    }
+}
 /// Defines the RichValueStructures Class.
 /// When the object is serialized out as xml, it's qualified name is xlrd:rvStructures.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xlrd:rvStructures")]
 pub struct RichValueStructures {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "rich_value_structures_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -78,6 +86,14 @@ pub struct RichValueStructures {
     /// _
     #[xml(child = "xlrd:extLst")]
     pub xlrd_ext_lst: Option<ExtensionList>,
+}
+mod rich_value_structures_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2017/richdata")
+    }
 }
 /// Defines the RichValue Class.
 /// When the object is serialized out as xml, it's qualified name is xlrd:rv.

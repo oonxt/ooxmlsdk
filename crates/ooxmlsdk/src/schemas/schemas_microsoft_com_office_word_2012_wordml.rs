@@ -65,7 +65,7 @@ pub struct Appearance {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w15:commentsEx")]
 pub struct CommentsEx {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "comments_ex_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -75,12 +75,20 @@ pub struct CommentsEx {
     #[xml(child = "w15:commentEx")]
     pub w15_comment_ex: Vec<CommentEx>,
 }
+mod comments_ex_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/word/2012/wordml")
+    }
+}
 /// Defines the People Class.
 /// When the object is serialized out as xml, it's qualified name is w15:people.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w15:people")]
 pub struct People {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "people_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -89,6 +97,14 @@ pub struct People {
     /// _
     #[xml(child = "w15:person")]
     pub w15_person: Vec<Person>,
+}
+mod people_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/word/2012/wordml")
+    }
 }
 /// Defines the SdtRepeatedSection Class.
 /// When the object is serialized out as xml, it's qualified name is w15:repeatingSection.

@@ -1,8 +1,9 @@
-use hard_xml::{XmlRead, XmlResult, XmlWrite, XmlWriter};
+use hard_xml::{XmlRead, XmlWrite};
+use std::collections::HashMap;
 use std::io::Write;
 const XMLNS: &str = "http://schemas.openxmlformats.org/package/2006/relationships";
 
-#[derive(Clone, Debug, Default, XmlRead, XmlWrite)]
+#[derive(Clone, Debug, XmlRead, XmlWrite)]
 #[xml(tag = "Relationships")]
 pub struct Relationships {
     #[xml(attr = "xmlns")]
@@ -35,7 +36,9 @@ impl Default for Relationships {
     fn default() -> Self {
         Self {
             xmlns: Some(XMLNS.to_string()),
-            ..Default::default()
+            xmlns_map: HashMap::new(),
+            mc_ignorable: None,
+            relationship: vec![],
         }
     }
 }

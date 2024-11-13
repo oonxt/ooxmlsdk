@@ -1707,7 +1707,7 @@ pub struct DoubleType {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "c:chartSpace")]
 pub struct ChartSpace {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "chart_space_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1765,12 +1765,20 @@ pub enum ChartSpaceChildChoice {
     #[xml(tag = "c:extLst")]
     CExtLst(ChartSpaceExtensionList),
 }
+mod chart_space_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/chart")
+    }
+}
 /// User Shapes.
 /// When the object is serialized out as xml, it's qualified name is c:userShapes.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "c:userShapes")]
 pub struct UserShapes {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "user_shapes_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -1789,6 +1797,14 @@ pub enum UserShapesChildChoice {
     CdrAbsSizeAnchor(
         crate::schemas::schemas_openxmlformats_org_drawingml_2006_chart_drawing::AbsoluteAnchorSize,
     ),
+}
+mod user_shapes_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/drawingml/2006/chart")
+    }
 }
 /// Reference to Chart Part.
 /// When the object is serialized out as xml, it's qualified name is c:chart.

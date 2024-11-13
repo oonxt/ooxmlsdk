@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xlrdwi:webImagesSrd")]
 pub struct WebImagesSupportingRichData {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "web_images_supporting_rich_data_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -15,6 +15,14 @@ pub struct WebImagesSupportingRichData {
     /// _
     #[xml(child = "xlrdwi:extLst")]
     pub xlrdwi_ext_lst: Option<ExtensionList>,
+}
+mod web_images_supporting_rich_data_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2020/richdatawebimage")
+    }
 }
 /// Defines the WebImageSupportingRichData Class.
 /// When the object is serialized out as xml, it's qualified name is xlrdwi:webImageSrd.

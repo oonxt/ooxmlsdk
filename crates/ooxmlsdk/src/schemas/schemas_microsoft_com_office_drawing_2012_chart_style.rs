@@ -133,7 +133,7 @@ crate::__string_enum! {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "cs:colorStyle")]
 pub struct ColorStyle {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "color_style_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -186,12 +186,20 @@ pub enum ColorStyleChildChoice {
     #[xml(tag = "cs:extLst")]
     CsExtLst(OfficeArtExtensionList),
 }
+mod color_style_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/drawing/2012/chartStyle")
+    }
+}
 /// Defines the ChartStyle Class.
 /// When the object is serialized out as xml, it's qualified name is cs:chartStyle.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "cs:chartStyle")]
 pub struct ChartStyle {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "chart_style_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -297,6 +305,14 @@ pub struct ChartStyle {
     /// _
     #[xml(child = "cs:extLst")]
     pub office_art_extension_list: Option<OfficeArtExtensionList>,
+}
+mod chart_style_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/drawing/2012/chartStyle")
+    }
 }
 /// Defines the ColorStyleVariation Class.
 /// When the object is serialized out as xml, it's qualified name is cs:variation.

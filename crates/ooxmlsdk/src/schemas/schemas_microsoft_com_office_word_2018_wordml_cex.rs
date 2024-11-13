@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "w16cex:commentsExtensible")]
 pub struct CommentsExtensible {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "comments_extensible_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -15,6 +15,14 @@ pub struct CommentsExtensible {
     /// _
     #[xml(child = "w16cex:extLst")]
     pub w16cex_ext_lst: Option<ExtensionList>,
+}
+mod comments_extensible_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/word/2018/wordml/cex")
+    }
 }
 /// Defines the CommentExtensible Class.
 /// When the object is serialized out as xml, it's qualified name is w16cex:commentExtensible.

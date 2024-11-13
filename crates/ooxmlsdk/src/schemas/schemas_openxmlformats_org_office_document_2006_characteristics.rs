@@ -16,7 +16,7 @@ crate::__string_enum! {
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "ac:additionalCharacteristics")]
 pub struct AdditionalCharacteristicsInfo {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "additional_characteristics_info_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -25,6 +25,14 @@ pub struct AdditionalCharacteristicsInfo {
     /// _
     #[xml(child = "ac:characteristic")]
     pub ac_characteristic: Vec<Characteristic>,
+}
+mod additional_characteristics_info_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.openxmlformats.org/officeDocument/2006/characteristics")
+    }
 }
 /// Single Characteristic.
 /// When the object is serialized out as xml, it's qualified name is ac:characteristic.

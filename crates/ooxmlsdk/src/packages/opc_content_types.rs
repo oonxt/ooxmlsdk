@@ -1,10 +1,11 @@
-use hard_xml::{XmlRead, XmlReader, XmlResult, XmlWrite, XmlWriter};
-use std::io::{Read, Write};
 use core::default::Default as CoreDefault;
+use hard_xml::{XmlRead, XmlWrite};
+use std::collections::HashMap;
+use std::io::Read;
 
 pub const SCHEMA_CONTENT_TYPES: &str = "http://schemas.openxmlformats.org/package/2006/content-types";
 
-#[derive(Clone, Debug, Default, hard_xml::XmlRead, hard_xml::XmlWrite)]
+#[derive(Clone, Debug, hard_xml::XmlRead, hard_xml::XmlWrite)]
 #[xml(tag = "Types")]
 pub struct Types {
     #[xml(attr = "xmlns")]
@@ -44,17 +45,17 @@ impl CoreDefault for Types {
     fn default() -> Self {
         Self {
             xmlns: Some(SCHEMA_CONTENT_TYPES.to_string()),
-            ..CoreDefault::default()
+            xmlns_map: HashMap::new(),
+            mc_ignorable: None,
+            children: vec![],
         }
     }
 }
 
 #[test]
-fn test_types () {
-
+fn test_types() {
     let txt = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/numbering.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/word/settings.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml"/><Override PartName="/word/webSettings.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.webSettings+xml"/><Override PartName="/word/fontTable.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.fontTable+xml"/><Override PartName="/word/theme/theme1.xml" ContentType="application/vnd.openxmlformats-officedocument.theme+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/><Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/></Types>
 "#;
     let types = Types::from_str(txt).unwrap();
-
 }

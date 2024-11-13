@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xltc:personList")]
 pub struct PersonList {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "person_list_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -16,12 +16,20 @@ pub struct PersonList {
     #[xml(child = "xltc:extLst")]
     pub xltc_ext_lst: Option<ExtensionList>,
 }
+mod person_list_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2018/threadedcomments")
+    }
+}
 /// Defines the ThreadedComments Class.
 /// When the object is serialized out as xml, it's qualified name is xltc:ThreadedComments.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
 #[xml(tag = "xltc:ThreadedComments")]
 pub struct ThreadedComments {
-    #[xml(attr = "xmlns")]
+    #[xml(attr = "xmlns", with = "threaded_comments_xmlns_derive")]
     pub xmlns: Option<String>,
     #[xml(prefix = "xmlns")]
     pub xmlns_map: std::collections::HashMap<String, String>,
@@ -33,6 +41,14 @@ pub struct ThreadedComments {
     /// _
     #[xml(child = "xltc:extLst")]
     pub xltc_ext_lst: Option<ExtensionList>,
+}
+mod threaded_comments_xmlns_derive {
+    pub fn from_xml(mode: &str) -> hard_xml::XmlResult<String> {
+        Ok(mode.to_string())
+    }
+    pub fn to_xml(_: &String) -> hard_xml::XmlResult<&'static str> {
+        Ok("http://schemas.microsoft.com/office/spreadsheetml/2018/threadedcomments")
+    }
 }
 /// Defines the Person Class.
 /// When the object is serialized out as xml, it's qualified name is xltc:person.
