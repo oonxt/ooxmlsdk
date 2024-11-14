@@ -1253,7 +1253,7 @@ pub enum ReferenceModeValues {
     R1c1,
 }
 crate::__string_enum! {
-    ReferenceModeValues { A1 = "a1", R1c1 = "r1c1", }
+    ReferenceModeValues { A1 = "A1", R1c1 = "R1c1", }
 }
 #[derive(Debug, Clone, PartialEq, Eq, Default)]
 pub enum TargetScreenSizeValues {
@@ -1345,7 +1345,7 @@ crate::__string_enum! {
 /// Extension.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct Extension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -1355,7 +1355,7 @@ pub struct Extension {
 /// Calculation Chain Info.
 /// When the object is serialized out as xml, it's qualified name is x:calcChain.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:calcChain")]
+#[xml(tag = "calcChain")]
 pub struct CalculationChain {
     #[xml(attr = "xmlns", with = "calculation_chain_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -1364,10 +1364,10 @@ pub struct CalculationChain {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     /// _
-    #[xml(child = "x:c")]
+    #[xml(child = "c")]
     pub x_c: Vec<CalculationCell>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 mod calculation_chain_xmlns_derive {
@@ -1381,7 +1381,7 @@ mod calculation_chain_xmlns_derive {
 /// Comments.
 /// When the object is serialized out as xml, it's qualified name is x:comments.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:comments")]
+#[xml(tag = "comments")]
 pub struct Comments {
     #[xml(attr = "xmlns", with = "comments_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -1390,13 +1390,13 @@ pub struct Comments {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     ///Authors
-    #[xml(child = "x:authors")]
+    #[xml(child = "authors")]
     pub authors: Authors,
     ///List of Comments
-    #[xml(child = "x:commentList")]
+    #[xml(child = "commentList")]
     pub comment_list: CommentList,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 mod comments_xmlns_derive {
@@ -1410,7 +1410,7 @@ mod comments_xmlns_derive {
 /// XML Mapping.
 /// When the object is serialized out as xml, it's qualified name is x:MapInfo.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:MapInfo")]
+#[xml(tag = "MapInfo")]
 pub struct MapInfo {
     #[xml(attr = "xmlns", with = "map_info_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -1423,10 +1423,10 @@ pub struct MapInfo {
     #[xml(attr = "SelectionNamespaces")]
     pub selection_namespaces: String,
     /// _
-    #[xml(child = "x:Schema")]
+    #[xml(child = "Schema")]
     pub x_schema: Vec<Schema>,
     /// _
-    #[xml(child = "x:Map")]
+    #[xml(child = "Map")]
     pub x_map: Vec<Map>,
 }
 mod map_info_xmlns_derive {
@@ -1440,7 +1440,7 @@ mod map_info_xmlns_derive {
 /// Connections.
 /// When the object is serialized out as xml, it's qualified name is x:connections.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:connections")]
+#[xml(tag = "connections")]
 pub struct Connections {
     #[xml(attr = "xmlns", with = "connections_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -1449,7 +1449,7 @@ pub struct Connections {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     /// _
-    #[xml(child = "x:connection")]
+    #[xml(child = "connection")]
     pub x_connection: Vec<Connection>,
 }
 mod connections_xmlns_derive {
@@ -1463,7 +1463,7 @@ mod connections_xmlns_derive {
 /// PivotCache Definition.
 /// When the object is serialized out as xml, it's qualified name is x:pivotCacheDefinition.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotCacheDefinition")]
+#[xml(tag = "pivotCacheDefinition")]
 pub struct PivotCacheDefinition {
     #[xml(attr = "xmlns", with = "pivot_cache_definition_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -1548,37 +1548,37 @@ pub struct PivotCacheDefinition {
     #[xml(attr = "supportAdvancedDrill")]
     pub support_advanced_drill: Option<bool>,
     /// _
-    #[xml(child = "x:cacheSource")]
+    #[xml(child = "cacheSource")]
     pub cache_source: CacheSource,
     /// _
-    #[xml(child = "x:cacheFields")]
+    #[xml(child = "cacheFields")]
     pub cache_fields: CacheFields,
     /// _
-    #[xml(child = "x:cacheHierarchies")]
+    #[xml(child = "cacheHierarchies")]
     pub cache_hierarchies: Option<CacheHierarchies>,
     /// _
-    #[xml(child = "x:kpis")]
+    #[xml(child = "kpis")]
     pub kpis: Option<Kpis>,
     /// _
-    #[xml(child = "x:tupleCache")]
+    #[xml(child = "tupleCache")]
     pub tuple_cache: Option<TupleCache>,
     /// _
-    #[xml(child = "x:calculatedItems")]
+    #[xml(child = "calculatedItems")]
     pub calculated_items: Option<CalculatedItems>,
     /// _
-    #[xml(child = "x:calculatedMembers")]
+    #[xml(child = "calculatedMembers")]
     pub calculated_members: Option<CalculatedMembers>,
     /// _
-    #[xml(child = "x:dimensions")]
+    #[xml(child = "dimensions")]
     pub dimensions: Option<Dimensions>,
     /// _
-    #[xml(child = "x:measureGroups")]
+    #[xml(child = "measureGroups")]
     pub measure_groups: Option<MeasureGroups>,
     /// _
-    #[xml(child = "x:maps")]
+    #[xml(child = "maps")]
     pub maps: Option<Maps>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub pivot_cache_definition_extension_list: Option<PivotCacheDefinitionExtensionList>,
 }
 mod pivot_cache_definition_xmlns_derive {
@@ -1592,7 +1592,7 @@ mod pivot_cache_definition_xmlns_derive {
 /// PivotCache Records.
 /// When the object is serialized out as xml, it's qualified name is x:pivotCacheRecords.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotCacheRecords")]
+#[xml(tag = "pivotCacheRecords")]
 pub struct PivotCacheRecords {
     #[xml(attr = "xmlns", with = "pivot_cache_records_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -1605,10 +1605,10 @@ pub struct PivotCacheRecords {
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:r")]
+    #[xml(child = "r")]
     pub x_r: Vec<PivotCacheRecord>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 mod pivot_cache_records_xmlns_derive {
@@ -1622,7 +1622,7 @@ mod pivot_cache_records_xmlns_derive {
 /// PivotTable Definition.
 /// When the object is serialized out as xml, it's qualified name is x:pivotTableDefinition.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotTableDefinition")]
+#[xml(tag = "pivotTableDefinition")]
 pub struct PivotTableDefinition {
     #[xml(attr = "xmlns", with = "pivot_table_definition_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -1903,55 +1903,55 @@ pub struct PivotTableDefinition {
     #[xml(attr = "customListSort")]
     pub custom_list_sort: Option<bool>,
     /// _
-    #[xml(child = "x:location")]
+    #[xml(child = "location")]
     pub location: Location,
     /// _
-    #[xml(child = "x:pivotFields")]
+    #[xml(child = "pivotFields")]
     pub pivot_fields: Option<PivotFields>,
     /// _
-    #[xml(child = "x:rowFields")]
+    #[xml(child = "rowFields")]
     pub row_fields: Option<RowFields>,
     /// _
-    #[xml(child = "x:rowItems")]
+    #[xml(child = "rowItems")]
     pub row_items: Option<RowItems>,
     /// _
-    #[xml(child = "x:colFields")]
+    #[xml(child = "colFields")]
     pub column_fields: Option<ColumnFields>,
     /// _
-    #[xml(child = "x:colItems")]
+    #[xml(child = "colItems")]
     pub column_items: Option<ColumnItems>,
     /// _
-    #[xml(child = "x:pageFields")]
+    #[xml(child = "pageFields")]
     pub page_fields: Option<PageFields>,
     /// _
-    #[xml(child = "x:dataFields")]
+    #[xml(child = "dataFields")]
     pub data_fields: Option<DataFields>,
     /// _
-    #[xml(child = "x:formats")]
+    #[xml(child = "formats")]
     pub formats: Option<Formats>,
     /// _
-    #[xml(child = "x:conditionalFormats")]
+    #[xml(child = "conditionalFormats")]
     pub conditional_formats: Option<ConditionalFormats>,
     /// _
-    #[xml(child = "x:chartFormats")]
+    #[xml(child = "chartFormats")]
     pub chart_formats: Option<ChartFormats>,
     /// _
-    #[xml(child = "x:pivotHierarchies")]
+    #[xml(child = "pivotHierarchies")]
     pub pivot_hierarchies: Option<PivotHierarchies>,
     /// _
-    #[xml(child = "x:pivotTableStyleInfo")]
+    #[xml(child = "pivotTableStyleInfo")]
     pub pivot_table_style: Option<PivotTableStyle>,
     /// _
-    #[xml(child = "x:filters")]
+    #[xml(child = "filters")]
     pub pivot_filters: Option<PivotFilters>,
     /// _
-    #[xml(child = "x:rowHierarchiesUsage")]
+    #[xml(child = "rowHierarchiesUsage")]
     pub row_hierarchies_usage: Option<RowHierarchiesUsage>,
     /// _
-    #[xml(child = "x:colHierarchiesUsage")]
+    #[xml(child = "colHierarchiesUsage")]
     pub column_hierarchies_usage: Option<ColumnHierarchiesUsage>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub pivot_table_definition_extension_list: Option<PivotTableDefinitionExtensionList>,
 }
 mod pivot_table_definition_xmlns_derive {
@@ -1965,7 +1965,7 @@ mod pivot_table_definition_xmlns_derive {
 /// Query Table.
 /// When the object is serialized out as xml, it's qualified name is x:queryTable.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:queryTable")]
+#[xml(tag = "queryTable")]
 pub struct QueryTable {
     #[xml(attr = "xmlns", with = "query_table_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2062,10 +2062,10 @@ pub struct QueryTable {
     #[xml(attr = "applyWidthHeightFormats")]
     pub apply_width_height_formats: Option<bool>,
     /// _
-    #[xml(child = "x:queryTableRefresh")]
+    #[xml(child = "queryTableRefresh")]
     pub query_table_refresh: Option<QueryTableRefresh>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub query_table_extension_list: Option<QueryTableExtensionList>,
 }
 mod query_table_xmlns_derive {
@@ -2079,7 +2079,7 @@ mod query_table_xmlns_derive {
 /// Shared String Table.
 /// When the object is serialized out as xml, it's qualified name is x:sst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sst")]
+#[xml(tag = "sst")]
 pub struct SharedStringTable {
     #[xml(attr = "xmlns", with = "shared_string_table_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2096,10 +2096,10 @@ pub struct SharedStringTable {
     #[xml(attr = "uniqueCount")]
     pub unique_count: Option<u32>,
     /// _
-    #[xml(child = "x:si")]
+    #[xml(child = "si")]
     pub x_si: Vec<SharedStringItem>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 mod shared_string_table_xmlns_derive {
@@ -2113,7 +2113,7 @@ mod shared_string_table_xmlns_derive {
 /// Revision Headers.
 /// When the object is serialized out as xml, it's qualified name is x:headers.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:headers")]
+#[xml(tag = "headers")]
 pub struct Headers {
     #[xml(attr = "xmlns", with = "headers_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2170,7 +2170,7 @@ pub struct Headers {
     #[xml(attr = "preserveHistory")]
     pub preserve_history: Option<u32>,
     /// _
-    #[xml(child = "x:header")]
+    #[xml(child = "header")]
     pub x_header: Vec<Header>,
 }
 mod headers_xmlns_derive {
@@ -2184,7 +2184,7 @@ mod headers_xmlns_derive {
 /// Revisions.
 /// When the object is serialized out as xml, it's qualified name is x:revisions.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:revisions")]
+#[xml(tag = "revisions")]
 pub struct Revisions {
     #[xml(attr = "xmlns", with = "revisions_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2193,46 +2193,46 @@ pub struct Revisions {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     #[xml(
-        child = "x:rrc",
-        child = "x:rm",
-        child = "x:rcv",
-        child = "x:rsnm",
-        child = "x:ris",
-        child = "x:rcc",
-        child = "x:rfmt",
-        child = "x:raf",
-        child = "x:rdn",
-        child = "x:rcmt",
-        child = "x:rqt",
-        child = "x:rcft",
+        child = "rrc",
+        child = "rm",
+        child = "rcv",
+        child = "rsnm",
+        child = "ris",
+        child = "rcc",
+        child = "rfmt",
+        child = "raf",
+        child = "rdn",
+        child = "rcmt",
+        child = "rqt",
+        child = "rcft",
     )]
     pub children: Vec<RevisionsChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum RevisionsChildChoice {
-    #[xml(tag = "x:rrc")]
+    #[xml(tag = "rrc")]
     XRrc(RevisionRowColumn),
-    #[xml(tag = "x:rm")]
+    #[xml(tag = "rm")]
     XRm(RevisionMove),
-    #[xml(tag = "x:rcv")]
+    #[xml(tag = "rcv")]
     XRcv(RevisionCustomView),
-    #[xml(tag = "x:rsnm")]
+    #[xml(tag = "rsnm")]
     XRsnm(RevisionSheetName),
-    #[xml(tag = "x:ris")]
+    #[xml(tag = "ris")]
     XRis(RevisionInsertSheet),
-    #[xml(tag = "x:rcc")]
+    #[xml(tag = "rcc")]
     XRcc(RevisionCellChange),
-    #[xml(tag = "x:rfmt")]
+    #[xml(tag = "rfmt")]
     XRfmt(RevisionFormat),
-    #[xml(tag = "x:raf")]
+    #[xml(tag = "raf")]
     XRaf(RevisionAutoFormat),
-    #[xml(tag = "x:rdn")]
+    #[xml(tag = "rdn")]
     XRdn(RevisionDefinedName),
-    #[xml(tag = "x:rcmt")]
+    #[xml(tag = "rcmt")]
     XRcmt(RevisionComment),
-    #[xml(tag = "x:rqt")]
+    #[xml(tag = "rqt")]
     XRqt(RevisionQueryTable),
-    #[xml(tag = "x:rcft")]
+    #[xml(tag = "rcft")]
     XRcft(RevisionConflict),
 }
 mod revisions_xmlns_derive {
@@ -2246,7 +2246,7 @@ mod revisions_xmlns_derive {
 /// User List.
 /// When the object is serialized out as xml, it's qualified name is x:users.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:users")]
+#[xml(tag = "users")]
 pub struct Users {
     #[xml(attr = "xmlns", with = "users_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2259,7 +2259,7 @@ pub struct Users {
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:userInfo")]
+    #[xml(child = "userInfo")]
     pub x_user_info: Vec<UserInfo>,
 }
 mod users_xmlns_derive {
@@ -2273,7 +2273,7 @@ mod users_xmlns_derive {
 /// Worksheet.
 /// When the object is serialized out as xml, it's qualified name is x:worksheet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:worksheet")]
+#[xml(tag = "worksheet")]
 pub struct Worksheet {
     #[xml(attr = "xmlns", with = "worksheet_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2282,118 +2282,118 @@ pub struct Worksheet {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     /// _
-    #[xml(child = "x:sheetPr")]
+    #[xml(child = "sheetPr")]
     pub sheet_properties: Option<SheetProperties>,
     /// _
-    #[xml(child = "x:dimension")]
+    #[xml(child = "dimension")]
     pub sheet_dimension: Option<SheetDimension>,
     /// _
-    #[xml(child = "x:sheetViews")]
+    #[xml(child = "sheetViews")]
     pub sheet_views: Option<SheetViews>,
     /// _
-    #[xml(child = "x:sheetFormatPr")]
+    #[xml(child = "sheetFormatPr")]
     pub sheet_format_properties: Option<SheetFormatProperties>,
     /// _
-    #[xml(child = "x:cols")]
+    #[xml(child = "cols")]
     pub x_cols: Vec<Columns>,
     /// _
-    #[xml(child = "x:sheetData")]
+    #[xml(child = "sheetData")]
     pub x_sheet_data: SheetData,
     /// _
-    #[xml(child = "x:sheetCalcPr")]
+    #[xml(child = "sheetCalcPr")]
     pub x_sheet_calc_pr: Option<SheetCalculationProperties>,
     /// _
-    #[xml(child = "x:sheetProtection")]
+    #[xml(child = "sheetProtection")]
     pub x_sheet_protection: Option<SheetProtection>,
     /// _
-    #[xml(child = "x:protectedRanges")]
+    #[xml(child = "protectedRanges")]
     pub x_protected_ranges: Option<ProtectedRanges>,
     /// _
-    #[xml(child = "x:scenarios")]
+    #[xml(child = "scenarios")]
     pub x_scenarios: Option<Scenarios>,
     /// _
-    #[xml(child = "x:autoFilter")]
+    #[xml(child = "autoFilter")]
     pub x_auto_filter: Option<AutoFilter>,
     /// _
-    #[xml(child = "x:sortState")]
+    #[xml(child = "sortState")]
     pub x_sort_state: Option<SortState>,
     /// _
-    #[xml(child = "x:dataConsolidate")]
+    #[xml(child = "dataConsolidate")]
     pub x_data_consolidate: Option<DataConsolidate>,
     /// _
-    #[xml(child = "x:customSheetViews")]
+    #[xml(child = "customSheetViews")]
     pub x_custom_sheet_views: Option<CustomSheetViews>,
     /// _
-    #[xml(child = "x:mergeCells")]
+    #[xml(child = "mergeCells")]
     pub x_merge_cells: Option<MergeCells>,
     /// _
-    #[xml(child = "x:phoneticPr")]
+    #[xml(child = "phoneticPr")]
     pub x_phonetic_pr: Option<PhoneticProperties>,
     /// _
-    #[xml(child = "x:conditionalFormatting")]
+    #[xml(child = "conditionalFormatting")]
     pub x_conditional_formatting: Vec<ConditionalFormatting>,
     /// _
-    #[xml(child = "x:dataValidations")]
+    #[xml(child = "dataValidations")]
     pub x_data_validations: Option<DataValidations>,
     /// _
-    #[xml(child = "x:hyperlinks")]
+    #[xml(child = "hyperlinks")]
     pub x_hyperlinks: Option<Hyperlinks>,
     /// _
-    #[xml(child = "x:printOptions")]
+    #[xml(child = "printOptions")]
     pub x_print_options: Option<PrintOptions>,
     /// _
-    #[xml(child = "x:pageMargins")]
+    #[xml(child = "pageMargins")]
     pub x_page_margins: Option<PageMargins>,
     /// _
-    #[xml(child = "x:pageSetup")]
+    #[xml(child = "pageSetup")]
     pub x_page_setup: Option<PageSetup>,
     /// _
-    #[xml(child = "x:headerFooter")]
+    #[xml(child = "headerFooter")]
     pub x_header_footer: Option<HeaderFooter>,
     /// _
-    #[xml(child = "x:rowBreaks")]
+    #[xml(child = "rowBreaks")]
     pub x_row_breaks: Option<RowBreaks>,
     /// _
-    #[xml(child = "x:colBreaks")]
+    #[xml(child = "colBreaks")]
     pub x_col_breaks: Option<ColumnBreaks>,
     /// _
-    #[xml(child = "x:customProperties")]
+    #[xml(child = "customProperties")]
     pub x_custom_properties: Option<CustomProperties>,
     /// _
-    #[xml(child = "x:cellWatches")]
+    #[xml(child = "cellWatches")]
     pub x_cell_watches: Option<CellWatches>,
     /// _
-    #[xml(child = "x:ignoredErrors")]
+    #[xml(child = "ignoredErrors")]
     pub x_ignored_errors: Option<IgnoredErrors>,
     /// _
-    #[xml(child = "x:drawing")]
+    #[xml(child = "drawing")]
     pub x_drawing: Option<Drawing>,
     /// _
-    #[xml(child = "x:legacyDrawing")]
+    #[xml(child = "legacyDrawing")]
     pub x_legacy_drawing: Option<LegacyDrawing>,
     /// _
-    #[xml(child = "x:legacyDrawingHF")]
+    #[xml(child = "legacyDrawingHF")]
     pub x_legacy_drawing_hf: Option<LegacyDrawingHeaderFooter>,
     /// _
-    #[xml(child = "x:drawingHF")]
+    #[xml(child = "drawingHF")]
     pub x_drawing_hf: Option<DrawingHeaderFooter>,
     /// _
-    #[xml(child = "x:picture")]
+    #[xml(child = "picture")]
     pub x_picture: Option<Picture>,
     /// _
-    #[xml(child = "x:oleObjects")]
+    #[xml(child = "oleObjects")]
     pub x_ole_objects: Option<OleObjects>,
     /// _
-    #[xml(child = "x:controls")]
+    #[xml(child = "controls")]
     pub x_controls: Option<Controls>,
     /// _
-    #[xml(child = "x:webPublishItems")]
+    #[xml(child = "webPublishItems")]
     pub x_web_publish_items: Option<WebPublishItems>,
     /// _
-    #[xml(child = "x:tableParts")]
+    #[xml(child = "tableParts")]
     pub x_table_parts: Option<TableParts>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<WorksheetExtensionList>,
 }
 mod worksheet_xmlns_derive {
@@ -2407,7 +2407,7 @@ mod worksheet_xmlns_derive {
 /// Chart Sheet.
 /// When the object is serialized out as xml, it's qualified name is x:chartsheet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:chartsheet")]
+#[xml(tag = "chartsheet")]
 pub struct Chartsheet {
     #[xml(attr = "xmlns", with = "chartsheet_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2416,46 +2416,46 @@ pub struct Chartsheet {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     ///Chart Sheet Properties
-    #[xml(child = "x:sheetPr")]
+    #[xml(child = "sheetPr")]
     pub chart_sheet_properties: Option<ChartSheetProperties>,
     ///Chart Sheet Views
-    #[xml(child = "x:sheetViews")]
+    #[xml(child = "sheetViews")]
     pub chart_sheet_views: ChartSheetViews,
     ///Chart Sheet Protection
-    #[xml(child = "x:sheetProtection")]
+    #[xml(child = "sheetProtection")]
     pub chart_sheet_protection: Option<ChartSheetProtection>,
     ///Custom Chart Sheet Views
-    #[xml(child = "x:customSheetViews")]
+    #[xml(child = "customSheetViews")]
     pub custom_chartsheet_views: Option<CustomChartsheetViews>,
     /// _
-    #[xml(child = "x:pageMargins")]
+    #[xml(child = "pageMargins")]
     pub page_margins: Option<PageMargins>,
     /// _
-    #[xml(child = "x:pageSetup")]
+    #[xml(child = "pageSetup")]
     pub chart_sheet_page_setup: Option<ChartSheetPageSetup>,
     /// _
-    #[xml(child = "x:headerFooter")]
+    #[xml(child = "headerFooter")]
     pub header_footer: Option<HeaderFooter>,
     ///Drawing
-    #[xml(child = "x:drawing")]
+    #[xml(child = "drawing")]
     pub drawing: Drawing,
     /// _
-    #[xml(child = "x:legacyDrawing")]
+    #[xml(child = "legacyDrawing")]
     pub legacy_drawing: Option<LegacyDrawing>,
     ///Legacy Drawing Reference in  Header Footer
-    #[xml(child = "x:legacyDrawingHF")]
+    #[xml(child = "legacyDrawingHF")]
     pub legacy_drawing_header_footer: Option<LegacyDrawingHeaderFooter>,
     /// _
-    #[xml(child = "x:drawingHF")]
+    #[xml(child = "drawingHF")]
     pub drawing_header_footer: Option<DrawingHeaderFooter>,
     /// _
-    #[xml(child = "x:picture")]
+    #[xml(child = "picture")]
     pub picture: Option<Picture>,
     /// _
-    #[xml(child = "x:webPublishItems")]
+    #[xml(child = "webPublishItems")]
     pub web_publish_items: Option<WebPublishItems>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 mod chartsheet_xmlns_derive {
@@ -2469,7 +2469,7 @@ mod chartsheet_xmlns_derive {
 /// Dialog Sheet.
 /// When the object is serialized out as xml, it's qualified name is x:dialogsheet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dialogsheet")]
+#[xml(tag = "dialogsheet")]
 pub struct DialogSheet {
     #[xml(attr = "xmlns", with = "dialog_sheet_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2478,52 +2478,52 @@ pub struct DialogSheet {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     ///Sheet Properties
-    #[xml(child = "x:sheetPr")]
+    #[xml(child = "sheetPr")]
     pub sheet_properties: Option<SheetProperties>,
     ///Dialog Sheet Views
-    #[xml(child = "x:sheetViews")]
+    #[xml(child = "sheetViews")]
     pub sheet_views: Option<SheetViews>,
     ///Dialog Sheet Format Properties
-    #[xml(child = "x:sheetFormatPr")]
+    #[xml(child = "sheetFormatPr")]
     pub sheet_format_properties: Option<SheetFormatProperties>,
     ///Sheet Protection
-    #[xml(child = "x:sheetProtection")]
+    #[xml(child = "sheetProtection")]
     pub sheet_protection: Option<SheetProtection>,
     ///Custom Sheet Views
-    #[xml(child = "x:customSheetViews")]
+    #[xml(child = "customSheetViews")]
     pub custom_sheet_views: Option<CustomSheetViews>,
     ///Print Options
-    #[xml(child = "x:printOptions")]
+    #[xml(child = "printOptions")]
     pub print_options: Option<PrintOptions>,
     ///Page Margins
-    #[xml(child = "x:pageMargins")]
+    #[xml(child = "pageMargins")]
     pub page_margins: Option<PageMargins>,
     ///Page Setup Settings
-    #[xml(child = "x:pageSetup")]
+    #[xml(child = "pageSetup")]
     pub page_setup: Option<PageSetup>,
     ///Header and Footer Settings
-    #[xml(child = "x:headerFooter")]
+    #[xml(child = "headerFooter")]
     pub header_footer: Option<HeaderFooter>,
     ///Drawing
-    #[xml(child = "x:drawing")]
+    #[xml(child = "drawing")]
     pub drawing: Option<Drawing>,
     ///Legacy Drawing
-    #[xml(child = "x:legacyDrawing")]
+    #[xml(child = "legacyDrawing")]
     pub legacy_drawing: LegacyDrawing,
     ///Legacy Drawing Header Footer
-    #[xml(child = "x:legacyDrawingHF")]
+    #[xml(child = "legacyDrawingHF")]
     pub legacy_drawing_header_footer: Option<LegacyDrawingHeaderFooter>,
     /// _
-    #[xml(child = "x:drawingHF")]
+    #[xml(child = "drawingHF")]
     pub drawing_header_footer: Option<DrawingHeaderFooter>,
     /// _
-    #[xml(child = "x:oleObjects")]
+    #[xml(child = "oleObjects")]
     pub ole_objects: Option<OleObjects>,
     /// _
-    #[xml(child = "x:controls")]
+    #[xml(child = "controls")]
     pub controls: Option<Controls>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 mod dialog_sheet_xmlns_derive {
@@ -2537,7 +2537,7 @@ mod dialog_sheet_xmlns_derive {
 /// Metadata.
 /// When the object is serialized out as xml, it's qualified name is x:metadata.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:metadata")]
+#[xml(tag = "metadata")]
 pub struct Metadata {
     #[xml(attr = "xmlns", with = "metadata_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2546,25 +2546,25 @@ pub struct Metadata {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     ///Metadata Types Collection
-    #[xml(child = "x:metadataTypes")]
+    #[xml(child = "metadataTypes")]
     pub metadata_types: Option<MetadataTypes>,
     ///Metadata String Store
-    #[xml(child = "x:metadataStrings")]
+    #[xml(child = "metadataStrings")]
     pub metadata_strings: Option<MetadataStrings>,
     ///MDX Metadata Information
-    #[xml(child = "x:mdxMetadata")]
+    #[xml(child = "mdxMetadata")]
     pub mdx_metadata: Option<MdxMetadata>,
     /// _
-    #[xml(child = "x:futureMetadata")]
+    #[xml(child = "futureMetadata")]
     pub x_future_metadata: Vec<FutureMetadata>,
     /// _
-    #[xml(child = "x:cellMetadata")]
+    #[xml(child = "cellMetadata")]
     pub x_cell_metadata: Option<CellMetadata>,
     /// _
-    #[xml(child = "x:valueMetadata")]
+    #[xml(child = "valueMetadata")]
     pub x_value_metadata: Option<ValueMetadata>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 mod metadata_xmlns_derive {
@@ -2578,7 +2578,7 @@ mod metadata_xmlns_derive {
 /// Single Cells.
 /// When the object is serialized out as xml, it's qualified name is x:singleXmlCells.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:singleXmlCells")]
+#[xml(tag = "singleXmlCells")]
 pub struct SingleXmlCells {
     #[xml(attr = "xmlns", with = "single_xml_cells_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2587,7 +2587,7 @@ pub struct SingleXmlCells {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     /// _
-    #[xml(child = "x:singleXmlCell")]
+    #[xml(child = "singleXmlCell")]
     pub x_single_xml_cell: Vec<SingleXmlCell>,
 }
 mod single_xml_cells_xmlns_derive {
@@ -2601,7 +2601,7 @@ mod single_xml_cells_xmlns_derive {
 /// Style Sheet.
 /// When the object is serialized out as xml, it's qualified name is x:styleSheet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:styleSheet")]
+#[xml(tag = "styleSheet")]
 pub struct Stylesheet {
     #[xml(attr = "xmlns", with = "stylesheet_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2610,37 +2610,37 @@ pub struct Stylesheet {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     /// _
-    #[xml(child = "x:numFmts")]
+    #[xml(child = "numFmts")]
     pub numbering_formats: Option<NumberingFormats>,
     /// _
-    #[xml(child = "x:fonts")]
+    #[xml(child = "fonts")]
     pub fonts: Option<Fonts>,
     /// _
-    #[xml(child = "x:fills")]
+    #[xml(child = "fills")]
     pub fills: Option<Fills>,
     /// _
-    #[xml(child = "x:borders")]
+    #[xml(child = "borders")]
     pub borders: Option<Borders>,
     /// _
-    #[xml(child = "x:cellStyleXfs")]
+    #[xml(child = "cellStyleXfs")]
     pub cell_style_formats: Option<CellStyleFormats>,
     /// _
-    #[xml(child = "x:cellXfs")]
+    #[xml(child = "cellXfs")]
     pub cell_formats: Option<CellFormats>,
     /// _
-    #[xml(child = "x:cellStyles")]
+    #[xml(child = "cellStyles")]
     pub cell_styles: Option<CellStyles>,
     /// _
-    #[xml(child = "x:dxfs")]
+    #[xml(child = "dxfs")]
     pub differential_formats: Option<DifferentialFormats>,
     /// _
-    #[xml(child = "x:tableStyles")]
+    #[xml(child = "tableStyles")]
     pub table_styles: Option<TableStyles>,
     /// _
-    #[xml(child = "x:colors")]
+    #[xml(child = "colors")]
     pub colors: Option<Colors>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub stylesheet_extension_list: Option<StylesheetExtensionList>,
 }
 mod stylesheet_xmlns_derive {
@@ -2654,7 +2654,7 @@ mod stylesheet_xmlns_derive {
 /// External Reference.
 /// When the object is serialized out as xml, it's qualified name is x:externalLink.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:externalLink")]
+#[xml(tag = "externalLink")]
 pub struct ExternalLink {
     #[xml(attr = "xmlns", with = "external_link_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2663,22 +2663,22 @@ pub struct ExternalLink {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     #[xml(
-        child = "x:externalBook",
-        child = "x:ddeLink",
-        child = "x:oleLink",
-        child = "x:extLst",
+        child = "externalBook",
+        child = "ddeLink",
+        child = "oleLink",
+        child = "extLst",
     )]
     pub children: Vec<ExternalLinkChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum ExternalLinkChildChoice {
-    #[xml(tag = "x:externalBook")]
+    #[xml(tag = "externalBook")]
     XExternalBook(ExternalBook),
-    #[xml(tag = "x:ddeLink")]
+    #[xml(tag = "ddeLink")]
     XDdeLink(DdeLink),
-    #[xml(tag = "x:oleLink")]
+    #[xml(tag = "oleLink")]
     XOleLink(OleLink),
-    #[xml(tag = "x:extLst")]
+    #[xml(tag = "extLst")]
     XExtLst(ExtensionList),
 }
 mod external_link_xmlns_derive {
@@ -2692,7 +2692,7 @@ mod external_link_xmlns_derive {
 /// Table.
 /// When the object is serialized out as xml, it's qualified name is x:table.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:table")]
+#[xml(tag = "table")]
 pub struct Table {
     #[xml(attr = "xmlns", with = "table_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2789,19 +2789,19 @@ pub struct Table {
     #[xml(attr = "connectionId")]
     pub connection_id: Option<u32>,
     ///Table AutoFilter
-    #[xml(child = "x:autoFilter")]
+    #[xml(child = "autoFilter")]
     pub auto_filter: Option<AutoFilter>,
     ///Sort State
-    #[xml(child = "x:sortState")]
+    #[xml(child = "sortState")]
     pub sort_state: Option<SortState>,
     ///Table Columns
-    #[xml(child = "x:tableColumns")]
+    #[xml(child = "tableColumns")]
     pub table_columns: TableColumns,
     ///Table Style
-    #[xml(child = "x:tableStyleInfo")]
+    #[xml(child = "tableStyleInfo")]
     pub table_style_info: Option<TableStyleInfo>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub table_extension_list: Option<TableExtensionList>,
 }
 mod table_xmlns_derive {
@@ -2815,7 +2815,7 @@ mod table_xmlns_derive {
 /// Volatile Dependency Types.
 /// When the object is serialized out as xml, it's qualified name is x:volTypes.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:volTypes")]
+#[xml(tag = "volTypes")]
 pub struct VolatileTypes {
     #[xml(attr = "xmlns", with = "volatile_types_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2824,10 +2824,10 @@ pub struct VolatileTypes {
     #[xml(attr = "mc:Ignorable")]
     pub mc_ignorable: Option<String>,
     /// _
-    #[xml(child = "x:volType")]
+    #[xml(child = "volType")]
     pub x_vol_type: Vec<VolatileType>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 mod volatile_types_xmlns_derive {
@@ -2841,7 +2841,7 @@ mod volatile_types_xmlns_derive {
 /// Workbook.
 /// When the object is serialized out as xml, it's qualified name is x:workbook.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:workbook")]
+#[xml(tag = "workbook")]
 pub struct Workbook {
     #[xml(attr = "xmlns", with = "workbook_xmlns_derive")]
     pub xmlns: Option<String>,
@@ -2854,13 +2854,13 @@ pub struct Workbook {
     #[xml(attr = "conformance")]
     pub conformance: Option<ConformanceClass>,
     /// _
-    #[xml(child = "x:fileVersion")]
+    #[xml(child = "fileVersion")]
     pub file_version: Option<FileVersion>,
     /// _
-    #[xml(child = "x:fileSharing")]
+    #[xml(child = "fileSharing")]
     pub file_sharing: Option<FileSharing>,
     /// _
-    #[xml(child = "x:workbookPr")]
+    #[xml(child = "workbookPr")]
     pub workbook_properties: Option<WorkbookProperties>,
     /// _
     #[xml(child = "x15ac:absPath")]
@@ -2868,46 +2868,46 @@ pub struct Workbook {
         crate::schemas::schemas_microsoft_com_office_spreadsheetml_2010_11_ac::AbsolutePath,
     >,
     /// _
-    #[xml(child = "x:workbookProtection")]
+    #[xml(child = "workbookProtection")]
     pub workbook_protection: Option<WorkbookProtection>,
     /// _
-    #[xml(child = "x:bookViews")]
+    #[xml(child = "bookViews")]
     pub book_views: Option<BookViews>,
     /// _
-    #[xml(child = "x:sheets")]
+    #[xml(child = "sheets")]
     pub sheets: Sheets,
     /// _
-    #[xml(child = "x:functionGroups")]
+    #[xml(child = "functionGroups")]
     pub function_groups: Option<FunctionGroups>,
     /// _
-    #[xml(child = "x:externalReferences")]
+    #[xml(child = "externalReferences")]
     pub external_references: Option<ExternalReferences>,
     /// _
-    #[xml(child = "x:definedNames")]
+    #[xml(child = "definedNames")]
     pub defined_names: Option<DefinedNames>,
     /// _
-    #[xml(child = "x:calcPr")]
+    #[xml(child = "calcPr")]
     pub calculation_properties: Option<CalculationProperties>,
     /// _
-    #[xml(child = "x:oleSize")]
+    #[xml(child = "oleSize")]
     pub ole_size: Option<OleSize>,
     /// _
-    #[xml(child = "x:customWorkbookViews")]
+    #[xml(child = "customWorkbookViews")]
     pub custom_workbook_views: Option<CustomWorkbookViews>,
     /// _
-    #[xml(child = "x:pivotCaches")]
+    #[xml(child = "pivotCaches")]
     pub pivot_caches: Option<PivotCaches>,
     /// _
-    #[xml(child = "x:webPublishing")]
+    #[xml(child = "webPublishing")]
     pub web_publishing: Option<WebPublishing>,
     /// _
-    #[xml(child = "x:fileRecoveryPr")]
+    #[xml(child = "fileRecoveryPr")]
     pub x_file_recovery_pr: Vec<FileRecoveryProperties>,
     /// _
-    #[xml(child = "x:webPublishObjects")]
+    #[xml(child = "webPublishObjects")]
     pub x_web_publish_objects: Option<WebPublishObjects>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<WorkbookExtensionList>,
 }
 mod workbook_xmlns_derive {
@@ -2921,7 +2921,7 @@ mod workbook_xmlns_derive {
 /// AutoFilter Column.
 /// When the object is serialized out as xml, it's qualified name is x:filterColumn.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:filterColumn")]
+#[xml(tag = "filterColumn")]
 pub struct FilterColumn {
     /// Filter Column Data
     /// Represents the following attribute in the schema: :colId
@@ -2936,47 +2936,47 @@ pub struct FilterColumn {
     #[xml(attr = "showButton")]
     pub show_button: Option<bool>,
     #[xml(
-        child = "x:filters",
-        child = "x:top10",
+        child = "filters",
+        child = "top10",
         child = "x14:customFilters",
-        child = "x:customFilters",
-        child = "x:dynamicFilter",
-        child = "x:colorFilter",
+        child = "customFilters",
+        child = "dynamicFilter",
+        child = "colorFilter",
         child = "x14:iconFilter",
-        child = "x:iconFilter",
-        child = "x:extLst",
+        child = "iconFilter",
+        child = "extLst",
     )]
     pub children: Vec<FilterColumnChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum FilterColumnChildChoice {
-    #[xml(tag = "x:filters")]
+    #[xml(tag = "filters")]
     XFilters(Filters),
-    #[xml(tag = "x:top10")]
+    #[xml(tag = "top10")]
     XTop10(Top10),
     #[xml(tag = "x14:customFilters")]
     X14CustomFilters(
         crate::schemas::schemas_microsoft_com_office_spreadsheetml_2009_9_main::CustomFilters,
     ),
-    #[xml(tag = "x:customFilters")]
+    #[xml(tag = "customFilters")]
     XCustomFilters(CustomFilters),
-    #[xml(tag = "x:dynamicFilter")]
+    #[xml(tag = "dynamicFilter")]
     XDynamicFilter(DynamicFilter),
-    #[xml(tag = "x:colorFilter")]
+    #[xml(tag = "colorFilter")]
     XColorFilter(ColorFilter),
     #[xml(tag = "x14:iconFilter")]
     X14IconFilter(
         crate::schemas::schemas_microsoft_com_office_spreadsheetml_2009_9_main::IconFilter,
     ),
-    #[xml(tag = "x:iconFilter")]
+    #[xml(tag = "iconFilter")]
     XIconFilter(IconFilter),
-    #[xml(tag = "x:extLst")]
+    #[xml(tag = "extLst")]
     XExtLst(ExtensionList),
 }
 /// Sort State for Auto Filter.
 /// When the object is serialized out as xml, it's qualified name is x:sortState.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sortState")]
+#[xml(tag = "sortState")]
 pub struct SortState {
     /// Sort by Columns
     /// Represents the following attribute in the schema: :columnSort
@@ -2994,7 +2994,7 @@ pub struct SortState {
     /// Represents the following attribute in the schema: :ref
     #[xml(attr = "ref")]
     pub reference: String,
-    #[xml(child = "x14:sortCondition", child = "x:sortCondition", child = "x:extLst")]
+    #[xml(child = "x14:sortCondition", child = "sortCondition", child = "extLst")]
     pub children: Vec<SortStateChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -3003,28 +3003,28 @@ pub enum SortStateChildChoice {
     X14SortCondition(
         crate::schemas::schemas_microsoft_com_office_spreadsheetml_2009_9_main::SortCondition,
     ),
-    #[xml(tag = "x:sortCondition")]
+    #[xml(tag = "sortCondition")]
     XSortCondition(SortCondition),
-    #[xml(tag = "x:extLst")]
+    #[xml(tag = "extLst")]
     XExtLst(ExtensionList),
 }
 /// Defines the ExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct ExtensionList {
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub children: Vec<ExtensionListChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum ExtensionListChildChoice {
-    #[xml(tag = "x:ext")]
+    #[xml(tag = "ext")]
     XExt(Extension),
 }
 /// Custom Filter Criteria.
 /// When the object is serialized out as xml, it's qualified name is x:customFilter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:customFilter")]
+#[xml(tag = "customFilter")]
 pub struct CustomFilter {
     /// Filter Comparison Operator
     /// Represents the following attribute in the schema: :operator
@@ -3038,7 +3038,7 @@ pub struct CustomFilter {
 /// Cell.
 /// When the object is serialized out as xml, it's qualified name is x:c.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:c")]
+#[xml(tag = "c")]
 pub struct CalculationCell {
     /// Cell Reference
     /// Represents the following attribute in the schema: :r
@@ -3068,25 +3068,25 @@ pub struct CalculationCell {
 /// Authors.
 /// When the object is serialized out as xml, it's qualified name is x:authors.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:authors")]
+#[xml(tag = "authors")]
 pub struct Authors {
     /// _
-    #[xml(child = "x:author")]
+    #[xml(child = "author")]
     pub x_author: Vec<Author>,
 }
 /// List of Comments.
 /// When the object is serialized out as xml, it's qualified name is x:commentList.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:commentList")]
+#[xml(tag = "commentList")]
 pub struct CommentList {
     /// _
-    #[xml(child = "x:comment")]
+    #[xml(child = "comment")]
     pub x_comment: Vec<Comment>,
 }
 /// Comment.
 /// When the object is serialized out as xml, it's qualified name is x:comment.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:comment")]
+#[xml(tag = "comment")]
 pub struct Comment {
     /// Cell Reference
     /// Represents the following attribute in the schema: :ref
@@ -3105,16 +3105,16 @@ pub struct Comment {
     #[xml(attr = "shapeId")]
     pub shape_id: Option<u32>,
     ///Comment Text
-    #[xml(child = "x:text")]
+    #[xml(child = "text")]
     pub comment_text: CommentText,
     /// _
-    #[xml(child = "x:commentPr")]
+    #[xml(child = "commentPr")]
     pub comment_properties: Option<CommentProperties>,
 }
 /// Author.
 /// When the object is serialized out as xml, it's qualified name is x:author.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:author")]
+#[xml(tag = "author")]
 pub struct Author {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3128,7 +3128,7 @@ pub struct Author {
 /// Text.
 /// When the object is serialized out as xml, it's qualified name is x:t.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:t")]
+#[xml(tag = "t")]
 pub struct Text {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3142,7 +3142,7 @@ pub struct Text {
 /// Cell Value.
 /// When the object is serialized out as xml, it's qualified name is x:v.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:v")]
+#[xml(tag = "v")]
 pub struct CellValue {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3156,7 +3156,7 @@ pub struct CellValue {
 /// Formula.
 /// When the object is serialized out as xml, it's qualified name is x:formula.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:formula")]
+#[xml(tag = "formula")]
 pub struct Formula {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3170,7 +3170,7 @@ pub struct Formula {
 /// Old Formula.
 /// When the object is serialized out as xml, it's qualified name is x:oldFormula.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:oldFormula")]
+#[xml(tag = "oldFormula")]
 pub struct OldFormula {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3184,7 +3184,7 @@ pub struct OldFormula {
 /// Odd Header.
 /// When the object is serialized out as xml, it's qualified name is x:oddHeader.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:oddHeader")]
+#[xml(tag = "oddHeader")]
 pub struct OddHeader {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3198,7 +3198,7 @@ pub struct OddHeader {
 /// Odd Page Footer.
 /// When the object is serialized out as xml, it's qualified name is x:oddFooter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:oddFooter")]
+#[xml(tag = "oddFooter")]
 pub struct OddFooter {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3212,7 +3212,7 @@ pub struct OddFooter {
 /// Even Page Header.
 /// When the object is serialized out as xml, it's qualified name is x:evenHeader.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:evenHeader")]
+#[xml(tag = "evenHeader")]
 pub struct EvenHeader {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3226,7 +3226,7 @@ pub struct EvenHeader {
 /// Even Page Footer.
 /// When the object is serialized out as xml, it's qualified name is x:evenFooter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:evenFooter")]
+#[xml(tag = "evenFooter")]
 pub struct EvenFooter {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3240,7 +3240,7 @@ pub struct EvenFooter {
 /// First Page Header.
 /// When the object is serialized out as xml, it's qualified name is x:firstHeader.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:firstHeader")]
+#[xml(tag = "firstHeader")]
 pub struct FirstHeader {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3254,7 +3254,7 @@ pub struct FirstHeader {
 /// First Page Footer.
 /// When the object is serialized out as xml, it's qualified name is x:firstFooter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:firstFooter")]
+#[xml(tag = "firstFooter")]
 pub struct FirstFooter {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3268,7 +3268,7 @@ pub struct FirstFooter {
 /// DDE Link Value.
 /// When the object is serialized out as xml, it's qualified name is x:val.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:val")]
+#[xml(tag = "val")]
 pub struct DdeLinkValue {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3282,7 +3282,7 @@ pub struct DdeLinkValue {
 /// Strings in Subtopic.
 /// When the object is serialized out as xml, it's qualified name is x:stp.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:stp")]
+#[xml(tag = "stp")]
 pub struct Subtopic {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3296,7 +3296,7 @@ pub struct Subtopic {
 /// Defines the Formula1 Class.
 /// When the object is serialized out as xml, it's qualified name is x:formula1.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:formula1")]
+#[xml(tag = "formula1")]
 pub struct Formula1 {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3310,7 +3310,7 @@ pub struct Formula1 {
 /// Defines the Formula2 Class.
 /// When the object is serialized out as xml, it's qualified name is x:formula2.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:formula2")]
+#[xml(tag = "formula2")]
 pub struct Formula2 {
     /// Content Contains Significant Whitespace
     /// Represents the following attribute in the schema: xml:space
@@ -3338,7 +3338,7 @@ pub struct XstringType {
 /// XML Schema.
 /// When the object is serialized out as xml, it's qualified name is x:Schema.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:Schema")]
+#[xml(tag = "Schema")]
 pub struct Schema {
     /// Schema ID
     /// Represents the following attribute in the schema: :ID
@@ -3356,7 +3356,7 @@ pub struct Schema {
 /// XML Mapping Properties.
 /// When the object is serialized out as xml, it's qualified name is x:Map.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:Map")]
+#[xml(tag = "Map")]
 pub struct Map {
     /// XML Mapping ID
     /// Represents the following attribute in the schema: :ID
@@ -3395,13 +3395,13 @@ pub struct Map {
     #[xml(attr = "PreserveFormat")]
     pub preserve_format: bool,
     ///XML Mapping
-    #[xml(child = "x:DataBinding")]
+    #[xml(child = "DataBinding")]
     pub data_binding: Option<DataBinding>,
 }
 /// XML Mapping.
 /// When the object is serialized out as xml, it's qualified name is x:DataBinding.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:DataBinding")]
+#[xml(tag = "DataBinding")]
 pub struct DataBinding {
     /// DataBindingName
     /// Represents the following attribute in the schema: :DataBindingName
@@ -3427,7 +3427,7 @@ pub struct DataBinding {
 /// Connection.
 /// When the object is serialized out as xml, it's qualified name is x:connection.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:connection")]
+#[xml(tag = "connection")]
 pub struct Connection {
     /// id
     /// Represents the following attribute in the schema: :id
@@ -3510,49 +3510,49 @@ pub struct Connection {
     #[xml(attr = "singleSignOnId")]
     pub single_sign_on_id: Option<String>,
     /// _
-    #[xml(child = "x:dbPr")]
+    #[xml(child = "dbPr")]
     pub database_properties: Option<DatabaseProperties>,
     /// _
-    #[xml(child = "x:olapPr")]
+    #[xml(child = "olapPr")]
     pub olap_properties: Option<OlapProperties>,
     /// _
-    #[xml(child = "x:webPr")]
+    #[xml(child = "webPr")]
     pub web_query_properties: Option<WebQueryProperties>,
     /// _
-    #[xml(child = "x:textPr")]
+    #[xml(child = "textPr")]
     pub text_properties: Option<TextProperties>,
     /// _
-    #[xml(child = "x:parameters")]
+    #[xml(child = "parameters")]
     pub parameters: Option<Parameters>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub connection_extension_list: Option<ConnectionExtensionList>,
 }
 /// Tables.
 /// When the object is serialized out as xml, it's qualified name is x:tables.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tables")]
+#[xml(tag = "tables")]
 pub struct Tables {
     /// Count of Tables
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
-    #[xml(child = "x:m", child = "x:s", child = "x:x")]
+    #[xml(child = "m", child = "s", child = "x")]
     pub children: Vec<TablesChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum TablesChildChoice {
-    #[xml(tag = "x:m")]
+    #[xml(tag = "m")]
     XM(MissingTable),
-    #[xml(tag = "x:s")]
+    #[xml(tag = "s")]
     XS(CharacterValue),
-    #[xml(tag = "x:x")]
+    #[xml(tag = "x")]
     XX(FieldItem),
 }
 /// Parameter Properties.
 /// When the object is serialized out as xml, it's qualified name is x:parameter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:parameter")]
+#[xml(tag = "parameter")]
 pub struct Parameter {
     /// Parameter Name
     /// Represents the following attribute in the schema: :name
@@ -3598,12 +3598,12 @@ pub struct Parameter {
 /// No Value.
 /// When the object is serialized out as xml, it's qualified name is x:m.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:m")]
+#[xml(tag = "m")]
 pub struct MissingTable {}
 /// Character Value.
 /// When the object is serialized out as xml, it's qualified name is x:s.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:s")]
+#[xml(tag = "s")]
 pub struct CharacterValue {
     /// Value
     /// Represents the following attribute in the schema: :v
@@ -3613,7 +3613,7 @@ pub struct CharacterValue {
 /// Index.
 /// When the object is serialized out as xml, it's qualified name is x:x.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:x")]
+#[xml(tag = "x")]
 pub struct FieldItem {
     /// Shared Items Index
     /// Represents the following attribute in the schema: :v
@@ -3623,7 +3623,7 @@ pub struct FieldItem {
 /// Text Import Field Settings.
 /// When the object is serialized out as xml, it's qualified name is x:textField.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:textField")]
+#[xml(tag = "textField")]
 pub struct TextField {
     /// Field Type
     /// Represents the following attribute in the schema: :type
@@ -3637,7 +3637,7 @@ pub struct TextField {
 /// PivotCache Field.
 /// When the object is serialized out as xml, it's qualified name is x:cacheField.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cacheField")]
+#[xml(tag = "cacheField")]
 pub struct CacheField {
     /// name
     /// Represents the following attribute in the schema: :name
@@ -3692,61 +3692,61 @@ pub struct CacheField {
     #[xml(attr = "memberPropertyField")]
     pub member_property_field: Option<bool>,
     /// _
-    #[xml(child = "x:sharedItems")]
+    #[xml(child = "sharedItems")]
     pub shared_items: Option<SharedItems>,
     /// _
-    #[xml(child = "x:fieldGroup")]
+    #[xml(child = "fieldGroup")]
     pub field_group: Option<FieldGroup>,
     /// _
-    #[xml(child = "x:mpMap")]
+    #[xml(child = "mpMap")]
     pub x_mp_map: Vec<MemberPropertiesMap>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<CacheFieldExtensionList>,
 }
 /// Page Item Values.
 /// When the object is serialized out as xml, it's qualified name is x:pages.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pages")]
+#[xml(tag = "pages")]
 pub struct Pages {
     /// Page Item String Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:page")]
+    #[xml(child = "page")]
     pub x_page: Vec<Page>,
 }
 /// Range Sets.
 /// When the object is serialized out as xml, it's qualified name is x:rangeSets.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rangeSets")]
+#[xml(tag = "rangeSets")]
 pub struct RangeSets {
     /// Reference and Page Item Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:rangeSet")]
+    #[xml(child = "rangeSet")]
     pub x_range_set: Vec<RangeSet>,
 }
 /// Page Items.
 /// When the object is serialized out as xml, it's qualified name is x:page.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:page")]
+#[xml(tag = "page")]
 pub struct Page {
     /// Page Item String Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:pageItem")]
+    #[xml(child = "pageItem")]
     pub x_page_item: Vec<PageItem>,
 }
 /// Page Item.
 /// When the object is serialized out as xml, it's qualified name is x:pageItem.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pageItem")]
+#[xml(tag = "pageItem")]
 pub struct PageItem {
     /// Page Item Name
     /// Represents the following attribute in the schema: :name
@@ -3756,7 +3756,7 @@ pub struct PageItem {
 /// Range Set.
 /// When the object is serialized out as xml, it's qualified name is x:rangeSet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rangeSet")]
+#[xml(tag = "rangeSet")]
 pub struct RangeSet {
     /// Field Item Index Page 1
     /// Represents the following attribute in the schema: :i1
@@ -3794,7 +3794,7 @@ pub struct RangeSet {
 /// No Value.
 /// When the object is serialized out as xml, it's qualified name is x:m.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:m")]
+#[xml(tag = "m")]
 pub struct MissingItem {
     /// Unused Item
     /// Represents the following attribute in the schema: :u
@@ -3841,16 +3841,16 @@ pub struct MissingItem {
     #[xml(attr = "b")]
     pub bold: Option<bool>,
     /// _
-    #[xml(child = "x:tpls")]
+    #[xml(child = "tpls")]
     pub x_tpls: Vec<Tuples>,
     /// _
-    #[xml(child = "x:x")]
+    #[xml(child = "x")]
     pub x_x: Vec<MemberPropertyIndex>,
 }
 /// Numeric.
 /// When the object is serialized out as xml, it's qualified name is x:n.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:n")]
+#[xml(tag = "n")]
 pub struct NumberItem {
     /// Value
     /// Represents the following attribute in the schema: :v
@@ -3901,16 +3901,16 @@ pub struct NumberItem {
     #[xml(attr = "b")]
     pub bold: Option<bool>,
     /// _
-    #[xml(child = "x:tpls")]
+    #[xml(child = "tpls")]
     pub x_tpls: Vec<Tuples>,
     /// _
-    #[xml(child = "x:x")]
+    #[xml(child = "x")]
     pub x_x: Vec<MemberPropertyIndex>,
 }
 /// Boolean.
 /// When the object is serialized out as xml, it's qualified name is x:b.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:b")]
+#[xml(tag = "b")]
 pub struct BooleanItem {
     /// Value
     /// Represents the following attribute in the schema: :v
@@ -3933,13 +3933,13 @@ pub struct BooleanItem {
     #[xml(attr = "cp")]
     pub property_count: Option<u32>,
     /// _
-    #[xml(child = "x:x")]
+    #[xml(child = "x")]
     pub x_x: Vec<MemberPropertyIndex>,
 }
 /// Error Value.
 /// When the object is serialized out as xml, it's qualified name is x:e.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:e")]
+#[xml(tag = "e")]
 pub struct ErrorItem {
     /// Value
     /// Represents the following attribute in the schema: :v
@@ -3990,16 +3990,16 @@ pub struct ErrorItem {
     #[xml(attr = "b")]
     pub bold: Option<bool>,
     ///Tuples
-    #[xml(child = "x:tpls")]
+    #[xml(child = "tpls")]
     pub tuples: Option<Tuples>,
     /// _
-    #[xml(child = "x:x")]
+    #[xml(child = "x")]
     pub x_x: Vec<MemberPropertyIndex>,
 }
 /// Character Value.
 /// When the object is serialized out as xml, it's qualified name is x:s.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:s")]
+#[xml(tag = "s")]
 pub struct StringItem {
     /// Value
     /// Represents the following attribute in the schema: :v
@@ -4050,16 +4050,16 @@ pub struct StringItem {
     #[xml(attr = "b")]
     pub bold: Option<bool>,
     /// _
-    #[xml(child = "x:tpls")]
+    #[xml(child = "tpls")]
     pub x_tpls: Vec<Tuples>,
     /// _
-    #[xml(child = "x:x")]
+    #[xml(child = "x")]
     pub x_x: Vec<MemberPropertyIndex>,
 }
 /// Date Time.
 /// When the object is serialized out as xml, it's qualified name is x:d.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:d")]
+#[xml(tag = "d")]
 pub struct DateTimeItem {
     /// Value
     /// Represents the following attribute in the schema: :v
@@ -4082,41 +4082,41 @@ pub struct DateTimeItem {
     #[xml(attr = "cp")]
     pub property_count: Option<u32>,
     /// _
-    #[xml(child = "x:x")]
+    #[xml(child = "x")]
     pub x_x: Vec<MemberPropertyIndex>,
 }
 /// Tuples.
 /// When the object is serialized out as xml, it's qualified name is x:tpls.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tpls")]
+#[xml(tag = "tpls")]
 pub struct Tuples {
     /// Member Name Count
     /// Represents the following attribute in the schema: :c
     #[xml(attr = "c")]
     pub member_name_count: Option<u32>,
-    #[xml(child = "x:tpl")]
+    #[xml(child = "tpl")]
     pub children: Vec<TuplesChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum TuplesChildChoice {
-    #[xml(tag = "x:tpl")]
+    #[xml(tag = "tpl")]
     XTpl(Tuple),
 }
 /// Sort By Tuple.
 /// When the object is serialized out as xml, it's qualified name is x:sortByTuple.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sortByTuple")]
+#[xml(tag = "sortByTuple")]
 pub struct SortByTuple {
     /// Member Name Count
     /// Represents the following attribute in the schema: :c
     #[xml(attr = "c")]
     pub member_name_count: Option<u32>,
-    #[xml(child = "x:tpl")]
+    #[xml(child = "tpl")]
     pub children: Vec<SortByTupleChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum SortByTupleChildChoice {
-    #[xml(tag = "x:tpl")]
+    #[xml(tag = "tpl")]
     XTpl(Tuple),
 }
 /// Defines the TuplesType Class.
@@ -4128,18 +4128,18 @@ pub struct TuplesType {
     /// Represents the following attribute in the schema: :c
     #[xml(attr = "c")]
     pub member_name_count: Option<u32>,
-    #[xml(child = "x:tpl")]
+    #[xml(child = "tpl")]
     pub children: Vec<TuplesTypeChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum TuplesTypeChildChoice {
-    #[xml(tag = "x:tpl")]
+    #[xml(tag = "tpl")]
     XTpl(Tuple),
 }
 /// Member Property Indexes.
 /// When the object is serialized out as xml, it's qualified name is x:x.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:x")]
+#[xml(tag = "x")]
 pub struct MemberPropertyIndex {
     /// Shared Items Index
     /// Represents the following attribute in the schema: :v
@@ -4149,7 +4149,7 @@ pub struct MemberPropertyIndex {
 /// Defines the MemberPropertiesMap Class.
 /// When the object is serialized out as xml, it's qualified name is x:mpMap.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:mpMap")]
+#[xml(tag = "mpMap")]
 pub struct MemberPropertiesMap {
     /// Shared Items Index
     /// Represents the following attribute in the schema: :v
@@ -4169,40 +4169,40 @@ pub struct XType {
 /// PivotCache Record.
 /// When the object is serialized out as xml, it's qualified name is x:r.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:r")]
+#[xml(tag = "r")]
 pub struct PivotCacheRecord {
     #[xml(
-        child = "x:m",
-        child = "x:n",
-        child = "x:b",
-        child = "x:e",
-        child = "x:s",
-        child = "x:d",
-        child = "x:x",
+        child = "m",
+        child = "n",
+        child = "b",
+        child = "e",
+        child = "s",
+        child = "d",
+        child = "x",
     )]
     pub children: Vec<PivotCacheRecordChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum PivotCacheRecordChildChoice {
-    #[xml(tag = "x:m")]
+    #[xml(tag = "m")]
     XM(MissingItem),
-    #[xml(tag = "x:n")]
+    #[xml(tag = "n")]
     XN(NumberItem),
-    #[xml(tag = "x:b")]
+    #[xml(tag = "b")]
     XB(BooleanItem),
-    #[xml(tag = "x:e")]
+    #[xml(tag = "e")]
     XE(ErrorItem),
-    #[xml(tag = "x:s")]
+    #[xml(tag = "s")]
     XS(StringItem),
-    #[xml(tag = "x:d")]
+    #[xml(tag = "d")]
     XD(DateTimeItem),
-    #[xml(tag = "x:x")]
+    #[xml(tag = "x")]
     XX(FieldItem),
 }
 /// OLAP KPI.
 /// When the object is serialized out as xml, it's qualified name is x:kpi.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:kpi")]
+#[xml(tag = "kpi")]
 pub struct Kpi {
     /// KPI Unique Name
     /// Represents the following attribute in the schema: :uniqueName
@@ -4248,7 +4248,7 @@ pub struct Kpi {
 /// PivotCache Field Id.
 /// When the object is serialized out as xml, it's qualified name is x:fieldUsage.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:fieldUsage")]
+#[xml(tag = "fieldUsage")]
 pub struct FieldUsage {
     /// Field Index
     /// Represents the following attribute in the schema: :x
@@ -4258,7 +4258,7 @@ pub struct FieldUsage {
 /// OLAP Grouping Levels.
 /// When the object is serialized out as xml, it's qualified name is x:groupLevel.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:groupLevel")]
+#[xml(tag = "groupLevel")]
 pub struct GroupLevel {
     /// Unique Name
     /// Represents the following attribute in the schema: :uniqueName
@@ -4277,29 +4277,29 @@ pub struct GroupLevel {
     #[xml(attr = "customRollUp")]
     pub custom_roll_up: Option<bool>,
     ///OLAP Level Groups
-    #[xml(child = "x:groups")]
+    #[xml(child = "groups")]
     pub groups: Option<Groups>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// OLAP Level Groups.
 /// When the object is serialized out as xml, it's qualified name is x:groups.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:groups")]
+#[xml(tag = "groups")]
 pub struct Groups {
     /// Level Group Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:group")]
+    #[xml(child = "group")]
     pub x_group: Vec<Group>,
 }
 /// OLAP Group.
 /// When the object is serialized out as xml, it's qualified name is x:group.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:group")]
+#[xml(tag = "group")]
 pub struct Group {
     /// Group Name
     /// Represents the following attribute in the schema: :name
@@ -4322,26 +4322,26 @@ pub struct Group {
     #[xml(attr = "id")]
     pub id: Option<i32>,
     ///OLAP Group Members
-    #[xml(child = "x:groupMembers")]
+    #[xml(child = "groupMembers")]
     pub group_members: GroupMembers,
 }
 /// OLAP Group Members.
 /// When the object is serialized out as xml, it's qualified name is x:groupMembers.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:groupMembers")]
+#[xml(tag = "groupMembers")]
 pub struct GroupMembers {
     /// Group Member Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:groupMember")]
+    #[xml(child = "groupMember")]
     pub x_group_member: Vec<GroupMember>,
 }
 /// OLAP Group Member.
 /// When the object is serialized out as xml, it's qualified name is x:groupMember.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:groupMember")]
+#[xml(tag = "groupMember")]
 pub struct GroupMember {
     /// Group Member Unique Name
     /// Represents the following attribute in the schema: :uniqueName
@@ -4355,69 +4355,69 @@ pub struct GroupMember {
 /// Entries.
 /// When the object is serialized out as xml, it's qualified name is x:entries.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:entries")]
+#[xml(tag = "entries")]
 pub struct Entries {
     /// Tuple Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
-    #[xml(child = "x:m", child = "x:n", child = "x:e", child = "x:s")]
+    #[xml(child = "m", child = "n", child = "e", child = "s")]
     pub children: Vec<EntriesChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum EntriesChildChoice {
-    #[xml(tag = "x:m")]
+    #[xml(tag = "m")]
     XM(MissingItem),
-    #[xml(tag = "x:n")]
+    #[xml(tag = "n")]
     XN(NumberItem),
-    #[xml(tag = "x:e")]
+    #[xml(tag = "e")]
     XE(ErrorItem),
-    #[xml(tag = "x:s")]
+    #[xml(tag = "s")]
     XS(StringItem),
 }
 /// Sets.
 /// When the object is serialized out as xml, it's qualified name is x:sets.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sets")]
+#[xml(tag = "sets")]
 pub struct Sets {
     /// Tuple Set Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:set")]
+    #[xml(child = "set")]
     pub x_set: Vec<TupleSet>,
 }
 /// OLAP Query Cache.
 /// When the object is serialized out as xml, it's qualified name is x:queryCache.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:queryCache")]
+#[xml(tag = "queryCache")]
 pub struct QueryCache {
     /// Cached Query Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:query")]
+    #[xml(child = "query")]
     pub x_query: Vec<Query>,
 }
 /// Server Formats.
 /// When the object is serialized out as xml, it's qualified name is x:serverFormats.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:serverFormats")]
+#[xml(tag = "serverFormats")]
 pub struct ServerFormats {
     /// Format Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:serverFormat")]
+    #[xml(child = "serverFormat")]
     pub x_server_format: Vec<ServerFormat>,
 }
 /// Server Format.
 /// When the object is serialized out as xml, it's qualified name is x:serverFormat.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:serverFormat")]
+#[xml(tag = "serverFormat")]
 pub struct ServerFormat {
     /// Culture
     /// Represents the following attribute in the schema: :culture
@@ -4431,7 +4431,7 @@ pub struct ServerFormat {
 /// Tuple.
 /// When the object is serialized out as xml, it's qualified name is x:tpl.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tpl")]
+#[xml(tag = "tpl")]
 pub struct Tuple {
     /// Field Index
     /// Represents the following attribute in the schema: :fld
@@ -4449,7 +4449,7 @@ pub struct Tuple {
 /// OLAP Set.
 /// When the object is serialized out as xml, it's qualified name is x:set.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:set")]
+#[xml(tag = "set")]
 pub struct TupleSet {
     /// Number of Tuples
     /// Represents the following attribute in the schema: :count
@@ -4472,29 +4472,29 @@ pub struct TupleSet {
     #[xml(attr = "queryFailed")]
     pub query_failed: Option<bool>,
     /// _
-    #[xml(child = "x:tpls")]
+    #[xml(child = "tpls")]
     pub x_tpls: Vec<Tuples>,
     /// _
-    #[xml(child = "x:sortByTuple")]
+    #[xml(child = "sortByTuple")]
     pub x_sort_by_tuple: Option<SortByTuple>,
 }
 /// Query.
 /// When the object is serialized out as xml, it's qualified name is x:query.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:query")]
+#[xml(tag = "query")]
 pub struct Query {
     /// MDX Query String
     /// Represents the following attribute in the schema: :mdx
     #[xml(attr = "mdx")]
     pub mdx: String,
     ///Tuples
-    #[xml(child = "x:tpls")]
+    #[xml(child = "tpls")]
     pub tuples: Option<Tuples>,
 }
 /// Calculated Item.
 /// When the object is serialized out as xml, it's qualified name is x:calculatedItem.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:calculatedItem")]
+#[xml(tag = "calculatedItem")]
 pub struct CalculatedItem {
     /// Field Index
     /// Represents the following attribute in the schema: :field
@@ -4505,16 +4505,16 @@ pub struct CalculatedItem {
     #[xml(attr = "formula")]
     pub formula: Option<String>,
     ///Calculated Item Location
-    #[xml(child = "x:pivotArea")]
+    #[xml(child = "pivotArea")]
     pub pivot_area: PivotArea,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Calculated Item Location.
 /// When the object is serialized out as xml, it's qualified name is x:pivotArea.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotArea")]
+#[xml(tag = "pivotArea")]
 pub struct PivotArea {
     /// Field Index
     /// Represents the following attribute in the schema: :field
@@ -4565,16 +4565,16 @@ pub struct PivotArea {
     #[xml(attr = "fieldPosition")]
     pub field_position: Option<u32>,
     ///References
-    #[xml(child = "x:references")]
+    #[xml(child = "references")]
     pub pivot_area_references: Option<PivotAreaReferences>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Calculated Member.
 /// When the object is serialized out as xml, it's qualified name is x:calculatedMember.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:calculatedMember")]
+#[xml(tag = "calculatedMember")]
 pub struct CalculatedMember {
     /// name
     /// Represents the following attribute in the schema: :name
@@ -4605,13 +4605,13 @@ pub struct CalculatedMember {
     #[xml(attr = "set")]
     pub set: Option<bool>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub calculated_member_extension_list: Option<CalculatedMemberExtensionList>,
 }
 /// PivotTable Field.
 /// When the object is serialized out as xml, it's qualified name is x:pivotField.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotField")]
+#[xml(tag = "pivotField")]
 pub struct PivotField {
     /// Field Name
     /// Represents the following attribute in the schema: :name
@@ -4806,19 +4806,19 @@ pub struct PivotField {
     #[xml(attr = "defaultAttributeDrillState")]
     pub default_attribute_drill_state: Option<bool>,
     ///Field Items
-    #[xml(child = "x:items")]
+    #[xml(child = "items")]
     pub items: Option<Items>,
     ///AutoSort Scope
-    #[xml(child = "x:autoSortScope")]
+    #[xml(child = "autoSortScope")]
     pub auto_sort_scope: Option<AutoSortScope>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub pivot_field_extension_list: Option<PivotFieldExtensionList>,
 }
 /// PivotTable Field Item.
 /// When the object is serialized out as xml, it's qualified name is x:item.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:item")]
+#[xml(tag = "item")]
 pub struct Item {
     /// Item User Caption
     /// Represents the following attribute in the schema: :n
@@ -4868,7 +4868,7 @@ pub struct Item {
 /// Data Field Item.
 /// When the object is serialized out as xml, it's qualified name is x:dataField.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dataField")]
+#[xml(tag = "dataField")]
 pub struct DataField {
     /// name
     /// Represents the following attribute in the schema: :name
@@ -4899,13 +4899,13 @@ pub struct DataField {
     #[xml(attr = "numFmtId")]
     pub number_format_id: Option<u32>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub data_field_extension_list: Option<DataFieldExtensionList>,
 }
 /// Row Items.
 /// When the object is serialized out as xml, it's qualified name is x:i.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:i")]
+#[xml(tag = "i")]
 pub struct RowItem {
     /// Item Type
     /// Represents the following attribute in the schema: :t
@@ -4920,13 +4920,13 @@ pub struct RowItem {
     #[xml(attr = "i")]
     pub index: Option<u32>,
     /// _
-    #[xml(child = "x:x")]
+    #[xml(child = "x")]
     pub x_x: Vec<MemberPropertyIndex>,
 }
 /// Row Items.
 /// When the object is serialized out as xml, it's qualified name is x:field.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:field")]
+#[xml(tag = "field")]
 pub struct Field {
     /// Field Index
     /// Represents the following attribute in the schema: :x
@@ -4936,7 +4936,7 @@ pub struct Field {
 /// PivotTable Format.
 /// When the object is serialized out as xml, it's qualified name is x:format.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:format")]
+#[xml(tag = "format")]
 pub struct Format {
     /// Format Action
     /// Represents the following attribute in the schema: :action
@@ -4947,16 +4947,16 @@ pub struct Format {
     #[xml(attr = "dxfId")]
     pub format_id: Option<u32>,
     ///Pivot Table Location
-    #[xml(child = "x:pivotArea")]
+    #[xml(child = "pivotArea")]
     pub pivot_area: PivotArea,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Conditional Formatting.
 /// When the object is serialized out as xml, it's qualified name is x:conditionalFormat.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:conditionalFormat")]
+#[xml(tag = "conditionalFormat")]
 pub struct ConditionalFormat {
     /// Conditional Formatting Scope
     /// Represents the following attribute in the schema: :scope
@@ -4971,29 +4971,29 @@ pub struct ConditionalFormat {
     #[xml(attr = "priority")]
     pub priority: u32,
     ///Pivot Areas
-    #[xml(child = "x:pivotAreas")]
+    #[xml(child = "pivotAreas")]
     pub pivot_areas: PivotAreas,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Pivot Areas.
 /// When the object is serialized out as xml, it's qualified name is x:pivotAreas.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotAreas")]
+#[xml(tag = "pivotAreas")]
 pub struct PivotAreas {
     /// Pivot Area Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:pivotArea")]
+    #[xml(child = "pivotArea")]
     pub x_pivot_area: Vec<PivotArea>,
 }
 /// PivotChart Format.
 /// When the object is serialized out as xml, it's qualified name is x:chartFormat.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:chartFormat")]
+#[xml(tag = "chartFormat")]
 pub struct ChartFormat {
     /// Chart Index
     /// Represents the following attribute in the schema: :chart
@@ -5008,13 +5008,13 @@ pub struct ChartFormat {
     #[xml(attr = "series")]
     pub series: Option<bool>,
     ///Pivot Table Location Rule
-    #[xml(child = "x:pivotArea")]
+    #[xml(child = "pivotArea")]
     pub pivot_area: PivotArea,
 }
 /// OLAP Hierarchy.
 /// When the object is serialized out as xml, it's qualified name is x:pivotHierarchy.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotHierarchy")]
+#[xml(tag = "pivotHierarchy")]
 pub struct PivotHierarchy {
     /// Outline New Levels
     /// Represents the following attribute in the schema: :outline
@@ -5061,19 +5061,19 @@ pub struct PivotHierarchy {
     #[xml(attr = "caption")]
     pub caption: Option<String>,
     ///OLAP Member Properties
-    #[xml(child = "x:mps")]
+    #[xml(child = "mps")]
     pub member_properties: Option<MemberProperties>,
     /// _
-    #[xml(child = "x:members")]
+    #[xml(child = "members")]
     pub x_members: Vec<Members>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<PivotHierarchyExtensionList>,
 }
 /// Row OLAP Hierarchies.
 /// When the object is serialized out as xml, it's qualified name is x:rowHierarchyUsage.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rowHierarchyUsage")]
+#[xml(tag = "rowHierarchyUsage")]
 pub struct RowHierarchyUsage {
     /// Hierarchy Usage
     /// Represents the following attribute in the schema: :hierarchyUsage
@@ -5083,7 +5083,7 @@ pub struct RowHierarchyUsage {
 /// Column OLAP Hierarchies.
 /// When the object is serialized out as xml, it's qualified name is x:colHierarchyUsage.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:colHierarchyUsage")]
+#[xml(tag = "colHierarchyUsage")]
 pub struct ColumnHierarchyUsage {
     /// Hierarchy Usage
     /// Represents the following attribute in the schema: :hierarchyUsage
@@ -5103,7 +5103,7 @@ pub struct HierarchyUsageType {
 /// OLAP Member Property.
 /// When the object is serialized out as xml, it's qualified name is x:mp.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:mp")]
+#[xml(tag = "mp")]
 pub struct MemberProperty {
     /// OLAP Member Property Unique Name
     /// Represents the following attribute in the schema: :name
@@ -5145,7 +5145,7 @@ pub struct MemberProperty {
 /// Member.
 /// When the object is serialized out as xml, it's qualified name is x:member.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:member")]
+#[xml(tag = "member")]
 pub struct Member {
     /// Hidden Item Name
     /// Represents the following attribute in the schema: :name
@@ -5155,7 +5155,7 @@ pub struct Member {
 /// OLAP Dimension.
 /// When the object is serialized out as xml, it's qualified name is x:dimension.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dimension")]
+#[xml(tag = "dimension")]
 pub struct Dimension {
     /// Measure
     /// Represents the following attribute in the schema: :measure
@@ -5177,7 +5177,7 @@ pub struct Dimension {
 /// OLAP Measure Group.
 /// When the object is serialized out as xml, it's qualified name is x:measureGroup.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:measureGroup")]
+#[xml(tag = "measureGroup")]
 pub struct MeasureGroup {
     /// Measure Group Name
     /// Represents the following attribute in the schema: :name
@@ -5191,7 +5191,7 @@ pub struct MeasureGroup {
 /// OLAP Measure Group.
 /// When the object is serialized out as xml, it's qualified name is x:map.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:map")]
+#[xml(tag = "map")]
 pub struct MeasureDimensionMap {
     /// Measure Group Id
     /// Represents the following attribute in the schema: :measureGroup
@@ -5205,7 +5205,7 @@ pub struct MeasureDimensionMap {
 /// PivotTable Advanced Filter.
 /// When the object is serialized out as xml, it's qualified name is x:filter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:filter")]
+#[xml(tag = "filter")]
 pub struct PivotFilter {
     /// fld
     /// Represents the following attribute in the schema: :fld
@@ -5252,16 +5252,16 @@ pub struct PivotFilter {
     #[xml(attr = "stringValue2")]
     pub string_value2: Option<String>,
     /// _
-    #[xml(child = "x:autoFilter")]
+    #[xml(child = "autoFilter")]
     pub auto_filter: AutoFilter,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub pivot_filter_extension_list: Option<PivotFilterExtensionList>,
 }
 /// PivotCache Hierarchy.
 /// When the object is serialized out as xml, it's qualified name is x:cacheHierarchy.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cacheHierarchy")]
+#[xml(tag = "cacheHierarchy")]
 pub struct CacheHierarchy {
     /// uniqueName
     /// Represents the following attribute in the schema: :uniqueName
@@ -5352,19 +5352,19 @@ pub struct CacheHierarchy {
     #[xml(attr = "hidden")]
     pub hidden: Option<bool>,
     /// _
-    #[xml(child = "x:fieldsUsage")]
+    #[xml(child = "fieldsUsage")]
     pub fields_usage: Option<FieldsUsage>,
     /// _
-    #[xml(child = "x:groupLevels")]
+    #[xml(child = "groupLevels")]
     pub group_levels: Option<GroupLevels>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub cache_hierarchy_extension_list: Option<CacheHierarchyExtensionList>,
 }
 /// Range Grouping Properties.
 /// When the object is serialized out as xml, it's qualified name is x:rangePr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rangePr")]
+#[xml(tag = "rangePr")]
 pub struct RangeProperties {
     /// Source Data Set Beginning Range
     /// Represents the following attribute in the schema: :autoStart
@@ -5402,54 +5402,54 @@ pub struct RangeProperties {
 /// Discrete Grouping Properties.
 /// When the object is serialized out as xml, it's qualified name is x:discretePr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:discretePr")]
+#[xml(tag = "discretePr")]
 pub struct DiscreteProperties {
     /// Mapping Index Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:x")]
+    #[xml(child = "x")]
     pub x_x: Vec<FieldItem>,
 }
 /// OLAP Group Items.
 /// When the object is serialized out as xml, it's qualified name is x:groupItems.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:groupItems")]
+#[xml(tag = "groupItems")]
 pub struct GroupItems {
     /// Items Created Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     #[xml(
-        child = "x:m",
-        child = "x:n",
-        child = "x:b",
-        child = "x:e",
-        child = "x:s",
-        child = "x:d",
+        child = "m",
+        child = "n",
+        child = "b",
+        child = "e",
+        child = "s",
+        child = "d",
     )]
     pub children: Vec<GroupItemsChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum GroupItemsChildChoice {
-    #[xml(tag = "x:m")]
+    #[xml(tag = "m")]
     XM(MissingItem),
-    #[xml(tag = "x:n")]
+    #[xml(tag = "n")]
     XN(NumberItem),
-    #[xml(tag = "x:b")]
+    #[xml(tag = "b")]
     XB(BooleanItem),
-    #[xml(tag = "x:e")]
+    #[xml(tag = "e")]
     XE(ErrorItem),
-    #[xml(tag = "x:s")]
+    #[xml(tag = "s")]
     XS(StringItem),
-    #[xml(tag = "x:d")]
+    #[xml(tag = "d")]
     XD(DateTimeItem),
 }
 /// Page Field.
 /// When the object is serialized out as xml, it's qualified name is x:pageField.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pageField")]
+#[xml(tag = "pageField")]
 pub struct PageField {
     /// Field
     /// Represents the following attribute in the schema: :fld
@@ -5472,26 +5472,26 @@ pub struct PageField {
     #[xml(attr = "cap")]
     pub caption: Option<String>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// References.
 /// When the object is serialized out as xml, it's qualified name is x:references.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:references")]
+#[xml(tag = "references")]
 pub struct PivotAreaReferences {
     /// Pivot Filter Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:reference")]
+    #[xml(child = "reference")]
     pub x_reference: Vec<PivotAreaReference>,
 }
 /// Reference.
 /// When the object is serialized out as xml, it's qualified name is x:reference.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:reference")]
+#[xml(tag = "reference")]
 pub struct PivotAreaReference {
     /// Field Index
     /// Represents the following attribute in the schema: :field
@@ -5562,42 +5562,42 @@ pub struct PivotAreaReference {
     #[xml(attr = "varPSubtotal")]
     pub apply_variance_p_in_subtotal: Option<bool>,
     /// _
-    #[xml(child = "x:x")]
+    #[xml(child = "x")]
     pub x_x: Vec<FieldItem>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 /// Query table fields.
 /// When the object is serialized out as xml, it's qualified name is x:queryTableFields.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:queryTableFields")]
+#[xml(tag = "queryTableFields")]
 pub struct QueryTableFields {
     /// Column Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:queryTableField")]
+    #[xml(child = "queryTableField")]
     pub x_query_table_field: Vec<QueryTableField>,
 }
 /// Deleted Fields.
 /// When the object is serialized out as xml, it's qualified name is x:queryTableDeletedFields.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:queryTableDeletedFields")]
+#[xml(tag = "queryTableDeletedFields")]
 pub struct QueryTableDeletedFields {
     /// Deleted Fields Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:deletedField")]
+    #[xml(child = "deletedField")]
     pub x_deleted_field: Vec<DeletedField>,
 }
 /// Deleted Field.
 /// When the object is serialized out as xml, it's qualified name is x:deletedField.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:deletedField")]
+#[xml(tag = "deletedField")]
 pub struct DeletedField {
     /// Deleted Fields Name
     /// Represents the following attribute in the schema: :name
@@ -5607,7 +5607,7 @@ pub struct DeletedField {
 /// QueryTable Field.
 /// When the object is serialized out as xml, it's qualified name is x:queryTableField.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:queryTableField")]
+#[xml(tag = "queryTableField")]
 pub struct QueryTableField {
     /// Field Id
     /// Represents the following attribute in the schema: :id
@@ -5638,61 +5638,61 @@ pub struct QueryTableField {
     #[xml(attr = "tableColumnId")]
     pub table_column_id: Option<u32>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// String Item.
 /// When the object is serialized out as xml, it's qualified name is x:si.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:si")]
+#[xml(tag = "si")]
 pub struct SharedStringItem {
     ///Text
-    #[xml(child = "x:t")]
+    #[xml(child = "t")]
     pub text: Option<Text>,
     /// _
-    #[xml(child = "x:r")]
+    #[xml(child = "r")]
     pub x_r: Vec<Run>,
     /// _
-    #[xml(child = "x:rPh")]
+    #[xml(child = "rPh")]
     pub x_r_ph: Vec<PhoneticRun>,
     /// _
-    #[xml(child = "x:phoneticPr")]
+    #[xml(child = "phoneticPr")]
     pub x_phonetic_pr: Option<PhoneticProperties>,
 }
 /// Rich Text Inline.
 /// When the object is serialized out as xml, it's qualified name is x:is.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:is")]
+#[xml(tag = "is")]
 pub struct InlineString {
     ///Text
-    #[xml(child = "x:t")]
+    #[xml(child = "t")]
     pub text: Option<Text>,
     /// _
-    #[xml(child = "x:r")]
+    #[xml(child = "r")]
     pub x_r: Vec<Run>,
     /// _
-    #[xml(child = "x:rPh")]
+    #[xml(child = "rPh")]
     pub x_r_ph: Vec<PhoneticRun>,
     /// _
-    #[xml(child = "x:phoneticPr")]
+    #[xml(child = "phoneticPr")]
     pub x_phonetic_pr: Option<PhoneticProperties>,
 }
 /// Comment Text.
 /// When the object is serialized out as xml, it's qualified name is x:text.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:text")]
+#[xml(tag = "text")]
 pub struct CommentText {
     ///Text
-    #[xml(child = "x:t")]
+    #[xml(child = "t")]
     pub text: Option<Text>,
     /// _
-    #[xml(child = "x:r")]
+    #[xml(child = "r")]
     pub x_r: Vec<Run>,
     /// _
-    #[xml(child = "x:rPh")]
+    #[xml(child = "rPh")]
     pub x_r_ph: Vec<PhoneticRun>,
     /// _
-    #[xml(child = "x:phoneticPr")]
+    #[xml(child = "phoneticPr")]
     pub x_phonetic_pr: Option<PhoneticProperties>,
 }
 /// Defines the RstType Class.
@@ -5703,7 +5703,7 @@ pub struct RstType {}
 /// Bold.
 /// When the object is serialized out as xml, it's qualified name is x:b.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:b")]
+#[xml(tag = "b")]
 pub struct Bold {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -5713,7 +5713,7 @@ pub struct Bold {
 /// Italic.
 /// When the object is serialized out as xml, it's qualified name is x:i.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:i")]
+#[xml(tag = "i")]
 pub struct Italic {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -5723,7 +5723,7 @@ pub struct Italic {
 /// Strike Through.
 /// When the object is serialized out as xml, it's qualified name is x:strike.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:strike")]
+#[xml(tag = "strike")]
 pub struct Strike {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -5733,7 +5733,7 @@ pub struct Strike {
 /// Condense.
 /// When the object is serialized out as xml, it's qualified name is x:condense.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:condense")]
+#[xml(tag = "condense")]
 pub struct Condense {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -5743,7 +5743,7 @@ pub struct Condense {
 /// Extend.
 /// When the object is serialized out as xml, it's qualified name is x:extend.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extend")]
+#[xml(tag = "extend")]
 pub struct Extend {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -5753,7 +5753,7 @@ pub struct Extend {
 /// Outline.
 /// When the object is serialized out as xml, it's qualified name is x:outline.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:outline")]
+#[xml(tag = "outline")]
 pub struct Outline {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -5763,7 +5763,7 @@ pub struct Outline {
 /// Shadow.
 /// When the object is serialized out as xml, it's qualified name is x:shadow.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:shadow")]
+#[xml(tag = "shadow")]
 pub struct Shadow {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -5783,7 +5783,7 @@ pub struct BooleanPropertyType {
 /// Underline.
 /// When the object is serialized out as xml, it's qualified name is x:u.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:u")]
+#[xml(tag = "u")]
 pub struct Underline {
     /// Underline Value
     /// Represents the following attribute in the schema: :val
@@ -5793,7 +5793,7 @@ pub struct Underline {
 /// Vertical Alignment.
 /// When the object is serialized out as xml, it's qualified name is x:vertAlign.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:vertAlign")]
+#[xml(tag = "vertAlign")]
 pub struct VerticalTextAlignment {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -5803,7 +5803,7 @@ pub struct VerticalTextAlignment {
 /// Font Size.
 /// When the object is serialized out as xml, it's qualified name is x:sz.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sz")]
+#[xml(tag = "sz")]
 pub struct FontSize {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -5813,7 +5813,7 @@ pub struct FontSize {
 /// Text Color.
 /// When the object is serialized out as xml, it's qualified name is x:color.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:color")]
+#[xml(tag = "color")]
 pub struct Color {
     /// Automatic
     /// Represents the following attribute in the schema: :auto
@@ -5839,7 +5839,7 @@ pub struct Color {
 /// Sheet Tab Color.
 /// When the object is serialized out as xml, it's qualified name is x:tabColor.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tabColor")]
+#[xml(tag = "tabColor")]
 pub struct TabColor {
     /// Automatic
     /// Represents the following attribute in the schema: :auto
@@ -5865,7 +5865,7 @@ pub struct TabColor {
 /// Foreground Color.
 /// When the object is serialized out as xml, it's qualified name is x:fgColor.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:fgColor")]
+#[xml(tag = "fgColor")]
 pub struct ForegroundColor {
     /// Automatic
     /// Represents the following attribute in the schema: :auto
@@ -5891,7 +5891,7 @@ pub struct ForegroundColor {
 /// Background Color.
 /// When the object is serialized out as xml, it's qualified name is x:bgColor.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:bgColor")]
+#[xml(tag = "bgColor")]
 pub struct BackgroundColor {
     /// Automatic
     /// Represents the following attribute in the schema: :auto
@@ -5943,7 +5943,7 @@ pub struct ColorType {
 /// Font.
 /// When the object is serialized out as xml, it's qualified name is x:rFont.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rFont")]
+#[xml(tag = "rFont")]
 pub struct RunFont {
     /// String Value
     /// Represents the following attribute in the schema: :val
@@ -5953,7 +5953,7 @@ pub struct RunFont {
 /// Font Family.
 /// When the object is serialized out as xml, it's qualified name is x:family.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:family")]
+#[xml(tag = "family")]
 pub struct FontFamily {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -5963,7 +5963,7 @@ pub struct FontFamily {
 /// Character Set.
 /// When the object is serialized out as xml, it's qualified name is x:charset.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:charset")]
+#[xml(tag = "charset")]
 pub struct RunPropertyCharSet {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -5983,7 +5983,7 @@ pub struct InternationalPropertyType {
 /// Font Scheme.
 /// When the object is serialized out as xml, it's qualified name is x:scheme.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:scheme")]
+#[xml(tag = "scheme")]
 pub struct FontScheme {
     /// Font Scheme
     /// Represents the following attribute in the schema: :val
@@ -5993,70 +5993,70 @@ pub struct FontScheme {
 /// Run Properties.
 /// When the object is serialized out as xml, it's qualified name is x:rPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rPr")]
+#[xml(tag = "rPr")]
 pub struct RunProperties {
     /// _
-    #[xml(child = "x:b")]
+    #[xml(child = "b")]
     pub x_b: Option<Bold>,
     /// _
-    #[xml(child = "x:i")]
+    #[xml(child = "i")]
     pub x_i: Option<Italic>,
     /// _
-    #[xml(child = "x:strike")]
+    #[xml(child = "strike")]
     pub x_strike: Option<Strike>,
     /// _
-    #[xml(child = "x:condense")]
+    #[xml(child = "condense")]
     pub x_condense: Option<Condense>,
     /// _
-    #[xml(child = "x:extend")]
+    #[xml(child = "extend")]
     pub x_extend: Option<Extend>,
     /// _
-    #[xml(child = "x:outline")]
+    #[xml(child = "outline")]
     pub x_outline: Option<Outline>,
     /// _
-    #[xml(child = "x:shadow")]
+    #[xml(child = "shadow")]
     pub x_shadow: Option<Shadow>,
     /// _
-    #[xml(child = "x:u")]
+    #[xml(child = "u")]
     pub x_u: Option<Underline>,
     /// _
-    #[xml(child = "x:vertAlign")]
+    #[xml(child = "vertAlign")]
     pub x_vert_align: Option<VerticalTextAlignment>,
     /// _
-    #[xml(child = "x:sz")]
+    #[xml(child = "sz")]
     pub x_sz: Option<FontSize>,
     /// _
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub x_color: Option<Color>,
     /// _
-    #[xml(child = "x:rFont")]
+    #[xml(child = "rFont")]
     pub x_r_font: Option<RunFont>,
     /// _
-    #[xml(child = "x:family")]
+    #[xml(child = "family")]
     pub x_family: Option<FontFamily>,
     /// _
-    #[xml(child = "x:charset")]
+    #[xml(child = "charset")]
     pub x_charset: Option<RunPropertyCharSet>,
     /// _
-    #[xml(child = "x:scheme")]
+    #[xml(child = "scheme")]
     pub x_scheme: Option<FontScheme>,
 }
 /// Rich Text Run.
 /// When the object is serialized out as xml, it's qualified name is x:r.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:r")]
+#[xml(tag = "r")]
 pub struct Run {
     ///Run Properties
-    #[xml(child = "x:rPr")]
+    #[xml(child = "rPr")]
     pub run_properties: Option<RunProperties>,
     ///Text
-    #[xml(child = "x:t")]
+    #[xml(child = "t")]
     pub text: Text,
 }
 /// Phonetic Run.
 /// When the object is serialized out as xml, it's qualified name is x:rPh.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rPh")]
+#[xml(tag = "rPh")]
 pub struct PhoneticRun {
     /// Base Text Start Index
     /// Represents the following attribute in the schema: :sb
@@ -6067,13 +6067,13 @@ pub struct PhoneticRun {
     #[xml(attr = "eb")]
     pub ending_base_index: u32,
     ///Text
-    #[xml(child = "x:t")]
+    #[xml(child = "t")]
     pub text: Text,
 }
 /// Phonetic Properties.
 /// When the object is serialized out as xml, it's qualified name is x:phoneticPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:phoneticPr")]
+#[xml(tag = "phoneticPr")]
 pub struct PhoneticProperties {
     /// Font Id
     /// Represents the following attribute in the schema: :fontId
@@ -6091,7 +6091,7 @@ pub struct PhoneticProperties {
 /// Header.
 /// When the object is serialized out as xml, it's qualified name is x:header.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:header")]
+#[xml(tag = "header")]
 pub struct Header {
     /// GUID
     /// Represents the following attribute in the schema: :guid
@@ -6122,19 +6122,19 @@ pub struct Header {
     #[xml(attr = "maxRId")]
     pub max_revision_id: Option<u32>,
     ///Sheet Id Map
-    #[xml(child = "x:sheetIdMap")]
+    #[xml(child = "sheetIdMap")]
     pub sheet_id_map: SheetIdMap,
     ///Reviewed List
-    #[xml(child = "x:reviewedList")]
+    #[xml(child = "reviewedList")]
     pub reviewed_list: Option<ReviewedList>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Revision Row Column Insert Delete.
 /// When the object is serialized out as xml, it's qualified name is x:rrc.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rrc")]
+#[xml(tag = "rrc")]
 pub struct RevisionRowColumn {
     /// Revision Id
     /// Represents the following attribute in the schema: :rId
@@ -6168,22 +6168,22 @@ pub struct RevisionRowColumn {
     /// Represents the following attribute in the schema: :edge
     #[xml(attr = "edge")]
     pub edge: Option<bool>,
-    #[xml(child = "x:undo", child = "x:rcc", child = "x:rfmt")]
+    #[xml(child = "undo", child = "rcc", child = "rfmt")]
     pub children: Vec<RevisionRowColumnChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum RevisionRowColumnChildChoice {
-    #[xml(tag = "x:undo")]
+    #[xml(tag = "undo")]
     XUndo(Undo),
-    #[xml(tag = "x:rcc")]
+    #[xml(tag = "rcc")]
     XRcc(RevisionCellChange),
-    #[xml(tag = "x:rfmt")]
+    #[xml(tag = "rfmt")]
     XRfmt(RevisionFormat),
 }
 /// Revision Cell Move.
 /// When the object is serialized out as xml, it's qualified name is x:rm.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rm")]
+#[xml(tag = "rm")]
 pub struct RevisionMove {
     /// Revision Id
     /// Represents the following attribute in the schema: :rId
@@ -6213,22 +6213,22 @@ pub struct RevisionMove {
     /// Represents the following attribute in the schema: :sourceSheetId
     #[xml(attr = "sourceSheetId")]
     pub source_sheet_id: Option<u32>,
-    #[xml(child = "x:undo", child = "x:rcc", child = "x:rfmt")]
+    #[xml(child = "undo", child = "rcc", child = "rfmt")]
     pub children: Vec<RevisionMoveChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum RevisionMoveChildChoice {
-    #[xml(tag = "x:undo")]
+    #[xml(tag = "undo")]
     XUndo(Undo),
-    #[xml(tag = "x:rcc")]
+    #[xml(tag = "rcc")]
     XRcc(RevisionCellChange),
-    #[xml(tag = "x:rfmt")]
+    #[xml(tag = "rfmt")]
     XRfmt(RevisionFormat),
 }
 /// Revision Custom View.
 /// When the object is serialized out as xml, it's qualified name is x:rcv.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rcv")]
+#[xml(tag = "rcv")]
 pub struct RevisionCustomView {
     /// GUID
     /// Represents the following attribute in the schema: :guid
@@ -6242,7 +6242,7 @@ pub struct RevisionCustomView {
 /// Revision Sheet Name.
 /// When the object is serialized out as xml, it's qualified name is x:rsnm.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rsnm")]
+#[xml(tag = "rsnm")]
 pub struct RevisionSheetName {
     /// Revision Id
     /// Represents the following attribute in the schema: :rId
@@ -6269,13 +6269,13 @@ pub struct RevisionSheetName {
     #[xml(attr = "newName")]
     pub new_name: String,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Revision Insert Sheet.
 /// When the object is serialized out as xml, it's qualified name is x:ris.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ris")]
+#[xml(tag = "ris")]
 pub struct RevisionInsertSheet {
     /// Revision Id
     /// Represents the following attribute in the schema: :rId
@@ -6305,7 +6305,7 @@ pub struct RevisionInsertSheet {
 /// Revision Cell Change.
 /// When the object is serialized out as xml, it's qualified name is x:rcc.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rcc")]
+#[xml(tag = "rcc")]
 pub struct RevisionCellChange {
     /// Revision Id
     /// Represents the following attribute in the schema: :rId
@@ -6364,25 +6364,25 @@ pub struct RevisionCellChange {
     #[xml(attr = "endOfListFormulaUpdate")]
     pub end_of_list_formula_update: Option<bool>,
     ///Old Cell Data
-    #[xml(child = "x:oc")]
+    #[xml(child = "oc")]
     pub old_cell: Option<OldCell>,
     ///New Cell Data
-    #[xml(child = "x:nc")]
+    #[xml(child = "nc")]
     pub new_cell: NewCell,
     ///Old Formatting Information
-    #[xml(child = "x:odxf")]
+    #[xml(child = "odxf")]
     pub old_differential_format: Option<OldDifferentialFormat>,
     ///New Formatting Information
-    #[xml(child = "x:ndxf")]
+    #[xml(child = "ndxf")]
     pub new_differential_format: Option<NewDifferentialFormat>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Revision Format.
 /// When the object is serialized out as xml, it's qualified name is x:rfmt.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rfmt")]
+#[xml(tag = "rfmt")]
 pub struct RevisionFormat {
     /// Sheet Id
     /// Represents the following attribute in the schema: :sheetId
@@ -6409,16 +6409,16 @@ pub struct RevisionFormat {
     #[xml(attr = "length")]
     pub length: Option<u32>,
     ///Formatting
-    #[xml(child = "x:dxf")]
+    #[xml(child = "dxf")]
     pub differential_format: Option<DifferentialFormat>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Revision AutoFormat.
 /// When the object is serialized out as xml, it's qualified name is x:raf.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:raf")]
+#[xml(tag = "raf")]
 pub struct RevisionAutoFormat {
     /// Sheet Id
     /// Represents the following attribute in the schema: :sheetId
@@ -6460,7 +6460,7 @@ pub struct RevisionAutoFormat {
 /// Revision Defined Name.
 /// When the object is serialized out as xml, it's qualified name is x:rdn.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rdn")]
+#[xml(tag = "rdn")]
 pub struct RevisionDefinedName {
     /// Revision Id
     /// Represents the following attribute in the schema: :rId
@@ -6559,19 +6559,19 @@ pub struct RevisionDefinedName {
     #[xml(attr = "oldComment")]
     pub old_comment: Option<String>,
     ///Formula
-    #[xml(child = "x:formula")]
+    #[xml(child = "formula")]
     pub formula: Option<Formula>,
     ///Old Formula
-    #[xml(child = "x:oldFormula")]
+    #[xml(child = "oldFormula")]
     pub old_formula: Option<OldFormula>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Revision Cell Comment.
 /// When the object is serialized out as xml, it's qualified name is x:rcmt.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rcmt")]
+#[xml(tag = "rcmt")]
 pub struct RevisionComment {
     /// Sheet Id
     /// Represents the following attribute in the schema: :sheetId
@@ -6621,7 +6621,7 @@ pub struct RevisionComment {
 /// Revision Query Table.
 /// When the object is serialized out as xml, it's qualified name is x:rqt.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rqt")]
+#[xml(tag = "rqt")]
 pub struct RevisionQueryTable {
     /// Sheet Id
     /// Represents the following attribute in the schema: :sheetId
@@ -6639,7 +6639,7 @@ pub struct RevisionQueryTable {
 /// Revision Merge Conflict.
 /// When the object is serialized out as xml, it's qualified name is x:rcft.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rcft")]
+#[xml(tag = "rcft")]
 pub struct RevisionConflict {
     /// Revision Id
     /// Represents the following attribute in the schema: :rId
@@ -6661,33 +6661,33 @@ pub struct RevisionConflict {
 /// Sheet Id Map.
 /// When the object is serialized out as xml, it's qualified name is x:sheetIdMap.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetIdMap")]
+#[xml(tag = "sheetIdMap")]
 pub struct SheetIdMap {
     /// Sheet Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:sheetId")]
+    #[xml(child = "sheetId")]
     pub x_sheet_id: Vec<SheetId>,
 }
 /// Reviewed List.
 /// When the object is serialized out as xml, it's qualified name is x:reviewedList.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:reviewedList")]
+#[xml(tag = "reviewedList")]
 pub struct ReviewedList {
     /// Reviewed Revisions Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:reviewed")]
+    #[xml(child = "reviewed")]
     pub x_reviewed: Vec<Reviewed>,
 }
 /// Reviewed.
 /// When the object is serialized out as xml, it's qualified name is x:reviewed.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:reviewed")]
+#[xml(tag = "reviewed")]
 pub struct Reviewed {
     /// revision Id
     /// Represents the following attribute in the schema: :rId
@@ -6697,7 +6697,7 @@ pub struct Reviewed {
 /// Undo.
 /// When the object is serialized out as xml, it's qualified name is x:undo.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:undo")]
+#[xml(tag = "undo")]
 pub struct Undo {
     /// Index
     /// Represents the following attribute in the schema: :index
@@ -6747,7 +6747,7 @@ pub struct Undo {
 /// Old Cell Data.
 /// When the object is serialized out as xml, it's qualified name is x:oc.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:oc")]
+#[xml(tag = "oc")]
 pub struct OldCell {
     /// Reference
     /// Represents the following attribute in the schema: :r
@@ -6774,22 +6774,22 @@ pub struct OldCell {
     #[xml(attr = "ph")]
     pub show_phonetic: Option<bool>,
     ///Formula
-    #[xml(child = "x:f")]
+    #[xml(child = "f")]
     pub cell_formula: Option<CellFormula>,
     ///Cell Value
-    #[xml(child = "x:v")]
+    #[xml(child = "v")]
     pub cell_value: Option<CellValue>,
     ///Rich Text Inline
-    #[xml(child = "x:is")]
+    #[xml(child = "is")]
     pub inline_string: Option<InlineString>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Cell.
 /// When the object is serialized out as xml, it's qualified name is x:c.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:c")]
+#[xml(tag = "c")]
 pub struct Cell {
     /// Reference
     /// Represents the following attribute in the schema: :r
@@ -6816,16 +6816,16 @@ pub struct Cell {
     #[xml(attr = "ph")]
     pub show_phonetic: Option<bool>,
     ///Formula
-    #[xml(child = "x:f")]
+    #[xml(child = "f")]
     pub cell_formula: Option<CellFormula>,
     ///Cell Value
-    #[xml(child = "x:v")]
+    #[xml(child = "v")]
     pub cell_value: Option<CellValue>,
     ///Rich Text Inline
-    #[xml(child = "x:is")]
+    #[xml(child = "is")]
     pub inline_string: Option<InlineString>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Defines the CellType Class.
@@ -6861,7 +6861,7 @@ pub struct CellType {
 /// New Cell Data.
 /// When the object is serialized out as xml, it's qualified name is x:nc.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:nc")]
+#[xml(tag = "nc")]
 pub struct NewCell {
     /// Reference
     /// Represents the following attribute in the schema: :r
@@ -6888,97 +6888,97 @@ pub struct NewCell {
     #[xml(attr = "ph")]
     pub show_phonetic: Option<bool>,
     ///Formula
-    #[xml(child = "x:f")]
+    #[xml(child = "f")]
     pub cell_formula: Option<CellFormula>,
     ///Cell Value
-    #[xml(child = "x:v")]
+    #[xml(child = "v")]
     pub cell_value: Option<CellValue>,
     ///Rich Text Inline
-    #[xml(child = "x:is")]
+    #[xml(child = "is")]
     pub inline_string: Option<InlineString>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Old Formatting Information.
 /// When the object is serialized out as xml, it's qualified name is x:odxf.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:odxf")]
+#[xml(tag = "odxf")]
 pub struct OldDifferentialFormat {
     ///Font Properties
-    #[xml(child = "x:font")]
+    #[xml(child = "font")]
     pub font: Option<Font>,
     ///Number Format
-    #[xml(child = "x:numFmt")]
+    #[xml(child = "numFmt")]
     pub numbering_format: Option<NumberingFormat>,
     ///Fill
-    #[xml(child = "x:fill")]
+    #[xml(child = "fill")]
     pub fill: Option<Fill>,
     ///Alignment
-    #[xml(child = "x:alignment")]
+    #[xml(child = "alignment")]
     pub alignment: Option<Alignment>,
     ///Border Properties
-    #[xml(child = "x:border")]
+    #[xml(child = "border")]
     pub border: Option<Border>,
     ///Protection Properties
-    #[xml(child = "x:protection")]
+    #[xml(child = "protection")]
     pub protection: Option<Protection>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// New Formatting Information.
 /// When the object is serialized out as xml, it's qualified name is x:ndxf.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ndxf")]
+#[xml(tag = "ndxf")]
 pub struct NewDifferentialFormat {
     ///Font Properties
-    #[xml(child = "x:font")]
+    #[xml(child = "font")]
     pub font: Option<Font>,
     ///Number Format
-    #[xml(child = "x:numFmt")]
+    #[xml(child = "numFmt")]
     pub numbering_format: Option<NumberingFormat>,
     ///Fill
-    #[xml(child = "x:fill")]
+    #[xml(child = "fill")]
     pub fill: Option<Fill>,
     ///Alignment
-    #[xml(child = "x:alignment")]
+    #[xml(child = "alignment")]
     pub alignment: Option<Alignment>,
     ///Border Properties
-    #[xml(child = "x:border")]
+    #[xml(child = "border")]
     pub border: Option<Border>,
     ///Protection Properties
-    #[xml(child = "x:protection")]
+    #[xml(child = "protection")]
     pub protection: Option<Protection>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Formatting.
 /// When the object is serialized out as xml, it's qualified name is x:dxf.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dxf")]
+#[xml(tag = "dxf")]
 pub struct DifferentialFormat {
     ///Font Properties
-    #[xml(child = "x:font")]
+    #[xml(child = "font")]
     pub font: Option<Font>,
     ///Number Format
-    #[xml(child = "x:numFmt")]
+    #[xml(child = "numFmt")]
     pub numbering_format: Option<NumberingFormat>,
     ///Fill
-    #[xml(child = "x:fill")]
+    #[xml(child = "fill")]
     pub fill: Option<Fill>,
     ///Alignment
-    #[xml(child = "x:alignment")]
+    #[xml(child = "alignment")]
     pub alignment: Option<Alignment>,
     ///Border Properties
-    #[xml(child = "x:border")]
+    #[xml(child = "border")]
     pub border: Option<Border>,
     ///Protection Properties
-    #[xml(child = "x:protection")]
+    #[xml(child = "protection")]
     pub protection: Option<Protection>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Defines the DifferentialFormatType Class.
@@ -6989,7 +6989,7 @@ pub struct DifferentialFormatType {}
 /// Sheet Id.
 /// When the object is serialized out as xml, it's qualified name is x:sheetId.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetId")]
+#[xml(tag = "sheetId")]
 pub struct SheetId {
     /// Sheet Id
     /// Represents the following attribute in the schema: :val
@@ -6999,7 +6999,7 @@ pub struct SheetId {
 /// Formula.
 /// When the object is serialized out as xml, it's qualified name is x:f.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:f")]
+#[xml(tag = "f")]
 pub struct CellFormula {
     /// Formula Type
     /// Represents the following attribute in the schema: :t
@@ -7061,7 +7061,7 @@ pub struct CellFormula {
 /// User Information.
 /// When the object is serialized out as xml, it's qualified name is x:userInfo.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:userInfo")]
+#[xml(tag = "userInfo")]
 pub struct UserInfo {
     /// User Revisions GUID
     /// Represents the following attribute in the schema: :guid
@@ -7080,13 +7080,13 @@ pub struct UserInfo {
     #[xml(attr = "dateTime")]
     pub date_time: String,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Row.
 /// When the object is serialized out as xml, it's qualified name is x:row.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:row")]
+#[xml(tag = "row")]
 pub struct Row {
     /// Row Index
     /// Represents the following attribute in the schema: :r
@@ -7141,16 +7141,16 @@ pub struct Row {
     #[xml(attr = "x14ac:dyDescent")]
     pub dy_descent: Option<f64>,
     /// _
-    #[xml(child = "x:c")]
+    #[xml(child = "c")]
     pub x_c: Vec<Cell>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 /// Column Width and Formatting.
 /// When the object is serialized out as xml, it's qualified name is x:col.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:col")]
+#[xml(tag = "col")]
 pub struct Column {
     /// Minimum Column
     /// Represents the following attribute in the schema: :min
@@ -7196,7 +7196,7 @@ pub struct Column {
 /// Outline Properties.
 /// When the object is serialized out as xml, it's qualified name is x:outlinePr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:outlinePr")]
+#[xml(tag = "outlinePr")]
 pub struct OutlineProperties {
     /// Apply Styles in Outline
     /// Represents the following attribute in the schema: :applyStyles
@@ -7218,7 +7218,7 @@ pub struct OutlineProperties {
 /// Page Setup Properties.
 /// When the object is serialized out as xml, it's qualified name is x:pageSetUpPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pageSetUpPr")]
+#[xml(tag = "pageSetUpPr")]
 pub struct PageSetupProperties {
     /// Show Auto Page Breaks
     /// Represents the following attribute in the schema: :autoPageBreaks
@@ -7232,7 +7232,7 @@ pub struct PageSetupProperties {
 /// View Pane.
 /// When the object is serialized out as xml, it's qualified name is x:pane.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pane")]
+#[xml(tag = "pane")]
 pub struct Pane {
     /// Horizontal Split Position
     /// Represents the following attribute in the schema: :xSplit
@@ -7258,7 +7258,7 @@ pub struct Pane {
 /// Selection.
 /// When the object is serialized out as xml, it's qualified name is x:selection.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:selection")]
+#[xml(tag = "selection")]
 pub struct Selection {
     /// Pane
     /// Represents the following attribute in the schema: :pane
@@ -7280,7 +7280,7 @@ pub struct Selection {
 /// PivotTable Selection.
 /// When the object is serialized out as xml, it's qualified name is x:pivotSelection.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotSelection")]
+#[xml(tag = "pivotSelection")]
 pub struct PivotSelection {
     /// Pane
     /// Represents the following attribute in the schema: :pane
@@ -7351,13 +7351,13 @@ pub struct PivotSelection {
     #[xml(attr = "r:id")]
     pub id: String,
     ///Pivot Area
-    #[xml(child = "x:pivotArea")]
+    #[xml(child = "pivotArea")]
     pub pivot_area: PivotArea,
 }
 /// Break.
 /// When the object is serialized out as xml, it's qualified name is x:brk.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:brk")]
+#[xml(tag = "brk")]
 pub struct Break {
     /// Id
     /// Represents the following attribute in the schema: :id
@@ -7383,7 +7383,7 @@ pub struct Break {
 /// Data Consolidation Reference.
 /// When the object is serialized out as xml, it's qualified name is x:dataRef.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dataRef")]
+#[xml(tag = "dataRef")]
 pub struct DataReference {
     /// Reference
     /// Represents the following attribute in the schema: :ref
@@ -7405,7 +7405,7 @@ pub struct DataReference {
 /// Horizontal Page Breaks.
 /// When the object is serialized out as xml, it's qualified name is x:rowBreaks.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rowBreaks")]
+#[xml(tag = "rowBreaks")]
 pub struct RowBreaks {
     /// Page Break Count
     /// Represents the following attribute in the schema: :count
@@ -7415,18 +7415,18 @@ pub struct RowBreaks {
     /// Represents the following attribute in the schema: :manualBreakCount
     #[xml(attr = "manualBreakCount")]
     pub manual_break_count: Option<u32>,
-    #[xml(child = "x:brk")]
+    #[xml(child = "brk")]
     pub children: Vec<RowBreaksChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum RowBreaksChildChoice {
-    #[xml(tag = "x:brk")]
+    #[xml(tag = "brk")]
     XBrk(Break),
 }
 /// Vertical Page Breaks.
 /// When the object is serialized out as xml, it's qualified name is x:colBreaks.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:colBreaks")]
+#[xml(tag = "colBreaks")]
 pub struct ColumnBreaks {
     /// Page Break Count
     /// Represents the following attribute in the schema: :count
@@ -7436,12 +7436,12 @@ pub struct ColumnBreaks {
     /// Represents the following attribute in the schema: :manualBreakCount
     #[xml(attr = "manualBreakCount")]
     pub manual_break_count: Option<u32>,
-    #[xml(child = "x:brk")]
+    #[xml(child = "brk")]
     pub children: Vec<ColumnBreaksChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum ColumnBreaksChildChoice {
-    #[xml(tag = "x:brk")]
+    #[xml(tag = "brk")]
     XBrk(Break),
 }
 /// Defines the PageBreakType Class.
@@ -7457,18 +7457,18 @@ pub struct PageBreakType {
     /// Represents the following attribute in the schema: :manualBreakCount
     #[xml(attr = "manualBreakCount")]
     pub manual_break_count: Option<u32>,
-    #[xml(child = "x:brk")]
+    #[xml(child = "brk")]
     pub children: Vec<PageBreakTypeChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum PageBreakTypeChildChoice {
-    #[xml(tag = "x:brk")]
+    #[xml(tag = "brk")]
     XBrk(Break),
 }
 /// Page Margins.
 /// When the object is serialized out as xml, it's qualified name is x:pageMargins.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pageMargins")]
+#[xml(tag = "pageMargins")]
 pub struct PageMargins {
     /// Left Page Margin
     /// Represents the following attribute in the schema: :left
@@ -7498,7 +7498,7 @@ pub struct PageMargins {
 /// Print Options.
 /// When the object is serialized out as xml, it's qualified name is x:printOptions.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:printOptions")]
+#[xml(tag = "printOptions")]
 pub struct PrintOptions {
     /// Horizontal Centered
     /// Represents the following attribute in the schema: :horizontalCentered
@@ -7524,7 +7524,7 @@ pub struct PrintOptions {
 /// Page Setup Settings.
 /// When the object is serialized out as xml, it's qualified name is x:pageSetup.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pageSetup")]
+#[xml(tag = "pageSetup")]
 pub struct PageSetup {
     /// Paper Size
     /// Represents the following attribute in the schema: :paperSize
@@ -7598,7 +7598,7 @@ pub struct PageSetup {
 /// Header Footer Settings.
 /// When the object is serialized out as xml, it's qualified name is x:headerFooter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:headerFooter")]
+#[xml(tag = "headerFooter")]
 pub struct HeaderFooter {
     /// Different Odd Even Header Footer
     /// Represents the following attribute in the schema: :differentOddEven
@@ -7617,47 +7617,47 @@ pub struct HeaderFooter {
     #[xml(attr = "alignWithMargins")]
     pub align_with_margins: Option<bool>,
     ///Odd Header
-    #[xml(child = "x:oddHeader")]
+    #[xml(child = "oddHeader")]
     pub odd_header: Option<OddHeader>,
     ///Odd Page Footer
-    #[xml(child = "x:oddFooter")]
+    #[xml(child = "oddFooter")]
     pub odd_footer: Option<OddFooter>,
     ///Even Page Header
-    #[xml(child = "x:evenHeader")]
+    #[xml(child = "evenHeader")]
     pub even_header: Option<EvenHeader>,
     ///Even Page Footer
-    #[xml(child = "x:evenFooter")]
+    #[xml(child = "evenFooter")]
     pub even_footer: Option<EvenFooter>,
     ///First Page Header
-    #[xml(child = "x:firstHeader")]
+    #[xml(child = "firstHeader")]
     pub first_header: Option<FirstHeader>,
     ///First Page Footer
-    #[xml(child = "x:firstFooter")]
+    #[xml(child = "firstFooter")]
     pub first_footer: Option<FirstFooter>,
 }
 /// AutoFilter Settings.
 /// When the object is serialized out as xml, it's qualified name is x:autoFilter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:autoFilter")]
+#[xml(tag = "autoFilter")]
 pub struct AutoFilter {
     /// Cell or Range Reference
     /// Represents the following attribute in the schema: :ref
     #[xml(attr = "ref")]
     pub reference: Option<String>,
     /// _
-    #[xml(child = "x:filterColumn")]
+    #[xml(child = "filterColumn")]
     pub x_filter_column: Vec<FilterColumn>,
     /// _
-    #[xml(child = "x:sortState")]
+    #[xml(child = "sortState")]
     pub x_sort_state: Option<SortState>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 /// Conditional Formatting Rule.
 /// When the object is serialized out as xml, it's qualified name is x:cfRule.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cfRule")]
+#[xml(tag = "cfRule")]
 pub struct ConditionalFormattingRule {
     /// Type
     /// Represents the following attribute in the schema: :type
@@ -7712,25 +7712,25 @@ pub struct ConditionalFormattingRule {
     #[xml(attr = "equalAverage")]
     pub equal_average: Option<bool>,
     /// _
-    #[xml(child = "x:formula")]
+    #[xml(child = "formula")]
     pub x_formula: Vec<Formula>,
     /// _
-    #[xml(child = "x:colorScale")]
+    #[xml(child = "colorScale")]
     pub x_color_scale: Option<ColorScale>,
     /// _
-    #[xml(child = "x:dataBar")]
+    #[xml(child = "dataBar")]
     pub x_data_bar: Option<DataBar>,
     /// _
-    #[xml(child = "x:iconSet")]
+    #[xml(child = "iconSet")]
     pub x_icon_set: Option<IconSet>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ConditionalFormattingRuleExtensionList>,
 }
 /// Hyperlink.
 /// When the object is serialized out as xml, it's qualified name is x:hyperlink.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:hyperlink")]
+#[xml(tag = "hyperlink")]
 pub struct Hyperlink {
     /// Reference
     /// Represents the following attribute in the schema: :ref
@@ -7756,7 +7756,7 @@ pub struct Hyperlink {
 /// Conditional Format Value Object.
 /// When the object is serialized out as xml, it's qualified name is x:cfvo.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cfvo")]
+#[xml(tag = "cfvo")]
 pub struct ConditionalFormatValueObject {
     /// Type
     /// Represents the following attribute in the schema: :type
@@ -7771,13 +7771,13 @@ pub struct ConditionalFormatValueObject {
     #[xml(attr = "gte")]
     pub greater_than_or_equal: Option<bool>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Scenario.
 /// When the object is serialized out as xml, it's qualified name is x:scenario.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:scenario")]
+#[xml(tag = "scenario")]
 pub struct Scenario {
     /// Scenario Name
     /// Represents the following attribute in the schema: :name
@@ -7804,13 +7804,13 @@ pub struct Scenario {
     #[xml(attr = "comment")]
     pub comment: Option<String>,
     /// _
-    #[xml(child = "x:inputCells")]
+    #[xml(child = "inputCells")]
     pub x_input_cells: Vec<InputCells>,
 }
 /// Protected Range.
 /// When the object is serialized out as xml, it's qualified name is x:protectedRange.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:protectedRange")]
+#[xml(tag = "protectedRange")]
 pub struct ProtectedRange {
     /// password
     /// Represents the following attribute in the schema: :password
@@ -7848,7 +7848,7 @@ pub struct ProtectedRange {
 /// Cell Watch Item.
 /// When the object is serialized out as xml, it's qualified name is x:cellWatch.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cellWatch")]
+#[xml(tag = "cellWatch")]
 pub struct CellWatch {
     /// Reference
     /// Represents the following attribute in the schema: :r
@@ -7858,7 +7858,7 @@ pub struct CellWatch {
 /// Chart Sheet Page Setup.
 /// When the object is serialized out as xml, it's qualified name is x:pageSetup.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pageSetup")]
+#[xml(tag = "pageSetup")]
 pub struct ChartSheetPageSetup {
     /// Paper Size
     /// Represents the following attribute in the schema: :paperSize
@@ -7908,7 +7908,7 @@ pub struct ChartSheetPageSetup {
 /// Custom Property.
 /// When the object is serialized out as xml, it's qualified name is x:customPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:customPr")]
+#[xml(tag = "customPr")]
 pub struct CustomProperty {
     /// Custom Property Name
     /// Represents the following attribute in the schema: :name
@@ -7922,7 +7922,7 @@ pub struct CustomProperty {
 /// Web Publishing Item.
 /// When the object is serialized out as xml, it's qualified name is x:webPublishItem.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:webPublishItem")]
+#[xml(tag = "webPublishItem")]
 pub struct WebPublishItem {
     /// Id
     /// Represents the following attribute in the schema: :id
@@ -7960,7 +7960,7 @@ pub struct WebPublishItem {
 /// Table Part.
 /// When the object is serialized out as xml, it's qualified name is x:tablePart.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tablePart")]
+#[xml(tag = "tablePart")]
 pub struct TablePart {
     /// Relationship Id
     /// Represents the following attribute in the schema: r:id
@@ -7970,7 +7970,7 @@ pub struct TablePart {
 /// Chart Sheet View.
 /// When the object is serialized out as xml, it's qualified name is x:sheetView.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetView")]
+#[xml(tag = "sheetView")]
 pub struct ChartSheetView {
     /// Sheet Tab Selected
     /// Represents the following attribute in the schema: :tabSelected
@@ -7989,13 +7989,13 @@ pub struct ChartSheetView {
     #[xml(attr = "zoomToFit")]
     pub zoom_to_fit: Option<bool>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Custom Chart Sheet View.
 /// When the object is serialized out as xml, it's qualified name is x:customSheetView.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:customSheetView")]
+#[xml(tag = "customSheetView")]
 pub struct CustomChartsheetView {
     /// GUID
     /// Represents the following attribute in the schema: :guid
@@ -8014,19 +8014,19 @@ pub struct CustomChartsheetView {
     #[xml(attr = "zoomToFit")]
     pub zoom_to_fit: Option<bool>,
     /// _
-    #[xml(child = "x:pageMargins")]
+    #[xml(child = "pageMargins")]
     pub page_margins: Option<PageMargins>,
     ///Chart Sheet Page Setup
-    #[xml(child = "x:pageSetup")]
+    #[xml(child = "pageSetup")]
     pub chart_sheet_page_setup: Option<ChartSheetPageSetup>,
     /// _
-    #[xml(child = "x:headerFooter")]
+    #[xml(child = "headerFooter")]
     pub header_footer: Option<HeaderFooter>,
 }
 /// Input Cells.
 /// When the object is serialized out as xml, it's qualified name is x:inputCells.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:inputCells")]
+#[xml(tag = "inputCells")]
 pub struct InputCells {
     /// Reference
     /// Represents the following attribute in the schema: :r
@@ -8052,7 +8052,7 @@ pub struct InputCells {
 /// Embedded Control.
 /// When the object is serialized out as xml, it's qualified name is x:control.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:control")]
+#[xml(tag = "control")]
 pub struct Control {
     /// Shape Id
     /// Represents the following attribute in the schema: :shapeId
@@ -8067,13 +8067,13 @@ pub struct Control {
     #[xml(attr = "name")]
     pub name: Option<String>,
     /// _
-    #[xml(child = "x:controlPr")]
+    #[xml(child = "controlPr")]
     pub control_properties: Option<ControlProperties>,
 }
 /// Ignored Error.
 /// When the object is serialized out as xml, it's qualified name is x:ignoredError.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ignoredError")]
+#[xml(tag = "ignoredError")]
 pub struct IgnoredError {
     /// Sequence of References
     /// Represents the following attribute in the schema: :sqref
@@ -8119,7 +8119,7 @@ pub struct IgnoredError {
 /// Merged Cell.
 /// When the object is serialized out as xml, it's qualified name is x:mergeCell.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:mergeCell")]
+#[xml(tag = "mergeCell")]
 pub struct MergeCell {
     /// Reference
     /// Represents the following attribute in the schema: :ref
@@ -8129,7 +8129,7 @@ pub struct MergeCell {
 /// Data Validation.
 /// When the object is serialized out as xml, it's qualified name is x:dataValidation.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dataValidation")]
+#[xml(tag = "dataValidation")]
 pub struct DataValidation {
     /// type
     /// Represents the following attribute in the schema: :type
@@ -8189,16 +8189,16 @@ pub struct DataValidation {
         crate::schemas::schemas_microsoft_com_office_spreadsheetml_2011_1_ac::List,
     >,
     /// _
-    #[xml(child = "x:formula1")]
+    #[xml(child = "formula1")]
     pub formula1: Option<Formula1>,
     /// _
-    #[xml(child = "x:formula2")]
+    #[xml(child = "formula2")]
     pub formula2: Option<Formula2>,
 }
 /// Worksheet View.
 /// When the object is serialized out as xml, it's qualified name is x:sheetView.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetView")]
+#[xml(tag = "sheetView")]
 pub struct SheetView {
     /// Window Protection
     /// Represents the following attribute in the schema: :windowProtection
@@ -8277,22 +8277,22 @@ pub struct SheetView {
     #[xml(attr = "workbookViewId")]
     pub workbook_view_id: u32,
     ///View Pane
-    #[xml(child = "x:pane")]
+    #[xml(child = "pane")]
     pub pane: Option<Pane>,
     /// _
-    #[xml(child = "x:selection")]
+    #[xml(child = "selection")]
     pub x_selection: Vec<Selection>,
     /// _
-    #[xml(child = "x:pivotSelection")]
+    #[xml(child = "pivotSelection")]
     pub x_pivot_selection: Vec<PivotSelection>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 /// Custom Sheet View.
 /// When the object is serialized out as xml, it's qualified name is x:customSheetView.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:customSheetView")]
+#[xml(tag = "customSheetView")]
 pub struct CustomSheetView {
     /// GUID
     /// Represents the following attribute in the schema: :guid
@@ -8375,40 +8375,40 @@ pub struct CustomSheetView {
     #[xml(attr = "topLeftCell")]
     pub top_left_cell: Option<String>,
     ///Pane Split Information
-    #[xml(child = "x:pane")]
+    #[xml(child = "pane")]
     pub pane: Option<Pane>,
     ///Selection
-    #[xml(child = "x:selection")]
+    #[xml(child = "selection")]
     pub selection: Option<Selection>,
     ///Horizontal Page Breaks
-    #[xml(child = "x:rowBreaks")]
+    #[xml(child = "rowBreaks")]
     pub row_breaks: Option<RowBreaks>,
     ///Vertical Page Breaks
-    #[xml(child = "x:colBreaks")]
+    #[xml(child = "colBreaks")]
     pub column_breaks: Option<ColumnBreaks>,
     ///Page Margins
-    #[xml(child = "x:pageMargins")]
+    #[xml(child = "pageMargins")]
     pub page_margins: Option<PageMargins>,
     ///Print Options
-    #[xml(child = "x:printOptions")]
+    #[xml(child = "printOptions")]
     pub print_options: Option<PrintOptions>,
     ///Page Setup Settings
-    #[xml(child = "x:pageSetup")]
+    #[xml(child = "pageSetup")]
     pub page_setup: Option<PageSetup>,
     ///Header Footer Settings
-    #[xml(child = "x:headerFooter")]
+    #[xml(child = "headerFooter")]
     pub header_footer: Option<HeaderFooter>,
     ///AutoFilter Settings
-    #[xml(child = "x:autoFilter")]
+    #[xml(child = "autoFilter")]
     pub auto_filter: Option<AutoFilter>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// OLE Object.
 /// When the object is serialized out as xml, it's qualified name is x:oleObject.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:oleObject")]
+#[xml(tag = "oleObject")]
 pub struct OleObject {
     /// OLE ProgId
     /// Represents the following attribute in the schema: :progId
@@ -8439,52 +8439,52 @@ pub struct OleObject {
     #[xml(attr = "r:id")]
     pub id: Option<String>,
     /// _
-    #[xml(child = "x:objectPr")]
+    #[xml(child = "objectPr")]
     pub embedded_object_properties: Option<EmbeddedObjectProperties>,
 }
 /// Metadata Types Collection.
 /// When the object is serialized out as xml, it's qualified name is x:metadataTypes.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:metadataTypes")]
+#[xml(tag = "metadataTypes")]
 pub struct MetadataTypes {
     /// Metadata Type Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:metadataType")]
+    #[xml(child = "metadataType")]
     pub x_metadata_type: Vec<MetadataType>,
 }
 /// Metadata String Store.
 /// When the object is serialized out as xml, it's qualified name is x:metadataStrings.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:metadataStrings")]
+#[xml(tag = "metadataStrings")]
 pub struct MetadataStrings {
     /// MDX Metadata String Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:s")]
+    #[xml(child = "s")]
     pub x_s: Vec<CharacterValue>,
 }
 /// MDX Metadata Information.
 /// When the object is serialized out as xml, it's qualified name is x:mdxMetadata.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:mdxMetadata")]
+#[xml(tag = "mdxMetadata")]
 pub struct MdxMetadata {
     /// MDX Metadata Record Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:mdx")]
+    #[xml(child = "mdx")]
     pub x_mdx: Vec<Mdx>,
 }
 /// Future Metadata.
 /// When the object is serialized out as xml, it's qualified name is x:futureMetadata.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:futureMetadata")]
+#[xml(tag = "futureMetadata")]
 pub struct FutureMetadata {
     /// Metadata Type Name
     /// Represents the following attribute in the schema: :name
@@ -8495,44 +8495,44 @@ pub struct FutureMetadata {
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:bk")]
+    #[xml(child = "bk")]
     pub x_bk: Vec<FutureMetadataBlock>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 /// Cell Metadata.
 /// When the object is serialized out as xml, it's qualified name is x:cellMetadata.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cellMetadata")]
+#[xml(tag = "cellMetadata")]
 pub struct CellMetadata {
     /// Metadata Block Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
-    #[xml(child = "x:bk")]
+    #[xml(child = "bk")]
     pub children: Vec<CellMetadataChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum CellMetadataChildChoice {
-    #[xml(tag = "x:bk")]
+    #[xml(tag = "bk")]
     XBk(MetadataBlock),
 }
 /// Value Metadata.
 /// When the object is serialized out as xml, it's qualified name is x:valueMetadata.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:valueMetadata")]
+#[xml(tag = "valueMetadata")]
 pub struct ValueMetadata {
     /// Metadata Block Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
-    #[xml(child = "x:bk")]
+    #[xml(child = "bk")]
     pub children: Vec<ValueMetadataChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum ValueMetadataChildChoice {
-    #[xml(tag = "x:bk")]
+    #[xml(tag = "bk")]
     XBk(MetadataBlock),
 }
 /// Defines the MetadataBlocksType Class.
@@ -8544,18 +8544,18 @@ pub struct MetadataBlocksType {
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
-    #[xml(child = "x:bk")]
+    #[xml(child = "bk")]
     pub children: Vec<MetadataBlocksTypeChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum MetadataBlocksTypeChildChoice {
-    #[xml(tag = "x:bk")]
+    #[xml(tag = "bk")]
     XBk(MetadataBlock),
 }
 /// Metadata Type Information.
 /// When the object is serialized out as xml, it's qualified name is x:metadataType.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:metadataType")]
+#[xml(tag = "metadataType")]
 pub struct MetadataType {
     /// Metadata Type Name
     /// Represents the following attribute in the schema: :name
@@ -8673,16 +8673,16 @@ pub struct MetadataType {
 /// Metadata Block.
 /// When the object is serialized out as xml, it's qualified name is x:bk.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:bk")]
+#[xml(tag = "bk")]
 pub struct MetadataBlock {
     /// _
-    #[xml(child = "x:rc")]
+    #[xml(child = "rc")]
     pub x_rc: Vec<MetadataRecord>,
 }
 /// Metadata Record.
 /// When the object is serialized out as xml, it's qualified name is x:rc.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rc")]
+#[xml(tag = "rc")]
 pub struct MetadataRecord {
     /// Metadata Record Type Index
     /// Represents the following attribute in the schema: :t
@@ -8696,16 +8696,16 @@ pub struct MetadataRecord {
 /// Future Metadata Block.
 /// When the object is serialized out as xml, it's qualified name is x:bk.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:bk")]
+#[xml(tag = "bk")]
 pub struct FutureMetadataBlock {
     ///Future Feature Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// MDX Metadata Record.
 /// When the object is serialized out as xml, it's qualified name is x:mdx.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:mdx")]
+#[xml(tag = "mdx")]
 pub struct Mdx {
     /// Connection Name Index
     /// Represents the following attribute in the schema: :n
@@ -8715,24 +8715,24 @@ pub struct Mdx {
     /// Represents the following attribute in the schema: :f
     #[xml(attr = "f")]
     pub cube_function: MdxFunctionValues,
-    #[xml(child = "x:t", child = "x:ms", child = "x:p", child = "x:k")]
+    #[xml(child = "t", child = "ms", child = "p", child = "k")]
     pub children: Vec<MdxChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum MdxChildChoice {
-    #[xml(tag = "x:t")]
+    #[xml(tag = "t")]
     XT(MdxTuple),
-    #[xml(tag = "x:ms")]
+    #[xml(tag = "ms")]
     XMs(MdxSet),
-    #[xml(tag = "x:p")]
+    #[xml(tag = "p")]
     XP(MdxMemberProp),
-    #[xml(tag = "x:k")]
+    #[xml(tag = "k")]
     XK(MdxKpi),
 }
 /// Tuple MDX Metadata.
 /// When the object is serialized out as xml, it's qualified name is x:t.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:t")]
+#[xml(tag = "t")]
 pub struct MdxTuple {
     /// Member Index Count
     /// Represents the following attribute in the schema: :c
@@ -8775,13 +8775,13 @@ pub struct MdxTuple {
     #[xml(attr = "b")]
     pub bold: Option<bool>,
     /// _
-    #[xml(child = "x:n")]
+    #[xml(child = "n")]
     pub x_n: Vec<NameIndex>,
 }
 /// Set MDX Metadata.
 /// When the object is serialized out as xml, it's qualified name is x:ms.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ms")]
+#[xml(tag = "ms")]
 pub struct MdxSet {
     /// Set Definition Index
     /// Represents the following attribute in the schema: :ns
@@ -8796,13 +8796,13 @@ pub struct MdxSet {
     #[xml(attr = "o")]
     pub sorting_order: Option<MdxSetOrderValues>,
     /// _
-    #[xml(child = "x:n")]
+    #[xml(child = "n")]
     pub x_n: Vec<NameIndex>,
 }
 /// Member Property MDX Metadata.
 /// When the object is serialized out as xml, it's qualified name is x:p.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:p")]
+#[xml(tag = "p")]
 pub struct MdxMemberProp {
     /// Member Unique Name Index
     /// Represents the following attribute in the schema: :n
@@ -8816,7 +8816,7 @@ pub struct MdxMemberProp {
 /// KPI MDX Metadata.
 /// When the object is serialized out as xml, it's qualified name is x:k.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:k")]
+#[xml(tag = "k")]
 pub struct MdxKpi {
     /// Member Unique Name Index
     /// Represents the following attribute in the schema: :n
@@ -8834,7 +8834,7 @@ pub struct MdxKpi {
 /// Member Unique Name Index.
 /// When the object is serialized out as xml, it's qualified name is x:n.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:n")]
+#[xml(tag = "n")]
 pub struct NameIndex {
     /// Index Value
     /// Represents the following attribute in the schema: :x
@@ -8848,7 +8848,7 @@ pub struct NameIndex {
 /// Table Properties.
 /// When the object is serialized out as xml, it's qualified name is x:singleXmlCell.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:singleXmlCell")]
+#[xml(tag = "singleXmlCell")]
 pub struct SingleXmlCell {
     /// Table Id
     /// Represents the following attribute in the schema: :id
@@ -8863,16 +8863,16 @@ pub struct SingleXmlCell {
     #[xml(attr = "connectionId")]
     pub connection_id: u32,
     ///Cell Properties
-    #[xml(child = "x:xmlCellPr")]
+    #[xml(child = "xmlCellPr")]
     pub xml_cell_properties: XmlCellProperties,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Cell Properties.
 /// When the object is serialized out as xml, it's qualified name is x:xmlCellPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:xmlCellPr")]
+#[xml(tag = "xmlCellPr")]
 pub struct XmlCellProperties {
     /// Table Field Id
     /// Represents the following attribute in the schema: :id
@@ -8883,16 +8883,16 @@ pub struct XmlCellProperties {
     #[xml(attr = "uniqueName")]
     pub unique_name: String,
     ///Column XML Properties
-    #[xml(child = "x:xmlPr")]
+    #[xml(child = "xmlPr")]
     pub xml_properties: XmlProperties,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Column XML Properties.
 /// When the object is serialized out as xml, it's qualified name is x:xmlPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:xmlPr")]
+#[xml(tag = "xmlPr")]
 pub struct XmlProperties {
     /// XML Map Id
     /// Represents the following attribute in the schema: :mapId
@@ -8907,29 +8907,29 @@ pub struct XmlProperties {
     #[xml(attr = "xmlDataType")]
     pub xml_data_type: XmlDataValues,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Pattern.
 /// When the object is serialized out as xml, it's qualified name is x:patternFill.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:patternFill")]
+#[xml(tag = "patternFill")]
 pub struct PatternFill {
     /// Pattern Type
     /// Represents the following attribute in the schema: :patternType
     #[xml(attr = "patternType")]
     pub pattern_type: Option<PatternValues>,
     ///Foreground Color
-    #[xml(child = "x:fgColor")]
+    #[xml(child = "fgColor")]
     pub foreground_color: Option<ForegroundColor>,
     ///Background Color
-    #[xml(child = "x:bgColor")]
+    #[xml(child = "bgColor")]
     pub background_color: Option<BackgroundColor>,
 }
 /// Gradient.
 /// When the object is serialized out as xml, it's qualified name is x:gradientFill.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:gradientFill")]
+#[xml(tag = "gradientFill")]
 pub struct GradientFill {
     /// Gradient Fill Type
     /// Represents the following attribute in the schema: :type
@@ -8956,26 +8956,26 @@ pub struct GradientFill {
     #[xml(attr = "bottom")]
     pub bottom: Option<f64>,
     /// _
-    #[xml(child = "x:stop")]
+    #[xml(child = "stop")]
     pub x_stop: Vec<GradientStop>,
 }
 /// Gradient Stop.
 /// When the object is serialized out as xml, it's qualified name is x:stop.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:stop")]
+#[xml(tag = "stop")]
 pub struct GradientStop {
     /// Gradient Stop Position
     /// Represents the following attribute in the schema: :position
     #[xml(attr = "position")]
     pub position: f64,
     ///Color
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub color: Color,
 }
 /// Number Formats.
 /// When the object is serialized out as xml, it's qualified name is x:numFmt.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:numFmt")]
+#[xml(tag = "numFmt")]
 pub struct NumberingFormat {
     /// Number Format Id
     /// Represents the following attribute in the schema: :numFmtId
@@ -8989,7 +8989,7 @@ pub struct NumberingFormat {
 /// Alignment.
 /// When the object is serialized out as xml, it's qualified name is x:alignment.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:alignment")]
+#[xml(tag = "alignment")]
 pub struct Alignment {
     /// Horizontal Alignment
     /// Represents the following attribute in the schema: :horizontal
@@ -9035,7 +9035,7 @@ pub struct Alignment {
 /// Protection.
 /// When the object is serialized out as xml, it's qualified name is x:protection.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:protection")]
+#[xml(tag = "protection")]
 pub struct Protection {
     /// Cell Locked
     /// Represents the following attribute in the schema: :locked
@@ -9049,73 +9049,73 @@ pub struct Protection {
 /// Font Properties.
 /// When the object is serialized out as xml, it's qualified name is x:font.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:font")]
+#[xml(tag = "font")]
 pub struct Font {
     ///Bold
-    #[xml(child = "x:b")]
+    #[xml(child = "b")]
     pub bold: Option<Bold>,
     ///Italic
-    #[xml(child = "x:i")]
+    #[xml(child = "i")]
     pub italic: Option<Italic>,
     ///Strike Through
-    #[xml(child = "x:strike")]
+    #[xml(child = "strike")]
     pub strike: Option<Strike>,
     ///Condense
-    #[xml(child = "x:condense")]
+    #[xml(child = "condense")]
     pub condense: Option<Condense>,
     ///Extend
-    #[xml(child = "x:extend")]
+    #[xml(child = "extend")]
     pub extend: Option<Extend>,
     ///Outline
-    #[xml(child = "x:outline")]
+    #[xml(child = "outline")]
     pub outline: Option<Outline>,
     ///Shadow
-    #[xml(child = "x:shadow")]
+    #[xml(child = "shadow")]
     pub shadow: Option<Shadow>,
     ///Underline
-    #[xml(child = "x:u")]
+    #[xml(child = "u")]
     pub underline: Option<Underline>,
     ///Text Vertical Alignment
-    #[xml(child = "x:vertAlign")]
+    #[xml(child = "vertAlign")]
     pub vertical_text_alignment: Option<VerticalTextAlignment>,
     ///Font Size
-    #[xml(child = "x:sz")]
+    #[xml(child = "sz")]
     pub font_size: Option<FontSize>,
     ///Text Color
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub color: Option<Color>,
     ///Font Name
-    #[xml(child = "x:name")]
+    #[xml(child = "name")]
     pub font_name: Option<FontName>,
     ///Font Family
-    #[xml(child = "x:family")]
+    #[xml(child = "family")]
     pub font_family_numbering: Option<FontFamilyNumbering>,
     ///Character Set
-    #[xml(child = "x:charset")]
+    #[xml(child = "charset")]
     pub font_char_set: Option<FontCharSet>,
     ///Scheme
-    #[xml(child = "x:scheme")]
+    #[xml(child = "scheme")]
     pub font_scheme: Option<FontScheme>,
 }
 /// Fill.
 /// When the object is serialized out as xml, it's qualified name is x:fill.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:fill")]
+#[xml(tag = "fill")]
 pub struct Fill {
-    #[xml(child = "x:patternFill", child = "x:gradientFill")]
+    #[xml(child = "patternFill", child = "gradientFill")]
     pub children: Vec<FillChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum FillChildChoice {
-    #[xml(tag = "x:patternFill")]
+    #[xml(tag = "patternFill")]
     XPatternFill(PatternFill),
-    #[xml(tag = "x:gradientFill")]
+    #[xml(tag = "gradientFill")]
     XGradientFill(GradientFill),
 }
 /// Border Properties.
 /// When the object is serialized out as xml, it's qualified name is x:border.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:border")]
+#[xml(tag = "border")]
 pub struct Border {
     /// Diagonal Up
     /// Represents the following attribute in the schema: :diagonalUp
@@ -9130,55 +9130,55 @@ pub struct Border {
     #[xml(attr = "outline")]
     pub outline: Option<bool>,
     /// _
-    #[xml(child = "x:start")]
+    #[xml(child = "start")]
     pub start_border: Option<StartBorder>,
     /// _
-    #[xml(child = "x:end")]
+    #[xml(child = "end")]
     pub end_border: Option<EndBorder>,
     ///Left Border
-    #[xml(child = "x:left")]
+    #[xml(child = "left")]
     pub left_border: Option<LeftBorder>,
     ///Right Border
-    #[xml(child = "x:right")]
+    #[xml(child = "right")]
     pub right_border: Option<RightBorder>,
     ///Top Border
-    #[xml(child = "x:top")]
+    #[xml(child = "top")]
     pub top_border: Option<TopBorder>,
     ///Bottom Border
-    #[xml(child = "x:bottom")]
+    #[xml(child = "bottom")]
     pub bottom_border: Option<BottomBorder>,
     ///Diagonal
-    #[xml(child = "x:diagonal")]
+    #[xml(child = "diagonal")]
     pub diagonal_border: Option<DiagonalBorder>,
     ///Vertical Inner Border
-    #[xml(child = "x:vertical")]
+    #[xml(child = "vertical")]
     pub vertical_border: Option<VerticalBorder>,
     ///Horizontal Inner Borders
-    #[xml(child = "x:horizontal")]
+    #[xml(child = "horizontal")]
     pub horizontal_border: Option<HorizontalBorder>,
 }
 /// Color Indexes.
 /// When the object is serialized out as xml, it's qualified name is x:indexedColors.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:indexedColors")]
+#[xml(tag = "indexedColors")]
 pub struct IndexedColors {
     /// _
-    #[xml(child = "x:rgbColor")]
+    #[xml(child = "rgbColor")]
     pub x_rgb_color: Vec<RgbColor>,
 }
 /// MRU Colors.
 /// When the object is serialized out as xml, it's qualified name is x:mruColors.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:mruColors")]
+#[xml(tag = "mruColors")]
 pub struct MruColors {
     /// _
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub x_color: Vec<Color>,
 }
 /// Table Style.
 /// When the object is serialized out as xml, it's qualified name is x:tableStyle.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tableStyle")]
+#[xml(tag = "tableStyle")]
 pub struct TableStyle {
     /// Table Style Name
     /// Represents the following attribute in the schema: :name
@@ -9197,13 +9197,13 @@ pub struct TableStyle {
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:tableStyleElement")]
+    #[xml(child = "tableStyleElement")]
     pub x_table_style_element: Vec<TableStyleElement>,
 }
 /// RGB Color.
 /// When the object is serialized out as xml, it's qualified name is x:rgbColor.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rgbColor")]
+#[xml(tag = "rgbColor")]
 pub struct RgbColor {
     /// Alpha Red Green Blue
     /// Represents the following attribute in the schema: :rgb
@@ -9213,7 +9213,7 @@ pub struct RgbColor {
 /// Cell Style.
 /// When the object is serialized out as xml, it's qualified name is x:cellStyle.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cellStyle")]
+#[xml(tag = "cellStyle")]
 pub struct CellStyle {
     /// User Defined Cell Style
     /// Represents the following attribute in the schema: :name
@@ -9240,13 +9240,13 @@ pub struct CellStyle {
     #[xml(attr = "customBuiltin")]
     pub custom_builtin: Option<bool>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Formatting Elements.
 /// When the object is serialized out as xml, it's qualified name is x:xf.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:xf")]
+#[xml(tag = "xf")]
 pub struct CellFormat {
     /// Number Format Id
     /// Represents the following attribute in the schema: :numFmtId
@@ -9301,19 +9301,19 @@ pub struct CellFormat {
     #[xml(attr = "applyProtection")]
     pub apply_protection: Option<bool>,
     ///Alignment
-    #[xml(child = "x:alignment")]
+    #[xml(child = "alignment")]
     pub alignment: Option<Alignment>,
     ///Protection
-    #[xml(child = "x:protection")]
+    #[xml(child = "protection")]
     pub protection: Option<Protection>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Font Name.
 /// When the object is serialized out as xml, it's qualified name is x:name.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:name")]
+#[xml(tag = "name")]
 pub struct FontName {
     /// String Value
     /// Represents the following attribute in the schema: :val
@@ -9323,7 +9323,7 @@ pub struct FontName {
 /// Font Family.
 /// When the object is serialized out as xml, it's qualified name is x:family.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:family")]
+#[xml(tag = "family")]
 pub struct FontFamilyNumbering {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -9333,7 +9333,7 @@ pub struct FontFamilyNumbering {
 /// Character Set.
 /// When the object is serialized out as xml, it's qualified name is x:charset.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:charset")]
+#[xml(tag = "charset")]
 pub struct FontCharSet {
     /// Value
     /// Represents the following attribute in the schema: :val
@@ -9343,7 +9343,7 @@ pub struct FontCharSet {
 /// Table Style.
 /// When the object is serialized out as xml, it's qualified name is x:tableStyleElement.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tableStyleElement")]
+#[xml(tag = "tableStyleElement")]
 pub struct TableStyleElement {
     /// Table Style Type
     /// Represents the following attribute in the schema: :type
@@ -9361,7 +9361,7 @@ pub struct TableStyleElement {
 /// Defined Name.
 /// When the object is serialized out as xml, it's qualified name is x:definedName.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:definedName")]
+#[xml(tag = "definedName")]
 pub struct ExternalDefinedName {
     /// Defined Name
     /// Represents the following attribute in the schema: :name
@@ -9379,7 +9379,7 @@ pub struct ExternalDefinedName {
 /// External Sheet Data Set.
 /// When the object is serialized out as xml, it's qualified name is x:sheetData.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetData")]
+#[xml(tag = "sheetData")]
 pub struct ExternalSheetData {
     /// Sheet Id
     /// Represents the following attribute in the schema: :sheetId
@@ -9390,26 +9390,26 @@ pub struct ExternalSheetData {
     #[xml(attr = "refreshError")]
     pub refresh_error: Option<bool>,
     /// _
-    #[xml(child = "x:row")]
+    #[xml(child = "row")]
     pub x_row: Vec<ExternalRow>,
 }
 /// Row.
 /// When the object is serialized out as xml, it's qualified name is x:row.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:row")]
+#[xml(tag = "row")]
 pub struct ExternalRow {
     /// Row
     /// Represents the following attribute in the schema: :r
     #[xml(attr = "r")]
     pub row_index: u32,
     /// _
-    #[xml(child = "x:cell")]
+    #[xml(child = "cell")]
     pub x_cell: Vec<ExternalCell>,
 }
 /// External Cell Data.
 /// When the object is serialized out as xml, it's qualified name is x:cell.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cell")]
+#[xml(tag = "cell")]
 pub struct ExternalCell {
     /// Reference
     /// Represents the following attribute in the schema: :r
@@ -9424,22 +9424,22 @@ pub struct ExternalCell {
     #[xml(attr = "vm")]
     pub value_meta_index: Option<u32>,
     ///Value
-    #[xml(child = "x:v")]
+    #[xml(child = "v")]
     pub xstring: Option<Xstring>,
 }
 /// DDE Items Collection.
 /// When the object is serialized out as xml, it's qualified name is x:ddeItems.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ddeItems")]
+#[xml(tag = "ddeItems")]
 pub struct DdeItems {
     /// _
-    #[xml(child = "x:ddeItem")]
+    #[xml(child = "ddeItem")]
     pub x_dde_item: Vec<DdeItem>,
 }
 /// DDE Item definition.
 /// When the object is serialized out as xml, it's qualified name is x:ddeItem.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ddeItem")]
+#[xml(tag = "ddeItem")]
 pub struct DdeItem {
     /// DDE Name
     /// Represents the following attribute in the schema: :name
@@ -9458,13 +9458,13 @@ pub struct DdeItem {
     #[xml(attr = "preferPic")]
     pub prefer_picture: Option<bool>,
     ///DDE Name Values
-    #[xml(child = "x:values")]
+    #[xml(child = "values")]
     pub values: Option<Values>,
 }
 /// DDE Name Values.
 /// When the object is serialized out as xml, it's qualified name is x:values.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:values")]
+#[xml(tag = "values")]
 pub struct Values {
     /// Rows
     /// Represents the following attribute in the schema: :rows
@@ -9475,33 +9475,33 @@ pub struct Values {
     #[xml(attr = "cols")]
     pub columns: Option<u32>,
     /// _
-    #[xml(child = "x:value")]
+    #[xml(child = "value")]
     pub x_value: Vec<Value>,
 }
 /// Value.
 /// When the object is serialized out as xml, it's qualified name is x:value.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:value")]
+#[xml(tag = "value")]
 pub struct Value {
     /// DDE Value Type
     /// Represents the following attribute in the schema: :t
     #[xml(attr = "t")]
     pub value_type: Option<DdeValues>,
     ///DDE Link Value
-    #[xml(child = "x:val")]
+    #[xml(child = "val")]
     pub dde_link_value: DdeLinkValue,
 }
 /// OLE Link Items.
 /// When the object is serialized out as xml, it's qualified name is x:oleItems.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:oleItems")]
+#[xml(tag = "oleItems")]
 pub struct OleItems {
-    #[xml(child = "x:oleItem", child = "x14:oleItem")]
+    #[xml(child = "oleItem", child = "x14:oleItem")]
     pub children: Vec<OleItemsChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum OleItemsChildChoice {
-    #[xml(tag = "x:oleItem")]
+    #[xml(tag = "oleItem")]
     XOleItem(OleItem),
     #[xml(tag = "x14:oleItem")]
     X14OleItem(
@@ -9511,7 +9511,7 @@ pub enum OleItemsChildChoice {
 /// External Workbook.
 /// When the object is serialized out as xml, it's qualified name is x:externalBook.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:externalBook")]
+#[xml(tag = "externalBook")]
 pub struct ExternalBook {
     /// Relationship to supporting book file path
     /// Represents the following attribute in the schema: r:id
@@ -9523,19 +9523,19 @@ pub struct ExternalBook {
         crate::schemas::schemas_microsoft_com_office_spreadsheetml_2021_extlinks2021::ExternalBookAlternateUrls,
     >,
     ///Sheet names of supporting book
-    #[xml(child = "x:sheetNames")]
+    #[xml(child = "sheetNames")]
     pub sheet_names: Option<SheetNames>,
     ///Defined names associated with supporting book.
-    #[xml(child = "x:definedNames")]
+    #[xml(child = "definedNames")]
     pub external_defined_names: Option<ExternalDefinedNames>,
     ///Cached worksheet data associated with supporting book
-    #[xml(child = "x:sheetDataSet")]
+    #[xml(child = "sheetDataSet")]
     pub sheet_data_set: Option<SheetDataSet>,
 }
 /// DDE Connection.
 /// When the object is serialized out as xml, it's qualified name is x:ddeLink.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ddeLink")]
+#[xml(tag = "ddeLink")]
 pub struct DdeLink {
     /// Service name
     /// Represents the following attribute in the schema: :ddeService
@@ -9546,13 +9546,13 @@ pub struct DdeLink {
     #[xml(attr = "ddeTopic")]
     pub dde_topic: String,
     ///DDE Items Collection
-    #[xml(child = "x:ddeItems")]
+    #[xml(child = "ddeItems")]
     pub dde_items: Option<DdeItems>,
 }
 /// OLE Link.
 /// When the object is serialized out as xml, it's qualified name is x:oleLink.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:oleLink")]
+#[xml(tag = "oleLink")]
 pub struct OleLink {
     /// OLE Link Relationship
     /// Represents the following attribute in the schema: r:id
@@ -9563,13 +9563,13 @@ pub struct OleLink {
     #[xml(attr = "progId")]
     pub prog_id: String,
     ///OLE Link Items
-    #[xml(child = "x:oleItems")]
+    #[xml(child = "oleItems")]
     pub ole_items: Option<OleItems>,
 }
 /// Sheet Name.
 /// When the object is serialized out as xml, it's qualified name is x:sheetName.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetName")]
+#[xml(tag = "sheetName")]
 pub struct SheetName {
     /// Sheet Name Value
     /// Represents the following attribute in the schema: :val
@@ -9579,7 +9579,7 @@ pub struct SheetName {
 /// Value.
 /// When the object is serialized out as xml, it's qualified name is x:v.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:v")]
+#[xml(tag = "v")]
 pub struct Xstring {
     #[xml(text)]
     pub child: String,
@@ -9587,7 +9587,7 @@ pub struct Xstring {
 /// Table Column.
 /// When the object is serialized out as xml, it's qualified name is x:tableColumn.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tableColumn")]
+#[xml(tag = "tableColumn")]
 pub struct TableColumn {
     /// Table Field Id
     /// Represents the following attribute in the schema: :id
@@ -9638,22 +9638,22 @@ pub struct TableColumn {
     #[xml(attr = "totalsRowCellStyle")]
     pub totals_row_cell_style: Option<String>,
     ///Calculated Column Formula
-    #[xml(child = "x:calculatedColumnFormula")]
+    #[xml(child = "calculatedColumnFormula")]
     pub calculated_column_formula: Option<CalculatedColumnFormula>,
     ///Totals Row Formula
-    #[xml(child = "x:totalsRowFormula")]
+    #[xml(child = "totalsRowFormula")]
     pub totals_row_formula: Option<TotalsRowFormula>,
     ///XML Column Properties
-    #[xml(child = "x:xmlColumnPr")]
+    #[xml(child = "xmlColumnPr")]
     pub xml_column_properties: Option<XmlColumnProperties>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Calculated Column Formula.
 /// When the object is serialized out as xml, it's qualified name is x:calculatedColumnFormula.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:calculatedColumnFormula")]
+#[xml(tag = "calculatedColumnFormula")]
 pub struct CalculatedColumnFormula {
     /// Array
     /// Represents the following attribute in the schema: :array
@@ -9671,7 +9671,7 @@ pub struct CalculatedColumnFormula {
 /// Totals Row Formula.
 /// When the object is serialized out as xml, it's qualified name is x:totalsRowFormula.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:totalsRowFormula")]
+#[xml(tag = "totalsRowFormula")]
 pub struct TotalsRowFormula {
     /// Array
     /// Represents the following attribute in the schema: :array
@@ -9707,7 +9707,7 @@ pub struct TableFormulaType {
 /// XML Column Properties.
 /// When the object is serialized out as xml, it's qualified name is x:xmlColumnPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:xmlColumnPr")]
+#[xml(tag = "xmlColumnPr")]
 pub struct XmlColumnProperties {
     /// XML Map Id
     /// Represents the following attribute in the schema: :mapId
@@ -9726,58 +9726,58 @@ pub struct XmlColumnProperties {
     #[xml(attr = "xmlDataType")]
     pub xml_data_type: XmlDataValues,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Volatile Dependency Type.
 /// When the object is serialized out as xml, it's qualified name is x:volType.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:volType")]
+#[xml(tag = "volType")]
 pub struct VolatileType {
     /// Type
     /// Represents the following attribute in the schema: :type
     #[xml(attr = "type")]
     pub r#type: VolatileDependencyValues,
     /// _
-    #[xml(child = "x:main")]
+    #[xml(child = "main")]
     pub x_main: Vec<Main>,
 }
 /// Main.
 /// When the object is serialized out as xml, it's qualified name is x:main.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:main")]
+#[xml(tag = "main")]
 pub struct Main {
     /// First String
     /// Represents the following attribute in the schema: :first
     #[xml(attr = "first")]
     pub first: String,
     /// _
-    #[xml(child = "x:tp")]
+    #[xml(child = "tp")]
     pub x_tp: Vec<Topic>,
 }
 /// Topic.
 /// When the object is serialized out as xml, it's qualified name is x:tp.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tp")]
+#[xml(tag = "tp")]
 pub struct Topic {
     /// Type
     /// Represents the following attribute in the schema: :t
     #[xml(attr = "t")]
     pub value_type: Option<VolatileValues>,
     ///Topic Value
-    #[xml(child = "x:v")]
+    #[xml(child = "v")]
     pub xstring: Xstring,
     /// _
-    #[xml(child = "x:stp")]
+    #[xml(child = "stp")]
     pub x_stp: Vec<Subtopic>,
     /// _
-    #[xml(child = "x:tr")]
+    #[xml(child = "tr")]
     pub x_tr: Vec<TopicReferences>,
 }
 /// References.
 /// When the object is serialized out as xml, it's qualified name is x:tr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tr")]
+#[xml(tag = "tr")]
 pub struct TopicReferences {
     /// Reference
     /// Represents the following attribute in the schema: :r
@@ -9791,7 +9791,7 @@ pub struct TopicReferences {
 /// PivotCache.
 /// When the object is serialized out as xml, it's qualified name is x:pivotCache.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotCache")]
+#[xml(tag = "pivotCache")]
 pub struct PivotCache {
     /// PivotCache Id
     /// Represents the following attribute in the schema: :cacheId
@@ -9805,7 +9805,7 @@ pub struct PivotCache {
 /// Web Publishing Object.
 /// When the object is serialized out as xml, it's qualified name is x:webPublishObject.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:webPublishObject")]
+#[xml(tag = "webPublishObject")]
 pub struct WebPublishObject {
     /// Id
     /// Represents the following attribute in the schema: :id
@@ -9835,7 +9835,7 @@ pub struct WebPublishObject {
 /// External Reference.
 /// When the object is serialized out as xml, it's qualified name is x:externalReference.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:externalReference")]
+#[xml(tag = "externalReference")]
 pub struct ExternalReference {
     /// Relationship Id
     /// Represents the following attribute in the schema: r:id
@@ -9845,7 +9845,7 @@ pub struct ExternalReference {
 /// Custom Workbook View.
 /// When the object is serialized out as xml, it's qualified name is x:customWorkbookView.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:customWorkbookView")]
+#[xml(tag = "customWorkbookView")]
 pub struct CustomWorkbookView {
     /// Custom View Name
     /// Represents the following attribute in the schema: :name
@@ -9944,13 +9944,13 @@ pub struct CustomWorkbookView {
     #[xml(attr = "showObjects")]
     pub show_objects: Option<ObjectDisplayValues>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Sheet Information.
 /// When the object is serialized out as xml, it's qualified name is x:sheet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheet")]
+#[xml(tag = "sheet")]
 pub struct Sheet {
     /// Sheet Name
     /// Represents the following attribute in the schema: :name
@@ -9972,7 +9972,7 @@ pub struct Sheet {
 /// Workbook View.
 /// When the object is serialized out as xml, it's qualified name is x:workbookView.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:workbookView")]
+#[xml(tag = "workbookView")]
 pub struct WorkbookView {
     /// Visibility
     /// Represents the following attribute in the schema: :visibility
@@ -10027,13 +10027,13 @@ pub struct WorkbookView {
     #[xml(attr = "autoFilterDateGrouping")]
     pub auto_filter_date_grouping: Option<bool>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Defined Name.
 /// When the object is serialized out as xml, it's qualified name is x:definedName.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:definedName")]
+#[xml(tag = "definedName")]
 pub struct DefinedName {
     /// Defined Name
     /// Represents the following attribute in the schema: :name
@@ -10101,7 +10101,7 @@ pub struct DefinedName {
 /// Function Group.
 /// When the object is serialized out as xml, it's qualified name is x:functionGroup.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:functionGroup")]
+#[xml(tag = "functionGroup")]
 pub struct FunctionGroup {
     /// Name
     /// Represents the following attribute in the schema: :name
@@ -10111,7 +10111,7 @@ pub struct FunctionGroup {
 /// Defines the ObjectAnchor Class.
 /// When the object is serialized out as xml, it's qualified name is x:anchor.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:anchor")]
+#[xml(tag = "anchor")]
 pub struct ObjectAnchor {
     /// moveWithCells
     /// Represents the following attribute in the schema: :moveWithCells
@@ -10126,16 +10126,16 @@ pub struct ObjectAnchor {
     #[xml(attr = "z-order")]
     pub z_order: Option<u32>,
     /// _
-    #[xml(child = "x:from")]
+    #[xml(child = "from")]
     pub from_marker: FromMarker,
     /// _
-    #[xml(child = "x:to")]
+    #[xml(child = "to")]
     pub to_marker: ToMarker,
 }
 /// Defines the FromMarker Class.
 /// When the object is serialized out as xml, it's qualified name is x:from.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:from")]
+#[xml(tag = "from")]
 pub struct FromMarker {
     ///Column)
     #[xml(child = "xdr:col")]
@@ -10153,7 +10153,7 @@ pub struct FromMarker {
 /// Defines the ToMarker Class.
 /// When the object is serialized out as xml, it's qualified name is x:to.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:to")]
+#[xml(tag = "to")]
 pub struct ToMarker {
     ///Column)
     #[xml(child = "xdr:col")]
@@ -10176,7 +10176,7 @@ pub struct MarkerType {}
 /// Defines the ConditionalFormattingRuleExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct ConditionalFormattingRuleExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -10193,7 +10193,7 @@ pub enum ConditionalFormattingRuleExtensionChildChoice {
 /// Defines the PivotHierarchyExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct PivotHierarchyExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -10212,7 +10212,7 @@ pub enum PivotHierarchyExtensionChildChoice {
 /// Defines the PivotFieldExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct PivotFieldExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -10231,7 +10231,7 @@ pub enum PivotFieldExtensionChildChoice {
 /// Defines the CacheSourceExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct CacheSourceExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -10250,7 +10250,7 @@ pub enum CacheSourceExtensionChildChoice {
 /// OLE Link Item.
 /// When the object is serialized out as xml, it's qualified name is x:oleItem.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:oleItem")]
+#[xml(tag = "oleItem")]
 pub struct OleItem {
     /// OLE Name
     /// Represents the following attribute in the schema: :name
@@ -10272,118 +10272,118 @@ pub struct OleItem {
 /// Defines the StartBorder Class.
 /// When the object is serialized out as xml, it's qualified name is x:start.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:start")]
+#[xml(tag = "start")]
 pub struct StartBorder {
     /// Line Style
     /// Represents the following attribute in the schema: :style
     #[xml(attr = "style")]
     pub style: Option<BorderStyleValues>,
     ///Color
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub color: Option<Color>,
 }
 /// Defines the EndBorder Class.
 /// When the object is serialized out as xml, it's qualified name is x:end.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:end")]
+#[xml(tag = "end")]
 pub struct EndBorder {
     /// Line Style
     /// Represents the following attribute in the schema: :style
     #[xml(attr = "style")]
     pub style: Option<BorderStyleValues>,
     ///Color
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub color: Option<Color>,
 }
 /// Left Border.
 /// When the object is serialized out as xml, it's qualified name is x:left.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:left")]
+#[xml(tag = "left")]
 pub struct LeftBorder {
     /// Line Style
     /// Represents the following attribute in the schema: :style
     #[xml(attr = "style")]
     pub style: Option<BorderStyleValues>,
     ///Color
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub color: Option<Color>,
 }
 /// Right Border.
 /// When the object is serialized out as xml, it's qualified name is x:right.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:right")]
+#[xml(tag = "right")]
 pub struct RightBorder {
     /// Line Style
     /// Represents the following attribute in the schema: :style
     #[xml(attr = "style")]
     pub style: Option<BorderStyleValues>,
     ///Color
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub color: Option<Color>,
 }
 /// Top Border.
 /// When the object is serialized out as xml, it's qualified name is x:top.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:top")]
+#[xml(tag = "top")]
 pub struct TopBorder {
     /// Line Style
     /// Represents the following attribute in the schema: :style
     #[xml(attr = "style")]
     pub style: Option<BorderStyleValues>,
     ///Color
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub color: Option<Color>,
 }
 /// Bottom Border.
 /// When the object is serialized out as xml, it's qualified name is x:bottom.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:bottom")]
+#[xml(tag = "bottom")]
 pub struct BottomBorder {
     /// Line Style
     /// Represents the following attribute in the schema: :style
     #[xml(attr = "style")]
     pub style: Option<BorderStyleValues>,
     ///Color
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub color: Option<Color>,
 }
 /// Diagonal.
 /// When the object is serialized out as xml, it's qualified name is x:diagonal.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:diagonal")]
+#[xml(tag = "diagonal")]
 pub struct DiagonalBorder {
     /// Line Style
     /// Represents the following attribute in the schema: :style
     #[xml(attr = "style")]
     pub style: Option<BorderStyleValues>,
     ///Color
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub color: Option<Color>,
 }
 /// Vertical Inner Border.
 /// When the object is serialized out as xml, it's qualified name is x:vertical.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:vertical")]
+#[xml(tag = "vertical")]
 pub struct VerticalBorder {
     /// Line Style
     /// Represents the following attribute in the schema: :style
     #[xml(attr = "style")]
     pub style: Option<BorderStyleValues>,
     ///Color
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub color: Option<Color>,
 }
 /// Horizontal Inner Borders.
 /// When the object is serialized out as xml, it's qualified name is x:horizontal.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:horizontal")]
+#[xml(tag = "horizontal")]
 pub struct HorizontalBorder {
     /// Line Style
     /// Represents the following attribute in the schema: :style
     #[xml(attr = "style")]
     pub style: Option<BorderStyleValues>,
     ///Color
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub color: Option<Color>,
 }
 /// Defines the BorderPropertiesType Class.
@@ -10399,7 +10399,7 @@ pub struct BorderPropertiesType {
 /// Defines the ControlProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x:controlPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:controlPr")]
+#[xml(tag = "controlPr")]
 pub struct ControlProperties {
     /// locked
     /// Represents the following attribute in the schema: :locked
@@ -10462,13 +10462,13 @@ pub struct ControlProperties {
     #[xml(attr = "r:id")]
     pub r_id: Option<String>,
     /// _
-    #[xml(child = "x:anchor")]
+    #[xml(child = "anchor")]
     pub object_anchor: ObjectAnchor,
 }
 /// Defines the EmbeddedObjectProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x:objectPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:objectPr")]
+#[xml(tag = "objectPr")]
 pub struct EmbeddedObjectProperties {
     /// locked
     /// Represents the following attribute in the schema: :locked
@@ -10519,13 +10519,13 @@ pub struct EmbeddedObjectProperties {
     #[xml(attr = "r:id")]
     pub r_id: Option<String>,
     /// _
-    #[xml(child = "x:anchor")]
+    #[xml(child = "anchor")]
     pub object_anchor: ObjectAnchor,
 }
 /// Chart Sheet Properties.
 /// When the object is serialized out as xml, it's qualified name is x:sheetPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetPr")]
+#[xml(tag = "sheetPr")]
 pub struct ChartSheetProperties {
     /// Published
     /// Represents the following attribute in the schema: :published
@@ -10536,25 +10536,25 @@ pub struct ChartSheetProperties {
     #[xml(attr = "codeName")]
     pub code_name: Option<String>,
     /// _
-    #[xml(child = "x:tabColor")]
+    #[xml(child = "tabColor")]
     pub tab_color: Option<TabColor>,
 }
 /// Chart Sheet Views.
 /// When the object is serialized out as xml, it's qualified name is x:sheetViews.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetViews")]
+#[xml(tag = "sheetViews")]
 pub struct ChartSheetViews {
     /// _
-    #[xml(child = "x:sheetView")]
+    #[xml(child = "sheetView")]
     pub x_sheet_view: Vec<ChartSheetView>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 /// Chart Sheet Protection.
 /// When the object is serialized out as xml, it's qualified name is x:sheetProtection.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetProtection")]
+#[xml(tag = "sheetProtection")]
 pub struct ChartSheetProtection {
     /// Password
     /// Represents the following attribute in the schema: :password
@@ -10588,16 +10588,16 @@ pub struct ChartSheetProtection {
 /// Custom Chart Sheet Views.
 /// When the object is serialized out as xml, it's qualified name is x:customSheetViews.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:customSheetViews")]
+#[xml(tag = "customSheetViews")]
 pub struct CustomChartsheetViews {
     /// _
-    #[xml(child = "x:customSheetView")]
+    #[xml(child = "customSheetView")]
     pub x_custom_sheet_view: Vec<CustomChartsheetView>,
 }
 /// Drawing.
 /// When the object is serialized out as xml, it's qualified name is x:drawing.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:drawing")]
+#[xml(tag = "drawing")]
 pub struct Drawing {
     /// Relationship id
     /// Represents the following attribute in the schema: r:id
@@ -10607,7 +10607,7 @@ pub struct Drawing {
 /// Defines the LegacyDrawing Class.
 /// When the object is serialized out as xml, it's qualified name is x:legacyDrawing.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:legacyDrawing")]
+#[xml(tag = "legacyDrawing")]
 pub struct LegacyDrawing {
     /// Relationship Id
     /// Represents the following attribute in the schema: r:id
@@ -10617,7 +10617,7 @@ pub struct LegacyDrawing {
 /// Legacy Drawing Reference in  Header Footer.
 /// When the object is serialized out as xml, it's qualified name is x:legacyDrawingHF.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:legacyDrawingHF")]
+#[xml(tag = "legacyDrawingHF")]
 pub struct LegacyDrawingHeaderFooter {
     /// Relationship Id
     /// Represents the following attribute in the schema: r:id
@@ -10637,7 +10637,7 @@ pub struct LegacyDrawingType {
 /// Defines the DrawingHeaderFooter Class.
 /// When the object is serialized out as xml, it's qualified name is x:drawingHF.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:drawingHF")]
+#[xml(tag = "drawingHF")]
 pub struct DrawingHeaderFooter {
     /// id
     /// Represents the following attribute in the schema: r:id
@@ -10719,7 +10719,7 @@ pub struct DrawingHeaderFooter {
 /// Defines the Picture Class.
 /// When the object is serialized out as xml, it's qualified name is x:picture.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:picture")]
+#[xml(tag = "picture")]
 pub struct Picture {
     /// Relationship Id
     /// Represents the following attribute in the schema: r:id
@@ -10729,32 +10729,32 @@ pub struct Picture {
 /// Defines the WebPublishItems Class.
 /// When the object is serialized out as xml, it's qualified name is x:webPublishItems.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:webPublishItems")]
+#[xml(tag = "webPublishItems")]
 pub struct WebPublishItems {
     /// Web Publishing Items Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:webPublishItem")]
+    #[xml(child = "webPublishItem")]
     pub x_web_publish_item: Vec<WebPublishItem>,
 }
 /// Color Scale.
 /// When the object is serialized out as xml, it's qualified name is x:colorScale.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:colorScale")]
+#[xml(tag = "colorScale")]
 pub struct ColorScale {
     /// _
-    #[xml(child = "x:cfvo")]
+    #[xml(child = "cfvo")]
     pub x_cfvo: Vec<ConditionalFormatValueObject>,
     /// _
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub x_color: Vec<Color>,
 }
 /// Data Bar.
 /// When the object is serialized out as xml, it's qualified name is x:dataBar.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dataBar")]
+#[xml(tag = "dataBar")]
 pub struct DataBar {
     /// Minimum Length
     /// Represents the following attribute in the schema: :minLength
@@ -10769,16 +10769,16 @@ pub struct DataBar {
     #[xml(attr = "showValue")]
     pub show_value: Option<bool>,
     /// _
-    #[xml(child = "x:cfvo")]
+    #[xml(child = "cfvo")]
     pub x_cfvo: Vec<ConditionalFormatValueObject>,
     /// _
-    #[xml(child = "x:color")]
+    #[xml(child = "color")]
     pub x_color: Color,
 }
 /// Icon Set.
 /// When the object is serialized out as xml, it's qualified name is x:iconSet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:iconSet")]
+#[xml(tag = "iconSet")]
 pub struct IconSet {
     /// Icon Set
     /// Represents the following attribute in the schema: :iconSet
@@ -10797,35 +10797,35 @@ pub struct IconSet {
     #[xml(attr = "reverse")]
     pub reverse: Option<bool>,
     /// _
-    #[xml(child = "x:cfvo")]
+    #[xml(child = "cfvo")]
     pub x_cfvo: Vec<ConditionalFormatValueObject>,
 }
 /// Defines the ConditionalFormattingRuleExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct ConditionalFormattingRuleExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<ConditionalFormattingRuleExtension>,
 }
 /// Data Consolidation References.
 /// When the object is serialized out as xml, it's qualified name is x:dataRefs.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dataRefs")]
+#[xml(tag = "dataRefs")]
 pub struct DataReferences {
     /// Data Consolidation Reference Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:dataRef")]
+    #[xml(child = "dataRef")]
     pub x_data_ref: Vec<DataReference>,
 }
 /// Sheet Properties.
 /// When the object is serialized out as xml, it's qualified name is x:sheetPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetPr")]
+#[xml(tag = "sheetPr")]
 pub struct SheetProperties {
     /// Synch Horizontal
     /// Represents the following attribute in the schema: :syncHorizontal
@@ -10864,31 +10864,31 @@ pub struct SheetProperties {
     #[xml(attr = "enableFormatConditionsCalculation")]
     pub enable_format_conditions_calculation: Option<bool>,
     ///Sheet Tab Color
-    #[xml(child = "x:tabColor")]
+    #[xml(child = "tabColor")]
     pub tab_color: Option<TabColor>,
     ///Outline Properties
-    #[xml(child = "x:outlinePr")]
+    #[xml(child = "outlinePr")]
     pub outline_properties: Option<OutlineProperties>,
     ///Page Setup Properties
-    #[xml(child = "x:pageSetUpPr")]
+    #[xml(child = "pageSetUpPr")]
     pub page_setup_properties: Option<PageSetupProperties>,
 }
 /// Dialog Sheet Views.
 /// When the object is serialized out as xml, it's qualified name is x:sheetViews.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetViews")]
+#[xml(tag = "sheetViews")]
 pub struct SheetViews {
     /// _
-    #[xml(child = "x:sheetView")]
+    #[xml(child = "sheetView")]
     pub x_sheet_view: Vec<SheetView>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 /// Dialog Sheet Format Properties.
 /// When the object is serialized out as xml, it's qualified name is x:sheetFormatPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetFormatPr")]
+#[xml(tag = "sheetFormatPr")]
 pub struct SheetFormatProperties {
     /// Base Column Width
     /// Represents the following attribute in the schema: :baseColWidth
@@ -10934,7 +10934,7 @@ pub struct SheetFormatProperties {
 /// Sheet Protection.
 /// When the object is serialized out as xml, it's qualified name is x:sheetProtection.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetProtection")]
+#[xml(tag = "sheetProtection")]
 pub struct SheetProtection {
     /// Password
     /// Represents the following attribute in the schema: :password
@@ -11024,34 +11024,34 @@ pub struct SheetProtection {
 /// Custom Sheet Views.
 /// When the object is serialized out as xml, it's qualified name is x:customSheetViews.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:customSheetViews")]
+#[xml(tag = "customSheetViews")]
 pub struct CustomSheetViews {
     /// _
-    #[xml(child = "x:customSheetView")]
+    #[xml(child = "customSheetView")]
     pub x_custom_sheet_view: Vec<CustomSheetView>,
 }
 /// Defines the OleObjects Class.
 /// When the object is serialized out as xml, it's qualified name is x:oleObjects.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:oleObjects")]
+#[xml(tag = "oleObjects")]
 pub struct OleObjects {
     /// _
-    #[xml(child = "x:oleObject")]
+    #[xml(child = "oleObject")]
     pub x_ole_object: Vec<OleObject>,
 }
 /// Defines the Controls Class.
 /// When the object is serialized out as xml, it's qualified name is x:controls.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:controls")]
+#[xml(tag = "controls")]
 pub struct Controls {
     /// _
-    #[xml(child = "x:control")]
+    #[xml(child = "control")]
     pub x_control: Vec<Control>,
 }
 /// Macro Sheet Dimensions.
 /// When the object is serialized out as xml, it's qualified name is x:dimension.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dimension")]
+#[xml(tag = "dimension")]
 pub struct SheetDimension {
     /// Reference
     /// Represents the following attribute in the schema: :ref
@@ -11061,25 +11061,25 @@ pub struct SheetDimension {
 /// Column Information.
 /// When the object is serialized out as xml, it's qualified name is x:cols.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cols")]
+#[xml(tag = "cols")]
 pub struct Columns {
     /// _
-    #[xml(child = "x:col")]
+    #[xml(child = "col")]
     pub x_col: Vec<Column>,
 }
 /// Sheet Data.
 /// When the object is serialized out as xml, it's qualified name is x:sheetData.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetData")]
+#[xml(tag = "sheetData")]
 pub struct SheetData {
     /// _
-    #[xml(child = "x:row")]
+    #[xml(child = "row")]
     pub x_row: Vec<Row>,
 }
 /// Data Consolidation.
 /// When the object is serialized out as xml, it's qualified name is x:dataConsolidate.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dataConsolidate")]
+#[xml(tag = "dataConsolidate")]
 pub struct DataConsolidate {
     /// Function Index
     /// Represents the following attribute in the schema: :function
@@ -11102,13 +11102,13 @@ pub struct DataConsolidate {
     #[xml(attr = "link")]
     pub link: Option<bool>,
     ///Data Consolidation References
-    #[xml(child = "x:dataRefs")]
+    #[xml(child = "dataRefs")]
     pub data_references: Option<DataReferences>,
 }
 /// Conditional Formatting.
 /// When the object is serialized out as xml, it's qualified name is x:conditionalFormatting.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:conditionalFormatting")]
+#[xml(tag = "conditionalFormatting")]
 pub struct ConditionalFormatting {
     /// PivotTable Conditional Formatting
     /// Represents the following attribute in the schema: :pivot
@@ -11119,38 +11119,38 @@ pub struct ConditionalFormatting {
     #[xml(attr = "sqref")]
     pub sequence_of_references: Option<String>,
     /// _
-    #[xml(child = "x:cfRule")]
+    #[xml(child = "cfRule")]
     pub x_cf_rule: Vec<ConditionalFormattingRule>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 /// Custom Properties.
 /// When the object is serialized out as xml, it's qualified name is x:customProperties.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:customProperties")]
+#[xml(tag = "customProperties")]
 pub struct CustomProperties {
     /// _
-    #[xml(child = "x:customPr")]
+    #[xml(child = "customPr")]
     pub x_custom_pr: Vec<CustomProperty>,
 }
 /// OLAP Member Properties.
 /// When the object is serialized out as xml, it's qualified name is x:mps.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:mps")]
+#[xml(tag = "mps")]
 pub struct MemberProperties {
     /// OLAP Member Properties Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:mp")]
+    #[xml(child = "mp")]
     pub x_mp: Vec<MemberProperty>,
 }
 /// Members.
 /// When the object is serialized out as xml, it's qualified name is x:members.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:members")]
+#[xml(tag = "members")]
 pub struct Members {
     /// Item Count
     /// Represents the following attribute in the schema: :count
@@ -11161,53 +11161,53 @@ pub struct Members {
     #[xml(attr = "level")]
     pub level: Option<u32>,
     /// _
-    #[xml(child = "x:member")]
+    #[xml(child = "member")]
     pub x_member: Vec<Member>,
 }
 /// Future Feature Data Storage Area.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct PivotHierarchyExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<PivotHierarchyExtension>,
 }
 /// Field Items.
 /// When the object is serialized out as xml, it's qualified name is x:items.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:items")]
+#[xml(tag = "items")]
 pub struct Items {
     /// Field Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:item")]
+    #[xml(child = "item")]
     pub x_item: Vec<Item>,
 }
 /// AutoSort Scope.
 /// When the object is serialized out as xml, it's qualified name is x:autoSortScope.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:autoSortScope")]
+#[xml(tag = "autoSortScope")]
 pub struct AutoSortScope {
     ///Auto Sort Scope
-    #[xml(child = "x:pivotArea")]
+    #[xml(child = "pivotArea")]
     pub pivot_area: PivotArea,
 }
 /// Future Feature Data Storage Area.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct PivotFieldExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<PivotFieldExtension>,
 }
 /// Defines the WorksheetSource Class.
 /// When the object is serialized out as xml, it's qualified name is x:worksheetSource.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:worksheetSource")]
+#[xml(tag = "worksheetSource")]
 pub struct WorksheetSource {
     /// Reference
     /// Represents the following attribute in the schema: :ref
@@ -11229,32 +11229,32 @@ pub struct WorksheetSource {
 /// Defines the Consolidation Class.
 /// When the object is serialized out as xml, it's qualified name is x:consolidation.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:consolidation")]
+#[xml(tag = "consolidation")]
 pub struct Consolidation {
     /// Auto Page
     /// Represents the following attribute in the schema: :autoPage
     #[xml(attr = "autoPage")]
     pub auto_page: Option<bool>,
     ///Page Item Values
-    #[xml(child = "x:pages")]
+    #[xml(child = "pages")]
     pub pages: Option<Pages>,
     ///Range Sets
-    #[xml(child = "x:rangeSets")]
+    #[xml(child = "rangeSets")]
     pub range_sets: RangeSets,
 }
 /// Defines the CacheSourceExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct CacheSourceExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<CacheSourceExtension>,
 }
 /// Defines the CommentProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x:commentPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:commentPr")]
+#[xml(tag = "commentPr")]
 pub struct CommentProperties {
     /// locked
     /// Represents the following attribute in the schema: :locked
@@ -11317,13 +11317,13 @@ pub struct CommentProperties {
     #[xml(attr = "colHidden")]
     pub col_hidden: Option<bool>,
     /// _
-    #[xml(child = "x:anchor")]
+    #[xml(child = "anchor")]
     pub object_anchor: ObjectAnchor,
 }
 /// Defines the SortCondition Class.
 /// When the object is serialized out as xml, it's qualified name is x:sortCondition.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sortCondition")]
+#[xml(tag = "sortCondition")]
 pub struct SortCondition {
     /// Descending
     /// Represents the following attribute in the schema: :descending
@@ -11357,7 +11357,7 @@ pub struct SortCondition {
 /// Filter.
 /// When the object is serialized out as xml, it's qualified name is x:filter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:filter")]
+#[xml(tag = "filter")]
 pub struct Filter {
     /// Filter Value
     /// Represents the following attribute in the schema: :val
@@ -11367,7 +11367,7 @@ pub struct Filter {
 /// Date Grouping.
 /// When the object is serialized out as xml, it's qualified name is x:dateGroupItem.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dateGroupItem")]
+#[xml(tag = "dateGroupItem")]
 pub struct DateGroupItem {
     /// Year
     /// Represents the following attribute in the schema: :year
@@ -11401,7 +11401,7 @@ pub struct DateGroupItem {
 /// Filter Criteria.
 /// When the object is serialized out as xml, it's qualified name is x:filters.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:filters")]
+#[xml(tag = "filters")]
 pub struct Filters {
     /// Filter by Blank
     /// Represents the following attribute in the schema: :blank
@@ -11411,7 +11411,7 @@ pub struct Filters {
     /// Represents the following attribute in the schema: :calendarType
     #[xml(attr = "calendarType")]
     pub calendar_type: Option<CalendarValues>,
-    #[xml(child = "x14:filter", child = "x:filter", child = "x:dateGroupItem")]
+    #[xml(child = "x14:filter", child = "filter", child = "dateGroupItem")]
     pub children: Vec<FiltersChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
@@ -11420,15 +11420,15 @@ pub enum FiltersChildChoice {
     X14Filter(
         crate::schemas::schemas_microsoft_com_office_spreadsheetml_2009_9_main::Filter,
     ),
-    #[xml(tag = "x:filter")]
+    #[xml(tag = "filter")]
     XFilter(Filter),
-    #[xml(tag = "x:dateGroupItem")]
+    #[xml(tag = "dateGroupItem")]
     XDateGroupItem(DateGroupItem),
 }
 /// Top 10.
 /// When the object is serialized out as xml, it's qualified name is x:top10.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:top10")]
+#[xml(tag = "top10")]
 pub struct Top10 {
     /// Top
     /// Represents the following attribute in the schema: :top
@@ -11450,20 +11450,20 @@ pub struct Top10 {
 /// Custom Filters.
 /// When the object is serialized out as xml, it's qualified name is x:customFilters.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:customFilters")]
+#[xml(tag = "customFilters")]
 pub struct CustomFilters {
     /// And
     /// Represents the following attribute in the schema: :and
     #[xml(attr = "and")]
     pub and: Option<bool>,
     /// _
-    #[xml(child = "x:customFilter")]
+    #[xml(child = "customFilter")]
     pub x_custom_filter: Vec<CustomFilter>,
 }
 /// Dynamic Filter.
 /// When the object is serialized out as xml, it's qualified name is x:dynamicFilter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dynamicFilter")]
+#[xml(tag = "dynamicFilter")]
 pub struct DynamicFilter {
     /// Dynamic filter type
     /// Represents the following attribute in the schema: :type
@@ -11489,7 +11489,7 @@ pub struct DynamicFilter {
 /// Color Filter Criteria.
 /// When the object is serialized out as xml, it's qualified name is x:colorFilter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:colorFilter")]
+#[xml(tag = "colorFilter")]
 pub struct ColorFilter {
     /// Differential Format Record Id
     /// Represents the following attribute in the schema: :dxfId
@@ -11503,7 +11503,7 @@ pub struct ColorFilter {
 /// Icon Filter.
 /// When the object is serialized out as xml, it's qualified name is x:iconFilter.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:iconFilter")]
+#[xml(tag = "iconFilter")]
 pub struct IconFilter {
     /// Icon Set
     /// Represents the following attribute in the schema: :iconSet
@@ -11517,7 +11517,7 @@ pub struct IconFilter {
 /// Defines the SlicerCacheDefinitionExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct SlicerCacheDefinitionExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -11548,7 +11548,7 @@ pub enum SlicerCacheDefinitionExtensionChildChoice {
 /// Defines the PivotFilterExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct PivotFilterExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -11571,7 +11571,7 @@ pub enum PivotFilterExtensionChildChoice {
 /// Defines the QueryTableExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct QueryTableExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -11590,7 +11590,7 @@ pub enum QueryTableExtensionChildChoice {
 /// Defines the DatabaseProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x:dbPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dbPr")]
+#[xml(tag = "dbPr")]
 pub struct DatabaseProperties {
     /// Connection String
     /// Represents the following attribute in the schema: :connection
@@ -11612,7 +11612,7 @@ pub struct DatabaseProperties {
 /// Defines the OlapProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x:olapPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:olapPr")]
+#[xml(tag = "olapPr")]
 pub struct OlapProperties {
     /// Local Cube
     /// Represents the following attribute in the schema: :local
@@ -11654,7 +11654,7 @@ pub struct OlapProperties {
 /// Defines the WebQueryProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x:webPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:webPr")]
+#[xml(tag = "webPr")]
 pub struct WebQueryProperties {
     /// XML Source
     /// Represents the following attribute in the schema: :xml
@@ -11709,13 +11709,13 @@ pub struct WebQueryProperties {
     #[xml(attr = "editPage")]
     pub edit_page: Option<String>,
     ///Tables
-    #[xml(child = "x:tables")]
+    #[xml(child = "tables")]
     pub tables: Option<Tables>,
 }
 /// Defines the TextProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x:textPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:textPr")]
+#[xml(tag = "textPr")]
 pub struct TextProperties {
     /// prompt
     /// Represents the following attribute in the schema: :prompt
@@ -11782,35 +11782,35 @@ pub struct TextProperties {
     #[xml(attr = "delimiter")]
     pub delimiter: Option<String>,
     /// _
-    #[xml(child = "x:textFields")]
+    #[xml(child = "textFields")]
     pub text_fields: Option<TextFields>,
 }
 /// Defines the Parameters Class.
 /// When the object is serialized out as xml, it's qualified name is x:parameters.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:parameters")]
+#[xml(tag = "parameters")]
 pub struct Parameters {
     /// Parameter Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:parameter")]
+    #[xml(child = "parameter")]
     pub x_parameter: Vec<Parameter>,
 }
 /// Defines the ConnectionExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct ConnectionExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<ConnectionExtension>,
 }
 /// Defines the ConnectionExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct ConnectionExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -11833,20 +11833,20 @@ pub enum ConnectionExtensionChildChoice {
 /// Defines the TextFields Class.
 /// When the object is serialized out as xml, it's qualified name is x:textFields.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:textFields")]
+#[xml(tag = "textFields")]
 pub struct TextFields {
     /// Count of Fields
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:textField")]
+    #[xml(child = "textField")]
     pub x_text_field: Vec<TextField>,
 }
 /// Defines the SharedItems Class.
 /// When the object is serialized out as xml, it's qualified name is x:sharedItems.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sharedItems")]
+#[xml(tag = "sharedItems")]
 pub struct SharedItems {
     /// Contains Semi Mixed Data Types
     /// Represents the following attribute in the schema: :containsSemiMixedTypes
@@ -11905,34 +11905,34 @@ pub struct SharedItems {
     #[xml(attr = "longText")]
     pub long_text: Option<bool>,
     #[xml(
-        child = "x:m",
-        child = "x:n",
-        child = "x:b",
-        child = "x:e",
-        child = "x:s",
-        child = "x:d",
+        child = "m",
+        child = "n",
+        child = "b",
+        child = "e",
+        child = "s",
+        child = "d",
     )]
     pub children: Vec<SharedItemsChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum SharedItemsChildChoice {
-    #[xml(tag = "x:m")]
+    #[xml(tag = "m")]
     XM(MissingItem),
-    #[xml(tag = "x:n")]
+    #[xml(tag = "n")]
     XN(NumberItem),
-    #[xml(tag = "x:b")]
+    #[xml(tag = "b")]
     XB(BooleanItem),
-    #[xml(tag = "x:e")]
+    #[xml(tag = "e")]
     XE(ErrorItem),
-    #[xml(tag = "x:s")]
+    #[xml(tag = "s")]
     XS(StringItem),
-    #[xml(tag = "x:d")]
+    #[xml(tag = "d")]
     XD(DateTimeItem),
 }
 /// Defines the FieldGroup Class.
 /// When the object is serialized out as xml, it's qualified name is x:fieldGroup.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:fieldGroup")]
+#[xml(tag = "fieldGroup")]
 pub struct FieldGroup {
     /// Parent
     /// Represents the following attribute in the schema: :par
@@ -11942,31 +11942,31 @@ pub struct FieldGroup {
     /// Represents the following attribute in the schema: :base
     #[xml(attr = "base")]
     pub base: Option<u32>,
-    #[xml(child = "x:rangePr", child = "x:discretePr", child = "x:groupItems")]
+    #[xml(child = "rangePr", child = "discretePr", child = "groupItems")]
     pub children: Vec<FieldGroupChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum FieldGroupChildChoice {
-    #[xml(tag = "x:rangePr")]
+    #[xml(tag = "rangePr")]
     XRangePr(RangeProperties),
-    #[xml(tag = "x:discretePr")]
+    #[xml(tag = "discretePr")]
     XDiscretePr(DiscreteProperties),
-    #[xml(tag = "x:groupItems")]
+    #[xml(tag = "groupItems")]
     XGroupItems(GroupItems),
 }
 /// Defines the CacheFieldExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct CacheFieldExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<CacheFieldExtension>,
 }
 /// Defines the CacheFieldExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct CacheFieldExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -11989,42 +11989,42 @@ pub enum CacheFieldExtensionChildChoice {
 /// Defines the FieldsUsage Class.
 /// When the object is serialized out as xml, it's qualified name is x:fieldsUsage.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:fieldsUsage")]
+#[xml(tag = "fieldsUsage")]
 pub struct FieldsUsage {
     /// Field Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:fieldUsage")]
+    #[xml(child = "fieldUsage")]
     pub x_field_usage: Vec<FieldUsage>,
 }
 /// Defines the GroupLevels Class.
 /// When the object is serialized out as xml, it's qualified name is x:groupLevels.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:groupLevels")]
+#[xml(tag = "groupLevels")]
 pub struct GroupLevels {
     /// Grouping Level Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:groupLevel")]
+    #[xml(child = "groupLevel")]
     pub x_group_level: Vec<GroupLevel>,
 }
 /// Defines the CacheHierarchyExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct CacheHierarchyExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<CacheHierarchyExtension>,
 }
 /// Defines the CacheHierarchyExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct CacheHierarchyExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -12047,16 +12047,16 @@ pub enum CacheHierarchyExtensionChildChoice {
 /// Defines the CalculatedMemberExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct CalculatedMemberExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<CalculatedMemberExtension>,
 }
 /// Defines the CalculatedMemberExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct CalculatedMemberExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -12079,16 +12079,16 @@ pub enum CalculatedMemberExtensionChildChoice {
 /// Defines the DataFieldExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct DataFieldExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<DataFieldExtension>,
 }
 /// Defines the DataFieldExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct DataFieldExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -12111,16 +12111,16 @@ pub enum DataFieldExtensionChildChoice {
 /// Defines the PivotFilterExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct PivotFilterExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<PivotFilterExtension>,
 }
 /// Defines the QueryTableRefresh Class.
 /// When the object is serialized out as xml, it's qualified name is x:queryTableRefresh.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:queryTableRefresh")]
+#[xml(tag = "queryTableRefresh")]
 pub struct QueryTableRefresh {
     /// Preserve Sort and Filter Layout
     /// Represents the following attribute in the schema: :preserveSortFilterLayout
@@ -12151,31 +12151,31 @@ pub struct QueryTableRefresh {
     #[xml(attr = "unboundColumnsRight")]
     pub unbound_columns_right: Option<u32>,
     ///Query table fields
-    #[xml(child = "x:queryTableFields")]
+    #[xml(child = "queryTableFields")]
     pub query_table_fields: QueryTableFields,
     ///Deleted Fields
-    #[xml(child = "x:queryTableDeletedFields")]
+    #[xml(child = "queryTableDeletedFields")]
     pub query_table_deleted_fields: Option<QueryTableDeletedFields>,
     ///Sort State
-    #[xml(child = "x:sortState")]
+    #[xml(child = "sortState")]
     pub sort_state: Option<SortState>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Defines the QueryTableExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct QueryTableExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<QueryTableExtension>,
 }
 /// Defines the SheetCalculationProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x:sheetCalcPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetCalcPr")]
+#[xml(tag = "sheetCalcPr")]
 pub struct SheetCalculationProperties {
     /// Full Calculation On Load
     /// Represents the following attribute in the schema: :fullCalcOnLoad
@@ -12185,16 +12185,16 @@ pub struct SheetCalculationProperties {
 /// Defines the ProtectedRanges Class.
 /// When the object is serialized out as xml, it's qualified name is x:protectedRanges.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:protectedRanges")]
+#[xml(tag = "protectedRanges")]
 pub struct ProtectedRanges {
     /// _
-    #[xml(child = "x:protectedRange")]
+    #[xml(child = "protectedRange")]
     pub x_protected_range: Vec<ProtectedRange>,
 }
 /// Defines the Scenarios Class.
 /// When the object is serialized out as xml, it's qualified name is x:scenarios.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:scenarios")]
+#[xml(tag = "scenarios")]
 pub struct Scenarios {
     /// Current Scenario
     /// Represents the following attribute in the schema: :current
@@ -12209,26 +12209,26 @@ pub struct Scenarios {
     #[xml(attr = "sqref")]
     pub sequence_of_references: Option<String>,
     /// _
-    #[xml(child = "x:scenario")]
+    #[xml(child = "scenario")]
     pub x_scenario: Vec<Scenario>,
 }
 /// Defines the MergeCells Class.
 /// When the object is serialized out as xml, it's qualified name is x:mergeCells.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:mergeCells")]
+#[xml(tag = "mergeCells")]
 pub struct MergeCells {
     /// Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:mergeCell")]
+    #[xml(child = "mergeCell")]
     pub x_merge_cell: Vec<MergeCell>,
 }
 /// Defines the DataValidations Class.
 /// When the object is serialized out as xml, it's qualified name is x:dataValidations.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dataValidations")]
+#[xml(tag = "dataValidations")]
 pub struct DataValidations {
     /// Disable Prompts
     /// Represents the following attribute in the schema: :disablePrompts
@@ -12247,65 +12247,65 @@ pub struct DataValidations {
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:dataValidation")]
+    #[xml(child = "dataValidation")]
     pub x_data_validation: Vec<DataValidation>,
 }
 /// Defines the Hyperlinks Class.
 /// When the object is serialized out as xml, it's qualified name is x:hyperlinks.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:hyperlinks")]
+#[xml(tag = "hyperlinks")]
 pub struct Hyperlinks {
     /// _
-    #[xml(child = "x:hyperlink")]
+    #[xml(child = "hyperlink")]
     pub x_hyperlink: Vec<Hyperlink>,
 }
 /// Defines the CellWatches Class.
 /// When the object is serialized out as xml, it's qualified name is x:cellWatches.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cellWatches")]
+#[xml(tag = "cellWatches")]
 pub struct CellWatches {
     /// _
-    #[xml(child = "x:cellWatch")]
+    #[xml(child = "cellWatch")]
     pub x_cell_watch: Vec<CellWatch>,
 }
 /// Defines the IgnoredErrors Class.
 /// When the object is serialized out as xml, it's qualified name is x:ignoredErrors.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ignoredErrors")]
+#[xml(tag = "ignoredErrors")]
 pub struct IgnoredErrors {
     /// _
-    #[xml(child = "x:ignoredError")]
+    #[xml(child = "ignoredError")]
     pub x_ignored_error: Vec<IgnoredError>,
     /// _
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub x_ext_lst: Option<ExtensionList>,
 }
 /// Defines the TableParts Class.
 /// When the object is serialized out as xml, it's qualified name is x:tableParts.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tableParts")]
+#[xml(tag = "tableParts")]
 pub struct TableParts {
     /// Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:tablePart")]
+    #[xml(child = "tablePart")]
     pub x_table_part: Vec<TablePart>,
 }
 /// Defines the WorksheetExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct WorksheetExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<WorksheetExtension>,
 }
 /// Defines the WorksheetExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct WorksheetExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -12361,20 +12361,20 @@ pub enum WorksheetExtensionChildChoice {
 /// Defines the NumberingFormats Class.
 /// When the object is serialized out as xml, it's qualified name is x:numFmts.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:numFmts")]
+#[xml(tag = "numFmts")]
 pub struct NumberingFormats {
     /// Number Format Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:numFmt")]
+    #[xml(child = "numFmt")]
     pub x_num_fmt: Vec<NumberingFormat>,
 }
 /// Defines the Fonts Class.
 /// When the object is serialized out as xml, it's qualified name is x:fonts.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:fonts")]
+#[xml(tag = "fonts")]
 pub struct Fonts {
     /// Font Count
     /// Represents the following attribute in the schema: :count
@@ -12385,91 +12385,91 @@ pub struct Fonts {
     #[xml(attr = "x14ac:knownFonts")]
     pub known_fonts: Option<bool>,
     /// _
-    #[xml(child = "x:font")]
+    #[xml(child = "font")]
     pub x_font: Vec<Font>,
 }
 /// Defines the Fills Class.
 /// When the object is serialized out as xml, it's qualified name is x:fills.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:fills")]
+#[xml(tag = "fills")]
 pub struct Fills {
     /// Fill Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:fill")]
+    #[xml(child = "fill")]
     pub x_fill: Vec<Fill>,
 }
 /// Defines the Borders Class.
 /// When the object is serialized out as xml, it's qualified name is x:borders.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:borders")]
+#[xml(tag = "borders")]
 pub struct Borders {
     /// Border Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:border")]
+    #[xml(child = "border")]
     pub x_border: Vec<Border>,
 }
 /// Defines the CellStyleFormats Class.
 /// When the object is serialized out as xml, it's qualified name is x:cellStyleXfs.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cellStyleXfs")]
+#[xml(tag = "cellStyleXfs")]
 pub struct CellStyleFormats {
     /// Style Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:xf")]
+    #[xml(child = "xf")]
     pub x_xf: Vec<CellFormat>,
 }
 /// Defines the CellFormats Class.
 /// When the object is serialized out as xml, it's qualified name is x:cellXfs.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cellXfs")]
+#[xml(tag = "cellXfs")]
 pub struct CellFormats {
     /// Format Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:xf")]
+    #[xml(child = "xf")]
     pub x_xf: Vec<CellFormat>,
 }
 /// Defines the CellStyles Class.
 /// When the object is serialized out as xml, it's qualified name is x:cellStyles.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cellStyles")]
+#[xml(tag = "cellStyles")]
 pub struct CellStyles {
     /// Style Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:cellStyle")]
+    #[xml(child = "cellStyle")]
     pub x_cell_style: Vec<CellStyle>,
 }
 /// Defines the DifferentialFormats Class.
 /// When the object is serialized out as xml, it's qualified name is x:dxfs.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dxfs")]
+#[xml(tag = "dxfs")]
 pub struct DifferentialFormats {
     /// Format Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:dxf")]
+    #[xml(child = "dxf")]
     pub x_dxf: Vec<DifferentialFormat>,
 }
 /// Defines the TableStyles Class.
 /// When the object is serialized out as xml, it's qualified name is x:tableStyles.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tableStyles")]
+#[xml(tag = "tableStyles")]
 pub struct TableStyles {
     /// Table Style Count
     /// Represents the following attribute in the schema: :count
@@ -12484,34 +12484,34 @@ pub struct TableStyles {
     #[xml(attr = "defaultPivotStyle")]
     pub default_pivot_style: Option<String>,
     /// _
-    #[xml(child = "x:tableStyle")]
+    #[xml(child = "tableStyle")]
     pub x_table_style: Vec<TableStyle>,
 }
 /// Defines the Colors Class.
 /// When the object is serialized out as xml, it's qualified name is x:colors.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:colors")]
+#[xml(tag = "colors")]
 pub struct Colors {
     ///Color Indexes
-    #[xml(child = "x:indexedColors")]
+    #[xml(child = "indexedColors")]
     pub indexed_colors: Option<IndexedColors>,
     ///MRU Colors
-    #[xml(child = "x:mruColors")]
+    #[xml(child = "mruColors")]
     pub mru_colors: Option<MruColors>,
 }
 /// Defines the StylesheetExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct StylesheetExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<StylesheetExtension>,
 }
 /// Defines the StylesheetExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct StylesheetExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -12547,7 +12547,7 @@ pub enum StylesheetExtensionChildChoice {
 /// Defines the Location Class.
 /// When the object is serialized out as xml, it's qualified name is x:location.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:location")]
+#[xml(tag = "location")]
 pub struct Location {
     /// Reference
     /// Represents the following attribute in the schema: :ref
@@ -12577,150 +12577,150 @@ pub struct Location {
 /// Defines the PivotFields Class.
 /// When the object is serialized out as xml, it's qualified name is x:pivotFields.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotFields")]
+#[xml(tag = "pivotFields")]
 pub struct PivotFields {
     /// Field Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:pivotField")]
+    #[xml(child = "pivotField")]
     pub x_pivot_field: Vec<PivotField>,
 }
 /// Defines the RowFields Class.
 /// When the object is serialized out as xml, it's qualified name is x:rowFields.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rowFields")]
+#[xml(tag = "rowFields")]
 pub struct RowFields {
     /// Repeated Items Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:field")]
+    #[xml(child = "field")]
     pub x_field: Vec<Field>,
 }
 /// Defines the RowItems Class.
 /// When the object is serialized out as xml, it's qualified name is x:rowItems.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rowItems")]
+#[xml(tag = "rowItems")]
 pub struct RowItems {
     /// Items in a Row Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:i")]
+    #[xml(child = "i")]
     pub x_i: Vec<RowItem>,
 }
 /// Defines the ColumnFields Class.
 /// When the object is serialized out as xml, it's qualified name is x:colFields.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:colFields")]
+#[xml(tag = "colFields")]
 pub struct ColumnFields {
     /// Repeated Items Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:field")]
+    #[xml(child = "field")]
     pub x_field: Vec<Field>,
 }
 /// Defines the ColumnItems Class.
 /// When the object is serialized out as xml, it's qualified name is x:colItems.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:colItems")]
+#[xml(tag = "colItems")]
 pub struct ColumnItems {
     /// Column Item Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:i")]
+    #[xml(child = "i")]
     pub x_i: Vec<RowItem>,
 }
 /// Defines the PageFields Class.
 /// When the object is serialized out as xml, it's qualified name is x:pageFields.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pageFields")]
+#[xml(tag = "pageFields")]
 pub struct PageFields {
     /// Page Item Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:pageField")]
+    #[xml(child = "pageField")]
     pub x_page_field: Vec<PageField>,
 }
 /// Defines the DataFields Class.
 /// When the object is serialized out as xml, it's qualified name is x:dataFields.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dataFields")]
+#[xml(tag = "dataFields")]
 pub struct DataFields {
     /// Data Items Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:dataField")]
+    #[xml(child = "dataField")]
     pub x_data_field: Vec<DataField>,
 }
 /// Defines the Formats Class.
 /// When the object is serialized out as xml, it's qualified name is x:formats.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:formats")]
+#[xml(tag = "formats")]
 pub struct Formats {
     /// Formats Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:format")]
+    #[xml(child = "format")]
     pub x_format: Vec<Format>,
 }
 /// Defines the ConditionalFormats Class.
 /// When the object is serialized out as xml, it's qualified name is x:conditionalFormats.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:conditionalFormats")]
+#[xml(tag = "conditionalFormats")]
 pub struct ConditionalFormats {
     /// Conditional Format Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:conditionalFormat")]
+    #[xml(child = "conditionalFormat")]
     pub x_conditional_format: Vec<ConditionalFormat>,
 }
 /// Defines the ChartFormats Class.
 /// When the object is serialized out as xml, it's qualified name is x:chartFormats.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:chartFormats")]
+#[xml(tag = "chartFormats")]
 pub struct ChartFormats {
     /// Format Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:chartFormat")]
+    #[xml(child = "chartFormat")]
     pub x_chart_format: Vec<ChartFormat>,
 }
 /// Defines the PivotHierarchies Class.
 /// When the object is serialized out as xml, it's qualified name is x:pivotHierarchies.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotHierarchies")]
+#[xml(tag = "pivotHierarchies")]
 pub struct PivotHierarchies {
     /// OLAP Hierarchy Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:pivotHierarchy")]
+    #[xml(child = "pivotHierarchy")]
     pub x_pivot_hierarchy: Vec<PivotHierarchy>,
 }
 /// Defines the PivotTableStyle Class.
 /// When the object is serialized out as xml, it's qualified name is x:pivotTableStyleInfo.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotTableStyleInfo")]
+#[xml(tag = "pivotTableStyleInfo")]
 pub struct PivotTableStyle {
     /// Table Style Name
     /// Represents the following attribute in the schema: :name
@@ -12750,55 +12750,55 @@ pub struct PivotTableStyle {
 /// Defines the PivotFilters Class.
 /// When the object is serialized out as xml, it's qualified name is x:filters.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:filters")]
+#[xml(tag = "filters")]
 pub struct PivotFilters {
     /// Pivot Filter Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:filter")]
+    #[xml(child = "filter")]
     pub x_filter: Vec<PivotFilter>,
 }
 /// Defines the RowHierarchiesUsage Class.
 /// When the object is serialized out as xml, it's qualified name is x:rowHierarchiesUsage.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:rowHierarchiesUsage")]
+#[xml(tag = "rowHierarchiesUsage")]
 pub struct RowHierarchiesUsage {
     /// Item Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:rowHierarchyUsage")]
+    #[xml(child = "rowHierarchyUsage")]
     pub x_row_hierarchy_usage: Vec<RowHierarchyUsage>,
 }
 /// Defines the ColumnHierarchiesUsage Class.
 /// When the object is serialized out as xml, it's qualified name is x:colHierarchiesUsage.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:colHierarchiesUsage")]
+#[xml(tag = "colHierarchiesUsage")]
 pub struct ColumnHierarchiesUsage {
     /// Items Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:colHierarchyUsage")]
+    #[xml(child = "colHierarchyUsage")]
     pub x_col_hierarchy_usage: Vec<ColumnHierarchyUsage>,
 }
 /// Defines the PivotTableDefinitionExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct PivotTableDefinitionExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<PivotTableDefinitionExtension>,
 }
 /// Defines the PivotTableDefinitionExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct PivotTableDefinitionExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -12834,7 +12834,7 @@ pub enum PivotTableDefinitionExtensionChildChoice {
 /// Defines the CacheSource Class.
 /// When the object is serialized out as xml, it's qualified name is x:cacheSource.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cacheSource")]
+#[xml(tag = "cacheSource")]
 pub struct CacheSource {
     /// type
     /// Represents the following attribute in the schema: :type
@@ -12844,156 +12844,156 @@ pub struct CacheSource {
     /// Represents the following attribute in the schema: :connectionId
     #[xml(attr = "connectionId")]
     pub connection_id: Option<u32>,
-    #[xml(child = "x:worksheetSource", child = "x:consolidation", child = "x:extLst")]
+    #[xml(child = "worksheetSource", child = "consolidation", child = "extLst")]
     pub children: Vec<CacheSourceChildChoice>,
 }
 #[derive(Clone, Debug, hard_xml::XmlWrite, hard_xml::XmlRead)]
 pub enum CacheSourceChildChoice {
-    #[xml(tag = "x:worksheetSource")]
+    #[xml(tag = "worksheetSource")]
     XWorksheetSource(WorksheetSource),
-    #[xml(tag = "x:consolidation")]
+    #[xml(tag = "consolidation")]
     XConsolidation(Consolidation),
-    #[xml(tag = "x:extLst")]
+    #[xml(tag = "extLst")]
     XExtLst(CacheSourceExtensionList),
 }
 /// Defines the CacheFields Class.
 /// When the object is serialized out as xml, it's qualified name is x:cacheFields.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cacheFields")]
+#[xml(tag = "cacheFields")]
 pub struct CacheFields {
     /// Field Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:cacheField")]
+    #[xml(child = "cacheField")]
     pub x_cache_field: Vec<CacheField>,
 }
 /// Defines the CacheHierarchies Class.
 /// When the object is serialized out as xml, it's qualified name is x:cacheHierarchies.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:cacheHierarchies")]
+#[xml(tag = "cacheHierarchies")]
 pub struct CacheHierarchies {
     /// Hierarchy Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:cacheHierarchy")]
+    #[xml(child = "cacheHierarchy")]
     pub x_cache_hierarchy: Vec<CacheHierarchy>,
 }
 /// Defines the Kpis Class.
 /// When the object is serialized out as xml, it's qualified name is x:kpis.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:kpis")]
+#[xml(tag = "kpis")]
 pub struct Kpis {
     /// KPI Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:kpi")]
+    #[xml(child = "kpi")]
     pub x_kpi: Vec<Kpi>,
 }
 /// Defines the TupleCache Class.
 /// When the object is serialized out as xml, it's qualified name is x:tupleCache.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tupleCache")]
+#[xml(tag = "tupleCache")]
 pub struct TupleCache {
     ///Entries
-    #[xml(child = "x:entries")]
+    #[xml(child = "entries")]
     pub entries: Option<Entries>,
     ///Sets
-    #[xml(child = "x:sets")]
+    #[xml(child = "sets")]
     pub sets: Option<Sets>,
     ///OLAP Query Cache
-    #[xml(child = "x:queryCache")]
+    #[xml(child = "queryCache")]
     pub query_cache: Option<QueryCache>,
     ///Server Formats
-    #[xml(child = "x:serverFormats")]
+    #[xml(child = "serverFormats")]
     pub server_formats: Option<ServerFormats>,
     ///Future Feature Data Storage Area
-    #[xml(child = "x:extLst")]
+    #[xml(child = "extLst")]
     pub extension_list: Option<ExtensionList>,
 }
 /// Defines the CalculatedItems Class.
 /// When the object is serialized out as xml, it's qualified name is x:calculatedItems.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:calculatedItems")]
+#[xml(tag = "calculatedItems")]
 pub struct CalculatedItems {
     /// Calculated Item Formula Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:calculatedItem")]
+    #[xml(child = "calculatedItem")]
     pub x_calculated_item: Vec<CalculatedItem>,
 }
 /// Defines the CalculatedMembers Class.
 /// When the object is serialized out as xml, it's qualified name is x:calculatedMembers.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:calculatedMembers")]
+#[xml(tag = "calculatedMembers")]
 pub struct CalculatedMembers {
     /// Calculated Members Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:calculatedMember")]
+    #[xml(child = "calculatedMember")]
     pub x_calculated_member: Vec<CalculatedMember>,
 }
 /// Defines the Dimensions Class.
 /// When the object is serialized out as xml, it's qualified name is x:dimensions.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:dimensions")]
+#[xml(tag = "dimensions")]
 pub struct Dimensions {
     /// OLAP Dimensions Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:dimension")]
+    #[xml(child = "dimension")]
     pub x_dimension: Vec<Dimension>,
 }
 /// Defines the MeasureGroups Class.
 /// When the object is serialized out as xml, it's qualified name is x:measureGroups.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:measureGroups")]
+#[xml(tag = "measureGroups")]
 pub struct MeasureGroups {
     /// Measure Group Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:measureGroup")]
+    #[xml(child = "measureGroup")]
     pub x_measure_group: Vec<MeasureGroup>,
 }
 /// Defines the Maps Class.
 /// When the object is serialized out as xml, it's qualified name is x:maps.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:maps")]
+#[xml(tag = "maps")]
 pub struct Maps {
     /// Measure Group Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:map")]
+    #[xml(child = "map")]
     pub x_map: Vec<MeasureDimensionMap>,
 }
 /// Defines the PivotCacheDefinitionExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct PivotCacheDefinitionExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<PivotCacheDefinitionExtension>,
 }
 /// Defines the PivotCacheDefinitionExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct PivotCacheDefinitionExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -13039,47 +13039,47 @@ pub enum PivotCacheDefinitionExtensionChildChoice {
 /// Sheet names of supporting book.
 /// When the object is serialized out as xml, it's qualified name is x:sheetNames.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetNames")]
+#[xml(tag = "sheetNames")]
 pub struct SheetNames {
     /// _
-    #[xml(child = "x:sheetName")]
+    #[xml(child = "sheetName")]
     pub x_sheet_name: Vec<SheetName>,
 }
 /// Defined names associated with supporting book..
 /// When the object is serialized out as xml, it's qualified name is x:definedNames.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:definedNames")]
+#[xml(tag = "definedNames")]
 pub struct ExternalDefinedNames {
     /// _
-    #[xml(child = "x:definedName")]
+    #[xml(child = "definedName")]
     pub x_defined_name: Vec<ExternalDefinedName>,
 }
 /// Cached worksheet data associated with supporting book.
 /// When the object is serialized out as xml, it's qualified name is x:sheetDataSet.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheetDataSet")]
+#[xml(tag = "sheetDataSet")]
 pub struct SheetDataSet {
     /// _
-    #[xml(child = "x:sheetData")]
+    #[xml(child = "sheetData")]
     pub x_sheet_data: Vec<ExternalSheetData>,
 }
 /// Table Columns.
 /// When the object is serialized out as xml, it's qualified name is x:tableColumns.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tableColumns")]
+#[xml(tag = "tableColumns")]
 pub struct TableColumns {
     /// Column Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:tableColumn")]
+    #[xml(child = "tableColumn")]
     pub x_table_column: Vec<TableColumn>,
 }
 /// Table Style.
 /// When the object is serialized out as xml, it's qualified name is x:tableStyleInfo.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:tableStyleInfo")]
+#[xml(tag = "tableStyleInfo")]
 pub struct TableStyleInfo {
     /// Style Name
     /// Represents the following attribute in the schema: :name
@@ -13105,16 +13105,16 @@ pub struct TableStyleInfo {
 /// Future Feature Data Storage Area.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct TableExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<TableExtension>,
 }
 /// Defines the TableExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct TableExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
@@ -13137,7 +13137,7 @@ pub enum TableExtensionChildChoice {
 /// Defines the FileVersion Class.
 /// When the object is serialized out as xml, it's qualified name is x:fileVersion.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:fileVersion")]
+#[xml(tag = "fileVersion")]
 pub struct FileVersion {
     /// Application Name
     /// Represents the following attribute in the schema: :appName
@@ -13163,7 +13163,7 @@ pub struct FileVersion {
 /// Defines the FileSharing Class.
 /// When the object is serialized out as xml, it's qualified name is x:fileSharing.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:fileSharing")]
+#[xml(tag = "fileSharing")]
 pub struct FileSharing {
     /// Read Only Recommended
     /// Represents the following attribute in the schema: :readOnlyRecommended
@@ -13197,7 +13197,7 @@ pub struct FileSharing {
 /// Defines the WorkbookProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x:workbookPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:workbookPr")]
+#[xml(tag = "workbookPr")]
 pub struct WorkbookProperties {
     /// Date 1904
     /// Represents the following attribute in the schema: :date1904
@@ -13279,7 +13279,7 @@ pub struct WorkbookProperties {
 /// Defines the WorkbookProtection Class.
 /// When the object is serialized out as xml, it's qualified name is x:workbookProtection.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:workbookProtection")]
+#[xml(tag = "workbookProtection")]
 pub struct WorkbookProtection {
     /// Workbook Password
     /// Represents the following attribute in the schema: :workbookPassword
@@ -13337,56 +13337,56 @@ pub struct WorkbookProtection {
 /// Defines the BookViews Class.
 /// When the object is serialized out as xml, it's qualified name is x:bookViews.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:bookViews")]
+#[xml(tag = "bookViews")]
 pub struct BookViews {
     /// _
-    #[xml(child = "x:workbookView")]
+    #[xml(child = "workbookView")]
     pub x_workbook_view: Vec<WorkbookView>,
 }
 /// Defines the Sheets Class.
 /// When the object is serialized out as xml, it's qualified name is x:sheets.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:sheets")]
+#[xml(tag = "sheets")]
 pub struct Sheets {
     /// _
-    #[xml(child = "x:sheet")]
+    #[xml(child = "sheet")]
     pub x_sheet: Vec<Sheet>,
 }
 /// Defines the FunctionGroups Class.
 /// When the object is serialized out as xml, it's qualified name is x:functionGroups.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:functionGroups")]
+#[xml(tag = "functionGroups")]
 pub struct FunctionGroups {
     /// Built-in Function Group Count
     /// Represents the following attribute in the schema: :builtInGroupCount
     #[xml(attr = "builtInGroupCount")]
     pub built_in_group_count: Option<u32>,
     /// _
-    #[xml(child = "x:functionGroup")]
+    #[xml(child = "functionGroup")]
     pub x_function_group: Vec<FunctionGroup>,
 }
 /// Defines the ExternalReferences Class.
 /// When the object is serialized out as xml, it's qualified name is x:externalReferences.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:externalReferences")]
+#[xml(tag = "externalReferences")]
 pub struct ExternalReferences {
     /// _
-    #[xml(child = "x:externalReference")]
+    #[xml(child = "externalReference")]
     pub x_external_reference: Vec<ExternalReference>,
 }
 /// Defines the DefinedNames Class.
 /// When the object is serialized out as xml, it's qualified name is x:definedNames.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:definedNames")]
+#[xml(tag = "definedNames")]
 pub struct DefinedNames {
     /// _
-    #[xml(child = "x:definedName")]
+    #[xml(child = "definedName")]
     pub x_defined_name: Vec<DefinedName>,
 }
 /// Defines the CalculationProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x:calcPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:calcPr")]
+#[xml(tag = "calcPr")]
 pub struct CalculationProperties {
     /// Calculation Id
     /// Represents the following attribute in the schema: :calcId
@@ -13444,7 +13444,7 @@ pub struct CalculationProperties {
 /// Defines the OleSize Class.
 /// When the object is serialized out as xml, it's qualified name is x:oleSize.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:oleSize")]
+#[xml(tag = "oleSize")]
 pub struct OleSize {
     /// Reference
     /// Represents the following attribute in the schema: :ref
@@ -13454,25 +13454,25 @@ pub struct OleSize {
 /// Defines the CustomWorkbookViews Class.
 /// When the object is serialized out as xml, it's qualified name is x:customWorkbookViews.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:customWorkbookViews")]
+#[xml(tag = "customWorkbookViews")]
 pub struct CustomWorkbookViews {
     /// _
-    #[xml(child = "x:customWorkbookView")]
+    #[xml(child = "customWorkbookView")]
     pub x_custom_workbook_view: Vec<CustomWorkbookView>,
 }
 /// Defines the PivotCaches Class.
 /// When the object is serialized out as xml, it's qualified name is x:pivotCaches.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:pivotCaches")]
+#[xml(tag = "pivotCaches")]
 pub struct PivotCaches {
     /// _
-    #[xml(child = "x:pivotCache")]
+    #[xml(child = "pivotCache")]
     pub x_pivot_cache: Vec<PivotCache>,
 }
 /// Defines the WebPublishing Class.
 /// When the object is serialized out as xml, it's qualified name is x:webPublishing.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:webPublishing")]
+#[xml(tag = "webPublishing")]
 pub struct WebPublishing {
     /// css
     /// Represents the following attribute in the schema: :css
@@ -13514,7 +13514,7 @@ pub struct WebPublishing {
 /// Defines the FileRecoveryProperties Class.
 /// When the object is serialized out as xml, it's qualified name is x:fileRecoveryPr.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:fileRecoveryPr")]
+#[xml(tag = "fileRecoveryPr")]
 pub struct FileRecoveryProperties {
     /// Auto Recover
     /// Represents the following attribute in the schema: :autoRecover
@@ -13536,29 +13536,29 @@ pub struct FileRecoveryProperties {
 /// Defines the WebPublishObjects Class.
 /// When the object is serialized out as xml, it's qualified name is x:webPublishObjects.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:webPublishObjects")]
+#[xml(tag = "webPublishObjects")]
 pub struct WebPublishObjects {
     /// Count
     /// Represents the following attribute in the schema: :count
     #[xml(attr = "count")]
     pub count: Option<u32>,
     /// _
-    #[xml(child = "x:webPublishObject")]
+    #[xml(child = "webPublishObject")]
     pub x_web_publish_object: Vec<WebPublishObject>,
 }
 /// Defines the WorkbookExtensionList Class.
 /// When the object is serialized out as xml, it's qualified name is x:extLst.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:extLst")]
+#[xml(tag = "extLst")]
 pub struct WorkbookExtensionList {
     /// _
-    #[xml(child = "x:ext")]
+    #[xml(child = "ext")]
     pub x_ext: Vec<WorkbookExtension>,
 }
 /// Defines the WorkbookExtension Class.
 /// When the object is serialized out as xml, it's qualified name is x:ext.
 #[derive(Clone, Debug, Default, hard_xml::XmlWrite, hard_xml::XmlRead)]
-#[xml(tag = "x:ext")]
+#[xml(tag = "ext")]
 pub struct WorkbookExtension {
     /// URI
     /// Represents the following attribute in the schema: :uri
