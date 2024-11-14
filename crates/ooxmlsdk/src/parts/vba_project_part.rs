@@ -7,7 +7,7 @@ pub struct VbaProjectPart {
     pub rels_path: String,
     pub inner_path: String,
     pub path: String,
-    pub data: Option<Vec<u8>>,
+    data: Option<Vec<u8>>,
     pub vba_data_part: Option<crate::parts::vba_data_part::VbaDataPart>,
 }
 impl VbaProjectPart {
@@ -122,6 +122,18 @@ impl VbaProjectPart {
             zip.start_file(&self.inner_path, options)?;
             zip.write_all(&mut data)?;
             entry_set.insert(self.inner_path.to_string());
+        } else {
+            use std::io::Read;
+            match std::fs::File::open(&self.path) {
+                Ok(mut file) => {
+                    let mut buffer = Vec::new();
+                    file.read_to_end(&mut buffer)?;
+                    zip.start_file(&self.inner_path, options)?;
+                    zip.write_all(&buffer)?;
+                    entry_set.insert(self.inner_path.to_string());
+                }
+                Err(e) => {}
+            }
         }
         let child_parent_path = format!("{}{}", parent_path, "./");
         if let Some(relationships) = &self.relationships {

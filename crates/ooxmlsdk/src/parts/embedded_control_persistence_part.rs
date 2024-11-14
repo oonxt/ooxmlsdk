@@ -7,7 +7,7 @@ pub struct EmbeddedControlPersistencePart {
     pub rels_path: String,
     pub inner_path: String,
     pub path: String,
-    pub data: Option<Vec<u8>>,
+    data: Option<Vec<u8>>,
     pub embedded_control_persistence_binary_data_parts: Vec<
         crate::parts::embedded_control_persistence_binary_data_part::EmbeddedControlPersistenceBinaryDataPart,
     >,
@@ -126,6 +126,18 @@ impl EmbeddedControlPersistencePart {
             zip.start_file(&self.inner_path, options)?;
             zip.write_all(&mut data)?;
             entry_set.insert(self.inner_path.to_string());
+        } else {
+            use std::io::Read;
+            match std::fs::File::open(&self.path) {
+                Ok(mut file) => {
+                    let mut buffer = Vec::new();
+                    file.read_to_end(&mut buffer)?;
+                    zip.start_file(&self.inner_path, options)?;
+                    zip.write_all(&buffer)?;
+                    entry_set.insert(self.inner_path.to_string());
+                }
+                Err(e) => {}
+            }
         }
         let child_parent_path = format!("{}{}", parent_path, "embeddings/");
         if let Some(relationships) = &self.relationships {

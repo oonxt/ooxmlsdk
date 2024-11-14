@@ -13,4 +13,6 @@ categories.workspace = true
 readme.workspace = true
 
 [dependencies]
-ooxmlsdk = { workspace = true, features = ["parts", "validators"] }
+ooxmlsdk = { workspace = true }
+hard-xml = { workspace = true }
+zip = {workspace = true}

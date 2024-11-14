@@ -5,6 +5,6 @@
   "Target": "image",
   "Extension": ".bin",
   "Paths": {
-    "General": "../media"
+    "General": "media"
   }
 }

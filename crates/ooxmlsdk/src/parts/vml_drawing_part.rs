@@ -7,7 +7,7 @@ pub struct VmlDrawingPart {
     pub rels_path: String,
     pub inner_path: String,
     pub path: String,
-    pub data: Option<Vec<u8>>,
+    data: Option<Vec<u8>>,
     pub image_parts: Vec<crate::parts::image_part::ImagePart>,
     pub legacy_diagram_text_parts: Vec<
         crate::parts::legacy_diagram_text_part::LegacyDiagramTextPart,
@@ -141,6 +141,18 @@ impl VmlDrawingPart {
             zip.start_file(&self.inner_path, options)?;
             zip.write_all(&mut data)?;
             entry_set.insert(self.inner_path.to_string());
+        } else {
+            use std::io::Read;
+            match std::fs::File::open(&self.path) {
+                Ok(mut file) => {
+                    let mut buffer = Vec::new();
+                    file.read_to_end(&mut buffer)?;
+                    zip.start_file(&self.inner_path, options)?;
+                    zip.write_all(&buffer)?;
+                    entry_set.insert(self.inner_path.to_string());
+                }
+                Err(e) => {}
+            }
         }
         let child_parent_path = format!("{}{}", parent_path, "../drawings/");
         if let Some(relationships) = &self.relationships {

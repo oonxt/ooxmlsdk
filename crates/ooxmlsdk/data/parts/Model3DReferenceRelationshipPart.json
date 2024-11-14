@@ -6,7 +6,7 @@
   "Target": "model3d",
   "Extension": ".glb",
   "Paths": {
-    "General": "../media"
+    "General": "media"
   },
   "Version": "Office2019"
 }

@@ -7,7 +7,7 @@ pub struct DigitalSignatureOriginPart {
     pub rels_path: String,
     pub inner_path: String,
     pub path: String,
-    pub data: Option<Vec<u8>>,
+    data: Option<Vec<u8>>,
     pub xml_signature_parts: Vec<crate::parts::xml_signature_part::XmlSignaturePart>,
 }
 impl DigitalSignatureOriginPart {
@@ -123,6 +123,18 @@ impl DigitalSignatureOriginPart {
             zip.start_file(&self.inner_path, options)?;
             zip.write_all(&mut data)?;
             entry_set.insert(self.inner_path.to_string());
+        } else {
+            use std::io::Read;
+            match std::fs::File::open(&self.path) {
+                Ok(mut file) => {
+                    let mut buffer = Vec::new();
+                    file.read_to_end(&mut buffer)?;
+                    zip.start_file(&self.inner_path, options)?;
+                    zip.write_all(&buffer)?;
+                    entry_set.insert(self.inner_path.to_string());
+                }
+                Err(e) => {}
+            }
         }
         let child_parent_path = format!("{}{}", parent_path, "_xmlsignatures/");
         if let Some(relationships) = &self.relationships {

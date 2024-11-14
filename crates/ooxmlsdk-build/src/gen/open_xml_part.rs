@@ -52,7 +52,7 @@ pub fn gen_open_xml_part(part: &OpenXmlPart, context: &GenContext) -> TokenStrea
     {
         fields.push(quote! {
             pub path: String,
-            pub data: Option<Vec<u8>>,
+            data: Option<Vec<u8>>,
         });
     } else if part.name == "CoreFilePropertiesPart" {
         fields.push(quote! {
@@ -656,6 +656,18 @@ pub fn gen_open_xml_part(part: &OpenXmlPart, context: &GenContext) -> TokenStrea
                     zip.start_file(&self.inner_path, options)?;
                     zip.write_all(&mut data)?;
                     entry_set.insert(self.inner_path.to_string());
+                } else {
+                    use std::io::Read;
+                    match std::fs::File::open(&self.path) {
+                        Ok(mut file) => {
+                            let mut buffer = Vec::new();
+                            file.read_to_end(&mut buffer)?;
+                            zip.start_file(&self.inner_path, options)?;
+                            zip.write_all(&buffer)?;
+                            entry_set.insert(self.inner_path.to_string());
+                        },
+                        Err(e) => {}
+                    }
                 }
             })
                 .unwrap(),
