@@ -143,6 +143,7 @@ pub struct OpenXmlSchemaTypeParticleOccur {
 pub struct OpenXmlSchemaEnum {
   pub name: String,
   pub r#type: String,
+  pub summary: String,
   pub facets: Vec<OpenXmlSchemaEnumFacet>,
 }
 
@@ -151,6 +152,7 @@ pub struct OpenXmlSchemaEnum {
 pub struct OpenXmlSchemaEnumFacet {
   pub name: String,
   pub value: String,
+  pub comments: String,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]

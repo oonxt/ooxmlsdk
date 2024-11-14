@@ -1,35 +1,27 @@
-use gen::serializer::gen_serializer;
-use gen::validator::gen_validator;
-use heck::ToSnakeCase;
-use models::OpenXmlSchemaEnum;
-use proc_macro2::TokenStream;
-use quote::quote;
 use std::collections::HashMap;
+use std::fs;
 use std::fs::File;
-use std::{fs, path::Path};
-use syn::{parse_str, Ident, ItemMod};
+use std::path::Path;
+use heck::ToSnakeCase;
+use proc_macro2::{Ident, TokenStream};
+use quote::quote;
+use syn::{parse_str, ItemMod};
+use crate::models::{OpenXmlNamespace, OpenXmlPart, OpenXmlSchema, OpenXmlSchemaEnum, OpenXmlSchemaType, TypedNamespace};
 
 use crate::gen::context::GenContext;
 use crate::gen::deserializer::gen_deserializer;
 use crate::gen::open_xml_part::gen_open_xml_part;
 use crate::gen::open_xml_schema::gen_open_xml_schema;
-use crate::models::{
-  OpenXmlNamespace, OpenXmlPart, OpenXmlSchema, OpenXmlSchemaType, TypedNamespace,
-};
 
-pub mod gen;
-pub mod includes;
-pub mod models;
-pub mod utils;
+mod models;
+mod utils;
+mod gen;
 
-pub fn gen(data_dir: &str, out_dir: &str) {
-  let out_dir_path = Path::new(out_dir);
+pub fn gen(data_dir: &str, output_dir: &str) {
+  let out_dir_path = Path::new(output_dir);
   let out_parts_dir_path = &out_dir_path.join("parts");
   let out_schemas_dir_path = &out_dir_path.join("schemas");
-  let out_deserializers_dir_path = &out_dir_path.join("deserializers");
-  let out_serializers_dir_path = &out_dir_path.join("serializers");
   let out_common_dir_path = &out_dir_path.join("common");
-  let out_validators_dir_path = &out_dir_path.join("validators");
   let out_packages_dir_path = &out_dir_path.join("packages");
 
   let data_dir_path = Path::new(data_dir);
@@ -38,10 +30,7 @@ pub fn gen(data_dir: &str, out_dir: &str) {
 
   fs::create_dir_all(out_parts_dir_path).unwrap();
   fs::create_dir_all(out_schemas_dir_path).unwrap();
-  fs::create_dir_all(out_deserializers_dir_path).unwrap();
-  fs::create_dir_all(out_serializers_dir_path).unwrap();
   fs::create_dir_all(out_common_dir_path).unwrap();
-  fs::create_dir_all(out_validators_dir_path).unwrap();
   fs::create_dir_all(out_packages_dir_path).unwrap();
 
   let mut parts: Vec<OpenXmlPart> = vec![];
@@ -73,11 +62,11 @@ pub fn gen(data_dir: &str, out_dir: &str) {
     parts.push(open_xml_part);
 
     let part_mod = entry
-      .path()
-      .file_stem()
-      .unwrap()
-      .to_string_lossy()
-      .to_snake_case();
+        .path()
+        .file_stem()
+        .unwrap()
+        .to_string_lossy()
+        .to_snake_case();
 
     part_mods.push(part_mod);
   }
@@ -92,11 +81,11 @@ pub fn gen(data_dir: &str, out_dir: &str) {
     schemas.push(open_xml_schema);
 
     let schema_mod = entry
-      .path()
-      .file_stem()
-      .unwrap()
-      .to_string_lossy()
-      .to_snake_case();
+        .path()
+        .file_stem()
+        .unwrap()
+        .to_string_lossy()
+        .to_snake_case();
 
     schema_mods.push(schema_mod);
   }
@@ -132,10 +121,11 @@ pub fn gen(data_dir: &str, out_dir: &str) {
     target_type_map,
   };
 
+
   for namespace in context.namespaces.iter() {
     context
-      .prefix_namespace_map
-      .insert(&namespace.prefix, namespace);
+        .prefix_namespace_map
+        .insert(&namespace.prefix, namespace);
 
     context.uri_namespace_map.insert(&namespace.uri, namespace);
   }
@@ -150,20 +140,20 @@ pub fn gen(data_dir: &str, out_dir: &str) {
 
   for (i, schema) in context.schemas.iter().enumerate() {
     let namespace = context
-      .uri_namespace_map
-      .get(schema.target_namespace.as_str())
-      .ok_or(format!("{:?}", schema.target_namespace))
-      .unwrap();
+        .uri_namespace_map
+        .get(schema.target_namespace.as_str())
+        .ok_or(format!("{:?}", schema.target_namespace))
+        .unwrap();
 
     let schema_mod = &context.schema_mods[i];
 
     context
-      .prefix_schema_mod_map
-      .insert(&namespace.prefix, schema_mod);
+        .prefix_schema_mod_map
+        .insert(&namespace.prefix, schema_mod);
 
     context
-      .uri_schema_mod_map
-      .insert(&namespace.uri, schema_mod);
+        .uri_schema_mod_map
+        .insert(&namespace.uri, schema_mod);
 
     for ty in schema.types.iter() {
       context.type_name_type_map.insert(&ty.name, ty);
@@ -208,14 +198,15 @@ pub fn gen(data_dir: &str, out_dir: &str) {
     fs::write(schema_path, formatted).unwrap();
   }
 
-  let token_stream: TokenStream = parse_str(include_str!("includes/simple_type.rs")).unwrap();
 
-  let syntax_tree = syn::parse2(token_stream).unwrap();
-  let formatted = prettyplease::unparse(&syntax_tree);
+  // let token_stream: TokenStream = parse_str(include_str!("includes/simple_type.rs")).unwrap();
 
-  let schemas_mod_path = out_schemas_dir_path.join("simple_type.rs");
+  // let syntax_tree = syn::parse2(token_stream).unwrap();
+  // let formatted = prettyplease::unparse(&syntax_tree);
 
-  fs::write(schemas_mod_path, formatted).unwrap();
+  // let schemas_mod_path = out_schemas_dir_path.join("simple_type.rs");
+
+  // fs::write(schemas_mod_path, formatted).unwrap();
 
   let token_stream: TokenStream = parse_str(include_str!("includes/common.rs")).unwrap();
 
@@ -229,21 +220,20 @@ pub fn gen(data_dir: &str, out_dir: &str) {
   for schema_mod in context.schema_mods.iter() {
     let schema_mod_ident: Ident = parse_str(schema_mod).unwrap();
 
-    let shcemas_mod_use: ItemMod = parse_str(
+    let schemas_mod_use: ItemMod = parse_str(
       &quote! {
-        pub mod #schema_mod_ident;
-      }
-      .to_string(),
+                pub mod #schema_mod_ident;
+            }
+          .to_string(),
     )
-    .unwrap();
+        .unwrap();
 
-    schemas_mod_use_list.push(shcemas_mod_use);
+    schemas_mod_use_list.push(schemas_mod_use);
   }
 
   let token_stream: TokenStream = quote! {
-    pub mod simple_type;
-    #( #schemas_mod_use_list )*
-  };
+        #( #schemas_mod_use_list )*
+    };
 
   let syntax_tree = syn::parse2(token_stream).unwrap();
   let formatted = prettyplease::unparse(&syntax_tree);
@@ -251,6 +241,7 @@ pub fn gen(data_dir: &str, out_dir: &str) {
   let schemas_mod_path = out_schemas_dir_path.join("mod.rs");
 
   fs::write(schemas_mod_path, formatted).unwrap();
+
 
   let mut parts_mod_use_list: Vec<ItemMod> = vec![];
 
@@ -272,18 +263,18 @@ pub fn gen(data_dir: &str, out_dir: &str) {
 
     let part_mod_use: ItemMod = parse_str(
       &quote! {
-        pub mod #part_mod_ident;
-      }
-      .to_string(),
+                pub mod #part_mod_ident;
+            }
+          .to_string(),
     )
-    .unwrap();
+        .unwrap();
 
     parts_mod_use_list.push(part_mod_use);
   }
 
   let token_stream: TokenStream = quote! {
-    #( #parts_mod_use_list )*
-  };
+        #( #parts_mod_use_list )*
+    };
 
   let syntax_tree = syn::parse2(token_stream).unwrap();
   let formatted = prettyplease::unparse(&syntax_tree);
@@ -291,126 +282,6 @@ pub fn gen(data_dir: &str, out_dir: &str) {
   let parts_mod_path = out_parts_dir_path.join("mod.rs");
 
   fs::write(parts_mod_path, formatted).unwrap();
-
-  let mut deserializers_mod_use_list: Vec<ItemMod> = vec![];
-
-  for (i, part) in context.schemas.iter().enumerate() {
-    let schema_mod = &context.schema_mods[i];
-
-    let token_stream = gen_deserializer(part, &context);
-
-    let syntax_tree = syn::parse2(token_stream).unwrap();
-    let formatted = prettyplease::unparse(&syntax_tree);
-
-    let part_path = out_deserializers_dir_path.join(format!("{}.rs", schema_mod));
-
-    fs::write(part_path, formatted).unwrap();
-  }
-
-  for schema_mod in context.schema_mods.iter() {
-    let deserializer_mod_ident: Ident = parse_str(schema_mod).unwrap();
-
-    let deserializer_mod_use: ItemMod = parse_str(
-      &quote! {
-        pub mod #deserializer_mod_ident;
-      }
-      .to_string(),
-    )
-    .unwrap();
-
-    deserializers_mod_use_list.push(deserializer_mod_use);
-  }
-
-  let token_stream: TokenStream = quote! {
-    #( #deserializers_mod_use_list )*
-  };
-
-  let syntax_tree = syn::parse2(token_stream).unwrap();
-  let formatted = prettyplease::unparse(&syntax_tree);
-
-  let deserializers_mod_path = out_deserializers_dir_path.join("mod.rs");
-
-  fs::write(deserializers_mod_path, formatted).unwrap();
-
-  let mut serializers_mod_use_list: Vec<ItemMod> = vec![];
-
-  for (i, part) in context.schemas.iter().enumerate() {
-    let schema_mod = &context.schema_mods[i];
-
-    let token_stream = gen_serializer(part, &context);
-
-    let syntax_tree = syn::parse2(token_stream).unwrap();
-    let formatted = prettyplease::unparse(&syntax_tree);
-
-    let part_path = out_serializers_dir_path.join(format!("{}.rs", schema_mod));
-
-    fs::write(part_path, formatted).unwrap();
-  }
-
-  for schema_mod in context.schema_mods.iter() {
-    let serializer_mod_ident: Ident = parse_str(schema_mod).unwrap();
-
-    let serializer_mod_use: ItemMod = parse_str(
-      &quote! {
-        pub mod #serializer_mod_ident;
-      }
-      .to_string(),
-    )
-    .unwrap();
-
-    serializers_mod_use_list.push(serializer_mod_use);
-  }
-
-  let token_stream: TokenStream = quote! {
-    #( #serializers_mod_use_list )*
-  };
-
-  let syntax_tree = syn::parse2(token_stream).unwrap();
-  let formatted = prettyplease::unparse(&syntax_tree);
-
-  let serializers_mod_path = out_serializers_dir_path.join("mod.rs");
-
-  fs::write(serializers_mod_path, formatted).unwrap();
-
-  let mut validators_mod_use_list: Vec<ItemMod> = vec![];
-
-  for (i, part) in context.schemas.iter().enumerate() {
-    let schema_mod = &context.schema_mods[i];
-
-    let token_stream = gen_validator(part, &context);
-
-    let syntax_tree = syn::parse2(token_stream).unwrap();
-    let formatted = prettyplease::unparse(&syntax_tree);
-
-    let part_path = out_validators_dir_path.join(format!("{}.rs", schema_mod));
-
-    fs::write(part_path, formatted).unwrap();
-  }
-
-  for schema_mod in context.schema_mods.iter() {
-    let validator_mod_ident: Ident = parse_str(schema_mod).unwrap();
-
-    let validator_mod_use: ItemMod = parse_str(
-      &quote! {
-        pub mod #validator_mod_ident;
-      }
-      .to_string(),
-    )
-    .unwrap();
-
-    validators_mod_use_list.push(validator_mod_use);
-  }
-
-  let token_stream: TokenStream = quote! {
-    #( #validators_mod_use_list )*
-  };
-
-  let syntax_tree = syn::parse2(token_stream).unwrap();
-  let formatted = prettyplease::unparse(&syntax_tree);
-
-  let validators_mod_path = out_validators_dir_path.join("mod.rs");
-
-  fs::write(validators_mod_path, formatted).unwrap();
 
   let token_stream: TokenStream = parse_str(include_str!("includes/packages/mod.rs")).unwrap();
 
@@ -422,7 +293,7 @@ pub fn gen(data_dir: &str, out_dir: &str) {
   fs::write(schemas_mod_path, formatted).unwrap();
 
   let token_stream: TokenStream =
-    parse_str(include_str!("includes/packages/opc_content_types.rs")).unwrap();
+      parse_str(include_str!("includes/packages/opc_content_types.rs")).unwrap();
 
   let syntax_tree = syn::parse2(token_stream).unwrap();
   let formatted = prettyplease::unparse(&syntax_tree);
@@ -432,7 +303,7 @@ pub fn gen(data_dir: &str, out_dir: &str) {
   fs::write(schemas_mod_path, formatted).unwrap();
 
   let token_stream: TokenStream =
-    parse_str(include_str!("includes/packages/opc_relationships.rs")).unwrap();
+      parse_str(include_str!("includes/packages/opc_relationships.rs")).unwrap();
 
   let syntax_tree = syn::parse2(token_stream).unwrap();
   let formatted = prettyplease::unparse(&syntax_tree);
@@ -442,7 +313,7 @@ pub fn gen(data_dir: &str, out_dir: &str) {
   fs::write(schemas_mod_path, formatted).unwrap();
 
   let token_stream: TokenStream =
-    parse_str(include_str!("includes/packages/opc_core_properties.rs")).unwrap();
+      parse_str(include_str!("includes/packages/opc_core_properties.rs")).unwrap();
 
   let syntax_tree = syn::parse2(token_stream).unwrap();
   let formatted = prettyplease::unparse(&syntax_tree);
@@ -450,14 +321,4 @@ pub fn gen(data_dir: &str, out_dir: &str) {
   let schemas_mod_path = out_packages_dir_path.join("opc_core_properties.rs");
 
   fs::write(schemas_mod_path, formatted).unwrap();
-}
-
-#[cfg(test)]
-mod tests {
-  use super::*;
-
-  #[test]
-  fn test_gen() {
-    gen("../ooxmlsdk/data", "src");
-  }
 }
